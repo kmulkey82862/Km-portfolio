@@ -1,0 +1,12 @@
+node_modules
+dist
+.env.local
+.env.*.local
+.DS_Store
+*.log
+# Licensed font files: keep out of git until the web license is confirmed
+public/fonts/*.woff
+public/fonts/*.woff2
+public/fonts/*.ttf
+# Import cache
+.media-cache.json
