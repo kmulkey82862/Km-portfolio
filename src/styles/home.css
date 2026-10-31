@@ -63,7 +63,7 @@
 .hero__lede {
   font-size: clamp(36px, 5.2vw, 76px);
   font-weight: var(--w-thin);
-  letter-spacing: -0.035em;
+  letter-spacing: var(--track-display);
   line-height: 1.02;
   margin: 0 0 28px;
 }
@@ -93,6 +93,7 @@
   border-radius: 999px;
   padding: 8px 16px 8px 12px;
   margin-bottom: 40px;
+  background: var(--bg);
   max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -858,15 +859,120 @@
   gap: 12px;
   margin-top: 20px;
 }
-.section--invert .btn:not(.btn--accent) {
-  border-color: var(--invert-ink);
-}
-.section--invert .btn:not(.btn--accent):hover {
-  background: var(--invert-ink);
-  color: var(--invert-bg);
-}
 @media (max-width: 860px) {
   .contact__grid {
     grid-template-columns: 1fr;
   }
+}
+.case__shot {
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+}
+.case__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ---------------- Grid field (from Web Deva) ---------------- */
+.hero-field {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+}
+.gridpulse {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--cell) var(--cell);
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent);
+}
+.gridpulse canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero {
+  position: relative;
+  z-index: 1;
+}
+.vname {
+  position: relative;
+}
+.vname__glow {
+  position: absolute;
+  inset: 8% -45%;
+  z-index: -1;
+  border-radius: 50%;
+  background:
+    radial-gradient(42% 46% at 36% 42%, color-mix(in srgb, var(--raspberry) 30%, transparent) 0%, transparent 70%),
+    radial-gradient(46% 50% at 64% 62%, rgba(224, 120, 72, 0.22) 0%, transparent 72%),
+    radial-gradient(60% 60% at 50% 50%, rgba(224, 69, 127, 0.14) 0%, transparent 76%);
+  filter: blur(46px);
+  animation: airy 22s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes airy {
+  50% {
+    transform: scale(1.07) translate(1.5%, -1.5%);
+  }
+}
+@media (max-width: 860px) {
+  .vname__glow {
+    inset: -10% -10%;
+  }
+}
+
+/* ---------------- Web Deva wordmark ---------------- */
+.wdmark {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 15px;
+  font-weight: var(--w-light);
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--ink);
+}
+.bubbles {
+  position: relative;
+  display: inline-block;
+  width: 0.78em;
+  height: 0.78em;
+  margin-left: 0.16em;
+}
+.bubbles i {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.bubbles__lg {
+  left: 2%;
+  bottom: 0;
+  width: 0.38em;
+  height: 0.38em;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.1) 11%, #ff4fa3 40%, #949000 88%);
+}
+.bubbles__md {
+  left: 50%;
+  bottom: 0.2em;
+  width: 0.26em;
+  height: 0.26em;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.1) 12%, #949000 42%, #ff4fa3 90%);
+}
+.bubbles__sm {
+  left: 16%;
+  bottom: 0.5em;
+  width: 0.15em;
+  height: 0.15em;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.1) 14%, #ff4fa3 46%, #0a84c6 96%);
 }

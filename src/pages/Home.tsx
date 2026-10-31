@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import SystemsMap from '../components/SystemsMap';
 import MediaFrame, { hasMedia } from '../components/MediaFrame';
+import { WebDevaMark } from '../components/Bubbles';
 import { metrics } from '../content/metrics';
 import { caseStudies, creative, CreativeItem, sites } from '../content/projects';
 import { labDemos } from '../content/lab';
@@ -127,6 +128,7 @@ function Work() {
         <div className="cases">
           {caseStudies.map((c) => (
             <article key={c.id} id={c.id} className="case reveal">
+              {c.media && hasMedia(c.media) && <MediaFrame id={c.media} className="case__shot" sizes="(max-width: 860px) 100vw, 45vw" />}
               <p className="case__eyebrow">{c.eyebrow}</p>
               <h3 className="case__title">{c.title}</h3>
               <p className="case__summary">{c.summary}</p>
@@ -163,7 +165,9 @@ function Sites() {
       <div className="wrap">
         <div className="section__head reveal">
           <div>
-            <p className="eyebrow">Websites · {profile.webDeva.name}</p>
+            <p className="eyebrow">
+              Websites · <WebDevaMark />
+            </p>
             <h2 id="sites-h" className="h-section">Sites I designed and built.</h2>
           </div>
           <p>{profile.webDeva.blurb}</p>

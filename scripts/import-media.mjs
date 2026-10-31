@@ -214,7 +214,9 @@ async function main() {
   const sharp = (await import('sharp')).default;
   await mkdir(OUT_DIR, { recursive: true });
 
-  const items = (await expandItems(config.items ?? [], roots)).filter((i) => !only || only.has(i.id) || only.has(i.id.replace(/-\d+$/, '')));
+  // Filter before expanding so folder entries for roots you haven't configured are skipped.
+  const chosen = (config.items ?? []).filter((i) => !only || only.has(i.id) || [...only].some((o) => o.startsWith(`${i.id}-`)));
+  const items = (await expandItems(chosen, roots)).filter((i) => !only || only.has(i.id) || only.has(i.id.replace(/-\d+$/, '')));
   let ok = 0;
   const failures = [];
 

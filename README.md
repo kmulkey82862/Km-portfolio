@@ -26,6 +26,16 @@ npm run build      # type-check + production build into dist/
 npm run preview    # serve the production build
 ```
 
+## Look and feel
+
+The visual language follows the Web Deva site (`kmulkey82862/web-deva-site`), kept to one raspberry accent:
+
+- **Type:** Helvetica Now Thin and Light, with tight display tracking.
+- **Navigation:** a floating glass pill whose highlight follows the section you're reading.
+- **Buttons:** liquid-glass pills.
+- **Hero background:** the hover-reactive `GridPulse` field (ported from Web Deva, with its colors narrowed to a raspberry-to-coral band) and a soft glow behind the vertical name.
+- **Brand mark:** the `web deva` bubble wordmark labels the websites section.
+
 ## Media pipeline (no manual uploading)
 
 `npm run import-media` copies the files you choose from your local Google Drive sync folders into `public/media/` and optimizes them on the way:
@@ -51,7 +61,7 @@ It also writes `src/content/media.generated.json`, which the site reads. Any med
 The site uses **Inter Tight** (open license, light weights) as a stand-in. Helvetica Now Display only switches on after you confirm the license:
 
 1. Confirm your Helvetica Now license allows **web embedding**.
-2. Put the `.woff2` files in `public/fonts/`, named as listed in `src/styles/helvetica-now.css` (Hairline, ExtLt, Light, Regular, Medium).
+2. Put `HelveticaNowDisplay-Thin.woff2` and `HelveticaNowDisplay-Light.woff2` in `public/fonts/`. These are the same two files the Web Deva site already serves, from its `public/fonts/`.
 3. Set `VITE_HELVETICA_NOW=true` in `.env.local` locally and in Netlify's environment settings.
 
 Font files are git-ignored on purpose until the license is confirmed. Once it is, remove the `public/fonts/*` lines from `.gitignore`.

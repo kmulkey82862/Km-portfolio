@@ -9,6 +9,8 @@
     { "id": "site-matt-chapin", "src": "webdeva:public/shots/matt-chapin.png", "alt": "Matt Chapin Music website" },
     { "id": "site-lighthouse", "src": "webdeva:public/shots/lighthouse.png", "alt": "Lighthouse Strategy Group website" },
     { "id": "site-3d-world", "src": "webdeva:public/shots/katelyns-3d-world.png", "alt": "WebGL New Orleans sunset scene" },
+    { "id": "site-cdc", "src": "webdeva:public/shots/acdc.png", "alt": "American Chronic Disease Convention website" },
+    { "id": "fimcon-archive", "src": "webdeva:public/shots/fimcon.png", "alt": "FIMCON 2026 session archive with searchable recordings" },
 
     { "id": "hnoc", "folder": "portfolio:Historic New Orleans Collection", "match": "^\\d+\\.png$", "limit": 6, "alt": "Yet She Is Advancing design" },
     {

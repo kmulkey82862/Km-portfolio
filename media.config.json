@@ -1,0 +1,49 @@
+{
+  "$comment": "Copy to media.config.json, then run `npm run import-media`. Set DRIVE_ROOT in .env.local (e.g. DRIVE_ROOT=G:\\My Drive). Filenames below follow the handoff notes; adjust any that differ on disk. Folder entries import every match as <id>-1, <id>-2, ...",
+  "roots": {
+    "drive": "${DRIVE_ROOT}",
+    "portfolio": "${DRIVE_ROOT}/Portfolio/Katelyn Mulkey Portfolio",
+    "webdeva": "${WEB_DEVA_ROOT}"
+  },
+  "items": [
+    { "id": "site-matt-chapin", "src": "webdeva:public/shots/matt-chapin.png", "alt": "Matt Chapin Music website" },
+    { "id": "site-lighthouse", "src": "webdeva:public/shots/lighthouse.png", "alt": "Lighthouse Strategy Group website" },
+    { "id": "site-3d-world", "src": "webdeva:public/shots/katelyns-3d-world.png", "alt": "WebGL New Orleans sunset scene" },
+    { "id": "site-cdc", "src": "webdeva:public/shots/acdc.png", "alt": "American Chronic Disease Convention website" },
+    { "id": "fimcon-archive", "src": "webdeva:public/shots/fimcon.png", "alt": "FIMCON 2026 session archive with searchable recordings" },
+
+    { "id": "hnoc", "folder": "portfolio:Historic New Orleans Collection", "match": "^\\d+\\.png$", "limit": 6, "alt": "Yet She Is Advancing design" },
+    {
+      "id": "hnoc-video",
+      "src": "portfolio:Historic New Orleans Collection/historic new orleans collection yet she is advancing video promo.mp4",
+      "alt": "Yet She Is Advancing video promo",
+      "loop": { "start": 0, "duration": 8 }
+    },
+
+    {
+      "id": "comeaux-gotta-geaux",
+      "src": "drive:Portfolio/KM - AI Creative Portfolio/COMEAUX - Gotta Geaux Promo AI Editor & Canva Template.mp4",
+      "alt": "Gotta Geaux AI-edited video promo",
+      "loop": { "start": 0, "duration": 8 }
+    },
+    { "id": "comeaux-infographic", "folder": "portfolio:Comeaux Furniture/Comeaux Infographics", "match": "\\.(png|jpe?g)$", "limit": 3, "alt": "Comeaux infographic" },
+    { "id": "comeaux-social", "folder": "portfolio:Comeaux Furniture/Comeaux Social Media", "match": "\\.(png|jpe?g)$", "limit": 3, "alt": "Comeaux social post" },
+    { "id": "comeaux-email", "folder": "portfolio:Comeaux Furniture/Comeaux Website, Email, and branded Assets", "match": "\\.(png|jpe?g)$", "limit": 3, "alt": "Comeaux email design" },
+
+    { "id": "jazzfest-1", "src": "portfolio:Music promo design :: misc/Jazz Fest Margot Manning social promo 1.mp4", "alt": "Jazz Fest social promo", "loop": true },
+    { "id": "jazzfest-2", "src": "portfolio:Music promo design :: misc/Jazz Fest Margot Manning social promo 2.mp4", "alt": "Jazz Fest social promo", "loop": true },
+    {
+      "id": "gesso-promo",
+      "src": "portfolio:Music promo design :: misc/gesso promo.mp4",
+      "alt": "Gesso promo",
+      "loop": { "start": 2, "duration": 8 },
+      "full": ""
+    },
+    { "id": "busted-on-bourbon", "src": "portfolio:Music promo design :: misc/busted on bourbon instagram promo.jpg", "alt": "Busted on Bourbon Instagram promo" },
+
+    { "id": "smo-social", "folder": "portfolio:Sewing Machine Outlet/instagram posts & stories", "match": "\\.(png|jpe?g)$", "limit": 4, "alt": "Sewing Machine Outlet Instagram post" },
+    { "id": "smo-email", "folder": "portfolio:Sewing Machine Outlet/email graphics", "match": "\\.(png|jpe?g)$", "limit": 3, "alt": "Sewing Machine Outlet email graphic" },
+
+    { "id": "cura", "folder": "portfolio:Cura OS", "match": "\\.(png|jpe?g|heic)$", "limit": 4, "alt": "Cura OS brand work" }
+  ]
+}

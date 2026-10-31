@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { profile } from '../content/profile';
+import GridPulse from './GridPulse';
 
 // What the "automation status" line cycles through. All illustrative.
 const statusLines = [
@@ -19,7 +20,7 @@ function StatusTicker() {
   }, []);
   const line = statusLines[i];
   return (
-    <div className="ticker" aria-hidden="true">
+    <div className="ticker" aria-hidden="true" data-grid-avoid>
       <span className="ticker__dot" />
       <span key={i} className="ticker__line">
         <span className="ticker__job">{line.job}</span> {line.text}
@@ -37,10 +38,11 @@ function VerticalName() {
     ));
   return (
     <h1 className="vname" aria-label={`${profile.firstName} ${profile.lastName}`}>
-      <span className="vname__word vname__first" aria-hidden="true">
+      <span className="vname__glow" aria-hidden="true" />
+      <span className="vname__word vname__first" aria-hidden="true" data-grid-avoid>
         {letters(profile.firstName.toUpperCase(), 0)}
       </span>
-      <span className="vname__word vname__last" aria-hidden="true">
+      <span className="vname__word vname__last" aria-hidden="true" data-grid-avoid>
         {letters(profile.lastName.toUpperCase(), profile.firstName.length)}
       </span>
     </h1>
@@ -49,43 +51,50 @@ function VerticalName() {
 
 export default function Hero() {
   return (
-    <header className="hero">
-      <VerticalName />
-      <div className="hero__body">
-        <p className="eyebrow">{profile.positioning}</p>
-        <p className="hero__lede">
-          I make AI part of how a team <em>actually</em> works.
-        </p>
-        <p className="hero__summary">{profile.summary}</p>
-        <div className="hero__ctas">
-          <Link to="/#systems" className="btn btn--accent">
-            See the systems <span className="arrow">→</span>
-          </Link>
-          <Link to="/lab" className="btn">
-            Try the lab
-          </Link>
-          <a href={profile.resumePath} className="btn" download>
-            Resume (PDF)
-          </a>
+    <div className="hero-field">
+      <GridPulse />
+      <header className="hero">
+        <VerticalName />
+        <div className="hero__body">
+          <p className="eyebrow" data-grid-avoid>
+            {profile.positioning}
+          </p>
+          <p className="hero__lede" data-grid-avoid>
+            I make AI part of how a team <em>actually</em> works.
+          </p>
+          <p className="hero__summary" data-grid-avoid>
+            {profile.summary}
+          </p>
+          <div className="hero__ctas">
+            <Link to="/#systems" className="btn btn--accent">
+              See the systems <span className="arrow">→</span>
+            </Link>
+            <Link to="/lab" className="btn">
+              Try the lab
+            </Link>
+            <a href={profile.resumePath} className="btn" download>
+              Resume (PDF)
+            </a>
+          </div>
+          <StatusTicker />
+          <dl className="hero__meta" data-grid-avoid>
+            <div>
+              <dt>Based in</dt>
+              <dd>
+                {profile.location} <span className="muted">{profile.coordinates}</span>
+              </dd>
+            </div>
+            <div>
+              <dt>Working</dt>
+              <dd>{profile.availability}</dd>
+            </div>
+            <div>
+              <dt>Hands-on with generative AI</dt>
+              <dd>Since 2023</dd>
+            </div>
+          </dl>
         </div>
-        <StatusTicker />
-        <dl className="hero__meta">
-          <div>
-            <dt>Based in</dt>
-            <dd>
-              {profile.location} <span className="muted">{profile.coordinates}</span>
-            </dd>
-          </div>
-          <div>
-            <dt>Working</dt>
-            <dd>{profile.availability}</dd>
-          </div>
-          <div>
-            <dt>Hands-on with generative AI</dt>
-            <dd>Since 2023</dd>
-          </div>
-        </dl>
-      </div>
-    </header>
+      </header>
+    </div>
   );
 }

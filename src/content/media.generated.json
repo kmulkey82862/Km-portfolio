@@ -1,1 +1,62 @@
-{}
+{
+  "fimcon-archive": {
+    "type": "image",
+    "alt": "FIMCON 2026 session archive with searchable recordings",
+    "width": 1918,
+    "height": 940,
+    "src": "/media/fimcon-archive-960.webp",
+    "srcset": {
+      "avif": "/media/fimcon-archive-480.avif 480w, /media/fimcon-archive-960.avif 960w, /media/fimcon-archive-1600.avif 1600w",
+      "webp": "/media/fimcon-archive-480.webp 480w, /media/fimcon-archive-960.webp 960w, /media/fimcon-archive-1600.webp 1600w"
+    },
+    "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAwCdASoYAAwAPu1iqk4ppaQiMAgBMB2JZwDLLCHgTXoFa7sxdAAA/vHQJcliK1Jr7457HRbz5+MAAAA="
+  },
+  "site-3d-world": {
+    "type": "image",
+    "alt": "WebGL New Orleans sunset scene",
+    "width": 1905,
+    "height": 937,
+    "src": "/media/site-3d-world-960.webp",
+    "srcset": {
+      "avif": "/media/site-3d-world-480.avif 480w, /media/site-3d-world-960.avif 960w, /media/site-3d-world-1600.avif 1600w",
+      "webp": "/media/site-3d-world-480.webp 480w, /media/site-3d-world-960.webp 960w, /media/site-3d-world-1600.webp 1600w"
+    },
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAwCdASoYAAwAPu1iqU2ppaOiMAgBMB2JaACdACHwaDx8P6dsryIwAP5SJvWE5vwwzlGNK/Wjg3YwjyOd7PqKmH4E9+xY/qTbAMT+u83UeYy7ETcuygAA"
+  },
+  "site-cdc": {
+    "type": "image",
+    "alt": "American Chronic Disease Convention website",
+    "width": 1915,
+    "height": 923,
+    "src": "/media/site-cdc-960.webp",
+    "srcset": {
+      "avif": "/media/site-cdc-480.avif 480w, /media/site-cdc-960.avif 960w, /media/site-cdc-1600.avif 1600w",
+      "webp": "/media/site-cdc-480.webp 480w, /media/site-cdc-960.webp 960w, /media/site-cdc-1600.webp 1600w"
+    },
+    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQBACdASoYAAwAPu1mq04ppaQiMAgBMB2JYgCdACG5KXderCaXbTbjQADeNBlpGz2Uq0a3UvqakVF2NrIbO5484AGg7qNM8sujrYiWaZauVIEepQmGZMyGD+wAAA=="
+  },
+  "site-lighthouse": {
+    "type": "image",
+    "alt": "Lighthouse Strategy Group website",
+    "width": 1280,
+    "height": 906,
+    "src": "/media/site-lighthouse-960.webp",
+    "srcset": {
+      "avif": "/media/site-lighthouse-480.avif 480w, /media/site-lighthouse-960.avif 960w, /media/site-lighthouse-1280.avif 1280w",
+      "webp": "/media/site-lighthouse-480.webp 480w, /media/site-lighthouse-960.webp 960w, /media/site-lighthouse-1280.webp 1280w"
+    },
+    "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwBACdASoYABEAPu1mp02ppaOiMBgMATAdiWMAvzgQ67Jrgf7aQDlrx8hX+WlG1wAA/tkww0dTkF0cBV+pXURYWzd7or/v45hgXKjMvWePABYGEo3VccnCLrT+u8fd+IjBM5GATHk+SQAA"
+  },
+  "site-matt-chapin": {
+    "type": "image",
+    "alt": "Matt Chapin Music website",
+    "width": 1918,
+    "height": 943,
+    "src": "/media/site-matt-chapin-960.webp",
+    "srcset": {
+      "avif": "/media/site-matt-chapin-480.avif 480w, /media/site-matt-chapin-960.avif 960w, /media/site-matt-chapin-1600.avif 1600w",
+      "webp": "/media/site-matt-chapin-480.webp 480w, /media/site-matt-chapin-960.webp 960w, /media/site-matt-chapin-1600.webp 1600w"
+    },
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAwCdASoYAAwAPu1iqU2ppaQiMAgBMB2JYwC7ABhSgBX1ZHPGAAD+8rS4u11EA9LDkuKS0xkQti5gXDJaXn2AAAA="
+  }
+}

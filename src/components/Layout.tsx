@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { profile } from '../content/profile';
 import { applyTheme, storedTheme, systemTheme, Theme } from '../lib/theme';
 import { useReveal } from '../lib/useReveal';
@@ -33,7 +33,38 @@ const links = [
   { to: '/lab', label: 'Lab' },
   { to: '/#work', label: 'Work' },
   { to: '/#experience', label: 'Experience', wideOnly: true },
+  { to: '/#contact', label: 'Contact' },
 ];
+
+// Which homepage section is on screen, so the nav pill can follow it.
+const SPY = ['systems', 'lab', 'work', 'sites', 'experience', 'contact'];
+const SPY_TO: Record<string, string> = { lab: '/lab', sites: '/#work' };
+
+function useActiveSection(enabled: boolean) {
+  const [active, setActive] = useState<string | null>(null);
+  useEffect(() => {
+    if (!enabled) {
+      setActive(null);
+      return;
+    }
+    const els = SPY.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el);
+    const io = new IntersectionObserver(
+      (entries) => {
+        const hit = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (hit) setActive(hit.target.id);
+      },
+      { rootMargin: '-40% 0px -55% 0px' },
+    );
+    els.forEach((el) => io.observe(el));
+    const top = () => window.scrollY < window.innerHeight * 0.5 && setActive(null);
+    window.addEventListener('scroll', top, { passive: true });
+    return () => {
+      io.disconnect();
+      window.removeEventListener('scroll', top);
+    };
+  }, [enabled]);
+  return active ? (SPY_TO[active] ?? `/#${active}`) : null;
+}
 
 export default function Layout({ children }: { children: ReactNode }) {
   useReveal();
@@ -49,6 +80,8 @@ export default function Layout({ children }: { children: ReactNode }) {
     window.addEventListener('scroll', on, { passive: true });
     return () => window.removeEventListener('scroll', on);
   }, []);
+  const spied = useActiveSection(pathname === '/');
+  const isActive = (to: string) => (to.includes('#') ? spied === to : pathname.startsWith(to) || spied === to);
   const changeTheme = (t: Theme) => {
     applyTheme(t);
     setTheme(t);
@@ -79,20 +112,18 @@ export default function Layout({ children }: { children: ReactNode }) {
             <span className="first">{profile.firstName}</span>
             <span>{profile.lastName}</span>
           </Link>
-          {links.map((l) =>
-            l.to.includes('#') ? (
-              <Link key={l.to} to={l.to} className={l.wideOnly ? 'wide-only' : undefined}>
+          <div className="navpill">
+            {links.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className={[l.wideOnly && 'wide-only', isActive(l.to) && 'is-active'].filter(Boolean).join(' ') || undefined}
+                aria-current={isActive(l.to) ? (l.to.includes('#') ? 'location' : 'page') : undefined}
+              >
                 {l.label}
               </Link>
-            ) : (
-              <NavLink key={l.to} to={l.to} className={l.wideOnly ? 'wide-only' : undefined}>
-                {l.label}
-              </NavLink>
-            ),
-          )}
-          <Link to="/#contact" className="topnav__cta">
-            Contact
-          </Link>
+            ))}
+          </div>
           <span className="narrow-only">
             <ThemeToggle theme={theme} onChange={changeTheme} />
           </span>

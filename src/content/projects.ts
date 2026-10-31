@@ -9,6 +9,7 @@ export type CaseStudy = {
   summary: string;
   proof: { label: string; href?: string; to?: string; status?: 'live' | 'in-progress' | 'demo' }[];
   stack: string[];
+  media?: string;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -37,6 +38,7 @@ export const caseStudies: CaseStudy[] = [
       { label: 'FIMCON session archive', href: 'https://fimcon.org/en/fimcon-2026-session-recordings', status: 'live' },
     ],
     stack: ['Canvas API', 'Google Apps Script', 'Bunny Stream', 'JSZip'],
+    media: 'fimcon-archive',
   },
   {
     id: 'work-fimcon',
