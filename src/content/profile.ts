@@ -4,14 +4,13 @@ export const profile = {
   firstName: 'Katelyn',
   lastName: 'Mulkey',
   positioning: 'AI Operations & Marketing Systems',
+  // Résumé summary, verbatim.
   summary:
-    'AI operations and marketing systems professional working hands-on with generative AI since 2023. I lead AI adoption, connect core business systems, and build AI-assisted tools and automations that cut manual data work and turn scattered information into clear, measurable results.',
+    'AI operations and marketing systems professional working hands-on with generative AI since 2023. Leads AI adoption, connects core business systems, and builds AI-assisted tools and automations that cut manual data work and turn scattered information into clear, measurable results.',
   email: 'contactkmulkey@gmail.com',
   phone: '985.778.7982',
   phoneHref: 'tel:+19857787982',
   location: 'New Orleans, LA',
-  coordinates: '29.95° N, 90.07° W',
-  availability: 'Open to remote and hybrid roles',
   // Drop the latest resume at public/Katelyn_Mulkey_Resume.pdf (see README).
   resumePath: '/Katelyn_Mulkey_Resume.pdf',
   linkedin: '', // add when ready
@@ -21,14 +20,6 @@ export const profile = {
     componentBank: 'https://webdivacomponents.netlify.com',
   },
 } as const;
-
-export const capabilities = [
-  'Write Claude skills and shared prompts',
-  'Build connectors between business systems',
-  'Run unattended Claude workflows that check in and report when work finishes',
-  'Use Claude in the browser, with human oversight',
-  'Train teams to adopt AI and keep using it',
-];
 
 export const education = {
   degree: 'BS Marketing',

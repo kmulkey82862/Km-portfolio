@@ -29,16 +29,15 @@ function ThemeToggle({ theme, onChange }: { theme: Theme; onChange: (t: Theme) =
 }
 
 const links = [
-  { to: '/#systems', label: 'Systems', wideOnly: true },
-  { to: '/lab', label: 'Lab' },
   { to: '/#work', label: 'Work' },
-  { to: '/#experience', label: 'Experience', wideOnly: true },
-  { to: '/#contact', label: 'Contact' },
+  { to: '/lab', label: 'Lab' },
+  { to: '/#resume', label: 'Résumé' },
+  { to: '/#contact', label: 'Contact', wideOnly: true },
 ];
 
 // Which homepage section is on screen, so the nav pill can follow it.
-const SPY = ['systems', 'lab', 'work', 'sites', 'experience', 'contact'];
-const SPY_TO: Record<string, string> = { lab: '/lab', sites: '/#work' };
+const SPY = ['work', 'sites', 'creative', 'resume', 'contact'];
+const SPY_TO: Record<string, string> = { sites: '/#work', creative: '/#work' };
 
 function useActiveSection(enabled: boolean) {
   const [active, setActive] = useState<string | null>(null);

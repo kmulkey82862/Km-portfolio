@@ -1,33 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { profile } from '../content/profile';
 import GridPulse from './GridPulse';
-
-// What the "automation status" line cycles through. All illustrative.
-const statusLines = [
-  { job: 'digest.daily', text: 'sent 7:02a · 4 clients · 23 open items' },
-  { job: 'rfp.scan', text: '3 new bids matched · drafts started' },
-  { job: 'zoom.route', text: 'summary filed to client workspace' },
-  { job: 'receipts.ocr', text: '12 expenses logged · 0 flagged' },
-  { job: 'comp.codes', text: '41 redeemed · reminder 2 queued' },
-];
-
-function StatusTicker() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const id = window.setInterval(() => setI((n) => (n + 1) % statusLines.length), 3200);
-    return () => window.clearInterval(id);
-  }, []);
-  const line = statusLines[i];
-  return (
-    <div className="ticker" aria-hidden="true" data-grid-avoid>
-      <span className="ticker__dot" />
-      <span key={i} className="ticker__line">
-        <span className="ticker__job">{line.job}</span> {line.text}
-      </span>
-    </div>
-  );
-}
 
 function VerticalName() {
   const letters = (word: string, offset: number) =>
@@ -59,40 +31,26 @@ export default function Hero() {
           <p className="eyebrow" data-grid-avoid>
             {profile.positioning}
           </p>
-          <p className="hero__lede" data-grid-avoid>
-            I make AI part of how a team <em>actually</em> works.
-          </p>
           <p className="hero__summary" data-grid-avoid>
             {profile.summary}
           </p>
+          <ul className="hero__contact" data-grid-avoid>
+            <li>
+              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            </li>
+            <li>
+              <a href={profile.phoneHref}>{profile.phone}</a>
+            </li>
+            <li>{profile.location}</li>
+          </ul>
           <div className="hero__ctas">
-            <Link to="/#systems" className="btn btn--accent">
-              See the systems <span className="arrow">→</span>
-            </Link>
-            <Link to="/lab" className="btn">
-              Try the lab
-            </Link>
-            <a href={profile.resumePath} className="btn" download>
-              Resume (PDF)
+            <a href={profile.resumePath} className="btn btn--accent" download>
+              Résumé (PDF) <span className="arrow">↓</span>
+            </a>
+            <a href="#work" className="btn">
+              Work
             </a>
           </div>
-          <StatusTicker />
-          <dl className="hero__meta" data-grid-avoid>
-            <div>
-              <dt>Based in</dt>
-              <dd>
-                {profile.location} <span className="muted">{profile.coordinates}</span>
-              </dd>
-            </div>
-            <div>
-              <dt>Working</dt>
-              <dd>{profile.availability}</dd>
-            </div>
-            <div>
-              <dt>Hands-on with generative AI</dt>
-              <dd>Since 2023</dd>
-            </div>
-          </dl>
         </div>
       </header>
     </div>

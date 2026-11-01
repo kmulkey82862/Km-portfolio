@@ -1,4 +1,4 @@
-// Working demos. Every demo runs in the browser on sample data only.
+// Browser versions of tools from the archive. Every demo runs on sample data only.
 
 export type LabDemo = {
   slug: string;
@@ -11,25 +11,25 @@ export const labDemos: LabDemo[] = [
   {
     slug: 'speaker-graphic',
     title: 'Speaker graphic generator',
-    blurb: 'Upload a headshot, type a name and session, download a share-ready graphic. Text sizes itself to fit.',
-    provesLine: 'The production tool was used by about 100 speakers.',
+    blurb: 'Upload a headshot, enter a name and session, and download a graphic. Text resizes to fit.',
+    provesLine: 'The production version was used by about 100 speakers.',
   },
   {
     slug: 'logo-resizer',
     title: 'Logo resizer',
-    blurb: 'Drop a pile of sponsor logos, pick the specs, download every size as one ZIP.',
-    provesLine: 'Replaced hand-resizing exhibitor and sponsor logos for apps and websites.',
+    blurb: 'Add sponsor logos, choose output sizes, and download every size as a ZIP.',
+    provesLine: 'Rebuilt from the tool used for exhibitor and sponsor logos.',
   },
   {
     slug: 'registration-codes',
-    title: 'Comp registration codes',
-    blurb: 'Generate unique codes, preview the merged email, simulate redemptions, and see who gets a reminder.',
-    provesLine: 'The real system handled 300–400 invitees per event.',
+    title: 'Complimentary registration codes',
+    blurb: 'Generate unique codes, preview the merged email, and simulate redemptions and reminders.',
+    provesLine: 'The production system handled 300–400 invitees.',
   },
   {
     slug: 'client-digest',
     title: 'Client digest',
-    blurb: 'Watch an automation scan a project board, an inbox, and meeting notes, then write the client update.',
-    provesLine: 'Mirrors the daily and weekly digests I built in Claude.',
+    blurb: 'A sample client digest built from a project board, an inbox, and meeting notes.',
+    provesLine: 'Based on the daily and weekly digests built in Claude.',
   },
 ];

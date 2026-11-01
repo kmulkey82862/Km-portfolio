@@ -3,7 +3,7 @@ import { labDemos } from '../content/lab';
 import { usePageMeta } from '../lib/usePageMeta';
 
 export default function Lab() {
-  usePageMeta('The lab', 'Working demos of tools Katelyn Mulkey built, rebuilt with sample data.');
+  usePageMeta('Lab', 'Browser versions of tools Katelyn Mulkey built, running on sample data.');
   return (
     <section className="lab">
       <div className="wrap">
@@ -12,11 +12,8 @@ export default function Lab() {
             ← Home
           </Link>
           <p className="eyebrow">The lab</p>
-          <h1 className="h-display">Working tools, not screenshots.</h1>
-          <p className="lab__blurb">
-            Each of these started as a real tool I built for a real team. They’re rebuilt here on sample data so you can use them. Files you add stay
-            in your browser.
-          </p>
+          <h1 className="h-display">Lab</h1>
+          <p className="lab__blurb">Browser versions of tools from the archive, running on sample data. Files you add stay in your browser.</p>
         </header>
         <ul className="lab-grid">
           {labDemos.map((d, i) => (

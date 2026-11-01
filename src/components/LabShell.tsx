@@ -13,7 +13,7 @@ export default function LabShell({ slug, children, aside }: { slug: string; chil
       <div className="wrap">
         <header className="lab__head">
           <Link to="/lab" className="lab__back">
-            ← The lab
+            ← Lab
           </Link>
           <p className="eyebrow">Demo {String(index + 1).padStart(2, '0')}</p>
           <h1 className="h-section">{demo.title}</h1>

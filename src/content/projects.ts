@@ -2,65 +2,67 @@
 // `media` fields are ids from src/content/media.generated.json, which
 // `npm run import-media` writes. Missing ids render as labelled placeholders.
 
-export type CaseStudy = {
+export type ArchiveLink = { label: string; href?: string; to?: string; kind: 'demo' | 'live' | 'in-progress' };
+
+export type ToolItem = {
   id: string;
-  eyebrow: string;
   title: string;
-  summary: string;
-  proof: { label: string; href?: string; to?: string; status?: 'live' | 'in-progress' | 'demo' }[];
-  stack: string[];
+  org: string;
+  year: string;
+  description: string;
+  links: ArchiveLink[];
   media?: string;
 };
 
-export const caseStudies: CaseStudy[] = [
+// Tools and automations, described plainly. Demos run on sample data.
+export const tools: ToolItem[] = [
   {
-    id: 'work-arb',
-    eyebrow: 'AI enablement · ARB Meetings & Events',
-    title: 'Claude as the central hub for a 10-person team',
-    summary:
-      'I rolled out Claude Team company-wide, then wired it to the systems the team already lived in: Monday.com, shared inboxes, Google Workspace, Zoom, Jotform, and Brevo. Most of these automations were built in about six to eight weeks.',
-    proof: [
-      { label: 'Explore the systems map', to: '/#systems', status: 'demo' },
-      { label: 'Run a client digest', to: '/lab/client-digest', status: 'demo' },
+    id: 'speaker-graphic',
+    title: 'Speaker graphic generator',
+    org: 'ARB Meetings & Events',
+    year: '2026',
+    description:
+      'Speakers upload a headshot and download a personalized graphic. Session name, speaker name, and date/time auto-size to fit. Used by about 100 speakers.',
+    links: [
+      { label: 'Try the demo', to: '/lab/speaker-graphic', kind: 'demo' },
+      { label: 'Live speaker page', href: 'https://fimcon.org/en/speaker-social', kind: 'live' },
     ],
-    stack: ['Claude Team', 'Claude skills & connectors', 'Monday.com', 'Apps Script', 'Brevo'],
   },
   {
-    id: 'work-tools',
-    eyebrow: 'Internal tools · ARB Meetings & Events',
-    title: 'Small tools that removed whole categories of busywork',
-    summary:
-      'A speaker graphic generator about 100 speakers used to make their own promo cards. A logo resizer that turns a folder of sponsor logos into every spec an app or site needs, in one click. A comp registration system for 300–400 invitees. A video pipeline that moved footage straight to pay-per-view streaming.',
-    proof: [
-      { label: 'Speaker graphic generator', to: '/lab/speaker-graphic', status: 'demo' },
-      { label: 'Logo resizer', to: '/lab/logo-resizer', status: 'demo' },
-      { label: 'Registration codes', to: '/lab/registration-codes', status: 'demo' },
-      { label: 'FIMCON session archive', href: 'https://fimcon.org/en/fimcon-2026-session-recordings', status: 'live' },
-    ],
-    stack: ['Canvas API', 'Google Apps Script', 'Bunny Stream', 'JSZip'],
+    id: 'logo-resizer',
+    title: 'Logo resizer',
+    org: 'ARB Meetings & Events',
+    year: '2026',
+    description:
+      'Reads folders of exhibitor and sponsor logos, resizes them to the exact specs apps and websites need, and downloads them in one click.',
+    links: [{ label: 'Try the demo', to: '/lab/logo-resizer', kind: 'demo' }],
+  },
+  {
+    id: 'registration-codes',
+    title: 'Complimentary registration system',
+    org: 'ARB Meetings & Events',
+    year: '2026',
+    description:
+      'For 300–400 invitees. Generated unique codes, merged them into personalized emails, tracked redemption, and sent reminder drips to anyone who hadn’t registered.',
+    links: [{ label: 'Try the demo', to: '/lab/registration-codes', kind: 'demo' }],
+  },
+  {
+    id: 'client-digest',
+    title: 'Client digests',
+    org: 'ARB Meetings & Events',
+    year: '2026',
+    description: 'Claude automation that scans project systems and shared inboxes to send daily or weekly client digests of in-progress and pending items.',
+    links: [{ label: 'Try the demo', to: '/lab/client-digest', kind: 'demo' }],
+  },
+  {
+    id: 'session-archive',
+    title: 'Session archive pipeline',
+    org: 'ARB Meetings & Events · FIMCON 2026',
+    year: '2026',
+    description:
+      'Apps Script moved session footage directly to pay-per-view streaming on Bunny Stream, replacing subscription hosting. Includes the viewer interface.',
+    links: [{ label: 'Live session recordings', href: 'https://fimcon.org/en/fimcon-2026-session-recordings', kind: 'live' }],
     media: 'fimcon-archive',
-  },
-  {
-    id: 'work-fimcon',
-    eyebrow: 'Marketing systems · FIMCON 2026',
-    title: 'A convention that sold out in a day',
-    summary:
-      'Role-specific email, LinkedIn, and web content for each audience, a PR Newswire release, attendee app setup, and social toolkits for attendees, speakers, and sponsors. I produced all the analytics, including a 39-page outcomes report combining 9 data sources with industry benchmarks.',
-    proof: [
-      { label: 'Session archive', href: 'https://fimcon.org/en/fimcon-2026-session-recordings', status: 'live' },
-      { label: 'Speaker social tool', href: 'https://fimcon.org/en/speaker-social', status: 'live' },
-      { label: 'Attendee app page', href: 'https://fimcon.org/en/fimcon-2026-app', status: 'live' },
-    ],
-    stack: ['Brevo', 'PR Newswire', 'Attendee app', 'Looker Studio'],
-  },
-  {
-    id: 'work-comeaux',
-    eyebrow: 'Performance marketing · Comeaux Furniture',
-    title: 'More conversions for less, and a day of QA down to an hour',
-    summary:
-      'I restructured Google Ads around PMax with strategic pruning and AI-informed copy, and automated inventory reporting between Myriad, the website, and Google Sheets.',
-    proof: [],
-    stack: ['Google Ads', 'Narrative BI', 'Google Sheets', 'Myriad'],
   },
 ];
 

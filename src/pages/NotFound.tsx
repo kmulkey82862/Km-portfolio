@@ -7,8 +7,8 @@ export default function NotFound() {
     <section className="lab">
       <div className="wrap" style={{ minHeight: '60vh' }}>
         <p className="eyebrow">404</p>
-        <h1 className="h-display">This page isn’t wired up.</h1>
-        <p className="lab__blurb">Even good automations miss a route sometimes.</p>
+        <h1 className="h-display">Page not found</h1>
+        <p className="lab__blurb">This page doesn’t exist.</p>
         <Link to="/" className="btn btn--accent">
           Back home <span className="arrow">→</span>
         </Link>

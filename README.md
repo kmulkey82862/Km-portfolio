@@ -2,18 +2,22 @@
 
 A self-hosted portfolio site for **AI Operations & Marketing Systems** roles. It's a static Vite + React + TypeScript site, deployed to Netlify on your own domain.
 
-The idea is **proof, not claims**: every resume number links to the work behind it, and the `/lab` pages run working versions of tools you built, using sample data.
+It's a portfolio archive: work grouped by type, with the résumé content exactly as written. There's no sales copy, and résumé wording isn't rephrased.
 
 ## What's here
 
-| Area | Where | Notes |
+The homepage runs top to bottom in this order:
+
+| Section | Content file | Notes |
 | --- | --- | --- |
-| Hero with the vertical name | `src/components/Hero.tsx` | KATELYN in raspberry, MULKEY in ink. On phones it stacks horizontally. |
-| Results | `src/content/metrics.ts` | Each metric links to the case study or demo behind it. |
-| Systems map | `src/components/SystemsMap.tsx`, `src/content/systems.ts` | Interactive "Claude as the hub" diagram. Select a node to trace its connections. |
-| Lab demos | `src/pages/lab/*` | Speaker graphic generator, logo resizer (ZIP export), comp registration codes, client digest. All run in the browser on fictional data. |
-| Case studies, sites, creative | `src/content/projects.ts` | Media for these comes from the import pipeline below. |
-| Experience, skills, awards | `src/content/experience.ts`, `src/content/profile.ts` | Final resume wording. |
+| Header | `src/content/profile.ts` | Vertical name, title, the résumé summary word for word, and contact details. |
+| Tools & automations | `tools` in `src/content/projects.ts` | Each entry has a title, organization, year, a factual description, and demo or live links. Ends with the ARB systems diagram (`src/content/systems.ts`). |
+| Websites | `sites` in `src/content/projects.ts` | Screenshots come from the import pipeline. |
+| Creative & campaigns | `creative` in `src/content/projects.ts` | Hidden in production until its media is imported. |
+| Résumé | `src/content/experience.ts`, `src/content/profile.ts` | Experience, skills, education, and awards, word for word from the résumé. Keep this in sync with the PDF. |
+| Contact | `src/content/profile.ts` | Email, phone, location, and the résumé PDF. |
+
+The lab at `/lab` (`src/pages/lab/*`) has browser versions of four tools on sample data: speaker graphic generator, logo resizer, registration codes, and client digest.
 
 **To change content, edit the files in `src/content/`.** You shouldn't need to touch any markup.
 
