@@ -135,10 +135,10 @@
 .pin__label {
   display: block;
   margin-top: 12px;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.1em;
-  text-transform: lowercase;
+  font-family: var(--font);
+  font-weight: var(--w-light);
+  font-size: 13.5px;
+  letter-spacing: 0;
   text-align: center;
   color: var(--ink-soft);
 }
@@ -185,8 +185,8 @@
     grid-column: 4;
   }
   .pin__label {
-    font-size: 9.5px;
-    letter-spacing: 0.04em;
+    font-size: 11.5px;
+    line-height: 1.3;
   }
 }
 
