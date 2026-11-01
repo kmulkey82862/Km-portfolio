@@ -1,6 +1,7 @@
 import { Bullet, experience, skills } from '../content/experience';
 import { awards, education, profile } from '../content/profile';
 import { usePageMeta } from '../lib/usePageMeta';
+import Swatch from '../components/Swatch';
 
 function BulletItem({ b }: { b: Bullet }) {
   if (typeof b === 'string') return <li>{b}</li>;
@@ -21,15 +22,11 @@ export default function Resume() {
   return (
     <section className="page" aria-labelledby="resume-h">
       <div className="wrap">
-        <div className="shead">
-          <h1 id="resume-h" className="h-display">
-            Résumé
-          </h1>
+        <Swatch id="resume-h" title="Résumé" pattern="linen" level={1} note={profile.summary}>
           <a href={profile.resumePath} className="btn btn--sm" download>
             Download PDF <span className="arrow">↓</span>
           </a>
-          <p className="shead__note">{profile.summary}</p>
-        </div>
+        </Swatch>
 
         <h3 className="aside-h">Experience</h3>
         <ol className="roles">

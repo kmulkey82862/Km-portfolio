@@ -5,6 +5,7 @@ import '@fontsource-variable/inter-tight';
 import './styles/global.css';
 import './styles/home.css';
 import './styles/lab.css';
+import './styles/swatches.css';
 import App from './App';
 
 if (import.meta.env.VITE_HELVETICA_NOW === 'true') {

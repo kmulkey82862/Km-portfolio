@@ -37,13 +37,21 @@ npm run preview    # serve the production build
 
 ## Look and feel
 
-The visual language follows the Web Deva site (`kmulkey82862/web-deva-site`), kept to one raspberry accent:
+The site is a white background with Helvetica Now (Thin and Light) and a raspberry accent, plus a few personal touches:
 
-- **Type:** Helvetica Now Thin and Light, with tight display tracking.
-- **Navigation:** a floating glass pill whose highlight follows the section you're reading.
-- **Buttons:** liquid-glass pills.
-- **Hero background:** the hover-reactive `GridPulse` field (ported from Web Deva, with its colors narrowed to a raspberry-to-coral band) and a soft glow behind the vertical name.
-- **Brand mark:** the `web deva` bubble wordmark labels the websites section.
+- **Hero** (`src/components/Hero.tsx`): your name set horizontally, the résumé summary, and a pinboard. The pinboard has one fabric swatch per section, each linking to it, and a paper doll of you. Clicking the doll changes the outfit. The doll images are in `public/hero/`, exported from Katelyn's World.
+- **Section heads** (`src/components/Swatch.tsx`, `src/styles/swatches.css`): each section's title and description sit on a stitched label over a fabric pattern. All patterns are pure CSS.
+
+| Section | Pattern |
+| --- | --- |
+| AI enablement | Icy-blue ticking stripe |
+| Tools & automation | Blush and mulberry tartan with an olive line |
+| Marketing & creative | Blush cabana stripe |
+| Freelance work | Olive herringbone |
+| Résumé | Icy-gray linen |
+| Lab | Blush gingham |
+
+To change a section's fabric, change its `pattern` prop.
 
 ## Media pipeline (no manual uploading)
 

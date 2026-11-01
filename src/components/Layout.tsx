@@ -41,13 +41,6 @@ export default function Layout({ children }: { children: ReactNode }) {
     if (storedTheme()) applyTheme(storedTheme()!);
   }, []);
   const { pathname } = useLocation();
-  const [pastHero, setPastHero] = useState(false);
-  useEffect(() => {
-    const on = () => setPastHero(window.scrollY > window.innerHeight * 0.6);
-    on();
-    window.addEventListener('scroll', on, { passive: true });
-    return () => window.removeEventListener('scroll', on);
-  }, []);
   const isActive = (to: string) => (to === '/' ? pathname === '/' : pathname.startsWith(to));
   const changeTheme = (t: Theme) => {
     applyTheme(t);
@@ -58,66 +51,43 @@ export default function Layout({ children }: { children: ReactNode }) {
       <a className="skip-link" href="#content">
         Skip to content
       </a>
-      <aside className={`rail${pathname === '/' && !pastHero ? ' rail--quiet' : ''}`} aria-label="Site">
-        <Link to="/" className="rail__name" aria-label={`${profile.firstName} ${profile.lastName}, home`}>
-          <span className="first">{profile.firstName}</span>
-          <span className="last">{profile.lastName}</span>
+      <nav className="topnav" aria-label="Primary">
+        <Link to="/" className="topnav__brand" aria-label={`${profile.firstName} ${profile.lastName}, home`}>
+          <span className="first">{profile.firstName}</span> <span>{profile.lastName}</span>
         </Link>
-        <div className="rail__tools">
-          <ThemeToggle theme={theme} onChange={changeTheme} />
-          <a className="icon-btn" href={`mailto:${profile.email}`} aria-label="Email Katelyn" title="Email">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="1.5" />
-              <path d="m3.5 6 8.5 7 8.5-7" />
-            </svg>
-          </a>
+        <div className="navpill">
+          {links.map((l) => (
+            <Link key={l.to} to={l.to} className={isActive(l.to) ? 'is-active' : undefined} aria-current={isActive(l.to) ? 'page' : undefined}>
+              {l.label}
+            </Link>
+          ))}
         </div>
-      </aside>
-      <div className="main">
-        <nav className="topnav" aria-label="Primary">
-          <Link to="/" className="topnav__brand">
-            <span className="first">{profile.firstName}</span>
-            <span>{profile.lastName}</span>
-          </Link>
-          <div className="navpill">
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                className={isActive(l.to) ? 'is-active' : undefined}
-                aria-current={isActive(l.to) ? 'page' : undefined}
-              >
-                {l.label}
-              </Link>
-            ))}
-          </div>
-          <span className="narrow-only">
-            <ThemeToggle theme={theme} onChange={changeTheme} />
+        <div className="topnav__tools">
+          <ThemeToggle theme={theme} onChange={changeTheme} />
+        </div>
+      </nav>
+      <main id="content">{children}</main>
+      <footer className="footer" id="contact">
+        <div className="wrap">
+          <ul className="footer__contact">
+            <li>
+              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            </li>
+            <li>
+              <a href={profile.phoneHref}>{profile.phone}</a>
+            </li>
+            <li>{profile.location}</li>
+            <li>
+              <a href={profile.resumePath} download>
+                Résumé (PDF)
+              </a>
+            </li>
+          </ul>
+          <span>
+            © {new Date().getFullYear()} {profile.firstName} {profile.lastName}. Demos use sample data only.
           </span>
-        </nav>
-        <main id="content">{children}</main>
-        <footer className="footer" id="contact">
-          <div className="wrap">
-            <ul className="footer__contact">
-              <li>
-                <a href={`mailto:${profile.email}`}>{profile.email}</a>
-              </li>
-              <li>
-                <a href={profile.phoneHref}>{profile.phone}</a>
-              </li>
-              <li>{profile.location}</li>
-              <li>
-                <a href={profile.resumePath} download>
-                  Résumé (PDF)
-                </a>
-              </li>
-            </ul>
-            <span>
-              © {new Date().getFullYear()} {profile.firstName} {profile.lastName}. Demos use sample data only.
-            </span>
-          </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 }

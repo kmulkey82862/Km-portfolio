@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import SystemsMap from '../components/SystemsMap';
 import MediaFrame, { hasMedia } from '../components/MediaFrame';
 import { WebDevaMark } from '../components/Bubbles';
+import Swatch from '../components/Swatch';
 import { aiEnablement, ArchiveLink, creative, CreativeItem, freelanceSites, marketingSites, Site, ToolItem, tools } from '../content/projects';
 import { usePageMeta } from '../lib/usePageMeta';
 
@@ -18,18 +19,6 @@ function ArchiveLinkItem({ link }: { link: ArchiveLink }) {
         </a>
       )}
     </li>
-  );
-}
-
-function SectionHead({ id, title, note, action }: { id: string; title: string; note?: React.ReactNode; action?: React.ReactNode }) {
-  return (
-    <div className="shead reveal">
-      <h2 id={id} className="h-section">
-        {title}
-      </h2>
-      {note && <p className="shead__note">{note}</p>}
-      {action}
-    </div>
   );
 }
 
@@ -61,7 +50,12 @@ function AiEnablement() {
   return (
     <section className="section" id="work" aria-labelledby="ai-h">
       <div className="wrap">
-        <SectionHead id="ai-h" title="AI enablement" note="ARB Meetings & Events, 2026." />
+        <Swatch
+          id="ai-h"
+          title="AI enablement"
+          pattern="ticking"
+          note="The Claude Team rollout at ARB Meetings & Events, with a diagram of the systems it connected, and the client digest automation."
+        />
         <WorkRows items={aiEnablement} />
         <div className="archive__sub reveal" id="systems">
           <h3 className="h-card">ARB systems overview</h3>
@@ -81,12 +75,14 @@ function Tools() {
   return (
     <section className="section" id="tools" aria-labelledby="tools-h">
       <div className="wrap">
-        <SectionHead
+        <Swatch
           id="tools-h"
           title="Tools & automation"
+          pattern="plaid"
           note={
             <>
-              ARB Meetings & Events, 2026. Demos run on sample data; all of them are in the <Link to="/lab">lab</Link>.
+              Internal tools built at ARB Meetings & Events: speaker graphics, logo resizing, complimentary registration, and the session archive
+              pipeline. Demos run on sample data and are collected in the <Link to="/lab">lab</Link>.
             </>
           }
         />
@@ -141,12 +137,13 @@ function Freelance() {
   return (
     <section className="section" id="freelance" aria-labelledby="freelance-h">
       <div className="wrap">
-        <SectionHead
+        <Swatch
           id="freelance-h"
           title="Freelance work"
+          pattern="herringbone"
           note={
             <>
-              Websites and interactive builds through <WebDevaMark />, my freelance studio.
+              Websites and interactive builds through <WebDevaMark />, my freelance studio, for musicians, consultants, and small businesses.
             </>
           }
         />
@@ -216,7 +213,12 @@ function Marketing() {
   return (
     <section className="section" id="marketing" aria-labelledby="marketing-h">
       <div className="wrap">
-        <SectionHead id="marketing-h" title="Marketing & creative" note="Websites, campaigns, and design across agency, in-house, and freelance roles." />
+        <Swatch
+          id="marketing-h"
+          title="Marketing & creative"
+          pattern="cabana"
+          note="Websites, campaigns, and design from agency, in-house, and freelance roles, starting with the chronic disease convention site built at ARB."
+        />
         <SiteGrid items={marketingSites} />
         {items.length > 0 && (
         <ul className="creative creative--after">
