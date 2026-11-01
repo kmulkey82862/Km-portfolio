@@ -53,18 +53,18 @@ export default function Layout({ children }: { children: ReactNode }) {
       </a>
       <nav className="topnav" aria-label="Primary">
         <Link to="/" className="topnav__brand" aria-label={`${profile.firstName} ${profile.lastName}, home`}>
-          <span className="first">{profile.firstName}</span> <span>{profile.lastName}</span>
+          {profile.firstName} {profile.lastName}
         </Link>
-        <div className="navpill">
+        <ul className="topnav__links">
           {links.map((l) => (
-            <Link key={l.to} to={l.to} className={isActive(l.to) ? 'is-active' : undefined} aria-current={isActive(l.to) ? 'page' : undefined}>
-              {l.label}
-            </Link>
+            <li key={l.to}>
+              <Link to={l.to} className={isActive(l.to) ? 'is-active' : undefined} aria-current={isActive(l.to) ? 'page' : undefined}>
+                {l.label}
+              </Link>
+            </li>
           ))}
-        </div>
-        <div className="topnav__tools">
-          <ThemeToggle theme={theme} onChange={changeTheme} />
-        </div>
+        </ul>
+        <ThemeToggle theme={theme} onChange={changeTheme} />
       </nav>
       <main id="content">{children}</main>
       <footer className="footer" id="contact">

@@ -16,177 +16,148 @@
 .hero {
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(64px, 10vw, 140px) var(--gutter) clamp(64px, 9vw, 120px);
-  text-align: center;
-  overflow-x: clip;
+  min-height: min(760px, calc(100vh - 64px));
+  padding: clamp(48px, 7vw, 96px) var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 3.2fr) 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: clamp(24px, 4vw, 56px) clamp(16px, 3vw, 48px);
 }
 .hero__title {
-  position: relative;
-  display: inline-block;
-  padding: 0 clamp(40px, 8vw, 140px);
-}
-.hname {
-  font-family: var(--font-name);
-  font-size: clamp(44px, 7.4vw, 112px);
-  font-weight: 620;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
-  letter-spacing: -0.025em;
-  line-height: 1;
+  grid-column: 2;
+  grid-row: 1 / 3;
   margin: 0;
-}
-.hname__first {
-  color: var(--accent);
-}
-.hname__portfolio {
-  display: block;
-  margin-top: 0.12em;
-  font-family: var(--font);
-  font-variation-settings: normal;
-  letter-spacing: var(--track-display);
-  font-style: italic;
-  font-weight: var(--w-thin);
-  font-size: 0.82em;
-  color: var(--olive, #7f7c1e);
-}
-
-/* Flowers scattered around the title */
-.fl {
-  position: absolute;
-  pointer-events: none;
-  transform-origin: 50% 90%;
-  animation: sway 6s ease-in-out infinite;
-}
-.fl--rose {
-  width: clamp(70px, 9vw, 132px);
-  right: clamp(-10px, -1vw, 0px);
-  bottom: -18%;
-  rotate: 12deg;
-}
-.fl--tulip {
-  width: clamp(40px, 5vw, 70px);
-  left: 2%;
-  bottom: -20%;
-  rotate: -14deg;
-  animation-delay: -2s;
-}
-.fl--daisy {
-  width: clamp(44px, 5.5vw, 82px);
-  left: 0;
-  top: -18%;
-  animation: spin-slow 40s linear infinite;
-  transform-origin: 50% 50%;
-}
-.fl--daisy2 {
-  width: clamp(30px, 3.6vw, 52px);
-  right: 6%;
-  top: -24%;
-  animation: spin-slow 32s linear infinite reverse;
-  transform-origin: 50% 50%;
-}
-.fl--spark1 {
-  width: 22px;
-  left: 18%;
-  top: -30%;
-  animation: twinkle 3.2s ease-in-out infinite;
-}
-.fl--spark2 {
-  width: 16px;
-  right: 22%;
-  bottom: -26%;
-  animation: twinkle 2.6s ease-in-out infinite -1s;
-}
-@keyframes sway {
-  50% {
-    transform: rotate(4deg);
-  }
-}
-@keyframes spin-slow {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes twinkle {
-  50% {
-    transform: scale(0.6);
-    opacity: 0.6;
-  }
-}
-
-/* Descriptor tags in the swatch colors */
-.descriptors {
-  list-style: none;
-  padding: 0;
-  margin: clamp(56px, 7vw, 88px) auto 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 12px;
-  max-width: 1080px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: var(--font-name);
+  font-weight: 700;
+  font-size: clamp(40px, 5.2vw, 84px);
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: var(--ink);
 }
-.descriptor {
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-size: 14.5px;
-  font-weight: var(--w-reg);
-  letter-spacing: 0.01em;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+.hero__title span {
+  white-space: nowrap;
 }
-.descriptor:nth-child(odd) {
-  rotate: -1.5deg;
+.hero__pins {
+  display: contents;
 }
-.descriptor:nth-child(even) {
-  rotate: 1.5deg;
+
+/* Fabric squares, taped up with pinking-shears edges */
+.pin {
+  position: relative;
+  width: clamp(104px, 11vw, 164px);
+  text-decoration: none;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.descriptor:hover {
-  transform: translateY(-3px) rotate(-2deg);
+.pin--1 {
+  grid-column: 1;
+  grid-row: 1;
+  --tilt: -5deg;
+  align-self: end;
 }
-.descriptor--icy {
-  background: var(--icy, #c9d6df);
-  color: #24394a;
+.pin--2 {
+  grid-column: 3;
+  grid-row: 1;
+  --tilt: 4deg;
+  align-self: end;
 }
-.descriptor--icy::before {
+.pin--3 {
+  grid-column: 1;
+  grid-row: 2;
+  --tilt: 3deg;
+  align-self: start;
+}
+.pin--4 {
+  grid-column: 3;
+  grid-row: 2;
+  --tilt: -4deg;
+  align-self: start;
+}
+.pin:hover,
+.pin:focus-visible {
+  transform: rotate(0deg) translateY(-5px);
+  color: inherit;
+}
+.pin__fabric {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(11, 11, 12, 0.08), 0 10px 22px rgba(11, 11, 12, 0.12);
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 12px 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 12px 100%;
+}
+.pin::before {
   content: '';
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 8px;
-  border-radius: 50%;
-  background: var(--poppy, #d0342c);
-  vertical-align: 1px;
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 46%;
+  height: 18px;
+  transform: translateX(-50%) rotate(-4deg);
+  background: color-mix(in srgb, var(--icy, #c9d6df) 75%, transparent);
+  box-shadow: 0 1px 2px rgba(11, 11, 12, 0.08);
+  z-index: 1;
 }
-.descriptor--blush {
-  background: var(--blush, #f3d2dc);
-  color: #5e1b3e;
+.pin--2::before,
+.pin--3::before {
+  background: color-mix(in srgb, var(--blush, #f3d2dc) 75%, transparent);
+  transform: translateX(-50%) rotate(5deg);
 }
-.descriptor--olive {
-  background: var(--olive, #7f7c1e);
-  color: #fbfbe8;
+.pin__label {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  text-align: center;
+  color: var(--ink-soft);
 }
-.descriptor--mulberry {
-  background: var(--mulberry, #772450);
-  color: #fdeef4;
-}
-@media (max-width: 640px) {
+@media (max-width: 760px) {
+  .hero {
+    min-height: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    gap: 40px 12px;
+    padding-top: 56px;
+  }
   .hero__title {
-    padding: 0 28px;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-size: clamp(38px, 11vw, 60px);
   }
-  .fl--daisy {
-    top: -48%;
-    left: -4px;
+  .pin {
+    width: 100%;
+    max-width: 84px;
   }
-  .fl--daisy2 {
-    top: -44%;
+  .pin--1,
+  .pin--2,
+  .pin--3,
+  .pin--4 {
+    grid-row: 2;
+    align-self: start;
   }
-  .fl--rose {
-    bottom: -30%;
+  .pin--1 {
+    grid-column: 1;
   }
-  .fl--tulip {
-    bottom: -32%;
+  .pin--2 {
+    grid-column: 2;
   }
-}
-@media (prefers-reduced-motion: reduce) {
-  .fl {
-    animation: none;
+  .pin--3 {
+    grid-column: 3;
+  }
+  .pin--4 {
+    grid-column: 4;
+  }
+  .pin__label {
+    font-size: 9.5px;
+    letter-spacing: 0.04em;
   }
 }
 

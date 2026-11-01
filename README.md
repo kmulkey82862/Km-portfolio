@@ -39,9 +39,9 @@ npm run preview    # serve the production build
 
 The site is a white background with Helvetica Now (Thin and Light) and a raspberry accent, plus a few personal touches:
 
-- **Hero** (`src/components/Hero.tsx`): "Katelyn Mulkey's Portfolio" with hand-drawn flowers (`src/components/Flowers.tsx`: a rose, daisies, a tulip, and sparkles), plus a row of single-word descriptors taken from the résumé skills, in the swatch colors.
-- **Name font:** your name, in the hero and the menu bar, is set in Fraunces, an open-license serif that ships with the site. Everything else is Helvetica Now (or Inter Tight until the license is confirmed).
-- **One pop of red:** poppy red (`--poppy` in `swatches.css`) is used sparingly, always with icy blue or the pinks and never with the olive. It appears as a thread in the ticking, tartan, and linen; as the hero tulip and a sparkle; and as dots on the icy-blue tags.
+- **Hero** (`src/components/Hero.tsx`): "Katelyn Mulkey, / Digital Portfolio" in bold black, framed by four taped fabric squares that link to the sections.
+- **Nav and title type:** the hero title and the name in the top bar use Inter Tight Bold. Helvetica Now is licensed in Thin and Light only, so it can't supply a true bold.
+- **One pop of red:** poppy red (`--poppy` in `swatches.css`) is used sparingly, always with icy blue or the pinks and never with the olive. It appears as a thread in the ticking, tartan, and linen, and as the dot that marks the current page in the nav.
 - **Section heads** (`src/components/Swatch.tsx`, `src/styles/swatches.css`): each section's title and description sit on a stitched label over a fabric pattern. All patterns are pure CSS.
 
 | Section | Pattern |
@@ -70,7 +70,7 @@ It also writes `src/content/media.generated.json`, which the site reads. Any med
 
 1. Copy `.env.example` to `.env.local` and set `DRIVE_ROOT` (e.g. `G:\My Drive`) and `WEB_DEVA_ROOT`.
 2. Copy `media.config.example.json` to `media.config.json`. It already lists the Portfolio folders from the handoff. Fix any filenames that differ on disk.
-   - To bring in the AdNet 2027 pages, also set `ADNET_PAGES_DIR` (your `liberty-strategy-group` folder). The import copies all eight pages and rewrites their links so they point to each other.
+   - To bring in the AdNet 2027 pages, also set `ADNET_PAGES_DIR` (your `liberty-strategy-group` folder). The import copies all eight pages and rewrites their links. Links between the eight pages point to the local copies; any other link points to adnetcf.org, so nothing leads to a missing page.
 3. Run `npm run import-media`. Re-running skips files that haven't changed. Use `--force` to redo them, `--only hnoc,cura` to import a subset, or `--dry` for a dry run.
 4. Commit `public/media/` and `media.generated.json`. Netlify serves them as static files.
 
