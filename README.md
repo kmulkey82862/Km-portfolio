@@ -78,13 +78,8 @@ It also writes `src/content/media.generated.json`, which the site reads. Any med
 
 ## Fonts
 
-The site uses **Inter Tight** (open license, light weights) as a stand-in. Helvetica Now Display only switches on after you confirm the license:
-
-1. Confirm your Helvetica Now license allows **web embedding**.
-2. Put `HelveticaNowDisplay-Thin.woff2` and `HelveticaNowDisplay-Light.woff2` in `public/fonts/`. These are the same two files the Web Deva site already serves, from its `public/fonts/`.
-3. Set `VITE_HELVETICA_NOW=true` in `.env.local` locally and in Netlify's environment settings.
-
-Font files are git-ignored on purpose until the license is confirmed. Once it is, remove the `public/fonts/*` lines from `.gitignore`.
+- **Helvetica Now Display:** licensed for web use. Thin and Light are served from `public/fonts/` (`src/styles/helvetica-now.css`).
+- **Inter Tight:** the bold hero title and the name in the top bar use Inter Tight Bold, since Helvetica Now is licensed in Thin and Light only. Inter Tight is also the fallback while Helvetica loads.
 
 ## Deploy to Netlify
 

@@ -2,16 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import '@fontsource-variable/inter-tight';
+import './styles/helvetica-now.css';
 import './styles/global.css';
 import './styles/home.css';
 import './styles/lab.css';
 import './styles/swatches.css';
 import App from './App';
 
-if (import.meta.env.VITE_HELVETICA_NOW === 'true') {
-  import('./styles/helvetica-now.css');
-  document.documentElement.classList.add('hn');
-}
+// The `hn` class tightens display tracking for Helvetica Now Display.
+document.documentElement.classList.add('hn');
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

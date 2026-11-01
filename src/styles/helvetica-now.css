@@ -1,5 +1,5 @@
-/* Loaded only when VITE_HELVETICA_NOW=true (see README: confirm the web license first).
-   Same two faces the Web Deva site ships: Thin covers the display weights, Light the text. */
+/* Helvetica Now Display, licensed for web use. Same two faces the Web Deva site ships:
+   Thin covers the display weights, Light the text. Files live in public/fonts/. */
 @font-face {
   font-family: 'Helvetica Now Display';
   src: url('/fonts/HelveticaNowDisplay-Thin.woff2') format('woff2');
