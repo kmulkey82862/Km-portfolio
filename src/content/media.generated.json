@@ -23,6 +23,18 @@
     },
     "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoYAA8APu1iqk2ppaQiMAgBMB2JaACdMoACT2x6YL0MnyGKAAD3zMwIwuB+LcQFCOrGPtFK8oAAStMqul1pEMn6fOAPRHNKCjsDoKm9Nx8tzOKC8xEn8HWe2pRIwoOMRShMdGFQAAA="
   },
+  "site-adnet-2027": {
+    "type": "image",
+    "alt": "AdNet 2027 Conference website banner",
+    "width": 1600,
+    "height": 1000,
+    "src": "/media/site-adnet-2027-960.webp",
+    "srcset": {
+      "avif": "/media/site-adnet-2027-480.avif 480w, /media/site-adnet-2027-960.avif 960w, /media/site-adnet-2027-1600.avif 1600w",
+      "webp": "/media/site-adnet-2027-480.webp 480w, /media/site-adnet-2027-960.webp 960w, /media/site-adnet-2027-1600.webp 1600w"
+    },
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAwCdASoYAA8APu1orU6ppiSiMAgBMB2JZwAAW+fmJE2L+d4XgAD+8cr0aQaTSdizALq3DefNt6hQ2DT76NdP+MKH2SCBAAA="
+  },
   "site-cdc": {
     "type": "image",
     "alt": "American Chronic Disease Convention website",

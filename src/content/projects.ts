@@ -137,8 +137,16 @@ export const freelanceSites: Site[] = [
   },
 ];
 
-// Marketing websites built at ARB Meetings & Events (staging until launch).
+// Websites built at ARB Meetings & Events.
 export const marketingSites: Site[] = [
+  {
+    name: 'AdNet 2027 Annual Conference',
+    kind: 'Conference website · ARB',
+    year: '2026',
+    blurb: 'Eight-page conference site: home, agenda, call for sessions, hotel and travel, registration, sponsorship, sponsors, and FAQ.',
+    url: 'https://adnetcf.org/page/conference-2027',
+    media: 'site-adnet-2027',
+  },
   {
     name: 'Chronic Disease Convention',
     kind: 'Convention website & content strategy · ARB',

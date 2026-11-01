@@ -9,6 +9,7 @@
     { "id": "site-matt-chapin", "src": "webdeva:public/shots/matt-chapin.png", "alt": "Matt Chapin Music website" },
     { "id": "site-lighthouse", "src": "webdeva:public/shots/lighthouse.png", "alt": "Lighthouse Strategy Group website" },
     { "id": "site-3d-world", "src": "media-src/katelyns-world.jpg", "alt": "Katelyn’s World, a WebGL New Orleans sunset scene" },
+    { "id": "site-adnet-2027", "src": "media-src/adnet-2027.jpg", "alt": "AdNet 2027 Conference website banner" },
     { "id": "site-cdc", "src": "webdeva:public/shots/acdc.png", "alt": "American Chronic Disease Convention website" },
     { "id": "fimcon-archive", "src": "webdeva:public/shots/fimcon.png", "alt": "FIMCON 2026 session archive with searchable recordings" },
 

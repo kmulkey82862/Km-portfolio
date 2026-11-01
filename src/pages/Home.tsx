@@ -217,7 +217,7 @@ function Marketing() {
           id="marketing-h"
           title="Marketing & creative"
           pattern="cabana"
-          note="Websites, campaigns, and design from agency, in-house, and freelance roles, starting with the chronic disease convention site built at ARB."
+          note="Websites, campaigns, and design from agency, in-house, and freelance roles, starting with the AdNet 2027 and chronic disease convention sites built at ARB."
         />
         <SiteGrid items={marketingSites} />
         {items.length > 0 && (

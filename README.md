@@ -19,7 +19,7 @@ The Work page has four sections, each a list in `projects.ts`:
 | --- | --- | --- |
 | AI enablement | `aiEnablement` | The Claude Team rollout (with the systems diagram from `systems.ts`) and client digests. |
 | Tools & automation | `tools` | The speaker graphic generator, logo resizer, registration system, and session archive pipeline. |
-| Marketing & creative | `marketingSites`, `creative` | The chronic disease convention site, plus campaign and design work once its media is imported. |
+| Marketing & creative | `marketingSites`, `creative` | The AdNet 2027 conference site (links to the live site at adnetcf.org) and the chronic disease convention site, plus campaign and design work once its media is imported. |
 | Freelance work | `freelanceSites` | Web Deva sites: Matt Chapin, Lighthouse Strategy Group, Katelyn's World, Vermin Mother, and the component bank. |
 
 Contact details are in the footer on every page.
@@ -39,7 +39,7 @@ npm run preview    # serve the production build
 
 The site is a white background with Helvetica Now (Thin and Light) and a raspberry accent, plus a few personal touches:
 
-- **Hero** (`src/components/Hero.tsx`): your name set horizontally, the résumé summary, and a pinboard. The pinboard has one fabric swatch per section, each linking to it, and a paper doll of you. Clicking the doll changes the outfit. The doll images are in `public/hero/`, exported from Katelyn's World.
+- **Hero** (`src/components/Hero.tsx`): "Katelyn Mulkey's Portfolio" with hand-drawn flowers (`src/components/Flowers.tsx`: a rose, daisies, a tulip, and sparkles), plus a row of single-word descriptors taken from the résumé skills, in the swatch colors.
 - **Section heads** (`src/components/Swatch.tsx`, `src/styles/swatches.css`): each section's title and description sit on a stitched label over a fabric pattern. All patterns are pure CSS.
 
 | Section | Pattern |
