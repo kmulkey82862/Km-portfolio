@@ -27,7 +27,6 @@
   --font: 'Helvetica Now Display', 'Inter Tight Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   /* Name and hero title: a bold grotesk (Helvetica Now is licensed in Thin/Light only) */
   --font-name: 'Inter Tight Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --w-hair: 100;
   --w-thin: 200;
@@ -133,6 +132,13 @@ textarea,
 select {
   font: inherit;
   color: inherit;
+}
+code,
+kbd,
+samp,
+pre {
+  font-family: inherit;
+  font-size: inherit;
 }
 h1,
 h2,
@@ -451,7 +457,8 @@ p {
   font-weight: var(--w-light);
 }
 .field textarea {
-  font-family: var(--mono);
+  font-family: var(--font);
+  font-variant-numeric: tabular-nums;
   font-size: 13px;
   line-height: 1.5;
   resize: vertical;

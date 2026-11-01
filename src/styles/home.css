@@ -675,7 +675,8 @@
   border-bottom: 1px solid var(--line);
 }
 .role__dates {
-  font-family: var(--mono);
+  font-family: var(--font);
+  font-variant-numeric: tabular-nums;
   font-size: 12.5px;
   color: var(--ink-faint);
   margin: 4px 0 0;
