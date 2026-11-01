@@ -12,12 +12,16 @@ const PINNED: { pattern: Pattern; label: string; href: string }[] = [
 export default function Hero() {
   return (
     <header className="hero">
-      <h1 className="hero__title">
-        <span>
-          {profile.firstName} {profile.lastName},
-        </span>
-        <span>Digital Portfolio</span>
-      </h1>
+      <div className="hero__title">
+        <p className="hero__kicker">
+          <span className="hero__name">
+            {profile.firstName} {profile.lastName}
+          </span>
+          <span className="hero__rule" aria-hidden="true" />
+          <span className="hero__place">{profile.locationLong}</span>
+        </p>
+        <h1 className="hero__main">Digital Portfolio</h1>
+      </div>
       <nav className="hero__pins" aria-label="Sections">
         {PINNED.map((p, k) => (
           <a key={p.pattern} href={p.href} className={`pin pin--${k + 1}`}>

@@ -11,6 +11,7 @@ export const profile = {
   phone: '985.778.7982',
   phoneHref: 'tel:+19857787982',
   location: 'New Orleans, LA',
+  locationLong: 'New Orleans, Louisiana',
   // Drop the latest resume at public/Katelyn_Mulkey_Resume.pdf (see README).
   resumePath: '/Katelyn_Mulkey_Resume.pdf',
   linkedin: '', // add when ready
