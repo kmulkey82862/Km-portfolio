@@ -6,18 +6,23 @@ It's a portfolio archive: work grouped by type, with the résumé content exactl
 
 ## What's here
 
-The homepage runs top to bottom in this order:
-
-| Section | Content file | Notes |
+| Page | Content file | Notes |
 | --- | --- | --- |
-| Header | `src/content/profile.ts` | Vertical name, title, the résumé summary word for word, and contact details. |
-| Tools & automations | `tools` in `src/content/projects.ts` | Each entry has a title, organization, year, a factual description, and demo or live links. Ends with the ARB systems diagram (`src/content/systems.ts`). |
-| Websites | `sites` in `src/content/projects.ts` | Screenshots come from the import pipeline. |
-| Creative & campaigns | `creative` in `src/content/projects.ts` | Hidden in production until its media is imported. |
-| Résumé | `src/content/experience.ts`, `src/content/profile.ts` | Experience, skills, education, and awards, word for word from the résumé. Keep this in sync with the PDF. |
-| Contact | `src/content/profile.ts` | Email, phone, location, and the résumé PDF. |
+| **Work** (`/`) | `src/content/projects.ts` | Header with the résumé summary and contact details, then work grouped by type (see below). |
+| **Résumé** (`/resume`) | `src/content/experience.ts`, `src/content/profile.ts` | Experience, skills, education, and awards, word for word from the résumé, plus the PDF download. Keep this in sync with the PDF. |
+| **Lab** (`/lab`) | `src/pages/lab/*` | Browser versions of four tools on sample data. |
+| **Katelyn's World** (`/katelyns-world/`) | `public/katelyns-world/index.html` | The standalone HTML export, served as-is. To update it, replace that file. |
 
-The lab at `/lab` (`src/pages/lab/*`) has browser versions of four tools on sample data: speaker graphic generator, logo resizer, registration codes, and client digest.
+The Work page has four sections, each a list in `projects.ts`:
+
+| Section | List | What's in it |
+| --- | --- | --- |
+| AI enablement | `aiEnablement` | The Claude Team rollout (with the systems diagram from `systems.ts`) and client digests. |
+| Tools & automation | `tools` | The speaker graphic generator, logo resizer, registration system, and session archive pipeline. |
+| Marketing & creative | `marketingSites`, `creative` | The chronic disease convention site, plus campaign and design work once its media is imported. |
+| Freelance work | `freelanceSites` | Web Deva sites: Matt Chapin, Lighthouse Strategy Group, Katelyn's World, Vermin Mother, and the component bank. |
+
+Contact details are in the footer on every page.
 
 **To change content, edit the files in `src/content/`.** You shouldn't need to touch any markup.
 

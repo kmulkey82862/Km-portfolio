@@ -14,7 +14,30 @@ export type ToolItem = {
   media?: string;
 };
 
-// Tools and automations, described plainly. Demos run on sample data.
+// Work is grouped by type. Descriptions are factual; demos run on sample data.
+
+// AI enablement at ARB Meetings & Events.
+export const aiEnablement: ToolItem[] = [
+  {
+    id: 'claude-team',
+    title: 'Claude Team rollout and knowledge base',
+    org: 'ARB Meetings & Events',
+    year: '2026',
+    description:
+      'Company-wide adoption of Claude Team across a 10-person team. Core systems, client project files, and shared documents connected into one central knowledge base. The diagram below shows the systems involved.',
+    links: [{ label: 'View the diagram', to: '/#systems', kind: 'demo' }],
+  },
+  {
+    id: 'client-digest',
+    title: 'Client digests',
+    org: 'ARB Meetings & Events',
+    year: '2026',
+    description: 'Claude automation that scans project systems and shared inboxes to send daily or weekly client digests of in-progress and pending items.',
+    links: [{ label: 'Try the demo', to: '/lab/client-digest', kind: 'demo' }],
+  },
+];
+
+// Tools and automation at ARB Meetings & Events.
 export const tools: ToolItem[] = [
   {
     id: 'speaker-graphic',
@@ -47,14 +70,6 @@ export const tools: ToolItem[] = [
     links: [{ label: 'Try the demo', to: '/lab/registration-codes', kind: 'demo' }],
   },
   {
-    id: 'client-digest',
-    title: 'Client digests',
-    org: 'ARB Meetings & Events',
-    year: '2026',
-    description: 'Claude automation that scans project systems and shared inboxes to send daily or weekly client digests of in-progress and pending items.',
-    links: [{ label: 'Try the demo', to: '/lab/client-digest', kind: 'demo' }],
-  },
-  {
     id: 'session-archive',
     title: 'Session archive pipeline',
     org: 'ARB Meetings & Events · FIMCON 2026',
@@ -76,7 +91,7 @@ export type Site = {
   status?: 'live' | 'in-progress';
 };
 
-export const sites: Site[] = [
+export const freelanceSites: Site[] = [
   {
     name: 'Matt Chapin Music',
     kind: 'Artist website',
@@ -96,22 +111,13 @@ export const sites: Site[] = [
     status: 'live',
   },
   {
-    name: 'Katelyn’s 3D World',
+    name: 'Katelyn’s World',
     kind: 'Interactive 3D',
     year: '2026',
     blurb: 'A real-time WebGL New Orleans sunset scene.',
-    url: 'https://nice-dune-0010c2e10.7.azurestaticapps.net',
+    url: '/katelyns-world/',
     media: 'site-3d-world',
     status: 'live',
-  },
-  {
-    name: 'Chronic Disease Convention',
-    kind: 'Convention website & content strategy',
-    year: '2026',
-    blurb: 'Full-funnel content strategy and website. Launching soon.',
-    url: 'https://staging.chronicdiseaseconvention.com',
-    media: 'site-cdc',
-    status: 'in-progress',
   },
   {
     name: 'Vermin Mother',
@@ -128,6 +134,19 @@ export const sites: Site[] = [
     url: 'https://webdivacomponents.netlify.com',
     media: 'site-component-bank',
     status: 'live',
+  },
+];
+
+// Marketing websites built at ARB Meetings & Events (staging until launch).
+export const marketingSites: Site[] = [
+  {
+    name: 'Chronic Disease Convention',
+    kind: 'Convention website & content strategy · ARB',
+    year: '2026',
+    blurb: 'Full-funnel content strategy and website. Launching soon.',
+    url: 'https://staging.chronicdiseaseconvention.com',
+    media: 'site-cdc',
+    status: 'in-progress',
   },
 ];
 

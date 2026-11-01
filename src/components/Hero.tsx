@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { profile } from '../content/profile';
 import GridPulse from './GridPulse';
 
@@ -44,11 +45,11 @@ export default function Hero() {
             <li>{profile.location}</li>
           </ul>
           <div className="hero__ctas">
-            <a href={profile.resumePath} className="btn btn--accent" download>
-              Résumé (PDF) <span className="arrow">↓</span>
-            </a>
-            <a href="#work" className="btn">
-              Work
+            <Link to="/resume" className="btn btn--accent">
+              Résumé <span className="arrow">→</span>
+            </Link>
+            <a href={profile.resumePath} className="btn" download>
+              Download PDF
             </a>
           </div>
         </div>

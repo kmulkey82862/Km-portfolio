@@ -29,41 +29,10 @@ function ThemeToggle({ theme, onChange }: { theme: Theme; onChange: (t: Theme) =
 }
 
 const links = [
-  { to: '/#work', label: 'Work' },
+  { to: '/', label: 'Work' },
+  { to: '/resume', label: 'Résumé' },
   { to: '/lab', label: 'Lab' },
-  { to: '/#resume', label: 'Résumé' },
-  { to: '/#contact', label: 'Contact', wideOnly: true },
 ];
-
-// Which homepage section is on screen, so the nav pill can follow it.
-const SPY = ['work', 'sites', 'creative', 'resume', 'contact'];
-const SPY_TO: Record<string, string> = { sites: '/#work', creative: '/#work' };
-
-function useActiveSection(enabled: boolean) {
-  const [active, setActive] = useState<string | null>(null);
-  useEffect(() => {
-    if (!enabled) {
-      setActive(null);
-      return;
-    }
-    const els = SPY.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el);
-    const io = new IntersectionObserver(
-      (entries) => {
-        const hit = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (hit) setActive(hit.target.id);
-      },
-      { rootMargin: '-40% 0px -55% 0px' },
-    );
-    els.forEach((el) => io.observe(el));
-    const top = () => window.scrollY < window.innerHeight * 0.5 && setActive(null);
-    window.addEventListener('scroll', top, { passive: true });
-    return () => {
-      io.disconnect();
-      window.removeEventListener('scroll', top);
-    };
-  }, [enabled]);
-  return active ? (SPY_TO[active] ?? `/#${active}`) : null;
-}
 
 export default function Layout({ children }: { children: ReactNode }) {
   useReveal();
@@ -79,8 +48,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     window.addEventListener('scroll', on, { passive: true });
     return () => window.removeEventListener('scroll', on);
   }, []);
-  const spied = useActiveSection(pathname === '/');
-  const isActive = (to: string) => (to.includes('#') ? spied === to : pathname.startsWith(to) || spied === to);
+  const isActive = (to: string) => (to === '/' ? pathname === '/' : pathname.startsWith(to));
   const changeTheme = (t: Theme) => {
     applyTheme(t);
     setTheme(t);
@@ -116,8 +84,8 @@ export default function Layout({ children }: { children: ReactNode }) {
               <Link
                 key={l.to}
                 to={l.to}
-                className={[l.wideOnly && 'wide-only', isActive(l.to) && 'is-active'].filter(Boolean).join(' ') || undefined}
-                aria-current={isActive(l.to) ? (l.to.includes('#') ? 'location' : 'page') : undefined}
+                className={isActive(l.to) ? 'is-active' : undefined}
+                aria-current={isActive(l.to) ? 'page' : undefined}
               >
                 {l.label}
               </Link>
@@ -128,12 +96,25 @@ export default function Layout({ children }: { children: ReactNode }) {
           </span>
         </nav>
         <main id="content">{children}</main>
-        <footer className="footer">
+        <footer className="footer" id="contact">
           <div className="wrap">
+            <ul className="footer__contact">
+              <li>
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              </li>
+              <li>
+                <a href={profile.phoneHref}>{profile.phone}</a>
+              </li>
+              <li>{profile.location}</li>
+              <li>
+                <a href={profile.resumePath} download>
+                  Résumé (PDF)
+                </a>
+              </li>
+            </ul>
             <span>
-              © {new Date().getFullYear()} {profile.firstName} {profile.lastName} · {profile.location}
+              © {new Date().getFullYear()} {profile.firstName} {profile.lastName}. Demos use sample data only.
             </span>
-            <span>Designed and built by Katelyn, with Claude. Demos use sample data only.</span>
           </div>
         </footer>
       </div>

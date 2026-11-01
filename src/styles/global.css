@@ -595,3 +595,16 @@ p {
   justify-content: space-between;
   gap: 16px;
 }
+.footer__contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.footer__contact a {
+  text-decoration: none;
+}

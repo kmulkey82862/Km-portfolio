@@ -746,3 +746,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------------- Standalone pages (Résumé) ---------------- */
+.page {
+  padding: clamp(32px, 5vw, 64px) 0 clamp(64px, 8vw, 120px);
+}
+.page .shead {
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.creative--after {
+  margin-top: clamp(48px, 6vw, 80px);
+}

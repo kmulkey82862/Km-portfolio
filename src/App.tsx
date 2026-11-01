@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
 // Lab demos are split out so the homepage stays light.
+const Resume = lazy(() => import('./pages/Resume'));
 const Lab = lazy(() => import('./pages/Lab'));
 const SpeakerGraphic = lazy(() => import('./pages/lab/SpeakerGraphic'));
 const LogoResizer = lazy(() => import('./pages/lab/LogoResizer'));
@@ -31,6 +32,7 @@ export default function App() {
       <Suspense fallback={<div className="wrap" style={{ padding: '120px 0' }} aria-busy="true" />}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/resume" element={<Resume />} />
           <Route path="/lab" element={<Lab />} />
           <Route path="/lab/speaker-graphic" element={<SpeakerGraphic />} />
           <Route path="/lab/logo-resizer" element={<LogoResizer />} />
