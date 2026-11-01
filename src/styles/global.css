@@ -25,6 +25,8 @@
   --track-display: -0.035em;
 
   --font: 'Helvetica Now Display', 'Inter Tight Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Name only: a soft, slightly wonky serif to set it apart from the Helvetica text */
+  --font-name: 'Fraunces Variable', Georgia, serif;
   --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --w-hair: 100;
@@ -235,10 +237,11 @@ p {
 .topnav__brand {
   justify-self: start;
   text-decoration: none;
-  font-weight: var(--w-reg);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 13px;
+  font-family: var(--font-name);
+  font-weight: 600;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 48;
+  letter-spacing: -0.01em;
+  font-size: 19px;
   white-space: nowrap;
 }
 .topnav__brand .first {
@@ -255,10 +258,9 @@ p {
   .topnav__brand {
     display: inline-flex;
     flex-direction: column;
-    gap: 2px;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    line-height: 1.1;
+    gap: 0;
+    font-size: 15px;
+    line-height: 1;
   }
   .navpill {
     font-size: 12.5px;

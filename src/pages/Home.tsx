@@ -7,6 +7,7 @@ import { WebDevaMark } from '../components/Bubbles';
 import Swatch from '../components/Swatch';
 import { aiEnablement, ArchiveLink, creative, CreativeItem, freelanceSites, marketingSites, Site, ToolItem, tools } from '../content/projects';
 import { usePageMeta } from '../lib/usePageMeta';
+import { getMedia } from '../lib/media';
 
 function ArchiveLinkItem({ link }: { link: ArchiveLink }) {
   return (
@@ -116,10 +117,12 @@ function SiteGrid({ items }: { items: Site[] }) {
             <p className="site__blurb">{s.blurb}</p>
           </>
         );
+        const local = getMedia(s.localPage);
+        const href = local && 'src' in local ? local.src : s.url;
         return (
           <li key={s.name} className="site reveal">
-            {s.url ? (
-              <a href={s.url} target="_blank" rel="noopener noreferrer" className="site__link">
+            {href ? (
+              <a href={href} target="_blank" rel="noopener noreferrer" className="site__link">
                 {body}
                 <span className="visually-hidden"> (opens in a new tab)</span>
               </a>

@@ -18,6 +18,7 @@
   margin: 0 auto;
   padding: clamp(64px, 10vw, 140px) var(--gutter) clamp(64px, 9vw, 120px);
   text-align: center;
+  overflow-x: clip;
 }
 .hero__title {
   position: relative;
@@ -25,9 +26,11 @@
   padding: 0 clamp(40px, 8vw, 140px);
 }
 .hname {
+  font-family: var(--font-name);
   font-size: clamp(44px, 7.4vw, 112px);
-  font-weight: var(--w-thin);
-  letter-spacing: var(--track-display);
+  font-weight: 620;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  letter-spacing: -0.025em;
   line-height: 1;
   margin: 0;
 }
@@ -37,6 +40,9 @@
 .hname__portfolio {
   display: block;
   margin-top: 0.12em;
+  font-family: var(--font);
+  font-variation-settings: normal;
+  letter-spacing: var(--track-display);
   font-style: italic;
   font-weight: var(--w-thin);
   font-size: 0.82em;
@@ -137,6 +143,16 @@
 .descriptor--icy {
   background: var(--icy, #c9d6df);
   color: #24394a;
+}
+.descriptor--icy::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--poppy, #d0342c);
+  vertical-align: 1px;
 }
 .descriptor--blush {
   background: var(--blush, #f3d2dc);

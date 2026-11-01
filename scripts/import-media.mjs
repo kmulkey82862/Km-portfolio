@@ -17,7 +17,8 @@
  * HEIC    -> decoded first, then treated like any image.
  * Video   -> poster frame (WebP) and, if "loop" is set, a short muted MP4 loop.
  *            Full-length video should be hosted externally ("full": url).
- * PDF/HTML-> copied as-is (HTML is shown in sandboxed iframes).
+ * PDF/HTML-> copied as-is. HTML entries may add "rewrite": [[pattern, replacement], ...]
+ *            to adjust links (e.g. a page set that should link to its own copies).
  */
 import { readFile, writeFile, mkdir, stat, copyFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -179,7 +180,14 @@ async function processCopy(item, source, type) {
   const out = path.join(OUT_DIR, type === 'html' ? 'html' : '', name);
   if (!(await isFresh(source, [out])) && !DRY) {
     await mkdir(path.dirname(out), { recursive: true });
-    await copyFile(source, out);
+    if (type === 'html' && item.rewrite) {
+      // [pattern, replacement] pairs, e.g. to point a page set's links at each other locally
+      let html = await readFile(source, 'utf8');
+      for (const [pattern, replacement] of item.rewrite) html = html.replace(new RegExp(pattern, 'g'), replacement);
+      await writeFile(out, html);
+    } else {
+      await copyFile(source, out);
+    }
   }
   return { type, alt: item.alt ?? '', src: `/media/${type === 'html' ? 'html/' : ''}${name}` };
 }

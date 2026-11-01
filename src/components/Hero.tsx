@@ -16,7 +16,7 @@ export default function Hero() {
     <header className="hero">
       <div className="hero__title">
         <Daisy className="fl fl--daisy" />
-        <Sparkle className="fl fl--spark1" />
+        <Sparkle className="fl fl--spark1" color="#d0342c" />
         <h1 className="hname">
           <span className="hname__first">{profile.firstName}</span> {profile.lastName}’s
           <span className="hname__portfolio">Portfolio</span>

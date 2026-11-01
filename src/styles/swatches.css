@@ -13,6 +13,7 @@
   --mulberry: #772450;
   --olive: #7f7c1e; /* darker olive chartreuse */
   --olive-lite: #a9a43a;
+  --poppy: #d0342c; /* the one pop of red: pairs with icy blue and the pinks, never the olive */
 
   /* Woven grain: fine noise multiplied over every swatch */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.33 0 0 0 0 0.36 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -87,7 +88,9 @@
 /* ---- Ticking stripe · icy blue ---- */
 .swatch--ticking {
   background-color: var(--icy-pale);
-  background-image: repeating-linear-gradient(
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 22px, var(--poppy) 22px 23px, transparent 23px 72px),
+    repeating-linear-gradient(
     90deg,
     var(--icy-deep) 0 3px,
     transparent 3px 8px,
@@ -100,8 +103,8 @@
 .swatch--plaid {
   background-color: var(--blush);
   background-image:
-    repeating-linear-gradient(90deg, transparent 0 33px, rgba(127, 124, 30, 0.75) 33px 35px, transparent 35px 80px),
-    repeating-linear-gradient(0deg, transparent 0 33px, rgba(127, 124, 30, 0.75) 33px 35px, transparent 35px 80px),
+    repeating-linear-gradient(90deg, transparent 0 33px, rgba(208, 52, 44, 0.8) 33px 35px, transparent 35px 80px),
+    repeating-linear-gradient(0deg, transparent 0 33px, rgba(208, 52, 44, 0.8) 33px 35px, transparent 35px 80px),
     repeating-linear-gradient(90deg, rgba(119, 36, 80, 0.5) 0 16px, transparent 16px 52px, rgba(119, 36, 80, 0.28) 52px 58px, transparent 58px 80px),
     repeating-linear-gradient(0deg, rgba(119, 36, 80, 0.5) 0 16px, transparent 16px 52px, rgba(119, 36, 80, 0.28) 52px 58px, transparent 58px 80px);
 }
@@ -135,7 +138,8 @@
   background-image:
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.38) 0 1px, transparent 1px 3px),
     repeating-linear-gradient(90deg, rgba(60, 84, 101, 0.16) 0 1px, transparent 1px 4px),
-    repeating-linear-gradient(90deg, transparent 0 57px, rgba(255, 255, 255, 0.25) 57px 59px, transparent 59px 120px);
+    repeating-linear-gradient(90deg, transparent 0 57px, rgba(255, 255, 255, 0.25) 57px 59px, transparent 59px 120px),
+    repeating-linear-gradient(0deg, transparent 0 88px, rgba(208, 52, 44, 0.55) 88px 89px, transparent 89px 176px);
 }
 .swatch--linen::after {
   opacity: 0.8;

@@ -11,6 +11,7 @@
     "import-media": "node scripts/import-media.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
     "@fontsource-variable/inter-tight": "^5.3.0",
     "jszip": "^3.10.1",
     "react": "^18.3.1",

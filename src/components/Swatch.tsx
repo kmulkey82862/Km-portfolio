@@ -3,11 +3,11 @@ import { ReactNode } from 'react';
 export type Pattern = 'ticking' | 'plaid' | 'cabana' | 'herringbone' | 'linen' | 'gingham';
 
 const TAGS: Record<Pattern, string> = {
-  ticking: 'Ticking stripe · Icy blue',
-  plaid: 'Tartan · Blush & mulberry',
+  ticking: 'Ticking stripe · Icy blue & poppy',
+  plaid: 'Tartan · Blush, mulberry & poppy',
   cabana: 'Cabana stripe · Blush',
   herringbone: 'Herringbone · Olive',
-  linen: 'Linen · Icy gray',
+  linen: 'Linen · Icy gray & poppy',
   gingham: 'Gingham · Blush',
 };
 

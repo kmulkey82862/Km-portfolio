@@ -87,6 +87,8 @@ export type Site = {
   year: string;
   blurb: string;
   url?: string;
+  /** Media id of a locally hosted copy (HTML via import-media). Used instead of `url` once imported. */
+  localPage?: string;
   media?: string;
   status?: 'live' | 'in-progress';
 };
@@ -145,6 +147,7 @@ export const marketingSites: Site[] = [
     year: '2026',
     blurb: 'Eight-page conference site: home, agenda, call for sessions, hotel and travel, registration, sponsorship, sponsors, and FAQ.',
     url: 'https://adnetcf.org/page/conference-2027',
+    localPage: 'adnet-2027',
     media: 'site-adnet-2027',
   },
   {

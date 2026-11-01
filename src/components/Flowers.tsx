@@ -6,6 +6,8 @@ const MULBERRY = '#772450';
 const OLIVE = '#7f7c1e';
 const CHARTREUSE = '#b5b23a';
 const ICY = '#b9cbd8';
+const ICY_DEEP = '#8fa6b6';
+const POPPY = '#d0342c';
 
 export function Rose({ className }: { className?: string }) {
   return (
@@ -40,9 +42,11 @@ export function Daisy({ className, petal = BLUSH, center = CHARTREUSE }: { class
 export function Tulip({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 80 140" aria-hidden="true">
-      <path d="M40 60 C 42 90, 36 112, 40 138" stroke={OLIVE} strokeWidth="3.5" fill="none" strokeLinecap="round" />
-      <path d="M40 120 C 24 100, 14 96, 8 100 C 14 116, 28 122, 40 120 Z" fill={CHARTREUSE} />
-      <path d="M16 28 L 26 44 L 40 22 L 54 44 L 64 28 C 66 50, 58 66, 40 66 C 22 66, 14 50, 16 28 Z" fill={ICY} stroke="#7d93a3" strokeWidth="2" strokeLinejoin="round" />
+      {/* Poppy-red tulip on icy-blue leaves: the red pairs with the blue, not the green */}
+      <path d="M40 60 C 42 90, 36 112, 40 138" stroke={ICY_DEEP} strokeWidth="3.5" fill="none" strokeLinecap="round" />
+      <path d="M40 120 C 24 100, 14 96, 8 100 C 14 116, 28 122, 40 120 Z" fill={ICY} stroke={ICY_DEEP} strokeWidth="1.5" />
+      <path d="M16 28 L 26 44 L 40 22 L 54 44 L 64 28 C 66 50, 58 66, 40 66 C 22 66, 14 50, 16 28 Z" fill={POPPY} stroke="#9e2219" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M30 40 C 32 52, 36 58, 40 60" stroke="#f6b3ad" strokeWidth="2" fill="none" strokeLinecap="round" />
     </svg>
   );
 }

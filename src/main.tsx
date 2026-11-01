@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import '@fontsource-variable/inter-tight';
+import '@fontsource-variable/fraunces/full.css';
 import './styles/global.css';
 import './styles/home.css';
 import './styles/lab.css';
