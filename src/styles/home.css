@@ -1035,3 +1035,60 @@
   object-position: top;
   background: #fff;
 }
+
+/* ---------------- ARB email carousel ---------------- */
+.emails {
+  margin-top: clamp(32px, 4vw, 48px);
+  padding: clamp(20px, 3vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.emails__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.emails__nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.emails__tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+.emails__tabs button {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  min-width: 160px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  font-size: 14px;
+  cursor: pointer;
+}
+.emails__tabs button[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.emails__type {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.emails__note {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--ink-faint);
+  max-width: 90ch;
+}

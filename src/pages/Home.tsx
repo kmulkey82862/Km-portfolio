@@ -6,6 +6,7 @@ import { WebDevaMark } from '../components/Bubbles';
 import Swatch from '../components/Swatch';
 import { aiEnablement, arbSites, ArchiveLink, freelanceSites, Site, ToolItem, tools } from '../content/projects';
 import DriveGallery from '../components/DriveGallery';
+import EmailCarousel from '../components/EmailCarousel';
 import { usePageMeta } from '../lib/usePageMeta';
 import { getMedia } from '../lib/media';
 
@@ -195,6 +196,7 @@ function Marketing() {
           note="Event websites built at ARB, then social media, video, email graphics, and brand work from agency, in-house, and freelance roles."
         />
         <ArbSites />
+        <EmailCarousel />
         <DriveGallery />
       </div>
     </section>
