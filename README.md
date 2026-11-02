@@ -76,6 +76,23 @@ It also writes `src/content/media.generated.json`, which the site reads. Any med
 
 `ffmpeg` comes bundled through `ffmpeg-static`, so there's nothing extra to install.
 
+## Client confidentiality (ARB work)
+
+Don't publish client logos, client names on assets, real people's names, or client results.
+
+- **Logos** get the stand-in: a white or background-colored block plus `media-src/stand-in-logo-bare.png` ("Client Name · Stand-in logo · Client confidential"). A version on its own card is at `media-src/stand-in-logo.png`.
+- **Data, numbers, and names** get black blocks (or white).
+- **How:** add `redact` and `overlay` to the item in `media.config.json`, with coordinates in source pixels:
+
+  ```json
+  "redact":  [{ "x": 464, "y": 630, "w": 500, "h": 32 }],
+  "overlay": [{ "x": 720, "y": 22, "w": 470, "h": 96, "src": "media-src/stand-in-logo-bare.png" }]
+  ```
+
+  The import applies these to the full-size original before resizing, so no unredacted version is written. Changing the config triggers a reprocess on the next import.
+- **Sources in this repo** (`media-src/`) must already be redacted, because the repository is public.
+- Work from your own employers (for example Comeaux) is fine to show as-is.
+
 ## Fonts
 
 - **Helvetica Now Display:** licensed for web use. Thin and Light are served from `public/fonts/` (`src/styles/helvetica-now.css`).

@@ -70,9 +70,10 @@ function resolveSource(src, roots) {
 const slug = (s) =>
   s.toLowerCase().replace(/\.[^.]+$/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-async function isFresh(source, outputs) {
+async function isFresh(source, outputs, deps = []) {
   if (FORCE) return false;
-  const srcTime = (await stat(source)).mtimeMs;
+  let srcTime = (await stat(source)).mtimeMs;
+  for (const dep of deps) if (existsSync(dep)) srcTime = Math.max(srcTime, (await stat(dep)).mtimeMs);
   for (const out of outputs) {
     if (!existsSync(out) || (await stat(out)).mtimeMs < srcTime) return false;
   }
@@ -114,15 +115,37 @@ async function processImage(sharp, item, source) {
     const convert = (await import('heic-convert')).default;
     input = Buffer.from(await convert({ buffer: await readFile(source), format: 'JPEG', quality: 0.92 }));
   }
-  const base = sharp(input, { animated: false }).rotate();
+  let base = sharp(input, { animated: false }).rotate();
   const meta = await base.metadata();
   const fullW = meta.autoOrient?.width ?? meta.width;
   const fullH = meta.autoOrient?.height ?? meta.height;
+
+  // Confidentiality: cover client data and logos on the full-size source, before any resizing,
+  // so no unredacted version is ever written. Coordinates are in source pixels.
+  //   "redact":  [{ "x", "y", "w", "h", "fill"?: "#111" | "#fff", "radius"?: 6 }]
+  //   "overlay": [{ "x", "y", "w", "h", "src"?: "media-src/stand-in-logo.png" }]  (centered, aspect kept)
+  const deps = [];
+  if (item.redact || item.overlay) {
+    deps.push(CONFIG);
+    const layers = [];
+    for (const r of item.redact ?? []) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${r.w}" height="${r.h}"><rect width="100%" height="100%" rx="${r.radius ?? 6}" fill="${r.fill ?? '#111111'}"/></svg>`;
+      layers.push({ input: Buffer.from(svg), left: Math.round(r.x), top: Math.round(r.y) });
+    }
+    for (const o of item.overlay ?? []) {
+      const src = path.join(ROOT, o.src ?? 'media-src/stand-in-logo.png');
+      deps.push(src);
+      const logo = await sharp(src).resize({ width: Math.round(o.w), height: Math.round(o.h), fit: 'inside' }).png().toBuffer();
+      const lm = await sharp(logo).metadata();
+      layers.push({ input: logo, left: Math.round(o.x + (o.w - lm.width) / 2), top: Math.round(o.y + (o.h - lm.height) / 2) });
+    }
+    base = sharp(await base.composite(layers).png().toBuffer());
+  }
   const widths = WIDTHS.filter((w) => w < fullW).concat(Math.min(fullW, WIDTHS.at(-1)));
   const unique = [...new Set(widths)].sort((a, b) => a - b);
 
   const outputs = unique.flatMap((w) => ['avif', 'webp'].map((f) => path.join(OUT_DIR, `${item.id}-${w}.${f}`)));
-  if (!(await isFresh(source, outputs)) && !DRY) {
+  if (!(await isFresh(source, outputs, deps)) && !DRY) {
     for (const w of unique) {
       const resized = base.clone().resize({ width: w, withoutEnlargement: true });
       await resized.clone().avif({ quality: 55, effort: 4 }).toFile(path.join(OUT_DIR, `${item.id}-${w}.avif`));
