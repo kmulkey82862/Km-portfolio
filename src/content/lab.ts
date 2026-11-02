@@ -21,12 +21,6 @@ export const labDemos: LabDemo[] = [
     provesLine: 'Rebuilt from the tool used for exhibitor and sponsor logos.',
   },
   {
-    slug: 'registration-codes',
-    title: 'Complimentary registration codes',
-    blurb: 'Generate unique codes, preview the merged email, and simulate redemptions and reminders.',
-    provesLine: 'The production system handled 300–400 invitees.',
-  },
-  {
     slug: 'client-digest',
     title: 'Client digest',
     blurb: 'A sample client digest built from a project board, an inbox, and meeting notes.',

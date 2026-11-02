@@ -13,27 +13,27 @@ const PRESETS: Spec[] = [
   { id: 'social', label: 'Social square', w: 1080, h: 1080 },
 ];
 
-// Fictional sample logos, with deliberately messy whitespace and aspect ratios.
+// Silly, obviously fictional sample logos, with deliberately messy whitespace and aspect ratios.
 const SAMPLE_SVGS: [string, string][] = [
   [
-    'levee-and-co',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500"><rect width="900" height="500" fill="#fff"/><circle cx="250" cy="250" r="70" fill="#1f5f8b"/><text x="350" y="275" font-family="Georgia,serif" font-size="72" fill="#1f5f8b">Levee &amp; Co.</text></svg>`,
+    'snorkel-and-sons-tuba-repair',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520"><rect width="1000" height="520" fill="#fff"/><circle cx="230" cy="260" r="80" fill="none" stroke="#1f5f8b" stroke-width="18"/><path d="M230 180 v-60 h40" stroke="#1f5f8b" stroke-width="18" fill="none"/><text x="350" y="245" font-family="Georgia,serif" font-size="64" fill="#1f5f8b">Snorkel &amp; Sons</text><text x="352" y="310" font-family="Georgia,serif" font-style="italic" font-size="38" fill="#1f5f8b">Tuba Repair since 1987</text></svg>`,
   ],
   [
-    'praline-analytics',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect x="200" y="140" width="200" height="200" rx="40" fill="#c0702a"/><text x="300" y="440" text-anchor="middle" font-family="Helvetica,Arial" font-weight="700" font-size="54" fill="#3b2a1e">PRALINE</text><text x="300" y="490" text-anchor="middle" font-family="Helvetica,Arial" font-size="28" letter-spacing="8" fill="#3b2a1e">ANALYTICS</text></svg>`,
+    'waffle-diplomacy-institute',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect x="200" y="120" width="200" height="200" rx="44" fill="#c0702a"/><path d="M267 140 v160 M333 140 v160 M220 187 h160 M220 253 h160" stroke="#fff" stroke-width="14"/><text x="300" y="420" text-anchor="middle" font-family="Helvetica,Arial" font-weight="700" font-size="54" fill="#3b2a1e">WAFFLE</text><text x="300" y="475" text-anchor="middle" font-family="Helvetica,Arial" font-size="26" letter-spacing="6" fill="#3b2a1e">DIPLOMACY INSTITUTE</text></svg>`,
   ],
   [
-    'second-line-health',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="300"><path d="M80 210 Q160 60 240 210 T400 210" stroke="#2f9e62" stroke-width="22" fill="none"/><text x="450" y="190" font-family="Helvetica,Arial" font-size="96" fill="#173f2b">Second Line Health</text></svg>`,
+    'grumpy-goose-insurance',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="300"><ellipse cx="170" cy="170" rx="90" ry="70" fill="#9aa9b4"/><circle cx="240" cy="100" r="42" fill="#9aa9b4"/><path d="M276 98 l52 14 l-52 14 z" fill="#e39b2d"/><path d="M226 88 l26 8" stroke="#222" stroke-width="7" stroke-linecap="round"/><text x="380" y="195" font-family="Helvetica,Arial" font-size="96" fill="#2b3a44">Grumpy Goose Insurance</text></svg>`,
   ],
   [
-    'cypress-data',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700"><rect width="700" height="700" fill="#fff"/><polygon points="350,120 470,360 230,360" fill="#3d5a3f"/><polygon points="350,220 500,480 200,480" fill="#5a7d5c"/><rect x="335" y="480" width="30" height="60" fill="#3d5a3f"/><text x="350" y="610" text-anchor="middle" font-family="Helvetica,Arial" font-size="52" fill="#222">cypress data</text></svg>`,
+    'moonlit-mollusk-savings-bank',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="700" height="720"><rect width="700" height="720" fill="#fff"/><path d="M350 140 C 240 140, 200 260, 230 360 L 350 300 L 470 360 C 500 260, 460 140, 350 140 Z" fill="#5a4b8a"/><path d="M350 160 v130 M290 180 l40 110 M410 180 l-40 110" stroke="#fff" stroke-width="8"/><circle cx="470" cy="150" r="30" fill="#f2e3a0"/><text x="350" y="480" text-anchor="middle" font-family="Helvetica,Arial" font-size="54" fill="#222">moonlit mollusk</text><text x="350" y="540" text-anchor="middle" font-family="Helvetica,Arial" font-size="30" letter-spacing="8" fill="#555">SAVINGS BANK</text></svg>`,
   ],
   [
-    'magnolia-labs',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420"><g transform="translate(160 210)"><ellipse rx="40" ry="90" fill="#e8b4c8"/><ellipse rx="40" ry="90" fill="#d68fab" transform="rotate(60)"/><ellipse rx="40" ry="90" fill="#c06d90" transform="rotate(-60)"/></g><text x="300" y="240" font-family="Helvetica,Arial" font-weight="300" font-size="88" fill="#5b1f3a">magnolia labs</text></svg>`,
+    'captain-noodles-sock-emporium',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="440"><g transform="translate(150 220) rotate(-12)"><path d="M-40 -110 h80 v120 q0 50 50 60 v40 h-90 q-60 0 -60 -60 z" fill="#d0342c"/><path d="M-40 -80 h80 M-40 -50 h80" stroke="#fff" stroke-width="12"/></g><text x="300" y="215" font-family="Helvetica,Arial" font-weight="700" font-size="76" fill="#772450">Captain Noodle’s</text><text x="302" y="285" font-family="Helvetica,Arial" font-weight="300" font-size="48" fill="#772450">Sock Emporium</text></svg>`,
   ],
 ];
 

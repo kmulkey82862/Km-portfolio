@@ -61,15 +61,6 @@ export const tools: ToolItem[] = [
     links: [{ label: 'Try the demo', to: '/lab/logo-resizer', kind: 'demo' }],
   },
   {
-    id: 'registration-codes',
-    title: 'Complimentary registration system',
-    org: 'ARB Meetings & Events',
-    year: '2026',
-    description:
-      'For 300–400 invitees. Generated unique codes, merged them into personalized emails, tracked redemption, and sent reminder drips to anyone who hadn’t registered.',
-    links: [{ label: 'Try the demo', to: '/lab/registration-codes', kind: 'demo' }],
-  },
-  {
     id: 'session-archive',
     title: 'Session archive pipeline',
     org: 'ARB Meetings & Events · FIMCON 2026',

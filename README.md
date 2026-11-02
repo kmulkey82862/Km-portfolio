@@ -10,7 +10,7 @@ It's a portfolio archive: work grouped by type, with the résumé content exactl
 | --- | --- | --- |
 | **Work** (`/`) | `src/content/projects.ts` | Header with the résumé summary and contact details, then work grouped by type (see below). |
 | **Résumé** (`/resume`) | `src/content/experience.ts`, `src/content/profile.ts` | Experience, skills, education, and awards, word for word from the résumé, plus the PDF download. Keep this in sync with the PDF. |
-| **Lab** (`/lab`) | `src/pages/lab/*` | Browser versions of four tools on sample data. |
+| **Lab** (`/lab`) | `src/pages/lab/*` | Browser versions of three tools on sample data (speaker graphic generator, logo resizer, client digest). |
 | **Katelyn's World** (`/katelyns-world/`) | `public/katelyns-world/index.html` | The standalone HTML export, served as-is. To update it, replace that file. |
 
 The Work page has four sections, each a list in `projects.ts`:
@@ -18,7 +18,7 @@ The Work page has four sections, each a list in `projects.ts`:
 | Section | List | What's in it |
 | --- | --- | --- |
 | AI enablement | `aiEnablement` | The Claude Team rollout (with the systems diagram from `systems.ts`) and client digests. |
-| Tools & automation | `tools` | The speaker graphic generator, logo resizer, registration system, and session archive pipeline. |
+| Tools & automation | `tools` | The speaker graphic generator, logo resizer, and session archive pipeline. (The complimentary registration system is covered on the résumé.) |
 | Marketing & creative | `marketingSites`, `creative` | The AdNet 2027 conference pages (hosted copies once imported; until then the card links to the live site) and the chronic disease convention site, plus campaign and design work once its media is imported. |
 | Freelance work | `freelanceSites` | Web Deva sites: Matt Chapin, Lighthouse Strategy Group, Katelyn's World, Vermin Mother, and the component bank. |
 

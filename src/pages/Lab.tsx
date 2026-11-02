@@ -18,7 +18,7 @@ export default function Lab() {
           title="Lab"
           pattern="gingham"
           level={1}
-          note="Browser versions of four tools from the archive, running on sample data. Files you add stay in your browser."
+          note="Browser versions of three tools from the archive, running on sample data. Files you add stay in your browser."
         />
         <ul className="lab-grid">
           {labDemos.map((d, i) => (

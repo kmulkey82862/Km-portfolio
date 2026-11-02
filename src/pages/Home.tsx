@@ -82,8 +82,7 @@ function Tools() {
           pattern="plaid"
           note={
             <>
-              Internal tools built at ARB Meetings & Events: speaker graphics, logo resizing, complimentary registration, and the session archive
-              pipeline. Demos run on sample data and are collected in the <Link to="/lab">lab</Link>.
+              Internal tools built at ARB Meetings & Events: speaker graphics, logo resizing, and the session archive pipeline. Demos run on sample data and are collected in the <Link to="/lab">lab</Link>.
             </>
           }
         />

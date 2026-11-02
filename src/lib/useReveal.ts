@@ -1,14 +1,18 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
-/** Adds `is-in` to every `.reveal` element as it scrolls into view. */
+/**
+ * Adds `is-in` to every `.reveal` element as it scrolls into view.
+ * A MutationObserver picks up elements that mount later (lazy-loaded pages),
+ * which would otherwise stay invisible.
+ */
 export function useReveal() {
-  const { pathname } = useLocation();
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll<HTMLElement>('.reveal:not(.is-in)'));
     if (!('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('is-in'));
-      return;
+      const showAll = () => document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-in'));
+      showAll();
+      const mo = new MutationObserver(showAll);
+      mo.observe(document.body, { childList: true, subtree: true });
+      return () => mo.disconnect();
     }
     const io = new IntersectionObserver(
       (entries) => {
@@ -21,7 +25,16 @@ export function useReveal() {
       },
       { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [pathname]);
+    const watch = () => document.querySelectorAll<HTMLElement>('.reveal:not(.is-in):not([data-watched])').forEach((el) => {
+      el.dataset.watched = '';
+      io.observe(el);
+    });
+    watch();
+    const mo = new MutationObserver(watch);
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      mo.disconnect();
+      io.disconnect();
+    };
+  }, []);
 }

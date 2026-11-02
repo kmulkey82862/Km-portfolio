@@ -4,38 +4,69 @@ import { fitText } from '../../lib/fitText';
 
 type Format = 'square' | 'landscape';
 type Template = 'raspberry' | 'noir' | 'paper';
+type Photo = CanvasImageSource & { width: number; height: number };
 
 const FORMATS: Record<Format, { w: number; h: number; label: string }> = {
   square: { w: 1080, h: 1080, label: 'Instagram · 1080×1080' },
   landscape: { w: 1200, h: 627, label: 'LinkedIn · 1200×627' },
 };
 
-const TEMPLATES: Record<Template, { bg: string; ink: string; soft: string; accent: string; ring: string; label: string }> = {
-  raspberry: { bg: '#a3164f', ink: '#ffffff', soft: 'rgba(255,255,255,0.78)', accent: '#ffffff', ring: 'rgba(255,255,255,0.9)', label: 'Raspberry' },
-  noir: { bg: '#0b0b0c', ink: '#f4f1f3', soft: 'rgba(244,241,243,0.7)', accent: '#e0457f', ring: '#e0457f', label: 'Noir' },
-  paper: { bg: '#ffffff', ink: '#0b0b0c', soft: '#55525a', accent: '#a3164f', ring: '#a3164f', label: 'Paper' },
+const TEMPLATES: Record<Template, { bg: string; ink: string; soft: string; accent: string; accentInk: string; ring: string; label: string }> = {
+  raspberry: { bg: '#a3164f', ink: '#ffffff', soft: 'rgba(255,255,255,0.8)', accent: '#ffffff', accentInk: '#a3164f', ring: 'rgba(255,255,255,0.9)', label: 'Raspberry' },
+  noir: { bg: '#0b0b0c', ink: '#f4f1f3', soft: 'rgba(244,241,243,0.72)', accent: '#e0457f', accentInk: '#0b0b0c', ring: '#e0457f', label: 'Noir' },
+  paper: { bg: '#ffffff', ink: '#0b0b0c', soft: '#55525a', accent: '#a3164f', accentInk: '#ffffff', ring: '#a3164f', label: 'Paper' },
 };
 
-// Fictional sample speaker. No real person's data appears in any demo.
-const SAMPLE = {
-  event: 'Gulf Coast Health Summit 2027',
-  name: 'Dr. Jordan Rivera',
-  role: 'Director of Community Programs, Bayou Health Partners',
-  session: 'Scaling Community Care with the Data You Already Have',
-  when: 'Thu, Apr 15 · 10:30 AM',
-};
+// Entirely fictional event and speakers. No real people or organizations appear in this demo.
+const EVENT = 'Waffle Diplomacy Summit 2027';
+
+type Speaker = { name: string; role: string; session: string; when: string; room: string };
+
+const EXAMPLES: (Speaker & { template: Template; avatar: [string, string]; caption: string })[] = [
+  {
+    name: 'Bo Pip',
+    role: 'Chief Napping Officer, Snooze Co.',
+    session: 'Naps.',
+    when: 'Thu, Apr 15 · 9:00 AM',
+    room: 'Syrup Hall',
+    template: 'raspberry',
+    avatar: ['#c9d6df', '#8fa6b6'],
+    caption: 'Short name, one-word session',
+  },
+  {
+    name: 'Dr. Penelope Pickles',
+    role: 'Head of Brine Strategy, Pickle Futures LLC',
+    session: 'Fermenting Change: What Pickles Teach Us About Patience',
+    when: 'Thu, Apr 15 · 1:30 PM',
+    room: 'The Butter Room',
+    template: 'noir',
+    avatar: ['#f3d2dc', '#d58aa3'],
+    caption: 'Typical lengths',
+  },
+  {
+    name: 'Sir Reginald Bartholomew Fluffernutter III',
+    role: 'Vice President of Extremely Important Committees, The Grand Order of Overcomplicated Things',
+    session:
+      'A Comprehensive, Exhaustive, and Frankly Unnecessary Deep Dive into Why Every Meeting Could Have Been an Email, With Several Appendices',
+    when: 'Fri, Apr 16 · 4:45 PM',
+    room: 'Ballroom C (the far one)',
+    template: 'paper',
+    avatar: ['#e8e2c4', '#b5b23a'],
+    caption: 'Everything extremely long',
+  },
+];
 
 /** A neutral silhouette so the demo works before anyone uploads a photo. */
-function sampleAvatar(): HTMLCanvasElement {
+function sampleAvatar([from, to]: [string, string]): HTMLCanvasElement {
   const c = document.createElement('canvas');
   c.width = c.height = 800;
   const g = c.getContext('2d')!;
   const grad = g.createLinearGradient(0, 0, 800, 800);
-  grad.addColorStop(0, '#d9d3d7');
-  grad.addColorStop(1, '#9e96a0');
+  grad.addColorStop(0, from);
+  grad.addColorStop(1, to);
   g.fillStyle = grad;
   g.fillRect(0, 0, 800, 800);
-  g.fillStyle = '#efeaed';
+  g.fillStyle = 'rgba(255,255,255,0.85)';
   g.beginPath();
   g.arc(400, 320, 150, 0, Math.PI * 2);
   g.fill();
@@ -45,40 +76,84 @@ function sampleAvatar(): HTMLCanvasElement {
   return c;
 }
 
-type State = typeof SAMPLE & { format: Format; template: Template; zoom: number; dx: number; dy: number };
+/** The fictional event mark: a waffle with a pat of butter, plus a two-line wordmark. Returns its width. */
+function drawLogo(ctx: CanvasRenderingContext2D, x: number, y: number, size: number, color: string, bg: string, bold: string) {
+  const r = size * 0.22;
+  ctx.save();
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.roundRect(x, y, size, size, r);
+  ctx.fill();
+  ctx.strokeStyle = bg;
+  ctx.lineWidth = size * 0.075;
+  for (const f of [1 / 3, 2 / 3]) {
+    ctx.beginPath();
+    ctx.moveTo(x + size * f, y + size * 0.12);
+    ctx.lineTo(x + size * f, y + size * 0.88);
+    ctx.moveTo(x + size * 0.12, y + size * f);
+    ctx.lineTo(x + size * 0.88, y + size * f);
+    ctx.stroke();
+  }
+  // pat of butter
+  ctx.translate(x + size * 0.62, y + size * 0.08);
+  ctx.rotate(-0.25);
+  ctx.fillStyle = '#f6d86b';
+  ctx.strokeStyle = bg;
+  ctx.lineWidth = size * 0.04;
+  ctx.beginPath();
+  ctx.roundRect(0, 0, size * 0.34, size * 0.24, size * 0.05);
+  ctx.fill();
+  ctx.stroke();
+  ctx.restore();
 
-function draw(canvas: HTMLCanvasElement, s: State, photo: CanvasImageSource & { width: number; height: number }, family: string) {
+  ctx.save();
+  ctx.fillStyle = color;
+  ctx.textBaseline = 'alphabetic';
+  ctx.font = `700 ${size * 0.34}px ${bold}`;
+  ctx.letterSpacing = `${size * 0.02}px`;
+  const tx = x + size * 1.25;
+  ctx.fillText('WAFFLE DIPLOMACY', tx, y + size * 0.46);
+  ctx.font = `500 ${size * 0.3}px ${bold}`;
+  ctx.letterSpacing = `${size * 0.06}px`;
+  ctx.fillText('SUMMIT 2027', tx, y + size * 0.9);
+  ctx.restore();
+}
+
+type State = Speaker & { format: Format; template: Template; zoom: number; dx: number; dy: number };
+
+function draw(canvas: HTMLCanvasElement, s: State, photo: Photo, family: string, bold: string) {
   const { w: W, h: H } = FORMATS[s.format];
   canvas.width = W;
   canvas.height = H;
   const ctx = canvas.getContext('2d')!;
   const t = TEMPLATES[s.template];
   const square = s.format === 'square';
-  const pad = square ? 84 : 64;
+  const pad = square ? 80 : 60;
 
   ctx.fillStyle = t.bg;
   ctx.fillRect(0, 0, W, H);
 
-  // Paper template echoes the vertical-name motif: event name runs up the left edge.
+  // Paper template: a raspberry band down the left edge carrying the event name.
   let left = pad;
   if (s.template === 'paper') {
+    const band = square ? 92 : 76;
     ctx.fillStyle = t.accent;
-    ctx.fillRect(0, 0, square ? 96 : 80, H);
+    ctx.fillRect(0, 0, band, H);
     ctx.save();
-    ctx.translate(square ? 60 : 50, H - pad);
+    ctx.translate(band / 2 + 8, H - pad);
     ctx.rotate(-Math.PI / 2);
     ctx.fillStyle = '#ffffff';
-    ctx.font = `400 ${square ? 24 : 20}px ${family}`;
+    ctx.font = `600 ${square ? 22 : 18}px ${bold}`;
     ctx.letterSpacing = '6px';
-    ctx.fillText(s.event.toUpperCase(), 0, 0);
+    ctx.fillText(EVENT.toUpperCase(), 0, 0);
     ctx.restore();
-    left = (square ? 96 : 80) + pad * 0.8;
+    left = band + pad * 0.75;
   }
 
-  // Photo in a circle, with a thin ring.
-  const r = square ? W * 0.2 : H * 0.33;
+  // Photo in a circle with a thin ring.
+  const r = square ? W * 0.19 : H * 0.3;
   const cx = square ? W - pad - r : left + r;
-  const cy = square ? pad + r : H / 2;
+  const cy = square ? pad + r + 6 : H / 2;
   ctx.save();
   ctx.beginPath();
   ctx.arc(cx, cy, r, 0, Math.PI * 2);
@@ -91,103 +166,153 @@ function draw(canvas: HTMLCanvasElement, s: State, photo: CanvasImageSource & { 
   ctx.strokeStyle = t.ring;
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.arc(cx, cy, r + 16, 0, Math.PI * 2);
+  ctx.arc(cx, cy, r + 14, 0, Math.PI * 2);
   ctx.stroke();
 
   // Text column.
-  const tx = square ? left : cx + r + 56;
-  const maxW = square ? W - tx - pad : W - tx - pad;
+  const tx = square ? left : cx + r + 52;
+  const maxW = W - tx - pad;
   ctx.textBaseline = 'alphabetic';
   ctx.letterSpacing = '0px';
 
-  if (s.template !== 'paper') {
-    ctx.fillStyle = t.soft;
-    ctx.font = `400 ${square ? 22 : 18}px ${family}`;
-    ctx.letterSpacing = '5px';
-    const ev = fitText(ctx, s.event.toUpperCase(), { maxWidth: square ? W - 2 * pad - 2 * r - 40 : maxW, maxLines: 2, max: square ? 22 : 18, min: 14, weight: 400, family });
-    ev.lines.forEach((l, i) => ctx.fillText(l, square ? pad : tx, (square ? pad + 24 : pad + 18) + i * ev.size * 1.5));
-    ctx.letterSpacing = '0px';
-  }
+  drawLogo(ctx, tx, pad, square ? 60 : 44, t.accent, t.bg, bold);
 
-  let y = square ? cy + r + 96 : pad + 110;
-  ctx.fillStyle = t.accent;
-  ctx.font = `500 ${square ? 20 : 16}px ${family}`;
+  // "Speaker" badge
+  let y = square ? cy + r + 78 : pad + 108;
+  ctx.font = `700 ${square ? 18 : 15}px ${bold}`;
   ctx.letterSpacing = '4px';
-  ctx.fillText('SPEAKER', tx, y);
+  const badge = 'SPEAKER';
+  const bw = ctx.measureText(badge).width + (square ? 36 : 28);
+  const bh = square ? 38 : 30;
+  ctx.fillStyle = t.accent;
+  ctx.beginPath();
+  ctx.roundRect(tx, y - bh + 8, bw, bh, bh / 2);
+  ctx.fill();
+  ctx.fillStyle = t.accentInk;
+  ctx.fillText(badge, tx + (square ? 19 : 15), y - (square ? 4 : 3));
   ctx.letterSpacing = '0px';
 
-  const name = fitText(ctx, s.name, { maxWidth: maxW, maxLines: 2, max: square ? 92 : 64, min: square ? 44 : 32, weight: 200, family });
+  // Footer: date and room, pinned to the bottom of the column.
+  const bottom = H - pad;
+  ctx.fillStyle = t.accent;
+  ctx.font = `600 ${square ? 24 : 18}px ${bold}`;
+  const footer = fitText(ctx, `${s.when}  ·  ${s.room}`, { maxWidth: maxW, maxLines: 1, max: square ? 24 : 18, min: 13, weight: 600, family: bold });
+  ctx.font = `600 ${footer.size}px ${bold}`;
+  ctx.fillText(footer.lines[0] ?? '', tx, bottom);
+
+  // Name, role, divider, session: each fitted to its own space.
+  const name = fitText(ctx, s.name, { maxWidth: maxW, maxLines: 2, max: square ? 92 : 60, min: square ? 38 : 28, weight: 200, family });
   ctx.fillStyle = t.ink;
   ctx.font = `200 ${name.size}px ${family}`;
-  y += name.size * 1.05;
-  name.lines.forEach((l, i) => ctx.fillText(l, tx, y + i * name.size * 1.02));
-  y += (name.lines.length - 1) * name.size * 1.02;
+  y += 24 + name.size * 0.95;
+  name.lines.forEach((l, i) => ctx.fillText(l, tx, y + i * name.size * 1.0));
+  y += (name.lines.length - 1) * name.size * 1.0;
 
-  const role = fitText(ctx, s.role, { maxWidth: maxW, maxLines: 2, max: square ? 28 : 22, min: 16, weight: 300, family });
+  const role = fitText(ctx, s.role, { maxWidth: maxW, maxLines: 2, max: square ? 28 : 21, min: 15, weight: 300, family });
   ctx.fillStyle = t.soft;
   ctx.font = `300 ${role.size}px ${family}`;
-  y += role.size * 1.7;
+  y += role.size * 1.6;
   role.lines.forEach((l, i) => ctx.fillText(l, tx, y + i * role.size * 1.3));
-  y += (role.lines.length - 1) * role.size * 1.3 + (square ? 40 : 26);
+  y += (role.lines.length - 1) * role.size * 1.3 + (square ? 34 : 22);
 
   ctx.strokeStyle = t.accent;
   ctx.lineWidth = 1.5;
   ctx.beginPath();
   ctx.moveTo(tx, y);
-  ctx.lineTo(tx + 64, y);
+  ctx.lineTo(tx + 56, y);
   ctx.stroke();
 
-  const bottom = H - pad;
-  const sessionRoom = bottom - (square ? 54 : 44) - (y + 20);
-  const session = fitText(ctx, s.session, { maxWidth: maxW, maxLines: 3, max: square ? 46 : 32, min: 18, weight: 300, family });
-  // Shrink further if three lines would collide with the date line.
-  let size = session.size;
-  let lines = session.lines;
-  while (lines.length * size * 1.18 > sessionRoom && size > 16) {
-    const next = fitText(ctx, s.session, { maxWidth: maxW, maxLines: 3, max: size - 2, min: 16, weight: 300, family });
-    size = next.size;
-    lines = next.lines;
+  const room = bottom - footer.size - (square ? 34 : 22) - (y + 16);
+  let size = square ? 46 : 32;
+  let lines: string[] = [];
+  // Shrink until the session fits both the line limit and the space above the footer.
+  for (;;) {
+    const f = fitText(ctx, s.session, { maxWidth: maxW, maxLines: 4, max: size, min: 15, weight: 300, family });
+    size = f.size;
+    lines = f.lines;
+    if (lines.length * size * 1.18 <= room || size <= 15) break;
+    size -= 2;
   }
   ctx.fillStyle = t.ink;
   ctx.font = `300 ${size}px ${family}`;
-  y += size * 1.3;
+  y += size * 1.25;
   lines.forEach((l, i) => ctx.fillText(l, tx, y + i * size * 1.18));
+}
 
-  ctx.fillStyle = t.accent;
-  ctx.font = `400 ${square ? 24 : 18}px ${family}`;
-  ctx.fillText(s.when, tx, bottom);
+function fonts() {
+  const css = getComputedStyle(document.documentElement);
+  return {
+    family: getComputedStyle(document.body).fontFamily,
+    bold: css.getPropertyValue('--font-name').trim() || 'sans-serif',
+  };
+}
+
+function ExampleCard({ ex, ready, onUse }: { ex: (typeof EXAMPLES)[number]; ready: boolean; onUse: () => void }) {
+  const ref = useRef<HTMLCanvasElement>(null);
+  useEffect(() => {
+    if (!ref.current) return;
+    const { family, bold } = fonts();
+    draw(ref.current, { ...ex, format: 'square', zoom: 1, dx: 0, dy: 0 }, sampleAvatar(ex.avatar), family, bold);
+  }, [ex, ready]);
+  return (
+    <li className="sg-example">
+      <button type="button" onClick={onUse} aria-label={`Edit the example: ${ex.caption}`}>
+        <canvas ref={ref} role="img" aria-label={`Speaker graphic for ${ex.name}`} />
+      </button>
+      <span className="sg-example__caption">{ex.caption}</span>
+    </li>
+  );
 }
 
 export default function SpeakerGraphic() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [state, setState] = useState<State>({ ...SAMPLE, format: 'square', template: 'raspberry', zoom: 1, dx: 0, dy: 0 });
-  const [photo, setPhoto] = useState<(CanvasImageSource & { width: number; height: number }) | null>(null);
+  const first = EXAMPLES[1];
+  const [state, setState] = useState<State>({
+    name: first.name,
+    role: first.role,
+    session: first.session,
+    when: first.when,
+    room: first.room,
+    template: 'raspberry',
+    format: 'square',
+    zoom: 1,
+    dx: 0,
+    dy: 0,
+  });
+  const [avatarColors, setAvatarColors] = useState<[string, string]>(first.avatar);
+  const [photo, setPhoto] = useState<Photo | null>(null);
   const [fontsReady, setFontsReady] = useState(false);
   const drag = useRef<{ x: number; y: number; dx: number; dy: number } | null>(null);
-  const avatar = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    document.fonts.load('200 40px "Inter Tight Variable"').finally(() => document.fonts.ready.then(() => setFontsReady(true)));
+    Promise.all([document.fonts.load('200 40px "Helvetica Now Display"'), document.fonts.load('700 40px "Inter Tight Variable"')])
+      .catch(() => {})
+      .finally(() => document.fonts.ready.then(() => setFontsReady(true)));
   }, []);
 
   useEffect(() => {
     if (!canvasRef.current) return;
-    avatar.current ??= sampleAvatar();
-    const family = getComputedStyle(document.body).fontFamily;
-    draw(canvasRef.current, state, photo ?? avatar.current, family);
-  }, [state, photo, fontsReady]);
+    const { family, bold } = fonts();
+    draw(canvasRef.current, state, photo ?? sampleAvatar(avatarColors), family, bold);
+  }, [state, photo, avatarColors, fontsReady]);
 
   const set = <K extends keyof State>(k: K, v: State[K]) => setState((s) => ({ ...s, [k]: v }));
 
+  const useExample = (ex: (typeof EXAMPLES)[number]) => {
+    setState((s) => ({ ...s, name: ex.name, role: ex.role, session: ex.session, when: ex.when, room: ex.room, template: ex.template, zoom: 1, dx: 0, dy: 0 }));
+    setAvatarColors(ex.avatar);
+    setPhoto(null);
+    document.getElementById('sg-editor')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   const onFile = (file?: File) => {
     if (!file) return;
-    const url = URL.createObjectURL(file);
     const img = new Image();
     img.onload = () => {
       setPhoto(img);
       setState((s) => ({ ...s, zoom: 1, dx: 0, dy: 0 }));
     };
-    img.src = url;
+    img.src = URL.createObjectURL(file);
   };
 
   const download = () => {
@@ -195,7 +320,7 @@ export default function SpeakerGraphic() {
       if (!blob) return;
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = `speaker-${state.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${state.format}.png`;
+      a.download = `speaker-${state.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40)}-${state.format}.png`;
       a.click();
       setTimeout(() => URL.revokeObjectURL(a.href), 2000);
     }, 'image/png');
@@ -208,14 +333,26 @@ export default function SpeakerGraphic() {
   };
   const onPointerMove = (e: PointerEvent<HTMLCanvasElement>) => {
     if (!drag.current) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const k = 4 / rect.width;
-    setState((s) => ({ ...s, dx: drag.current!.dx + (e.clientX - drag.current!.x) * k, dy: drag.current!.dy + (e.clientY - drag.current!.y) * k }));
+    const k = 4 / e.currentTarget.getBoundingClientRect().width;
+    const start = drag.current;
+    setState((s) => ({ ...s, dx: start.dx + (e.clientX - start.x) * k, dy: start.dy + (e.clientY - start.y) * k }));
   };
 
   return (
     <LabShell slug="speaker-graphic">
-      <div className="tool">
+      <section aria-labelledby="sg-examples-h" className="sg-examples-wrap">
+        <h2 id="sg-examples-h" className="aside-h">
+          Same layout, very different amounts of text
+        </h2>
+        <ul className="sg-examples">
+          {EXAMPLES.map((ex) => (
+            <ExampleCard key={ex.name} ex={ex} ready={fontsReady} onUse={() => useExample(ex)} />
+          ))}
+        </ul>
+        <p className="muted sg-examples__hint">Click an example to load it into the editor.</p>
+      </section>
+
+      <div className="tool" id="sg-editor">
         <form className="tool__controls" onSubmit={(e) => e.preventDefault()}>
           <label className="dropzone">
             <input type="file" accept="image/*" onChange={(e) => onFile(e.target.files?.[0])} />
@@ -232,7 +369,7 @@ export default function SpeakerGraphic() {
           </label>
           <label className="field">
             Session title
-            <textarea rows={2} style={{ fontFamily: 'inherit', fontSize: 15 }} value={state.session} onChange={(e) => set('session', e.target.value)} />
+            <textarea rows={3} style={{ fontSize: 15 }} value={state.session} onChange={(e) => set('session', e.target.value)} />
           </label>
           <div className="tool__row">
             <label className="field">
@@ -240,8 +377,8 @@ export default function SpeakerGraphic() {
               <input value={state.when} onChange={(e) => set('when', e.target.value)} />
             </label>
             <label className="field">
-              Event
-              <input value={state.event} onChange={(e) => set('event', e.target.value)} />
+              Room
+              <input value={state.room} onChange={(e) => set('room', e.target.value)} />
             </label>
           </div>
           <fieldset className="seg">
@@ -284,7 +421,7 @@ export default function SpeakerGraphic() {
             <button type="button" className="btn btn--accent" onClick={download}>
               Download PNG <span className="arrow">↓</span>
             </button>
-            <span className="muted">Try a very long name or session title: the type resizes to fit.</span>
+            <span className="muted">Type a longer name or session: the text resizes to fit.</span>
           </div>
         </div>
       </div>

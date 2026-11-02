@@ -8,16 +8,16 @@ type Source = 'board' | 'inbox' | 'zoom';
 type Item = { client: string; source: Source; title: string; status: 'done' | 'in-progress' | 'waiting' | 'due'; detail: string; due?: string };
 
 const ITEMS: Item[] = [
-  { client: 'Gulf Coast Health Summit', source: 'board', title: 'Speaker graphics batch 2', status: 'done', detail: '38 of 41 speakers have downloaded their graphic.' },
-  { client: 'Gulf Coast Health Summit', source: 'board', title: 'Attendee app content', status: 'in-progress', detail: 'Session listings loaded; sponsor profiles 70% complete.', due: 'Fri' },
-  { client: 'Gulf Coast Health Summit', source: 'inbox', title: 'Hotel block extension', status: 'waiting', detail: 'Asked the hotel to extend the block 5 days. Awaiting reply.' },
-  { client: 'Gulf Coast Health Summit', source: 'zoom', title: 'Weekly planning call', status: 'due', detail: 'Client to confirm keynote order and final AV budget.', due: 'Wed' },
-  { client: 'Delta Policy Forum', source: 'board', title: 'Early-bird email', status: 'done', detail: 'Sent to 6,240 contacts. 41% open, 9% click so far.' },
-  { client: 'Delta Policy Forum', source: 'board', title: 'Sponsor prospectus', status: 'in-progress', detail: 'Draft v2 in review with the client team.', due: 'Thu' },
-  { client: 'Delta Policy Forum', source: 'inbox', title: 'W-9 for venue deposit', status: 'waiting', detail: 'Venue requested an updated W-9 before Friday.' },
-  { client: 'Crescent Care Network', source: 'zoom', title: 'Kickoff call', status: 'done', detail: 'Goals, dates, and budget range captured in the workspace.' },
-  { client: 'Crescent Care Network', source: 'board', title: 'Registration site build', status: 'in-progress', detail: 'Ticket types configured; payment testing next.', due: 'Mon' },
-  { client: 'Crescent Care Network', source: 'inbox', title: 'Logo files', status: 'waiting', detail: 'Need vector logo files for signage and the app.' },
+  { client: 'Waffle Diplomacy Summit', source: 'board', title: 'Speaker graphics batch 2', status: 'done', detail: '38 of 41 speakers have downloaded their graphic. Sir Reginald asked for a larger font.' },
+  { client: 'Waffle Diplomacy Summit', source: 'board', title: 'Attendee app content', status: 'in-progress', detail: 'Session listings loaded; syrup sponsor profiles 70% complete.', due: 'Fri' },
+  { client: 'Waffle Diplomacy Summit', source: 'inbox', title: 'Hotel block extension', status: 'waiting', detail: 'Asked the Pancake Plaza Hotel to extend the block 5 days. Awaiting reply.' },
+  { client: 'Waffle Diplomacy Summit', source: 'zoom', title: 'Weekly planning call', status: 'due', detail: 'Client to confirm keynote order and whether the butter sculpture fits through the door.', due: 'Wed' },
+  { client: 'Big Hat Appreciation League', source: 'board', title: 'Early-bird email', status: 'done', detail: 'Sent to 6,240 members. 41% open, 9% click so far.' },
+  { client: 'Big Hat Appreciation League', source: 'board', title: 'Sponsor prospectus', status: 'in-progress', detail: 'Draft v2 in review. The Top Hat tier needs a taller column.', due: 'Thu' },
+  { client: 'Big Hat Appreciation League', source: 'inbox', title: 'Venue ceiling height', status: 'waiting', detail: 'Venue confirming ceiling height before Friday, for obvious reasons.' },
+  { client: 'National Society of Competitive Napping', source: 'zoom', title: 'Kickoff call', status: 'done', detail: 'Goals, dates, and budget captured. Two attendees fell asleep, which was on brand.' },
+  { client: 'National Society of Competitive Napping', source: 'board', title: 'Registration site build', status: 'in-progress', detail: 'Ticket types configured, including the Snooze Button Pass. Payment testing next.', due: 'Mon' },
+  { client: 'National Society of Competitive Napping', source: 'inbox', title: 'Logo files', status: 'waiting', detail: 'Need vector logo files for the pillow signage and the app.' },
 ];
 
 const STEPS: { source: Source | 'group' | 'write'; label: string }[] = [
