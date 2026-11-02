@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import SystemsMap from '../components/SystemsMap';
 import MediaFrame, { hasMedia } from '../components/MediaFrame';
 import { WebDevaMark } from '../components/Bubbles';
 import Swatch from '../components/Swatch';
-import { aiEnablement, ArchiveLink, creative, CreativeItem, freelanceSites, marketingSites, Site, ToolItem, tools } from '../content/projects';
+import { aiEnablement, arbSites, ArchiveLink, freelanceSites, Site, ToolItem, tools } from '../content/projects';
+import DriveGallery from '../components/DriveGallery';
 import { usePageMeta } from '../lib/usePageMeta';
 import { getMedia } from '../lib/media';
 
@@ -82,7 +82,7 @@ function Tools() {
           pattern="plaid"
           note={
             <>
-              Internal tools built at ARB Meetings & Events: speaker graphics, logo resizing, and the session archive pipeline. Demos run on sample data and are collected in the <Link to="/lab">lab</Link>.
+              Internal tools built at ARB Meetings & Events: speaker graphics, logo resizing, and the session archive viewer. Demos run on sample data and are collected in the <Link to="/lab">lab</Link>.
             </>
           }
         />
@@ -155,63 +155,36 @@ function Freelance() {
   );
 }
 
-function Lightbox({ item, onClose }: { item: CreativeItem; onClose: () => void }) {
-  const ref = useRef<HTMLDialogElement>(null);
-  const ids = item.media.filter(hasMedia);
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const d = ref.current;
-    d?.showModal();
-    return () => d?.close();
-  }, []);
-  const go = (delta: number) => setI((n) => (n + delta + ids.length) % ids.length);
+function ArbSites() {
   return (
-    <dialog
-      ref={ref}
-      className="lightbox"
-      aria-label={`${item.title}, ${item.client}`}
-      onClose={onClose}
-      onClick={(e) => e.target === ref.current && onClose()}
-      onKeyDown={(e) => {
-        if (e.key === 'ArrowRight') go(1);
-        if (e.key === 'ArrowLeft') go(-1);
-      }}
-    >
-      <div className="lightbox__inner">
-        <MediaFrame key={ids[i]} id={ids[i]} sizes="90vw" className="lightbox__media" autoplay={false} />
-        <div className="lightbox__bar">
-          <div>
-            <strong>{item.title}</strong> · {item.client}
-            <div className="muted">{item.kind}</div>
-          </div>
-          <div className="lightbox__nav">
-            {ids.length > 1 && (
-              <>
-                <button type="button" className="icon-btn" onClick={() => go(-1)} aria-label="Previous">
-                  ←
-                </button>
-                <span className="muted">
-                  {i + 1} / {ids.length}
-                </span>
-                <button type="button" className="icon-btn" onClick={() => go(1)} aria-label="Next">
-                  →
-                </button>
-              </>
-            )}
-            <button type="button" className="icon-btn" onClick={onClose} aria-label="Close">
-              ✕
-            </button>
-          </div>
-        </div>
+    <article className="arbsites reveal">
+      <div className="arbsites__shots">
+        {arbSites.media.filter(hasMedia).map((id) => (
+          <MediaFrame key={id} id={id} className="arbsites__shot" sizes="(max-width: 860px) 100vw, 30vw" />
+        ))}
       </div>
-    </dialog>
+      <div className="arbsites__body">
+        <p className="arbsites__org">{arbSites.org}</p>
+        <h3 className="arbsites__title">{arbSites.title}</h3>
+        <p className="arbsites__blurb">{arbSites.blurb}</p>
+        <ul className="arbsites__tags">
+          {arbSites.sites.map((site) => (
+            <li key={site.name}>
+              <a href={site.url} target="_blank" rel="noopener noreferrer" className="arbtag">
+                {site.name}
+                {site.status === 'in-progress' && <span className="arbtag__status">In progress</span>}
+                <span aria-hidden="true"> ↗</span>
+                <span className="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
   );
 }
 
 function Marketing() {
-  const [open, setOpen] = useState<CreativeItem | null>(null);
-  // In production, only show pieces whose media has been imported.
-  const items = import.meta.env.DEV ? creative : creative.filter((c) => c.media.some(hasMedia));
   return (
     <section className="section" id="marketing" aria-labelledby="marketing-h">
       <div className="wrap">
@@ -219,29 +192,11 @@ function Marketing() {
           id="marketing-h"
           title="Marketing & creative"
           pattern="cabana"
-          note="Websites, campaigns, and design from agency, in-house, and freelance roles, starting with the AdNet 2027 and chronic disease convention sites built at ARB."
+          note="Event websites built at ARB, then social media, video, email graphics, and brand work from agency, in-house, and freelance roles."
         />
-        <SiteGrid items={marketingSites} />
-        {items.length > 0 && (
-        <ul className="creative creative--after">
-          {items.map((c) => {
-            const cover = c.media.find(hasMedia) ?? c.media[0];
-            return (
-              <li key={c.id} className="creative__item reveal">
-                <button type="button" className="creative__btn" onClick={() => hasMedia(cover) && setOpen(c)} aria-label={`Open ${c.title}`}>
-                  <MediaFrame id={cover} sizes="(max-width: 760px) 100vw, 33vw" fallbackLabel={c.title} />
-                </button>
-                <p className="creative__title">{c.title}</p>
-                <p className="creative__meta">
-                  {c.client} · {c.kind}
-                </p>
-              </li>
-            );
-          })}
-        </ul>
-        )}
+        <ArbSites />
+        <DriveGallery />
       </div>
-      {open && <Lightbox item={open} onClose={() => setOpen(null)} />}
     </section>
   );
 }

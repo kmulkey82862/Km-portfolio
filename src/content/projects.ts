@@ -63,12 +63,11 @@ export const tools: ToolItem[] = [
   {
     id: 'session-archive',
     title: 'Session archive pipeline',
-    org: 'ARB Meetings & Events · FIMCON 2026',
+    org: 'ARB Meetings & Events',
     year: '2026',
     description:
-      'Apps Script moved session footage directly to pay-per-view streaming on Bunny Stream, replacing subscription hosting. Includes the viewer interface.',
-    links: [{ label: 'Live session recordings', href: 'https://fimcon.org/en/fimcon-2026-session-recordings', kind: 'live' }],
-    media: 'fimcon-archive',
+      'Apps Script moved session footage directly to pay-per-view streaming on Bunny Stream, replacing subscription hosting. Includes the searchable viewer interface, rebuilt here with sample sessions.',
+    links: [{ label: 'Try the demo', to: '/lab/session-archive', kind: 'demo' }],
   },
 ];
 
@@ -130,27 +129,26 @@ export const freelanceSites: Site[] = [
   },
 ];
 
-// Websites built at ARB Meetings & Events.
-export const marketingSites: Site[] = [
-  {
-    name: 'AdNet 2027 Annual Conference',
-    kind: 'Conference website · ARB',
-    year: '2026',
-    blurb: 'Eight-page conference site: home, agenda, call for sessions, hotel and travel, registration, sponsorship, sponsors, and FAQ.',
-    url: 'https://adnetcf.org/page/conference-2027',
-    localPage: 'adnet-2027',
-    media: 'site-adnet-2027',
-  },
-  {
-    name: 'Chronic Disease Convention',
-    kind: 'Convention website & content strategy · ARB',
-    year: '2026',
-    blurb: 'Full-funnel content strategy and website. Launching soon.',
-    url: 'https://staging.chronicdiseaseconvention.com',
-    media: 'site-cdc',
-    status: 'in-progress',
-  },
-];
+// Websites built at ARB Meetings & Events, shown as one entry with the events as tags,
+// so the clients aren't presented as Katelyn's own.
+export type SiteGroup = {
+  title: string;
+  org: string;
+  blurb: string;
+  media: string[];
+  sites: { name: string; url: string; status?: 'in-progress' }[];
+};
+
+export const arbSites: SiteGroup = {
+  title: 'Conference websites',
+  org: 'Built for ARB Meetings & Events',
+  blurb: 'Event websites and pages built while at ARB Meetings & Events: home pages, agendas, calls for sessions, registration, hotel and travel, sponsorship, and FAQs.',
+  media: ['site-adnet-2027', 'site-cdc'],
+  sites: [
+    { name: 'AdNet 2027 Annual Conference', url: 'https://adnetcf.org/page/conference-2027' },
+    { name: 'American Chronic Disease Convention', url: 'https://staging.chronicdiseaseconvention.com', status: 'in-progress' },
+  ],
+};
 
 export type CreativeItem = {
   id: string;

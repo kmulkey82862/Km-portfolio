@@ -19,7 +19,7 @@ The Work page has four sections, each a list in `projects.ts`:
 | --- | --- | --- |
 | AI enablement | `aiEnablement` | The Claude Team rollout (with the systems diagram from `systems.ts`) and client digests. |
 | Tools & automation | `tools` | The speaker graphic generator, logo resizer, and session archive pipeline. (The complimentary registration system is covered on the résumé.) |
-| Marketing & creative | `marketingSites`, `creative` | The AdNet 2027 conference pages (hosted copies once imported; until then the card links to the live site) and the chronic disease convention site, plus campaign and design work once its media is imported. |
+| Marketing & creative | `arbSites`, `src/content/driveGallery.ts` | The AdNet 2027 conference pages (hosted copies once imported; until then the card links to the live site) and the chronic disease convention site, plus campaign and design work once its media is imported. |
 | Freelance work | `freelanceSites` | Web Deva sites: Matt Chapin, Lighthouse Strategy Group, Katelyn's World, Vermin Mother, and the component bank. |
 
 Contact details are in the footer on every page.
@@ -54,6 +54,14 @@ The site is a white background with Helvetica Now (Thin and Light) and a raspber
 | Lab | Blush gingham |
 
 To change a section's fabric, change its `pattern` prop.
+
+## Creative gallery (linked from Google Drive)
+
+The social media, video, email-graphic, and brand work in **Marketing & creative** isn't downloaded. It's linked from the public `Portfolio` folder in Google Drive and listed in `src/content/driveGallery.ts`:
+- **Images** load from Drive's image server.
+- **Videos** play in Drive's own player.
+
+**To add a piece:** paste its Drive file id into a group. Each file must be in the public folder (or shared "Anyone with the link"), or it shows a Google sign-in instead.
 
 ## Media pipeline (no manual uploading)
 

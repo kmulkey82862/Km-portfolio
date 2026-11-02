@@ -738,3 +738,232 @@
     max-width: 420px;
   }
 }
+
+/* Session archive demo */
+.sa {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg-soft);
+}
+.sa__head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.sa__event {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 10px;
+}
+.sa__title {
+  font-family: var(--font-name);
+  font-weight: 800;
+  font-size: clamp(30px, 4vw, 46px);
+  letter-spacing: -0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.sa__play {
+  display: inline-grid;
+  place-items: center;
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 0.24em;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 0.7em;
+  padding-left: 0.08em;
+}
+.sa__lede {
+  color: var(--ink-soft);
+  margin: 12px 0 0;
+}
+.sa__search input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  font-size: 15px;
+}
+.sa__search input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.sa__count {
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  margin: 10px 0 22px;
+}
+.sa__dayband {
+  margin: 0 0 12px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-name);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sa__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 26px;
+  display: grid;
+  gap: 10px;
+}
+.sa__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+}
+.sa__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.sa__track {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--icy, #c9d6df);
+  color: #24394a;
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.sa__session {
+  margin: 0 0 4px;
+  font-size: 16.5px;
+  font-weight: var(--w-reg);
+}
+.sa__speakers {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.sa__watch {
+  flex: none;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 14px;
+  cursor: pointer;
+}
+.sa__watch:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+@media (max-width: 640px) {
+  .sa__card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.sa-player {
+  border: none;
+  padding: 0;
+  width: min(960px, 94vw);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0b0b0c;
+  color: #f4f1f3;
+}
+.sa-player::backdrop {
+  background: rgba(8, 8, 9, 0.85);
+}
+.sa-player__screen {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(60% 80% at 30% 30%, rgba(163, 22, 79, 0.45), transparent 70%),
+    radial-gradient(60% 80% at 80% 70%, rgba(201, 214, 223, 0.25), transparent 70%),
+    #111;
+}
+.sa-player__slate {
+  position: absolute;
+  left: 28px;
+  bottom: 24px;
+  right: 28px;
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  color: rgba(244, 241, 243, 0.8);
+}
+.sa-player__slate strong {
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: var(--w-light);
+  color: #fff;
+}
+.sa-player__track {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e0457f;
+}
+.sa-player__big {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0b0b0c;
+  font-size: 22px;
+  cursor: pointer;
+}
+.sa-player__note {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-size: 11.5px;
+  color: rgba(244, 241, 243, 0.6);
+}
+.sa-player__controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+}
+.sa-player__controls button {
+  border: none;
+  background: none;
+  color: #f4f1f3;
+  font-size: 15px;
+  cursor: pointer;
+}
+.sa-player__bar {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+.sa-player__bar i {
+  display: block;
+  height: 100%;
+  background: #e0457f;
+}
+.sa-player__time {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(244, 241, 243, 0.7);
+}

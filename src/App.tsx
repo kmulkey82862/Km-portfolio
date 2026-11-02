@@ -10,6 +10,7 @@ const Lab = lazy(() => import('./pages/Lab'));
 const SpeakerGraphic = lazy(() => import('./pages/lab/SpeakerGraphic'));
 const LogoResizer = lazy(() => import('./pages/lab/LogoResizer'));
 const ClientDigest = lazy(() => import('./pages/lab/ClientDigest'));
+const SessionArchive = lazy(() => import('./pages/lab/SessionArchive'));
 
 function ScrollManager() {
   const { pathname, hash } = useLocation();
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/lab/speaker-graphic" element={<SpeakerGraphic />} />
           <Route path="/lab/logo-resizer" element={<LogoResizer />} />
           <Route path="/lab/client-digest" element={<ClientDigest />} />
+          <Route path="/lab/session-archive" element={<SessionArchive />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
