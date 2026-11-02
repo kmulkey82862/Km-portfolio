@@ -24,8 +24,8 @@ export const aiEnablement: ToolItem[] = [
     org: 'ARB Meetings & Events',
     year: '2026',
     description:
-      'Company-wide adoption of Claude Team across a 10-person team. Core systems, client project files, and shared documents connected into one central knowledge base. The diagram below shows the systems involved.',
-    links: [{ label: 'View the diagram', to: '/#systems', kind: 'demo' }],
+      'Company-wide adoption of Claude Team across a 10-person team, with core systems, client project files, and shared documents connected into one central knowledge base.',
+    links: [{ label: 'How I approach systems integration', to: '/#systems', kind: 'demo' }],
   },
   {
     id: 'client-digest',

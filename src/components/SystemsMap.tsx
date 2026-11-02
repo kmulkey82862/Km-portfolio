@@ -106,7 +106,7 @@ export default function SystemsMap() {
           <circle className="smap__halo" cx={b.x + r} cy={b.y + r} r={r + 18} />
           <circle cx={b.x + r} cy={b.y + r} r={r} />
           <text x={b.x + r} y={b.y + r - 6} textAnchor="middle" className="smap__hub-label">
-            Claude
+            AI assistant
           </text>
           <text x={b.x + r} y={b.y + r + 18} textAnchor="middle" className="smap__hub-sub">
             knowledge base
@@ -139,7 +139,7 @@ export default function SystemsMap() {
         className="smap__svg"
         viewBox={`0 0 ${layout.width} ${layout.height}`}
         role="group"
-        aria-label="Systems map: business tools feeding Claude, and what Claude produces"
+        aria-label="Systems integration: business software feeding an AI knowledge base, and what it produces"
       >
         <g aria-hidden="true">
           {inputs.map((n) => {

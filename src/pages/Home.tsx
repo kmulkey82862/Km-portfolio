@@ -56,13 +56,13 @@ function AiEnablement() {
           id="ai-h"
           title="AI enablement"
           pattern="ticking"
-          note="The Claude Team rollout at ARB Meetings & Events, with a diagram of the systems it connected, and the client digest automation."
+          note="Rolling out AI across a team and connecting it to everyday business software, plus the client digest automation. The diagram shows how I approach systems integration."
         />
         <WorkRows items={aiEnablement} />
         <div className="archive__sub reveal" id="systems">
-          <h3 className="h-card">ARB systems overview</h3>
+          <h3 className="h-card">Systems integration</h3>
           <p className="shead__note">
-            How Claude Team connected ARB’s systems into one knowledge base, and what it produced. Select a node to see its connections.
+            How I connect common types of business software to an AI knowledge base, and what that makes possible. Select a node to see its connections.
           </p>
         </div>
         <div className="reveal">
