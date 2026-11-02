@@ -11,8 +11,8 @@ export const labDemos: LabDemo[] = [
   {
     slug: 'speaker-graphic',
     title: 'Speaker graphic generator',
-    blurb: 'Upload a headshot, enter a name and session, and download a graphic. Text resizes to fit.',
-    provesLine: 'The production version was used by about 100 speakers.',
+    blurb: 'Built instead of a Canva template: speakers download a custom, correctly sized graphic in two clicks.',
+    provesLine: 'Used by about 100 speakers. Links to the live tool, plus a rebuild you can try.',
   },
   {
     slug: 'logo-resizer',

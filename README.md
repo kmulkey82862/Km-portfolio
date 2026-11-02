@@ -88,7 +88,7 @@ It also writes `src/content/media.generated.json`, which the site reads. Any med
 
 Don't publish client logos, client names on assets, real people's names, or client results.
 
-- **Logos** get the stand-in: a white or background-colored block plus `media-src/stand-in-logo-bare.png` ("Client Name · Stand-in logo · Client confidential"). A version on its own card is at `media-src/stand-in-logo.png`.
+- **Each ARB client gets one placeholder alias**, used everywhere that client appears, in its own palette color: `media-src/client-a.png` through `client-e.png` ("Client A · Placeholder client alias"). Versions on cards are `client-*-card.png`. Current assignments: B = AdNet, C = chronic disease convention, D = FIMCON. People become plain placeholders such as Jane Doe and John Doe, and dates become ones that don't exist.
 - **Data, numbers, and names** get black blocks (or white).
 - **How:** add `redact` and `overlay` to the item in `media.config.json`, with coordinates in source pixels:
 

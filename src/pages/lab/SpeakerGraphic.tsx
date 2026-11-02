@@ -17,42 +17,44 @@ const TEMPLATES: Record<Template, { bg: string; ink: string; soft: string; accen
   paper: { bg: '#ffffff', ink: '#0b0b0c', soft: '#55525a', accent: '#a3164f', accentInk: '#ffffff', ring: '#a3164f', label: 'Paper' },
 };
 
-// Entirely fictional event and speakers. No real people or organizations appear in this demo.
-const EVENT = 'Waffle Diplomacy Summit 2027';
+// Placeholder event and speakers (Client D is the alias used for this client across the portfolio).
+// No real people or organizations appear in this demo.
+const EVENT = 'Client D Conference 2027';
+const LIVE_TOOL = 'https://fimcon.org/en/speaker-social';
 
 type Speaker = { name: string; role: string; session: string; when: string; room: string };
 
 const EXAMPLES: (Speaker & { template: Template; avatar: [string, string]; caption: string })[] = [
   {
-    name: 'Bo Pip',
-    role: 'Chief Napping Officer, Snooze Co.',
-    session: 'Naps.',
+    name: 'Jane Doe',
+    role: 'Director, Sample Organization',
+    session: 'Opening Remarks',
     when: 'Thu, Apr 15 · 9:00 AM',
-    room: 'Syrup Hall',
+    room: 'Ballroom A',
     template: 'raspberry',
     avatar: ['#c9d6df', '#8fa6b6'],
-    caption: 'Short name, one-word session',
+    caption: 'Short name, short session',
   },
   {
-    name: 'Dr. Penelope Pickles',
-    role: 'Head of Brine Strategy, Pickle Futures LLC',
-    session: 'Fermenting Change: What Pickles Teach Us About Patience',
+    name: 'Dr. John Doe',
+    role: 'Chief Program Officer, Example Health Network',
+    session: 'Building Partnerships That Last: Lessons From the Field',
     when: 'Thu, Apr 15 · 1:30 PM',
-    room: 'The Butter Room',
+    room: 'Salon 2',
     template: 'noir',
     avatar: ['#f3d2dc', '#d58aa3'],
     caption: 'Typical lengths',
   },
   {
-    name: 'Sir Reginald Bartholomew Fluffernutter III',
-    role: 'Vice President of Extremely Important Committees, The Grand Order of Overcomplicated Things',
+    name: 'Dr. Alexandra Catherine Montgomery-Whitfield, MPH',
+    role: 'Senior Vice President of Strategic Partnerships and Community Engagement, Example Regional Health Alliance',
     session:
-      'A Comprehensive, Exhaustive, and Frankly Unnecessary Deep Dive into Why Every Meeting Could Have Been an Email, With Several Appendices',
+      'From Pilot to Policy: What We Learned Scaling Community-Based Programs Across Multiple States, and What We Would Do Differently',
     when: 'Fri, Apr 16 · 4:45 PM',
-    room: 'Ballroom C (the far one)',
+    room: 'Grand Ballroom C',
     template: 'paper',
     avatar: ['#e8e2c4', '#b5b23a'],
-    caption: 'Everything extremely long',
+    caption: 'Long name, title, and session',
   },
 ];
 
@@ -76,46 +78,30 @@ function sampleAvatar([from, to]: [string, string]): HTMLCanvasElement {
   return c;
 }
 
-/** The fictional event mark: a waffle with a pat of butter, plus a two-line wordmark. Returns its width. */
+/** Placeholder event mark: the Client D alias (lettered tile) plus a two-line wordmark. */
 function drawLogo(ctx: CanvasRenderingContext2D, x: number, y: number, size: number, color: string, bg: string, bold: string) {
-  const r = size * 0.22;
   ctx.save();
   ctx.fillStyle = color;
   ctx.beginPath();
-  ctx.roundRect(x, y, size, size, r);
+  ctx.roundRect(x, y, size, size, size * 0.24);
   ctx.fill();
-  ctx.strokeStyle = bg;
-  ctx.lineWidth = size * 0.075;
-  for (const f of [1 / 3, 2 / 3]) {
-    ctx.beginPath();
-    ctx.moveTo(x + size * f, y + size * 0.12);
-    ctx.lineTo(x + size * f, y + size * 0.88);
-    ctx.moveTo(x + size * 0.12, y + size * f);
-    ctx.lineTo(x + size * 0.88, y + size * f);
-    ctx.stroke();
-  }
-  // pat of butter
-  ctx.translate(x + size * 0.62, y + size * 0.08);
-  ctx.rotate(-0.25);
-  ctx.fillStyle = '#f6d86b';
-  ctx.strokeStyle = bg;
-  ctx.lineWidth = size * 0.04;
-  ctx.beginPath();
-  ctx.roundRect(0, 0, size * 0.34, size * 0.24, size * 0.05);
-  ctx.fill();
-  ctx.stroke();
+  ctx.fillStyle = bg;
+  ctx.font = `800 ${size * 0.6}px ${bold}`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('D', x + size / 2, y + size * 0.54);
   ctx.restore();
 
   ctx.save();
   ctx.fillStyle = color;
   ctx.textBaseline = 'alphabetic';
-  ctx.font = `700 ${size * 0.34}px ${bold}`;
+  ctx.font = `700 ${size * 0.36}px ${bold}`;
   ctx.letterSpacing = `${size * 0.02}px`;
   const tx = x + size * 1.25;
-  ctx.fillText('WAFFLE DIPLOMACY', tx, y + size * 0.46);
-  ctx.font = `500 ${size * 0.3}px ${bold}`;
+  ctx.fillText('CLIENT D', tx, y + size * 0.46);
+  ctx.font = `500 ${size * 0.28}px ${bold}`;
   ctx.letterSpacing = `${size * 0.06}px`;
-  ctx.fillText('SUMMIT 2027', tx, y + size * 0.9);
+  ctx.fillText('CONFERENCE 2027', tx, y + size * 0.9);
   ctx.restore();
 }
 
@@ -340,6 +326,44 @@ export default function SpeakerGraphic() {
 
   return (
     <LabShell slug="speaker-graphic">
+      <section className="sg-story" aria-labelledby="sg-story-h">
+        <div className="sg-story__text">
+          <h2 id="sg-story-h" className="aside-h">
+            How it came together
+          </h2>
+          <p>
+            The request was one Canva template speakers could use to promote their sessions. I could see where that would lead: most speakers
+            don’t have Canva accounts, and plenty would either ask me to make their graphic for them or not share at all. So I built something that
+            works the first time, for everyone.
+          </p>
+          <ul>
+            <li>
+              I loaded the full program agenda, so every graphic carries the correct session title, speaker name, and the title each speaker
+              prefers.
+            </li>
+            <li>
+              I fine-tuned the dynamic layout with Claude over several rounds of specific feedback and QA, until short and long names and session
+              titles all stayed inside the margins, aligned and sized correctly, with font sizes and line breaks adjusting automatically.
+            </li>
+            <li>
+              I shared it directly with speakers through a simple page. Two clicks, and they were downloading a custom graphic ready to post.
+            </li>
+          </ul>
+          <p>
+            About 100 speakers used it, and it significantly boosted the buzz the event received on LinkedIn. The takeaway I carry forward: the
+            fewer clicks something takes, the more people use it, so making adoption easy is worth prioritizing.
+          </p>
+        </div>
+        <aside className="sg-story__live">
+          <p className="sg-story__label">The real tool</p>
+          <p className="muted">Built for a conference while at ARB Meetings & Events. It’s still live for that event’s speakers.</p>
+          <a href={LIVE_TOOL} target="_blank" rel="noopener noreferrer" className="btn btn--accent">
+            Open the live tool <span className="arrow">↗</span>
+          </a>
+          <p className="muted sg-story__fine">Below is a rebuild with placeholder speakers you can try.</p>
+        </aside>
+      </section>
+
       <section aria-labelledby="sg-examples-h" className="sg-examples-wrap">
         <h2 id="sg-examples-h" className="aside-h">
           Same layout, very different amounts of text

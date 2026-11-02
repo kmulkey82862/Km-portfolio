@@ -1,19 +1,19 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import LabShell from '../../components/LabShell';
 
-// Fictional sessions for a fictional event. The production archive streamed real recordings
+// Placeholder sessions for a placeholder event (Client D alias). The production archive streamed real recordings
 // through pay-per-view hosting; this rebuild shows the interface with a placeholder player.
 type Session = { id: string; day: string; time: string; track: string; title: string; speakers: string[]; length: string };
 
 const SESSIONS: Session[] = [
-  { id: 's1', day: 'Thursday, April 15', time: '8:45 – 9:00 AM', track: 'Welcome remarks', title: 'Good Morning, Syrup Enthusiasts', speakers: ['Bo Pip', 'The Steering Committee of Breakfast'], length: '14:52' },
-  { id: 's2', day: 'Thursday, April 15', time: '9:00 – 9:35 AM', track: 'Keynote', title: 'The Square Deal: Why Every Pocket Matters', speakers: ['Dr. Penelope Pickles'], length: '34:10' },
-  { id: 's3', day: 'Thursday, April 15', time: '9:45 – 10:30 AM', track: 'Panel', title: 'Butter vs. Margarine: A Respectful Debate', speakers: ['Sir Reginald Bartholomew Fluffernutter III', 'Gladys Crumpet', 'Tiny Tim Toaster'], length: '44:31' },
-  { id: 's4', day: 'Thursday, April 15', time: '11:00 – 11:45 AM', track: 'Workshop', title: 'Advanced Stacking: Structural Engineering for Pancakes', speakers: ['Marge Griddle, PE'], length: '43:08' },
-  { id: 's5', day: 'Thursday, April 15', time: '1:30 – 2:15 PM', track: 'Breakout', title: 'Fermenting Change: What Pickles Teach Us About Patience', speakers: ['Dr. Penelope Pickles'], length: '41:27' },
-  { id: 's6', day: 'Friday, April 16', time: '9:00 – 9:45 AM', track: 'Keynote', title: 'Brunch Is a State of Mind', speakers: ['Captain Noodle'], length: '45:00' },
-  { id: 's7', day: 'Friday, April 16', time: '10:00 – 10:45 AM', track: 'Panel', title: 'Competitive Napping After a Heavy Breakfast', speakers: ['Bo Pip', 'Snorkel & Sons'], length: '38:44' },
-  { id: 's8', day: 'Friday, April 16', time: '4:45 – 5:30 PM', track: 'Closing', title: 'Why Every Meeting Could Have Been an Email (With Several Appendices)', speakers: ['Sir Reginald Bartholomew Fluffernutter III'], length: '47:19' },
+  { id: 's1', day: 'Thursday, April 15', time: '8:45 – 9:00 AM', track: 'Welcome remarks', title: 'Welcome and Opening Remarks', speakers: ['Jane Doe', 'John Doe'], length: '14:52' },
+  { id: 's2', day: 'Thursday, April 15', time: '9:00 – 9:35 AM', track: 'Keynote', title: 'Building Partnerships That Last', speakers: ['Dr. John Doe'], length: '34:10' },
+  { id: 's3', day: 'Thursday, April 15', time: '9:45 – 10:30 AM', track: 'Panel', title: 'Measuring What Matters: Outcomes and Evidence', speakers: ['Jane Roe', 'Richard Roe', 'Mary Major'], length: '44:31' },
+  { id: 's4', day: 'Thursday, April 15', time: '11:00 – 11:45 AM', track: 'Workshop', title: 'Designing Programs People Actually Use', speakers: ['Alex Sample'], length: '43:08' },
+  { id: 's5', day: 'Thursday, April 15', time: '1:30 – 2:15 PM', track: 'Breakout', title: 'From Pilot to Policy: Scaling What Works', speakers: ['Dr. Alexandra Montgomery-Whitfield'], length: '41:27' },
+  { id: 's6', day: 'Friday, April 16', time: '9:00 – 9:45 AM', track: 'Keynote', title: 'The Next Five Years', speakers: ['Jordan Example'], length: '45:00' },
+  { id: 's7', day: 'Friday, April 16', time: '10:00 – 10:45 AM', track: 'Panel', title: 'Data, Technology, and the People Who Use It', speakers: ['Jane Doe', 'Sam Placeholder'], length: '38:44' },
+  { id: 's8', day: 'Friday, April 16', time: '4:45 – 5:30 PM', track: 'Closing', title: 'Closing Remarks and Next Steps', speakers: ['John Doe'], length: '47:19' },
 ];
 
 function Player({ session, onClose }: { session: Session; onClose: () => void }) {
@@ -72,11 +72,11 @@ export default function SessionArchive() {
     <LabShell slug="session-archive">
       <div className="sa">
         <header className="sa__head">
-          <p className="sa__event">Waffle Diplomacy Summit 2027</p>
+          <p className="sa__event">Client D Conference 2027 · placeholder alias</p>
           <h2 className="sa__title">
             Session <span className="sa__play" aria-hidden="true">▶</span> Archive
           </h2>
-          <p className="sa__lede">Watch the summit on demand. Keynotes, panels, and workshops, all in one place.</p>
+          <p className="sa__lede">Watch the conference on demand. Keynotes, panels, and workshops, all in one place.</p>
         </header>
         <label className="sa__search">
           <span className="visually-hidden">Search by session title or speaker</span>

@@ -13,27 +13,27 @@ const PRESETS: Spec[] = [
   { id: 'social', label: 'Social square', w: 1080, h: 1080 },
 ];
 
-// Silly, obviously fictional sample logos, with deliberately messy whitespace and aspect ratios.
+// Placeholder sponsor logos, with deliberately messy whitespace and aspect ratios, the way real files arrive.
 const SAMPLE_SVGS: [string, string][] = [
   [
-    'snorkel-and-sons-tuba-repair',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520"><rect width="1000" height="520" fill="#fff"/><circle cx="230" cy="260" r="80" fill="none" stroke="#1f5f8b" stroke-width="18"/><path d="M230 180 v-60 h40" stroke="#1f5f8b" stroke-width="18" fill="none"/><text x="350" y="245" font-family="Georgia,serif" font-size="64" fill="#1f5f8b">Snorkel &amp; Sons</text><text x="352" y="310" font-family="Georgia,serif" font-style="italic" font-size="38" fill="#1f5f8b">Tuba Repair since 1987</text></svg>`,
+    'sponsor-a',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520"><rect width="1000" height="520" fill="#fff"/><rect x="170" y="190" width="140" height="140" rx="32" fill="#8fa6b6"/><text x="240" y="285" text-anchor="middle" font-family="Helvetica,Arial" font-weight="700" font-size="84" fill="#fff">A</text><text x="350" y="282" font-family="Helvetica,Arial" font-weight="700" font-size="72" fill="#24394a">Sponsor A</text></svg>`,
   ],
   [
-    'waffle-diplomacy-institute',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect x="200" y="120" width="200" height="200" rx="44" fill="#c0702a"/><path d="M267 140 v160 M333 140 v160 M220 187 h160 M220 253 h160" stroke="#fff" stroke-width="14"/><text x="300" y="420" text-anchor="middle" font-family="Helvetica,Arial" font-weight="700" font-size="54" fill="#3b2a1e">WAFFLE</text><text x="300" y="475" text-anchor="middle" font-family="Helvetica,Arial" font-size="26" letter-spacing="6" fill="#3b2a1e">DIPLOMACY INSTITUTE</text></svg>`,
+    'sponsor-b',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect x="220" y="130" width="160" height="160" rx="80" fill="#d58aa3"/><text x="300" y="235" text-anchor="middle" font-family="Helvetica,Arial" font-weight="700" font-size="90" fill="#fff">B</text><text x="300" y="400" text-anchor="middle" font-family="Helvetica,Arial" font-weight="700" font-size="56" fill="#5e1b3e">SPONSOR B</text><text x="300" y="450" text-anchor="middle" font-family="Helvetica,Arial" font-size="24" letter-spacing="6" fill="#5e1b3e">PLACEHOLDER</text></svg>`,
   ],
   [
-    'grumpy-goose-insurance',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="300"><ellipse cx="170" cy="170" rx="90" ry="70" fill="#9aa9b4"/><circle cx="240" cy="100" r="42" fill="#9aa9b4"/><path d="M276 98 l52 14 l-52 14 z" fill="#e39b2d"/><path d="M226 88 l26 8" stroke="#222" stroke-width="7" stroke-linecap="round"/><text x="380" y="195" font-family="Helvetica,Arial" font-size="96" fill="#2b3a44">Grumpy Goose Insurance</text></svg>`,
+    'sponsor-c',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="300"><path d="M80 230 L150 80 L220 230 Z" fill="#772450"/><text x="270" y="195" font-family="Helvetica,Arial" font-size="96" fill="#772450">Sponsor C Placeholder Group</text></svg>`,
   ],
   [
-    'moonlit-mollusk-savings-bank',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="700" height="720"><rect width="700" height="720" fill="#fff"/><path d="M350 140 C 240 140, 200 260, 230 360 L 350 300 L 470 360 C 500 260, 460 140, 350 140 Z" fill="#5a4b8a"/><path d="M350 160 v130 M290 180 l40 110 M410 180 l-40 110" stroke="#fff" stroke-width="8"/><circle cx="470" cy="150" r="30" fill="#f2e3a0"/><text x="350" y="480" text-anchor="middle" font-family="Helvetica,Arial" font-size="54" fill="#222">moonlit mollusk</text><text x="350" y="540" text-anchor="middle" font-family="Helvetica,Arial" font-size="30" letter-spacing="8" fill="#555">SAVINGS BANK</text></svg>`,
+    'sponsor-d',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="700" height="720"><rect width="700" height="720" fill="#fff"/><circle cx="350" cy="250" r="110" fill="#7f7c1e"/><text x="350" y="285" text-anchor="middle" font-family="Helvetica,Arial" font-weight="700" font-size="100" fill="#fff">D</text><text x="350" y="480" text-anchor="middle" font-family="Helvetica,Arial" font-size="56" fill="#222">sponsor d</text></svg>`,
   ],
   [
-    'captain-noodles-sock-emporium',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="440"><g transform="translate(150 220) rotate(-12)"><path d="M-40 -110 h80 v120 q0 50 50 60 v40 h-90 q-60 0 -60 -60 z" fill="#d0342c"/><path d="M-40 -80 h80 M-40 -50 h80" stroke="#fff" stroke-width="12"/></g><text x="300" y="215" font-family="Helvetica,Arial" font-weight="700" font-size="76" fill="#772450">Captain Noodle’s</text><text x="302" y="285" font-family="Helvetica,Arial" font-weight="300" font-size="48" fill="#772450">Sock Emporium</text></svg>`,
+    'sponsor-e',
+    `<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="440"><rect x="90" y="140" width="160" height="160" rx="20" fill="#d0342c" transform="rotate(-8 170 220)"/><text x="300" y="215" font-family="Helvetica,Arial" font-weight="700" font-size="76" fill="#0b0b0c">Sponsor E</text><text x="302" y="280" font-family="Helvetica,Arial" font-weight="300" font-size="44" fill="#55525a">Placeholder Logo Co.</text></svg>`,
   ],
 ];
 

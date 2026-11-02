@@ -8,16 +8,16 @@ type Source = 'board' | 'inbox' | 'zoom';
 type Item = { client: string; source: Source; title: string; status: 'done' | 'in-progress' | 'waiting' | 'due'; detail: string; due?: string };
 
 const ITEMS: Item[] = [
-  { client: 'Waffle Diplomacy Summit', source: 'board', title: 'Speaker graphics batch 2', status: 'done', detail: '38 of 41 speakers have downloaded their graphic. Sir Reginald asked for a larger font.' },
-  { client: 'Waffle Diplomacy Summit', source: 'board', title: 'Attendee app content', status: 'in-progress', detail: 'Session listings loaded; syrup sponsor profiles 70% complete.', due: 'Fri' },
-  { client: 'Waffle Diplomacy Summit', source: 'inbox', title: 'Hotel block extension', status: 'waiting', detail: 'Asked the Pancake Plaza Hotel to extend the block 5 days. Awaiting reply.' },
-  { client: 'Waffle Diplomacy Summit', source: 'zoom', title: 'Weekly planning call', status: 'due', detail: 'Client to confirm keynote order and whether the butter sculpture fits through the door.', due: 'Wed' },
-  { client: 'Big Hat Appreciation League', source: 'board', title: 'Early-bird email', status: 'done', detail: 'Sent to 6,240 members. 41% open, 9% click so far.' },
-  { client: 'Big Hat Appreciation League', source: 'board', title: 'Sponsor prospectus', status: 'in-progress', detail: 'Draft v2 in review. The Top Hat tier needs a taller column.', due: 'Thu' },
-  { client: 'Big Hat Appreciation League', source: 'inbox', title: 'Venue ceiling height', status: 'waiting', detail: 'Venue confirming ceiling height before Friday, for obvious reasons.' },
-  { client: 'National Society of Competitive Napping', source: 'zoom', title: 'Kickoff call', status: 'done', detail: 'Goals, dates, and budget captured. Two attendees fell asleep, which was on brand.' },
-  { client: 'National Society of Competitive Napping', source: 'board', title: 'Registration site build', status: 'in-progress', detail: 'Ticket types configured, including the Snooze Button Pass. Payment testing next.', due: 'Mon' },
-  { client: 'National Society of Competitive Napping', source: 'inbox', title: 'Logo files', status: 'waiting', detail: 'Need vector logo files for the pillow signage and the app.' },
+  { client: 'Client A', source: 'board', title: 'Speaker graphics batch 2', status: 'done', detail: '38 of 41 speakers have downloaded their graphic.' },
+  { client: 'Client A', source: 'board', title: 'Attendee app content', status: 'in-progress', detail: 'Session listings loaded; sponsor profiles 70% complete.', due: 'Fri' },
+  { client: 'Client A', source: 'inbox', title: 'Hotel block extension', status: 'waiting', detail: 'Asked the hotel to extend the block 5 days. Awaiting reply.' },
+  { client: 'Client A', source: 'zoom', title: 'Weekly planning call', status: 'due', detail: 'Client to confirm keynote order and final AV budget.', due: 'Wed' },
+  { client: 'Client B', source: 'board', title: 'Early-bird email', status: 'done', detail: 'Sent to the full member list; results tracking in the dashboard.' },
+  { client: 'Client B', source: 'board', title: 'Sponsor prospectus', status: 'in-progress', detail: 'Draft v2 in review with the client team.', due: 'Thu' },
+  { client: 'Client B', source: 'inbox', title: 'Venue paperwork', status: 'waiting', detail: 'Venue requested updated forms before Friday.' },
+  { client: 'Client C', source: 'zoom', title: 'Kickoff call', status: 'done', detail: 'Goals, dates, and budget range captured in the workspace.' },
+  { client: 'Client C', source: 'board', title: 'Registration site build', status: 'in-progress', detail: 'Ticket types configured; payment testing next.', due: 'Mon' },
+  { client: 'Client C', source: 'inbox', title: 'Logo files', status: 'waiting', detail: 'Need vector logo files for signage and the app.' },
 ];
 
 const STEPS: { source: Source | 'group' | 'write'; label: string }[] = [

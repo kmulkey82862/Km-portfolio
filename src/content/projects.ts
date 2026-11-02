@@ -45,10 +45,10 @@ export const tools: ToolItem[] = [
     org: 'ARB Meetings & Events',
     year: '2026',
     description:
-      'Speakers upload a headshot and download a personalized graphic. Session name, speaker name, and date/time auto-size to fit. Used by about 100 speakers.',
+      'Asked for one Canva template, I built a tool instead: the program agenda loaded in, a layout refined with Claude over rounds of QA so any length of name or session title fits, and a page where speakers get a custom graphic in two clicks. About 100 speakers used it, and it boosted the event’s buzz on LinkedIn.',
     links: [
-      { label: 'Try the demo', to: '/lab/speaker-graphic', kind: 'demo' },
-      { label: 'Live speaker page', href: 'https://fimcon.org/en/speaker-social', kind: 'live' },
+      { label: 'Open the live tool', href: 'https://fimcon.org/en/speaker-social', kind: 'live' },
+      { label: 'The story and a demo', to: '/lab/speaker-graphic', kind: 'demo' },
     ],
   },
   {
