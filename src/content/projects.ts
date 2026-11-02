@@ -29,11 +29,12 @@ export const aiEnablement: ToolItem[] = [
   },
   {
     id: 'client-digest',
-    title: 'Client digests',
+    title: 'Automated digests',
     org: 'ARB Meetings & Events',
     year: '2026',
-    description: 'Claude automation that scans project systems and shared inboxes to send daily or weekly client digests of in-progress and pending items.',
-    links: [{ label: 'Try the demo', to: '/lab/client-digest', kind: 'demo' }],
+    description:
+      'Claude automations that read project boards, inboxes, team chat, calendars, meeting summaries, and notes docs: a weekly client-by-client team digest, a daily shared-inbox triage that logs and assigns requests, and a personal daily brief with a time review and pre-drafted project updates.',
+    links: [{ label: 'See all three', to: '/lab/client-digest', kind: 'demo' }],
   },
 ];
 

@@ -22,9 +22,9 @@ export const labDemos: LabDemo[] = [
   },
   {
     slug: 'client-digest',
-    title: 'Client digest',
-    blurb: 'A sample client digest built from a project board, an inbox, and meeting notes.',
-    provesLine: 'Based on the daily and weekly digests built in Claude.',
+    title: 'Automated digests',
+    blurb: 'Three Claude-built digests: a weekly team overview, a shared inbox triage, and my own daily Chaos Brief.',
+    provesLine: 'Rebuilt with placeholder clients and people.',
   },
   {
     slug: 'session-archive',
