@@ -13,14 +13,18 @@ It's a portfolio archive: work grouped by type, with the résumé content exactl
 | **Lab** (`/lab`) | `src/pages/lab/*` | Browser versions of three tools on sample data (speaker graphic generator, logo resizer, client digest). |
 | **Katelyn's World** (`/katelyns-world/`) | `public/katelyns-world/index.html` | The standalone HTML export, served as-is. To update it, replace that file. |
 
-The Work page has four sections, each a list in `projects.ts`:
+The Work page has six sections, organized by type of work:
 
-| Section | List | What's in it |
-| --- | --- | --- |
-| AI enablement | `aiEnablement` | The Claude Team rollout (with the systems diagram from `systems.ts`) and client digests. |
-| Tools & automation | `tools` | The speaker graphic generator, logo resizer, and session archive pipeline. (The complimentary registration system is covered on the résumé.) |
-| Marketing & creative | `arbSites`, `src/content/driveGallery.ts` | The AdNet 2027 conference pages (hosted copies once imported; until then the card links to the live site) and the chronic disease convention site, plus campaign and design work once its media is imported. |
-| Freelance work | `freelanceSites` | Web Deva sites: Matt Chapin, Lighthouse Strategy Group, Katelyn's World, Vermin Mother, and the component bank. |
+| Section | Content |
+| --- | --- |
+| AI & automation | `aiEnablement` in `projects.ts`, plus the systems diagram (`systems.ts`) |
+| Tools | `tools` in `projects.ts` |
+| Websites | `arbSites` and `freelanceSites` in `projects.ts`, plus the Comeaux warranty and Vermin Mother galleries |
+| Social media & video | Comeaux social, Sewing Machine Outlet, music promos, Depostrike (`driveGallery.ts`) |
+| Email | The ARB email carousel (`emails.ts`) and Comeaux email banners |
+| Brand & design | Cura OS, HNOC, Comeaux infographics |
+
+The hero has one fabric square per section, in `src/components/Hero.tsx`.
 
 Contact details are in the footer on every page.
 

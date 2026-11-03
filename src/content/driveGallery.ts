@@ -58,7 +58,7 @@ export const driveGroups: DriveGroup[] = [
   {
     id: 'comeaux-brand',
     client: 'Comeaux Furniture',
-    title: 'Email, web banners & infographics',
+    title: 'Email & web banners',
     shape: 'wide',
     items: [
       img('1-I6J-qW_sKPe6HKhuq43z82JF1JTYHyP', 'Email banner, version 1'),
@@ -71,6 +71,13 @@ export const driveGroups: DriveGroup[] = [
       img('1hVH6vuywPuAWPiYEKjIn3aaOtYCRIlJt', 'Product feature email graphic 2'),
       img('1eqUvGCRpr9DxDtXG6Kk0lsngDvqbVU83', 'Home accents sale site banner'),
       img('1loMDaXxW_5eL4r_lU4MmKtIPHFIaQCmB', 'Home accents banner, alternate'),
+    ],
+  },
+  {
+    id: 'comeaux-infographics',
+    client: 'Comeaux Furniture',
+    title: 'Infographics',
+    items: [
       img('12QTwz_SzQtQjUfuPO75NfIy9ETL6z2Di', 'Home decor tips infographic'),
       img('1ar-hWE4MppfDdfg2qYNTidLN_xRL3kTS', 'Infographic post'),
     ],

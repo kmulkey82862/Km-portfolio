@@ -50,11 +50,11 @@ function WorkRows({ items }: { items: ToolItem[] }) {
 
 function AiEnablement() {
   return (
-    <section className="section" id="work" aria-labelledby="ai-h">
+    <section className="section" id="ai" aria-labelledby="ai-h">
       <div className="wrap">
         <Swatch
           id="ai-h"
-          title="AI enablement"
+          title="AI & automation"
           pattern="ticking"
           note="Rolling out AI across a team and connecting it to everyday business software, plus the client digest automation. The diagram shows how I approach systems integration."
         />
@@ -136,21 +136,24 @@ function SiteGrid({ items }: { items: Site[] }) {
   );
 }
 
-function Freelance() {
+function Websites() {
   return (
-    <section className="section" id="freelance" aria-labelledby="freelance-h">
+    <section className="section" id="websites" aria-labelledby="websites-h">
       <div className="wrap">
         <Swatch
-          id="freelance-h"
-          title="Freelance work"
+          id="websites-h"
+          title="Websites"
           pattern="herringbone"
           note={
             <>
-              Websites and interactive builds through <WebDevaMark />, my freelance studio, for musicians, consultants, and small businesses.
+              Conference websites built at ARB Meetings & Events, sites built through <WebDevaMark />, my freelance studio, and in-house site work.
             </>
           }
         />
+        <ArbSites />
+        <h3 className="subhead reveal">Freelance · Web Deva</h3>
         <SiteGrid items={freelanceSites} />
+        <DriveGallery groups={['comeaux-warranty', 'vermin-mother']} />
       </div>
     </section>
   );
@@ -185,19 +188,40 @@ function ArbSites() {
   );
 }
 
-function Marketing() {
+function Social() {
   return (
-    <section className="section" id="marketing" aria-labelledby="marketing-h">
+    <section className="section" id="social" aria-labelledby="social-h">
       <div className="wrap">
         <Swatch
-          id="marketing-h"
-          title="Marketing & creative"
+          id="social-h"
+          title="Social media & video"
           pattern="cabana"
-          note="Event websites built at ARB, then social media, video, email graphics, and brand work from agency, in-house, and freelance roles."
+          note="Posts, stories, reels, and promo videos for retail, music, and brand clients, including AI-assisted video."
         />
-        <ArbSites />
+        <DriveGallery groups={['comeaux-social', 'smo', 'music', 'depostrike']} />
+      </div>
+    </section>
+  );
+}
+
+function Email() {
+  return (
+    <section className="section" id="email" aria-labelledby="email-h">
+      <div className="wrap">
+        <Swatch id="email-h" title="Email" pattern="gingham" note="Conference emails built at ARB Meetings & Events, plus email banners and graphics from in-house roles." />
         <EmailCarousel />
-        <DriveGallery />
+        <DriveGallery groups={['comeaux-brand']} />
+      </div>
+    </section>
+  );
+}
+
+function Design() {
+  return (
+    <section className="section" id="design" aria-labelledby="design-h">
+      <div className="wrap">
+        <Swatch id="design-h" title="Brand & design" pattern="linen" note="Brand identity, exhibition promo design, and infographics." />
+        <DriveGallery groups={['cura', 'hnoc', 'comeaux-infographics']} folderLink />
       </div>
     </section>
   );
@@ -210,8 +234,10 @@ export default function Home() {
       <Hero />
       <AiEnablement />
       <Tools />
-      <Marketing />
-      <Freelance />
+      <Websites />
+      <Social />
+      <Email />
+      <Design />
     </>
   );
 }

@@ -16,18 +16,18 @@
 .hero {
   max-width: var(--max);
   margin: 0 auto;
-  min-height: min(760px, calc(100vh - 64px));
+  min-height: min(820px, calc(100vh - 64px));
   padding: clamp(48px, 7vw, 96px) var(--gutter);
   display: grid;
   grid-template-columns: 1fr minmax(0, 3.2fr) 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
   align-items: center;
   justify-items: center;
   gap: clamp(24px, 4vw, 56px) clamp(16px, 3vw, 48px);
 }
 .hero__title {
   grid-column: 2;
-  grid-row: 1 / 3;
+  grid-row: 1 / 4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,35 +73,17 @@
 /* Fabric squares, taped up with pinking-shears edges */
 .pin {
   position: relative;
-  width: clamp(104px, 11vw, 164px);
+  width: clamp(92px, 9vw, 132px);
   text-decoration: none;
   transform: rotate(var(--tilt, 0deg));
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.pin--1 {
-  grid-column: 1;
-  grid-row: 1;
-  --tilt: -5deg;
-  align-self: end;
-}
-.pin--2 {
-  grid-column: 3;
-  grid-row: 1;
-  --tilt: 4deg;
-  align-self: end;
-}
-.pin--3 {
-  grid-column: 1;
-  grid-row: 2;
-  --tilt: 3deg;
-  align-self: start;
-}
-.pin--4 {
-  grid-column: 3;
-  grid-row: 2;
-  --tilt: -4deg;
-  align-self: start;
-}
+.pin--1 { grid-column: 1; grid-row: 1; --tilt: -5deg; }
+.pin--2 { grid-column: 1; grid-row: 2; --tilt: 3deg; }
+.pin--3 { grid-column: 1; grid-row: 3; --tilt: -2deg; }
+.pin--4 { grid-column: 3; grid-row: 1; --tilt: 4deg; }
+.pin--5 { grid-column: 3; grid-row: 2; --tilt: -4deg; }
+.pin--6 { grid-column: 3; grid-row: 3; --tilt: 5deg; }
 .pin:hover,
 .pin:focus-visible {
   transform: rotate(0deg) translateY(-5px);
@@ -128,7 +110,8 @@
   z-index: 1;
 }
 .pin--2::before,
-.pin--3::before {
+.pin--4::before,
+.pin--6::before {
   background: color-mix(in srgb, var(--blush, #f3d2dc) 75%, transparent);
   transform: translateX(-50%) rotate(5deg);
 }
@@ -145,9 +128,9 @@
 @media (max-width: 760px) {
   .hero {
     min-height: 0;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: auto auto;
-    gap: 40px 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto auto auto;
+    gap: 28px 12px;
     padding-top: 56px;
   }
   .hero__title {
@@ -163,27 +146,13 @@
   }
   .pin {
     width: 100%;
-    max-width: 84px;
+    max-width: 92px;
   }
-  .pin--1,
-  .pin--2,
-  .pin--3,
-  .pin--4 {
-    grid-row: 2;
-    align-self: start;
-  }
-  .pin--1 {
-    grid-column: 1;
-  }
-  .pin--2 {
-    grid-column: 2;
-  }
-  .pin--3 {
-    grid-column: 3;
-  }
-  .pin--4 {
-    grid-column: 4;
-  }
+  .pin--1, .pin--2, .pin--3 { grid-row: 2; }
+  .pin--4, .pin--5, .pin--6 { grid-row: 3; }
+  .pin--1, .pin--4 { grid-column: 1; }
+  .pin--2, .pin--5 { grid-column: 2; }
+  .pin--3, .pin--6 { grid-column: 3; }
   .pin__label {
     font-size: 11.5px;
     line-height: 1.3;
@@ -1091,4 +1060,16 @@
   font-size: 13px;
   color: var(--ink-faint);
   max-width: 90ch;
+}
+
+.subhead {
+  margin: clamp(48px, 6vw, 72px) 0 24px;
+  font-size: 13px;
+  font-weight: var(--w-reg);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.dgallery:first-child {
+  margin-top: 0;
 }

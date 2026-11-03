@@ -56,11 +56,12 @@ function Viewer({ group, start, onClose }: { group: DriveGroup; start: number; o
   );
 }
 
-export default function DriveGallery() {
+export default function DriveGallery({ groups, folderLink = false }: { groups: string[]; folderLink?: boolean }) {
+  const list = groups.map((id) => driveGroups.find((g) => g.id === id)).filter((g): g is DriveGroup => !!g);
   const [open, setOpen] = useState<{ group: DriveGroup; index: number } | null>(null);
   return (
     <div className="dgallery">
-      {driveGroups.map((g) => (
+      {list.map((g) => (
         <section key={g.id} className="dgroup reveal" aria-labelledby={`dg-${g.id}`}>
           <header className="dgroup__head">
             <div>
@@ -91,11 +92,13 @@ export default function DriveGallery() {
           </ul>
         </section>
       ))}
+      {folderLink && (
       <p className="dgallery__folder">
         <a href={PORTFOLIO_FOLDER} target="_blank" rel="noopener noreferrer">
           Browse the full portfolio folder in Google Drive ↗
         </a>
       </p>
+      )}
       {open && <Viewer group={open.group} start={open.index} onClose={() => setOpen(null)} />}
     </div>
   );

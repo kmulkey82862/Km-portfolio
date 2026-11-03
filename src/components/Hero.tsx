@@ -3,10 +3,12 @@ import type { Pattern } from './Swatch';
 
 // Fabric squares pinned around the title, one per section, matching the section heads below.
 const PINNED: { pattern: Pattern; label: string; href: string }[] = [
-  { pattern: 'ticking', label: 'AI enablement', href: '#work' },
-  { pattern: 'plaid', label: 'Tools & automation', href: '#tools' },
-  { pattern: 'cabana', label: 'Marketing & creative', href: '#marketing' },
-  { pattern: 'herringbone', label: 'Freelance work', href: '#freelance' },
+  { pattern: 'ticking', label: 'AI & automation', href: '#ai' },
+  { pattern: 'plaid', label: 'Tools', href: '#tools' },
+  { pattern: 'herringbone', label: 'Websites', href: '#websites' },
+  { pattern: 'cabana', label: 'Social & video', href: '#social' },
+  { pattern: 'gingham', label: 'Email', href: '#email' },
+  { pattern: 'linen', label: 'Brand & design', href: '#design' },
 ];
 
 export default function Hero() {

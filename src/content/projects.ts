@@ -113,13 +113,6 @@ export const freelanceSites: Site[] = [
     status: 'live',
   },
   {
-    name: 'Vermin Mother',
-    kind: 'Band website · design & content',
-    year: '',
-    blurb: 'Design and content for an independent band.',
-    media: 'site-vermin-mother',
-  },
-  {
     name: 'Web Deva Component Bank',
     kind: 'UI library',
     year: '2026',
