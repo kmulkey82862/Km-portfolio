@@ -18,7 +18,7 @@ The Work page has six sections, organized by type of work:
 
 | Section | Content |
 | --- | --- |
-| AI & automation | `aiEnablement` in `projects.ts`, plus the systems diagram (`systems.ts`) |
+| AI & automation | `aiEnablement` in `projects.ts`, plus a preview of the three digests (`digests.ts`, also used by the lab page) |
 | Tools | `tools` in `projects.ts` |
 | Websites | `arbSites` and `freelanceSites` in `projects.ts`, plus the Comeaux warranty and Vermin Mother galleries |
 | Social media & video | Comeaux social, Sewing Machine Outlet, music promos, Depostrike (`driveGallery.ts`) |

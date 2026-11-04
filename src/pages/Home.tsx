@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
-import SystemsMap from '../components/SystemsMap';
+import DigestPreview from '../components/DigestPreview';
 import MediaFrame, { hasMedia } from '../components/MediaFrame';
 import { WebDevaMark } from '../components/Bubbles';
 import Swatch from '../components/Swatch';
@@ -56,17 +56,15 @@ function AiEnablement() {
           id="ai-h"
           title="AI & automation"
           pattern="ticking"
-          note="Rolling out AI across a team and connecting it to everyday business software, plus the client digest automation. The diagram shows how I approach systems integration."
+          note="Rolling out AI across a team and connecting it to everyday business software, plus the digest automations built on top of it."
         />
         <WorkRows items={aiEnablement} />
-        <div className="archive__sub reveal" id="systems">
-          <h3 className="h-card">Systems integration</h3>
-          <p className="shead__note">
-            How I connect common types of business software to an AI knowledge base, and what that makes possible. Select a node to see its connections.
-          </p>
+        <div className="archive__sub reveal" id="digests">
+          <h3 className="h-card">What the automations send</h3>
+          <p className="shead__note">The three digests as they land in the inbox, rebuilt on sample data.</p>
         </div>
         <div className="reveal">
-          <SystemsMap />
+          <DigestPreview />
         </div>
       </div>
     </section>

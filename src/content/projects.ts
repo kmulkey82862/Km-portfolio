@@ -25,7 +25,7 @@ export const aiEnablement: ToolItem[] = [
     year: '2026',
     description:
       'Company-wide adoption of Claude Team across a 10-person team, with core systems, client project files, and shared documents connected into one central knowledge base.',
-    links: [{ label: 'How I approach systems integration', to: '/#systems', kind: 'demo' }],
+    links: [{ label: 'See what it sends', to: '/#digests', kind: 'demo' }],
   },
   {
     id: 'client-digest',
@@ -34,7 +34,7 @@ export const aiEnablement: ToolItem[] = [
     year: '2026',
     description:
       'Claude automations that read project boards, inboxes, team chat, calendars, meeting summaries, and notes docs: a weekly client-by-client team digest, a daily shared-inbox triage that logs and assigns requests, and a personal daily brief with a time review and pre-drafted project updates.',
-    links: [{ label: 'See all three', to: '/lab/client-digest', kind: 'demo' }],
+    links: [{ label: 'Preview all three', to: '/#digests', kind: 'demo' }],
   },
 ];
 
