@@ -82,6 +82,8 @@ export type Site = {
   localPage?: string;
   media?: string;
   status?: 'live' | 'in-progress';
+  /** Where it's hosted and how it was built. */
+  platform?: string;
 };
 
 export const freelanceSites: Site[] = [
@@ -89,7 +91,9 @@ export const freelanceSites: Site[] = [
     name: 'Matt Chapin Music',
     kind: 'Artist website',
     year: '2025',
-    blurb: 'A moody, cinematic site for a New Orleans jazz guitarist and composer.',
+    blurb:
+      'A site for a New Orleans jazz guitarist and composer, built from his idea of what would look cool. The interactive hero layers photographs, animated type, a moonlight effect, and drifting music notes. On the media page, a visualizer above the player moves to the rhythm of one of his original suites as it plays.',
+    platform: 'Custom build · Netlify with a custom domain',
     url: 'https://mattchapinmusic.com',
     media: 'site-matt-chapin',
     status: 'live',
@@ -98,7 +102,9 @@ export const freelanceSites: Site[] = [
     name: 'Lighthouse Strategy Group',
     kind: 'Consulting firm',
     year: '2025',
-    blurb: 'A clean, credible presence for an independent consultant.',
+    blurb:
+      'Developed closely with the owner to match her brand and bring its elements to life, including a custom hero. The custom HTML runs inside Squarespace so she can manage the site herself.',
+    platform: 'Custom HTML · Squarespace',
     url: 'https://lighthousestrategygroup.com',
     media: 'site-lighthouse',
     status: 'live',
@@ -129,18 +135,32 @@ export type SiteGroup = {
   title: string;
   org: string;
   blurb: string;
+  note: string;
   media: string[];
-  sites: { name: string; url: string; status?: 'in-progress' }[];
+  sites: { name: string; url: string; platform: string; blurb: string; archived?: boolean }[];
 };
 
 export const arbSites: SiteGroup = {
   title: 'Conference websites',
   org: 'Built for ARB Meetings & Events',
-  blurb: 'Event websites and pages built while at ARB Meetings & Events: home pages, agendas, calls for sessions, registration, hotel and travel, sponsorship, and FAQs.',
+  blurb: 'Event websites built while at ARB Meetings & Events: home pages, agendas, calls for sessions, registration, hotel and travel, sponsorship, and FAQs. I was the creative director and designer on these, working within each client’s brand guidelines.',
+  note: 'The HTML for these sites is preserved here as the version that was entirely my work. Live sites change as others optimize them or update content, so these link to archived copies instead of the live URLs. Forms are switched off in the copies.',
   media: ['site-adnet-2027', 'site-cdc'],
   sites: [
-    { name: 'AdNet 2027 Annual Conference', url: 'https://adnetcf.org/page/conference-2027' },
-    { name: 'American Chronic Disease Convention', url: 'https://staging.chronicdiseaseconvention.com', status: 'in-progress' },
+    {
+      name: 'American Chronic Disease Convention',
+      url: '/work/acdc/',
+      platform: 'Custom HTML, CSS, and JavaScript · WordPress',
+      blurb:
+        'Six pages and a site-wide header, footer, and mailing-list pop-up. The scroll animation where the eight sector pieces of glass come together was my idea; I found and handcrafted each piece so it could work.',
+      archived: true,
+    },
+    {
+      name: 'AdNet 2027 Annual Conference',
+      url: 'https://adnetcf.org/page/conference-2027',
+      platform: 'Custom HTML pages · YourEvent',
+      blurb: 'Home, agenda, sessions, registration, hotel, sponsorship, sponsors, and FAQ pages.',
+    },
   ],
 };
 

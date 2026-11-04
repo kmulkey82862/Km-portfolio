@@ -958,14 +958,6 @@
   color: var(--ink-soft);
   margin: 0 0 20px;
 }
-.arbsites__tags {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
 .arbtag {
   display: inline-flex;
   align-items: center;
@@ -986,7 +978,35 @@
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #c68a12;
+  color: var(--accent);
+}
+.arbsites__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 18px;
+}
+.arbsite__platform,
+.site__platform {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin: 8px 0 4px;
+}
+.site__platform {
+  margin: 0 0 6px;
+}
+.arbsite__blurb {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0;
+}
+.arbsites__note {
+  margin: 20px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--ink-faint);
 }
 @media (max-width: 860px) {
   .arbsites {

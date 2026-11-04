@@ -114,6 +114,7 @@ function SiteGrid({ items }: { items: Site[] }) {
               {s.status && <span className={`pill pill--${s.status}`}>{s.status === 'in-progress' ? 'In progress' : 'Live'}</span>}
             </div>
             <h3 className="site__name">{s.name}</h3>
+            {s.platform && <p className="site__platform">{s.platform}</p>}
             <p className="site__blurb">{s.blurb}</p>
           </>
         );
@@ -146,7 +147,7 @@ function Websites() {
           pattern="herringbone"
           note={
             <>
-              Conference websites built at ARB Meetings & Events, sites built through <WebDevaMark />, my freelance studio, and in-house site work.
+              Conference websites built at ARB Meetings & Events, sites built through <WebDevaMark />, my freelance studio, and in-house site work. None of these come from a template: each is custom-built with Claude, with my own design, graphics, and motion work.
             </>
           }
         />
@@ -171,18 +172,21 @@ function ArbSites() {
         <p className="arbsites__org">{arbSites.org}</p>
         <h3 className="arbsites__title">{arbSites.title}</h3>
         <p className="arbsites__blurb">{arbSites.blurb}</p>
-        <ul className="arbsites__tags">
+        <ul className="arbsites__list">
           {arbSites.sites.map((site) => (
-            <li key={site.name}>
+            <li key={site.name} className="arbsite">
               <a href={site.url} target="_blank" rel="noopener noreferrer" className="arbtag">
                 {site.name}
-                {site.status === 'in-progress' && <span className="arbtag__status">In progress</span>}
+                {site.archived && <span className="arbtag__status">Archived build</span>}
                 <span aria-hidden="true"> ↗</span>
                 <span className="visually-hidden"> (opens in a new tab)</span>
               </a>
+              <p className="arbsite__platform">{site.platform}</p>
+              <p className="arbsite__blurb">{site.blurb}</p>
             </li>
           ))}
         </ul>
+        <p className="arbsites__note">{arbSites.note}</p>
       </div>
     </article>
   );
