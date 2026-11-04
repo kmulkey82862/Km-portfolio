@@ -31,7 +31,6 @@ function ThemeToggle({ theme, onChange }: { theme: Theme; onChange: (t: Theme) =
 const links = [
   { to: '/', label: 'Work' },
   { to: '/resume', label: 'Résumé' },
-  { to: '/lab', label: 'Lab' },
 ];
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -41,7 +40,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     if (storedTheme()) applyTheme(storedTheme()!);
   }, []);
   const { pathname } = useLocation();
-  const isActive = (to: string) => (to === '/' ? pathname === '/' : pathname.startsWith(to));
+  const isActive = (to: string) => (to === '/' ? pathname === '/' || pathname.startsWith('/lab/') : pathname.startsWith(to));
   const changeTheme = (t: Theme) => {
     applyTheme(t);
     setTheme(t);

@@ -1,4 +1,4 @@
-import { Bullet, experience, skills } from '../content/experience';
+import { Bullet, experience, expertise, selectedWork, skills } from '../content/experience';
 import { awards, education, profile } from '../content/profile';
 import { usePageMeta } from '../lib/usePageMeta';
 import Swatch from '../components/Swatch';
@@ -28,6 +28,27 @@ export default function Resume() {
           </a>
         </Swatch>
 
+        <p className="resume__contact muted">
+          {profile.location} · {profile.workStyle}
+        </p>
+
+        <h3 className="aside-h">Expertise</h3>
+        <ul className="expertise reveal">
+          {expertise.map((e) => (
+            <li key={e}>{e}</li>
+          ))}
+        </ul>
+
+        <h3 className="aside-h">Platforms & tools</h3>
+        <dl className="skills reveal">
+          {skills.map((g) => (
+            <div key={g.group}>
+              <dt>{g.group}</dt>
+              <dd>{g.items.join(', ')}</dd>
+            </div>
+          ))}
+        </dl>
+
         <h3 className="aside-h">Experience</h3>
         <ol className="roles">
           {experience.map((r) => (
@@ -39,31 +60,47 @@ export default function Resume() {
                   {r.company}
                   {r.note && <span className="muted"> · {r.note}</span>}
                 </p>
-                <ul className="role__bullets">
-                  {r.highlights.map((h) => (
-                    <BulletItem key={typeof h === 'string' ? h : h.text} b={h} />
-                  ))}
-                </ul>
+                {r.groups?.map((g) => (
+                  <div key={g.heading} className="role__group">
+                    <p className="role__group-h">{g.heading}</p>
+                    <ul className="role__bullets">
+                      {g.bullets.map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+                {r.highlights && (
+                  <ul className="role__bullets">
+                    {r.highlights.map((h) => (
+                      <BulletItem key={typeof h === 'string' ? h : h.text} b={h} />
+                    ))}
+                  </ul>
+                )}
               </div>
             </li>
           ))}
         </ol>
 
-        <h3 className="aside-h">Skills</h3>
-        <dl className="skills reveal">
-          {skills.map((g) => (
-            <div key={g.group}>
-              <dt>{g.group}</dt>
-              <dd>{g.items.join(', ')}</dd>
-            </div>
+        <h3 className="aside-h">Selected work</h3>
+        <ul className="selwork reveal">
+          {selectedWork.map((w) => (
+            <li key={w.href}>
+              <a href={w.href} target="_blank" rel="noopener noreferrer">
+                {w.label} ↗<span className="visually-hidden"> (opens in a new tab)</span>
+              </a>
+              <span className="muted">{w.display}</span>
+            </li>
           ))}
-        </dl>
+        </ul>
 
         <div className="aside-grid">
           <div className="reveal">
             <h3 className="aside-h">Education</h3>
             <p>
-              {education.degree}, {education.school} ({education.year})
+              {education.degree}
+              <br />
+              {education.school}, {education.year}
             </p>
             <ul className="plain muted">
               {education.honors.map((h) => (
@@ -76,7 +113,9 @@ export default function Resume() {
             <ul className="plain">
               {awards.map((a) => (
                 <li key={a.org}>
-                  {a.org} {a.year}: {a.title}, “{a.project}”
+                  {a.org}, {a.year}
+                  <br />
+                  <span className="muted">{a.title}</span>
                 </li>
               ))}
             </ul>

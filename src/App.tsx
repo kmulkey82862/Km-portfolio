@@ -1,12 +1,11 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
-// Lab demos are split out so the homepage stays light.
+// Tool demos are split out so the homepage stays light.
 const Resume = lazy(() => import('./pages/Resume'));
-const Lab = lazy(() => import('./pages/Lab'));
 const SpeakerGraphic = lazy(() => import('./pages/lab/SpeakerGraphic'));
 const LogoResizer = lazy(() => import('./pages/lab/LogoResizer'));
 const ClientDigest = lazy(() => import('./pages/lab/ClientDigest'));
@@ -33,7 +32,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/lab" element={<Lab />} />
+          <Route path="/lab" element={<Navigate to="/#tools" replace />} />
           <Route path="/lab/speaker-graphic" element={<SpeakerGraphic />} />
           <Route path="/lab/logo-resizer" element={<LogoResizer />} />
           <Route path="/lab/client-digest" element={<ClientDigest />} />
