@@ -173,7 +173,7 @@ export const driveGroups: DriveGroup[] = [
       img('km-tip-sign-2', 'Live music tip sign, blue'),
       img('km-gesso-album', 'Gesso single art'),
       vid('1u16f_YUVrpT0-Uh-RPqtogcTQxkLJK0_', 'Gesso promo'),
-      vid('1QcawLtkcFRWgfD7bC6rChQBb787c8H8_', 'Mr. Legwork logo, AI video'),
+      vid('1QcawLtkcFRWgfD7bC6rChQBb787c8H8_', 'DJ logo scene, AI video'),
       img('19F6OlwVu2hVmVU9D3WW_NC-gqT5vB51U', 'Gesso album art (AI)'),
       img('1Ici1biOpuLfqr0QCJ7mslQvTLqpg9EgB', 'Busted on Bourbon Instagram promo'),
       img('1BAoNGoylILi9q3saK2eed_6TH-Kw0rWe', 'Promo design 1'),
