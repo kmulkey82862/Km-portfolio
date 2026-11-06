@@ -63,27 +63,6 @@
   margin-top: 20px;
 }
 
-/* Small sample tag in the corner, like a fabric book */
-.swatch__tag {
-  position: absolute;
-  right: 14px;
-  bottom: 12px;
-  font-family: var(--font);
-  font-variant-numeric: tabular-nums;
-  font-size: 12.5px;
-  font-weight: var(--w-light);
-  color: #3a3640;
-  background: rgba(255, 255, 255, 0.82);
-  padding: 4px 9px;
-  border-radius: 2px;
-}
-@media (max-width: 640px) {
-  .swatch__tag {
-    position: static;
-    display: inline-block;
-    margin-top: 12px;
-  }
-}
 
 /* ---- Ticking stripe · icy blue ---- */
 .swatch--ticking {
