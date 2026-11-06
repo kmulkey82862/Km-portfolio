@@ -25,27 +25,27 @@
   },
   "site-adnet-2027": {
     "type": "image",
-    "alt": "AdNet 2027 Conference website banner",
-    "width": 1600,
-    "height": 1000,
+    "alt": "AdNet 2027 Annual Conference website, archived build",
+    "width": 2160,
+    "height": 1350,
     "src": "/media/site-adnet-2027-960.webp",
     "srcset": {
       "avif": "/media/site-adnet-2027-480.avif 480w, /media/site-adnet-2027-960.avif 960w, /media/site-adnet-2027-1600.avif 1600w",
       "webp": "/media/site-adnet-2027-480.webp 480w, /media/site-adnet-2027-960.webp 960w, /media/site-adnet-2027-1600.webp 1600w"
     },
-    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACQAwCdASoYAA8APu1orU2ppqSiMAgBMB2JaQAAW+NjrZlXGjwAAP7zb9AQOozvEXN5HF2InuOWgm8KczDfWxVSTAQAAA=="
+    "blur": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABwBACdASoYAA8APu1iqU2ppaQiMAgBMB2JaACdMoMljEmlWxVT4rb3cNswOAD+6un6bYbi+XYnvcxFO3mJzXfT+vagWTLySYeL36QqKYSBYJRgTP5TT/AMKQYlU1YhN1881+MlQzgl9QOJI94j4bg+IrT7B9f8lyVMtabvJkMb3oKxUqcl0d3VsTy506eLR1YdtP4OSSwHg/wcmV+F0hjIAAA="
   },
   "site-cdc": {
     "type": "image",
-    "alt": "American Chronic Disease Convention website",
-    "width": 1915,
-    "height": 923,
+    "alt": "American Chronic Disease Convention website, archived build",
+    "width": 2160,
+    "height": 1350,
     "src": "/media/site-cdc-960.webp",
     "srcset": {
       "avif": "/media/site-cdc-480.avif 480w, /media/site-cdc-960.avif 960w, /media/site-cdc-1600.avif 1600w",
       "webp": "/media/site-cdc-480.webp 480w, /media/site-cdc-960.webp 960w, /media/site-cdc-1600.webp 1600w"
     },
-    "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwAwCdASoYAAwAPu1iqk2ppaQiMAgBMB2JQBOgA2Vi1ZcstmIIAADh7R8N2z72mVWlWQ3/93aKKTn4JrKprDu9dlVL3I0/7gsuI/5kNG/7gTkkevjEYOzb4jcJPbQmI5hmShcLywAAAA=="
+    "blur": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBACdASoYAA8APu1iqU2ppaOiMAgBMB2JYgC06CHeiqF2eRFzwYPPgAD8j5YRK6FUYt1cEpF+GR/3GagbGVFwYb6Rkn5A3Vp49LdVbXFGtD2aJPyvBeA1xp4jM7YBJzvAbg0pv6ZzPVXUgW6iOHFk5LD6atxz00AO9ot5VxGkP/lyNMAP/NAXi4ZQuAAA"
   },
   "site-lighthouse": {
     "type": "image",
@@ -62,13 +62,37 @@
   "site-matt-chapin": {
     "type": "image",
     "alt": "Matt Chapin Music website",
-    "width": 1918,
-    "height": 943,
+    "width": 2160,
+    "height": 1350,
     "src": "/media/site-matt-chapin-960.webp",
     "srcset": {
       "avif": "/media/site-matt-chapin-480.avif 480w, /media/site-matt-chapin-960.avif 960w, /media/site-matt-chapin-1600.avif 1600w",
       "webp": "/media/site-matt-chapin-480.webp 480w, /media/site-matt-chapin-960.webp 960w, /media/site-matt-chapin-1600.webp 1600w"
     },
-    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAwCdASoYAAwAPu1iqU2ppaQiMAgBMB2JYwC7ABhSgBX1ZHPGAAD+8rS4u11EA9LDkuKS0xkQti5gXDJaXn2AAAA="
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoYAA8APu1iqU2ppaQiMAgBMB2JQBadAwSFL0l/jnLcAAD+8N+tEeJUDZKDvsWkvaK+6bHMB8tgjnmFRoDJryHwvV4tv7+gXJVJjvu7x+XHz7AA"
+  },
+  "site-web-deva": {
+    "type": "image",
+    "alt": "Web Deva Digital website",
+    "width": 2160,
+    "height": 1350,
+    "src": "/media/site-web-deva-960.webp",
+    "srcset": {
+      "avif": "/media/site-web-deva-480.avif 480w, /media/site-web-deva-960.avif 960w, /media/site-web-deva-1600.avif 1600w",
+      "webp": "/media/site-web-deva-480.webp 480w, /media/site-web-deva-960.webp 960w, /media/site-web-deva-1600.webp 1600w"
+    },
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACQAwCdASoYAA8APu1iqU2ppaQiMAgBMB2JaQAAW+hibYKb3mgQAP7yCWx6/UdFku3v0U3wvTZ0viebf5kONhV6kTFA7Dj8MwRDyfuLbCBeEAAA"
+  },
+  "site-component-bank": {
+    "type": "image",
+    "alt": "Web Deva component library",
+    "width": 2160,
+    "height": 1350,
+    "src": "/media/site-component-bank-960.webp",
+    "srcset": {
+      "avif": "/media/site-component-bank-480.avif 480w, /media/site-component-bank-960.avif 960w, /media/site-component-bank-1600.avif 1600w",
+      "webp": "/media/site-component-bank-480.webp 480w, /media/site-component-bank-960.webp 960w, /media/site-component-bank-1600.webp 1600w"
+    },
+    "blur": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACwAgCdASoYAA8APu1iqk2ppaQiMAgBMB2JaQAAeyAA/vDNMgAAAA=="
   }
 }

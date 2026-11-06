@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call for Sessions | AdNet 2027 Annual Conference</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0 !important; padding: 0; font-family: 'Inter', sans-serif !important; background: #fff; color: #222 !important; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
+body { padding-top: 0; }
+a { color: inherit !important; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.wrap { max-width: 1200px; margin: 0 auto !important; padding: 0 56px; }
+@media(max-width:600px){ .wrap { padding: 0 22px; } }
+
+/* Pill Nav */
+:root { --nav-active: #4DB8E0; }
+.site-nav { position: relative; z-index: 200; display: flex; justify-content: center; padding: 14px 0; }
+.nav-pill { display: flex; align-items: center; gap: 2px; padding: 5px; border-radius: 9999px; border: 2.5px solid #0d1c36; background: rgba(255,255,255,0.96); backdrop-filter: blur(24px); box-shadow: 4px 4px 0 #0d1c36; }
+.nav-logo { display: flex; align-items: center; padding: 4px 12px 4px 8px; margin-right: 4px; border-right: 1.5px solid #e0e8f4; }
+.nav-logo img { height: 40px; width: auto; max-width: none; display: block; }
+.nav-link { position: relative; display: inline-flex; align-items: center; gap: 4px; padding: 7px 16px; border-radius: 9999px; font-size: 13px !important; font-weight: 600 !important; color: #1a1a2e !important; transition: color 0.15s; z-index: 1; white-space: nowrap; }
+.nav-link--sky  { color: #4DB8E0 !important; }
+.nav-link--gold { color: #F5A623 !important; }
+.nav-link--blue { color: #1A5FA8 !important; }
+.nav-link--red  { color: #CC1F2B !important; }
+.nav-link.active { color: #fff !important; }
+.nav-link-bg { position: absolute; inset: 0; background: var(--nav-active, #1A5FA8); z-index: -1; border-radius: 9999px; display: none; }
+.nav-link.active .nav-link-bg { display: block; }
+.nav-link:hover:not(.active) { opacity: 0.8; }
+.nav-arrow { font-size: 9px !important; opacity: 0.7; }
+.nav-dropdown { position: relative; }
+.nav-dropdown::after { content: ''; position: absolute; top: 100%; left: -10px; right: -10px; height: 14px; }
+.nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.98); border: 2.5px solid #0d1c36; border-radius: 12px; box-shadow: 4px 4px 0 #0d1c36; padding: 6px; min-width: 180px; backdrop-filter: blur(24px); }
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a { display: block; padding: 8px 14px; font-size: 13px !important; font-weight: 600 !important; color: rgba(26,95,168,0.65) !important; border-radius: 8px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+.nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #eef3fb; color: #1A5FA8 !important; }
+@media(max-width:680px){ .site-nav { top: 8px; } .nav-logo { font-size: 12px !important; padding: 6px 10px 6px 8px; } .nav-link { font-size: 11px !important; padding: 6px 10px; } }
+
+/* Page header */
+.page-header { background: #4DB8E0; padding: 52px 0 44px; }
+.page-header-eyebrow { font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.20em !important; text-transform: uppercase; color: rgba(255,255,255,0.60) !important; margin: 0 0 12px !important; }
+.page-header h1 { font-size: 24px !important; font-weight: 700 !important; letter-spacing: 0.10em !important; text-transform: uppercase; color: #fff !important; margin: 0 !important; line-height: 1.1 !important; }
+.deadline-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1.5px solid rgba(255,255,255,0.5); color: #fff !important; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; padding: 7px 18px; border-radius: 50px; margin-top: 18px; }
+
+/* Photo strip */
+.photo-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; width: 100%; overflow: hidden; }
+.photo-strip img { width: 100%; height: 280px; object-fit: cover; object-position: center top; display: block; }
+
+/* Section */
+.section { padding: 64px 0; border-bottom: 1px solid #edf0f7; }
+.section--alt { background: #f7f9fc; }
+
+.sec-head { font-size: 24px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase; color: #1a1a2e !important; margin: 0 0 20px !important; line-height: 1.1 !important; }
+.sec-body { font-size: 16px !important; color: #444 !important; line-height: 1.78 !important; }
+.sec-body p { margin: 0 0 16px !important; }
+.sec-body p:last-child { margin-bottom: 0; }
+
+/* Tips grid */
+.tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; }
+@media(max-width:720px){ .tips-grid { grid-template-columns: 1fr; gap: 16px; } }
+.tip-card { border-left: 4px solid #4DB8E0; padding: 20px 22px; background: #fff; border-radius: 0 8px 8px 0; border-top: 1px solid #e4eaf5; border-right: 1px solid #e4eaf5; border-bottom: 1px solid #e4eaf5; }
+.tip-card:nth-child(2) { border-left-color: #1A5FA8 !important; }
+.tip-card:nth-child(3) { border-left-color: #F5A623 !important; }
+.tip-card h3 { font-size: 15px !important; font-weight: 600 !important; letter-spacing: 0.04em !important; text-transform: uppercase; color: #1a1a2e !important; margin: 0 0 8px !important; }
+.tip-card p { font-size: 14px !important; color: #555 !important; line-height: 1.65 !important; margin: 0 !important; }
+
+/* Format grid */
+.format-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 32px; }
+@media(max-width:640px){ .format-grid { grid-template-columns: 1fr; } }
+.format-card { border: 2px solid #e4eaf5; border-radius: 8px; padding: 24px 26px; }
+.format-card-type { font-size: 11px !important; font-weight: 700 !important; letter-spacing: 0.20em !important; text-transform: uppercase; color: #4DB8E0 !important; margin: 0 0 10px !important; }
+.format-card h3 { font-size: 16px !important; font-weight: 600 !important; letter-spacing: 0.04em !important; text-transform: uppercase; color: #1a1a2e !important; margin: 0 0 8px !important; }
+.format-card p { font-size: 14px !important; color: #555 !important; line-height: 1.65 !important; margin: 0 !important; }
+
+/* Topics */
+.topics-list { column-count: 3; column-gap: 32px; margin: 28px 0 0 !important; padding-left: 20px; }
+.topics-list li { font-size: 15px !important; color: #444 !important; line-height: 1.5 !important; padding: 5px 0; break-inside: avoid; }
+@media(max-width:700px){ .topics-list { column-count: 2; } }
+@media(max-width:460px){ .topics-list { column-count: 1; } }
+
+/* Eligibility box */
+.submit-box { background: #edf3fb; border: 1.5px solid #c8d9ee; border-radius: 8px; padding: 24px 28px; margin-top: 28px; }
+.submit-box p { font-size: 15px !important; color: #334 !important; line-height: 1.7 !important; margin: 0 0 14px !important; }
+.submit-box p:last-child { margin-bottom: 0; }
+
+/* Form embed */
+.form-embed-wrap { margin-top: 36px; background: #f7f9fc; border: 2px solid #e4eaf5; border-radius: 10px; overflow: hidden; min-height: 600px; }
+.form-embed-wrap iframe { width: 100%; min-height: 600px; border: none; display: block; }
+.form-placeholder { padding: 80px 40px; text-align: center; }
+.form-placeholder p { font-size: 16px !important; color: #888 !important; line-height: 1.7 !important; margin: 0 0 28px !important; }
+
+/* CTA Buttons */
+@keyframes cta-pulse { 0%,100% { box-shadow: 0 4px 20px rgba(26,95,168,0.25); } 50% { box-shadow: 0 4px 32px rgba(26,95,168,0.55); } }
+@keyframes cta-pulse-sky { 0%,100% { box-shadow: 0 4px 20px rgba(77,184,224,0.3); } 50% { box-shadow: 0 4px 32px rgba(77,184,224,0.6); } }
+.btn-cta { display: inline-block; font-size: 15px !important; font-weight: 700 !important; letter-spacing: 0.07em !important; text-transform: uppercase; padding: 16px 44px; border-radius: 6px; white-space: nowrap; transition: opacity 0.15s, transform 0.15s; animation: cta-pulse 2.5s ease-in-out infinite; }
+.btn-cta:hover { opacity: 0.9; transform: translateY(-2px); }
+.btn-cta--blue { background: #1A5FA8; color: #fff !important; }
+.btn-cta--sky  { background: #4DB8E0; color: #fff !important; animation-name: cta-pulse-sky; }
+
+/* Contact form */
+.contact-section { background: #fff; border-top: 1px solid #edf0f7; padding: 64px 0; }
+.contact-card { border: 2.5px solid #0d1c36; box-shadow: 5px 5px 0 #0d1c36; border-radius: 14px; background: #fff; padding: 48px 52px; max-width: 640px; margin: 0 auto !important; }
+@media(max-width:600px){ .contact-card { padding: 32px 24px; } }
+.contact-heading { font-size: 24px !important; font-weight: 700 !important; letter-spacing: 0.05em !important; text-transform: uppercase; color: #1a1a2e !important; margin: 0 0 14px !important; }
+.contact-subtext { font-size: 15px !important; color: #555 !important; line-height: 1.70 !important; margin: 0 0 28px !important; }
+
+/* FAQ */
+.faq-list { margin-top: 8px; }
+.faq-item { border-bottom: 1px solid #edf0f7; padding: 20px 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-size: 16px !important; font-weight: 500 !important; color: #1a1a2e !important; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+.faq-q::after { content: '+'; font-size: 22px !important; font-weight: 300 !important; color: #4DB8E0 !important; flex-shrink: 0; line-height: 1 !important; }
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a { font-size: 15px !important; color: #444 !important; line-height: 1.72 !important; margin-top: 12px; display: none; }
+.faq-item.open .faq-a { display: block; }
+
+/* Footer */
+.site-footer { background: #fff; border-top: 2px solid #edf0f7; }
+.footer-top { padding: 52px 0 40px; border-bottom: 1px solid #edf0f7; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
+@media(max-width:700px){ .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+.footer-logo-name { font-size: 22px !important; font-weight: 900 !important; color: #1a1a2e !important; letter-spacing: -0.02em !important; margin-bottom: 6px; }
+.footer-tagline { font-size: 13px !important; color: #666 !important; line-height: 1.6 !important; margin-bottom: 14px; }
+.footer-location { font-size: 13px !important; color: #666 !important; line-height: 1.6 !important; margin-bottom: 16px; }
+.footer-site-link { font-size: 13px !important; font-weight: 600 !important; color: #1A5FA8 !important; text-decoration: none; }
+.footer-site-link:hover { color: #0d1c36 !important; }
+.footer-col-head { font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.20em !important; text-transform: uppercase; color: #aaa !important; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 14px !important; color: #555 !important; text-decoration: none; margin-bottom: 10px; transition: color 0.15s; }
+.footer-col a:hover { color: #1A5FA8 !important; }
+.footer-bottom { padding: 20px 0; border-top: 1px solid #edf0f7; }
+.footer-bottom p { font-size: 12px !important; color: #aaa !important; margin: 0 !important; }
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+
+<!-- PILL NAV -->
+<nav class="site-nav">
+  <div class="nav-pill">
+    <a href="/work/adnet/" class="nav-logo"><img src="/work/adnet/img/3ed9785e6cca.png" alt="AdNet 2027"></a>
+    <a href="/work/adnet/" class="nav-link "><span class="nav-link-bg"></span>Home</a>
+    <div class="nav-dropdown">
+      <a href="/work/adnet/agenda/" class="nav-link active nav-link--sky"><span class="nav-link-bg"></span>Agenda <span class="nav-arrow">&#9660;</span></a>
+      <div class="nav-dropdown-menu">
+        <a href="/work/adnet/agenda/">Agenda</a>
+        <a href="/work/adnet/sessions/" class="active">Call for Sessions</a>
+      </div>
+    </div>
+    <a href="/work/adnet/hotel/" class="nav-link nav-link--gold"><span class="nav-link-bg"></span>Hotel &amp; Travel</a>
+    <a href="/work/adnet/registration/" class="nav-link nav-link--blue"><span class="nav-link-bg"></span>Registration</a>
+    <a href="/work/adnet/sponsorship/" class="nav-link nav-link--red"><span class="nav-link-bg"></span>Sponsorship</a>
+    <a href="/work/adnet/faq/" class="nav-link "><span class="nav-link-bg"></span>FAQ</a>
+  </div>
+</nav>
+
+<div style="line-height:0 !important;"><img src="/work/adnet/img/fc759bb0c5ee.png" alt="AdNet 2027 Conference" style="width:100%;height:auto;display:block;"></div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="wrap">
+    <p class="page-header-eyebrow">AdNet 2027 Annual Conference</p>
+    <h1>Call for Sessions</h1>
+    <div class="deadline-badge">Submission Deadline: October 23, 2026</div>
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <img src="/work/adnet/img/c2dd19c33123.jpg" alt="AdNet 2026 Keynote">
+  <img src="/work/adnet/img/a309361b2e3c.jpg" alt="AdNet 2026 Audience Q&A">
+  <img src="/work/adnet/img/92649eec0a0f.jpg" alt="AdNet 2026 Panel Discussion">
+</div>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="wrap">
+    <h2 class="sec-head">Submit a Session Proposal for the AdNet 2027 Annual Conference</h2>
+    <div class="sec-body">
+      <p>The AdNet Annual Conference brings together professionals from community foundations across the country to share insights, explore best practices, and learn from one another. As we plan for 2027, we recognize the challenges and rapid shifts facing the philanthropic sector -- and we need forward-thinking sessions that inspire, educate, and equip our attendees.</p>
+      <p>This year's conference is designed with every career stage and foundation size in mind. AdNet is again collaborating with CommA and will include a communications-focused track open to all attendees.</p>
+    </div>
+    <div style="margin-top:36px;text-align:center;">
+      <a href="#" class="btn-cta btn-cta--sky">Call For Sessions Guide</a>
+    </div>
+    <div style="margin-top:16px;text-align:center;">
+      <a href="#" class="btn-cta btn-cta--sky">Submit a Session Proposal</a>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h3>Small and Medium Foundations</h3>
+        <p>We are placing extra emphasis on content for smaller and mid-sized community foundations -- sessions with tools and frameworks that scale.</p>
+      </div>
+      <div class="tip-card">
+        <h3>Advanced Practitioner Content</h3>
+        <p>We want deeper sessions for experienced professionals. Please indicate a clear experience level in your proposal -- 101 vs. 201 helps attendees choose the right sessions.</p>
+      </div>
+      <div class="tip-card">
+        <h3>Partnership with CommA</h3>
+        <p>Donor communications sessions in partnership with CommA are open to all attendees. Co-presentations pairing large and small foundation perspectives are especially valued.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="section section--alt">
+  <div class="wrap">
+    <h2 class="sec-head">What We're Looking For in 2027</h2>
+    <div class="sec-body">
+      <p>Strong proposals should address current and emerging challenges in philanthropy, offer tools or frameworks attendees can adapt and apply, and identify 2&#8211;3 specific things attendees will leave knowing or able to do. We also ask that proposals reflect diverse perspectives and foundation sizes, encourage audience participation, indicate a clear experience level (introductory, intermediate, or advanced), and keep the focus educational. Sessions may not serve as sales pitches or product demonstrations.</p>
+      <p>Topics of interest include:</p>
+    </div>
+    <ul class="topics-list">
+      <li>Planned Giving</li>
+      <li>Complex Gifts &amp; Private Foundation Conversions</li>
+      <li>Donor Stewardship &amp; Engagement</li>
+      <li>Business Development &amp; Outreach Tactics</li>
+      <li>Facilitation &amp; Interpersonal Dynamics</li>
+      <li>Professional Advisor Engagement</li>
+      <li>Fund Development &amp; DAF Strategy</li>
+      <li>Advisor Managed Funds &amp; Financial Firm Partnerships</li>
+      <li>Portfolio Segmentation</li>
+      <li>Next-Gen &amp; Family Philanthropy</li>
+      <li>Legal Updates &amp; Issues with Aging Donors</li>
+      <li>Co-investing &amp; Collective Giving</li>
+      <li>Rural &amp; Regional CF Challenges</li>
+      <li>Endowment Campaigns &amp; Fee Models</li>
+      <li>Fundraising for Discretionary Dollars</li>
+      <li>AI Applications, Governance &amp; Emerging Tools</li>
+      <li>Team Development &amp; Succession Planning</li>
+      <li>Burnout &amp; Resilience</li>
+      <li>KPIs &amp; Performance Measurement</li>
+      <li>Technology Tools &amp; Trends</li>
+      <li>DEI in Advancement &amp; Donor Engagement</li>
+      <li>Communications &amp; Marketing Best Practices</li>
+      <li>Partnering with Program Teams to Advance Mission</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- WHO CAN SUBMIT -->
+<section class="section section--alt">
+  <div class="wrap">
+    <h2 class="sec-head">Who Can Submit</h2>
+    <div class="sec-body">
+      <p>We welcome submissions from community foundation staff at all levels and experience stages.</p>
+    </div>
+    <div class="submit-box">
+      <p><strong>Non-community foundation organizations:</strong> If your organization is not a community foundation, it must be a sponsor at the <strong>Thought Leader level or higher</strong> to submit a session proposal. See the <a href="/work/adnet/sponsorship/" style="color:#1A5FA8 !important;font-weight:600 !important;">2027 sponsorship page</a> for details, or contact Stephen Stephens to discuss sponsorship.</p>
+      <p><strong>Exceptions:</strong> If your organization is not a CF but is similar in mission or scope -- for example, a community-based nonprofit, an individual not representing a company, or a public sector partner -- you are welcome to submit. The committee will review and follow up with you directly.</p>
+      <p><strong>Speaker logistics:</strong> Speakers are expected to cover their own conference registration and travel. AdNet is unable to offer honoraria at this time, though we are exploring ways to enhance the speaker experience.</p>
+    </div>
+    <div class="sec-body" style="margin-top:24px;">
+      <p>Have questions about eligibility or submitting a proposal? Use the questions form at the bottom of this page and a member of our team will follow up with you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMIT -->
+<section class="section" id="submit">
+  <div class="wrap">
+    <h2 class="sec-head">Submit Your Proposal</h2>
+    <div class="sec-body">
+      <p>Submit your session idea by <strong>October 23, 2026</strong>. The AdNet Content Committee reviews all submissions using a standardized rubric. Submitters can expect a decision by <strong>December 18, 2026</strong>. If you have questions about submitting, use the questions form at the bottom of this page.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMISSION FORM -->
+<div class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <h2 class="contact-heading">Questions About Submitting?</h2>
+      <p class="contact-subtext">Have questions about submitting a session proposal, eligibility, or the review process? Complete the form below and a member of our team will follow up with you.</p>
+      <iframe srcdoc="<p style=&quot;font:15px/1.5 Inter,Arial,sans-serif;color:#555;padding:28px;text-align:center;margin:0&quot;>Forms are switched off in this archived copy.</p>" style="width:100%;height:120px;border:none;display:block;margin-top:24px"></iframe>
+      </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">When is the submission deadline?</div>
+        <div class="faq-a">The deadline to submit a session proposal is October 23, 2026. Proposals submitted early receive the most thorough review from the Content Committee.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I submit more than one proposal, or co-present?</div>
+        <div class="faq-a">Yes -- you may submit multiple proposals, and each is reviewed independently. Co-presentations are encouraged, especially sessions that pair perspectives from large and small community foundations. If the committee receives multiple proposals on similar topics, they may reach out to combine them into a panel.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does presenting include a registration discount?</div>
+        <div class="faq-a">Speakers are expected to cover their own registration and travel at this time. AdNet is unable to offer honoraria but is exploring ways to enhance the speaker experience. Use the questions form at the bottom of this page with any questions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/work/adnet/img/3ed9785e6cca.png" alt="AdNet 2027" style="height:52px;width:auto;max-width:none;display:block;margin-bottom:14px;">
+          <div class="footer-tagline">The Advancement Network<br>Annual Conference</div>
+          <div class="footer-location">March 22&#8211;24, 2027<br>Chicago, IL</div>
+          <a href="#" class="footer-site-link">adnetcf.org</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-head">AdNet 2027</div>
+          <a href="/work/adnet/">Conference Home</a>
+          <a href="/work/adnet/agenda/">Agenda</a>
+          <a href="/work/adnet/sessions/">Sessions</a>
+          <a href="/work/adnet/hotel/">Hotel &amp; Travel</a>
+          <a href="/work/adnet/registration/">Registration</a>
+          <a href="/work/adnet/faq/">FAQ</a>
+          <a href="/work/adnet/sponsorship/">Sponsorship</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap">
+      <p>&copy; 2027 AdNet / The Advancement Network. All rights reserved. &nbsp;&middot;&nbsp; <a href="#" style="color:inherit !important;">conference@adnetcf.org</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+});
+</script>
+<a href="/#websites" style="position:fixed;left:16px;bottom:16px;z-index:99999;display:flex;gap:8px;align-items:center;
+padding:9px 14px;border-radius:999px;background:rgba(20,20,24,.86);color:#fff !important;font:500 12px/1.2 Inter,Arial,sans-serif;
+text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.18)">&larr; Katelyn Mulkey portfolio
+<span style="opacity:.6">&middot; archived build</span></a>
+</body>
+</html>
+
+

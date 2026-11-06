@@ -119,7 +119,7 @@ export const skills: { group: string; items: string[] }[] = [
 
 export const selectedWork = [
   { label: 'Matt Chapin Music', href: 'https://mattchapinmusic.com', display: 'mattchapinmusic.com' },
-  { label: 'Web component library', href: 'https://webdivacomponents.netlify.com', display: 'webdivacomponents.netlify.com' },
+  { label: 'Web component library', href: 'https://webdevacomponents.netlify.app', display: 'webdivacomponents.netlify.com' },
   { label: 'Lighthouse Strategy Group', href: 'https://lighthousestrategygroup.com', display: 'lighthousestrategygroup.com' },
   { label: 'FIMCON session archive', href: 'https://fimcon.org/en/fimcon-2026-session-recordings', display: 'fimcon.org/en/fimcon-2026-session-recordings' },
 ];

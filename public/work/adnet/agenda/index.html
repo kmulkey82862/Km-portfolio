@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda At-a-Glance | AdNet 2027 Annual Conference</title>
+<!--
+  DEPLOYMENT NOTE: When publishing to Squarespace or any hosted site, update all
+  relative "assets/" URLs to absolute URLs pointing to your hosted file locations.
+  The PDF href must be replaced with the full URL of the uploaded PDF file.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0 !important; padding: 0; font-family: 'Inter', sans-serif !important; background: #fff; color: #222 !important; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
+body { padding-top: 0; }
+a { color: inherit !important; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.wrap { max-width: 1200px; margin: 0 auto !important; padding: 0 56px; }
+@media(max-width:600px){ .wrap { padding: 0 22px; } }
+
+/* Pill Nav */
+:root { --nav-active: #4DB8E0; }
+.site-nav { position: relative; z-index: 200; display: flex; justify-content: center; padding: 14px 0; }
+.nav-pill { display: flex; align-items: center; gap: 2px; padding: 5px; border-radius: 9999px; border: 2.5px solid #0d1c36; background: rgba(255,255,255,0.96); backdrop-filter: blur(24px); box-shadow: 4px 4px 0 #0d1c36; }
+.nav-logo { display: flex; align-items: center; padding: 4px 12px 4px 8px; margin-right: 4px; border-right: 1.5px solid #e0e8f4; }
+.nav-logo img { height: 40px; width: auto; max-width: none; display: block; }
+.nav-link { position: relative; display: inline-flex; align-items: center; gap: 4px; padding: 7px 16px; border-radius: 9999px; font-size: 13px !important; font-weight: 600 !important; color: #1a1a2e !important; transition: color 0.15s; z-index: 1; white-space: nowrap; }
+.nav-link--sky  { color: #4DB8E0 !important; }
+.nav-link--gold { color: #F5A623 !important; }
+.nav-link--blue { color: #1A5FA8 !important; }
+.nav-link--red  { color: #CC1F2B !important; }
+.nav-link.active { color: #fff !important; }
+.nav-link-bg { position: absolute; inset: 0; background: var(--nav-active, #1A5FA8); z-index: -1; border-radius: 9999px; display: none; }
+.nav-link.active .nav-link-bg { display: block; }
+.nav-link:hover:not(.active) { opacity: 0.8; }
+.nav-arrow { font-size: 9px !important; opacity: 0.7; }
+.nav-dropdown { position: relative; }
+.nav-dropdown::after { content: ''; position: absolute; top: 100%; left: -10px; right: -10px; height: 14px; }
+.nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.98); border: 2.5px solid #0d1c36; border-radius: 12px; box-shadow: 4px 4px 0 #0d1c36; padding: 6px; min-width: 180px; backdrop-filter: blur(24px); }
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a { display: block; padding: 8px 14px; font-size: 13px !important; font-weight: 600 !important; color: rgba(26,95,168,0.65) !important; border-radius: 8px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+.nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #eef3fb; color: #1A5FA8 !important; }
+@media(max-width:680px){ .site-nav { top: 8px; } .nav-logo { font-size: 12px !important; padding: 6px 10px 6px 8px; } .nav-link { font-size: 11px !important; padding: 6px 10px; } }
+
+/* Page header */
+.page-header { background: #4DB8E0; padding: 52px 0 44px; }
+.page-header-eyebrow { font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.20em !important; text-transform: uppercase; color: rgba(255,255,255,0.60) !important; margin: 0 0 12px !important; }
+.page-header h1 { font-size: 24px !important; font-weight: 700 !important; letter-spacing: 0.10em !important; text-transform: uppercase; color: #fff !important; margin: 0 !important; line-height: 1.1 !important; }
+
+/* Photo strip */
+.photo-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; width: 100%; overflow: hidden; }
+.photo-strip img { width: 100%; height: 280px; object-fit: cover; object-position: center top; display: block; }
+
+/* Section */
+.section { padding: 64px 0; border-bottom: 1px solid #edf0f7; }
+.section--alt { background: #f7f9fc; }
+
+.sec-head { font-size: 24px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase; color: #1a1a2e !important; margin: 0 0 20px !important; line-height: 1.1 !important; }
+.sec-body { font-size: 16px !important; color: #444 !important; line-height: 1.78 !important; }
+
+/* PDF card */
+.pdf-card { display: flex; align-items: center; gap: 20px; padding: 24px 28px; border: 2.5px solid #0d1c36; border-radius: 12px; box-shadow: 4px 4px 0 #0d1c36; background: #fff; margin-bottom: 40px; flex-wrap: wrap; }
+.pdf-card-icon { flex-shrink: 0; }
+.pdf-card-info { flex: 1; min-width: 160px; }
+.pdf-card-title { font-size: 16px !important; font-weight: 700 !important; color: #1a1a2e !important; margin-bottom: 4px; }
+.pdf-card-meta { font-size: 13px !important; color: #888 !important; }
+.pdf-card-actions { display: flex; gap: 10px; }
+.btn-pdf { display: inline-block; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.07em !important; text-transform: uppercase; padding: 10px 20px; border-radius: 6px; transition: opacity 0.15s; }
+.btn-pdf:hover { opacity: 0.85; }
+.btn-pdf--view { background: #4DB8E0; color: #fff !important; }
+.btn-pdf--dl { background: #fff; color: #1a1a2e !important; border: 2px solid #0d1c36; }
+
+/* PDF section */
+.pdf-section { padding: 56px 0; border-bottom: 1px solid #edf0f7; }
+
+/* CTA button */
+@keyframes cta-pulse-sky { 0%,100% { box-shadow: 0 4px 20px rgba(77,184,224,0.3); } 50% { box-shadow: 0 4px 32px rgba(77,184,224,0.6); } }
+.btn-cta { display: inline-block; font-size: 15px !important; font-weight: 700 !important; letter-spacing: 0.07em !important; text-transform: uppercase; padding: 16px 44px; border-radius: 6px; white-space: nowrap; transition: opacity 0.15s, transform 0.15s; }
+.btn-cta:hover { opacity: 0.9; transform: translateY(-2px); }
+.btn-cta--sky { background: #4DB8E0; color: #fff !important; animation: cta-pulse-sky 2.5s ease-in-out infinite; }
+.btn-cta--blue { background: #1A5FA8; color: #fff !important; }
+
+/* Legend */
+.legend { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 28px; padding-top: 20px; border-top: 1px solid #edf0f7; }
+.legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px !important; color: #666 !important; font-weight: 500 !important; }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+/* Footer */
+.site-footer { background: #fff; border-top: 2px solid #edf0f7; }
+.footer-top { padding: 52px 0 40px; border-bottom: 1px solid #edf0f7; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
+@media(max-width:700px){ .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+.footer-logo-name { font-size: 22px !important; font-weight: 900 !important; color: #1a1a2e !important; letter-spacing: -0.02em !important; margin-bottom: 6px; }
+.footer-tagline { font-size: 13px !important; color: #666 !important; line-height: 1.6 !important; margin-bottom: 14px; }
+.footer-location { font-size: 13px !important; color: #666 !important; line-height: 1.6 !important; margin-bottom: 16px; }
+.footer-site-link { font-size: 13px !important; font-weight: 600 !important; color: #1A5FA8 !important; text-decoration: none; }
+.footer-site-link:hover { color: #0d1c36 !important; }
+.footer-col-head { font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.20em !important; text-transform: uppercase; color: #aaa !important; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 14px !important; color: #555 !important; text-decoration: none; margin-bottom: 10px; transition: color 0.15s; }
+.footer-col a:hover { color: #1A5FA8 !important; }
+.footer-bottom { padding: 20px 0; border-top: 1px solid #edf0f7; }
+.footer-bottom p { font-size: 12px !important; color: #aaa !important; margin: 0 !important; }
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+
+<!-- PILL NAV -->
+<nav class="site-nav">
+  <div class="nav-pill">
+    <a href="/work/adnet/" class="nav-logo"><img src="/work/adnet/img/3ed9785e6cca.png" alt="AdNet 2027"></a>
+    <a href="/work/adnet/" class="nav-link "><span class="nav-link-bg"></span>Home</a>
+    <div class="nav-dropdown">
+      <a href="/work/adnet/agenda/" class="nav-link active nav-link--sky"><span class="nav-link-bg"></span>Agenda <span class="nav-arrow">&#9660;</span></a>
+      <div class="nav-dropdown-menu">
+        <a href="/work/adnet/agenda/" class="active">Agenda</a>
+        <a href="/work/adnet/sessions/">Call for Sessions</a>
+      </div>
+    </div>
+    <a href="/work/adnet/hotel/" class="nav-link nav-link--gold"><span class="nav-link-bg"></span>Hotel &amp; Travel</a>
+    <a href="/work/adnet/registration/" class="nav-link nav-link--blue"><span class="nav-link-bg"></span>Registration</a>
+    <a href="/work/adnet/sponsorship/" class="nav-link nav-link--red"><span class="nav-link-bg"></span>Sponsorship</a>
+    <a href="/work/adnet/faq/" class="nav-link "><span class="nav-link-bg"></span>FAQ</a>
+  </div>
+</nav>
+
+<div style="line-height:0 !important;"><img src="/work/adnet/img/fc759bb0c5ee.png" alt="AdNet 2027 Conference" style="width:100%;height:auto;display:block;"></div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="wrap">
+    <p class="page-header-eyebrow">AdNet 2027 Annual Conference</p>
+    <h1>Agenda At-a-Glance</h1>
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div style="width:100%;overflow:hidden;line-height:0 !important;">
+  <img src="/work/adnet/img/79aeed754a5d.jpg" alt="AdNet 2026 Full Conference Room" style="width:100%;height:340px;object-fit:cover;object-position:center;display:block;">
+</div>
+
+<!-- PDF CARD -->
+<div class="pdf-section">
+  <div class="wrap">
+    <h2 class="sec-head">Download the Agenda At-a-Glance</h2>
+    <div class="pdf-card">
+      <div class="pdf-card-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="#CC1F2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="#CC1F2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="pdf-card-info">
+        <div class="pdf-card-title">AdNet 2027 Agenda At-a-Glance</div>
+        <div class="pdf-card-meta">PDF &bull; Preliminary Schedule</div>
+      </div>
+      <div class="pdf-card-actions">
+        <a href="#" class="btn-pdf btn-pdf--view">Download Agenda</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/work/adnet/img/3ed9785e6cca.png" alt="AdNet 2027" style="height:52px;width:auto;max-width:none;display:block;margin-bottom:14px;">
+          <div class="footer-tagline">The Advancement Network<br>Annual Conference</div>
+          <div class="footer-location">March 22&#8211;24, 2027<br>Chicago, IL</div>
+          <a href="#" class="footer-site-link">adnetcf.org</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-head">AdNet 2027</div>
+          <a href="/work/adnet/">Conference Home</a>
+          <a href="/work/adnet/agenda/">Agenda</a>
+          <a href="/work/adnet/sessions/">Sessions</a>
+          <a href="/work/adnet/hotel/">Hotel &amp; Travel</a>
+          <a href="/work/adnet/registration/">Registration</a>
+          <a href="/work/adnet/faq/">FAQ</a>
+          <a href="/work/adnet/sponsorship/">Sponsorship</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap">
+      <p>&copy; 2027 AdNet / The Advancement Network. All rights reserved. &nbsp;&middot;&nbsp; <a href="#" style="color:inherit !important;">conference@adnetcf.org</a></p>
+    </div>
+  </div>
+</footer>
+
+<a href="/#websites" style="position:fixed;left:16px;bottom:16px;z-index:99999;display:flex;gap:8px;align-items:center;
+padding:9px 14px;border-radius:999px;background:rgba(20,20,24,.86);color:#fff !important;font:500 12px/1.2 Inter,Arial,sans-serif;
+text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.18)">&larr; Katelyn Mulkey portfolio
+<span style="opacity:.6">&middot; archived build</span></a>
+</body>
+</html>
+
+

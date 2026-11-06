@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel &amp; Travel | AdNet 2027 Annual Conference</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0 !important; padding: 0; font-family: 'Inter', sans-serif !important; background: #fff; color: #222 !important; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
+body { padding-top: 0; }
+a { color: inherit !important; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.wrap { max-width: 1200px; margin: 0 auto !important; padding: 0 56px; }
+@media(max-width:600px){ .wrap { padding: 0 22px; } }
+
+.color-bar, .footer-bar { display: flex; height: 6px; }
+.color-bar span, .footer-bar span { flex: 1; }
+
+/* Pill Nav */
+:root { --nav-active: #F5A623; }
+.site-nav { position: relative; z-index: 200; display: flex; justify-content: center; padding: 14px 0; }
+.nav-pill { display: flex; align-items: center; gap: 2px; padding: 5px; border-radius: 9999px; border: 2.5px solid #0d1c36; background: rgba(255,255,255,0.96); backdrop-filter: blur(24px); box-shadow: 4px 4px 0 #0d1c36; }
+.nav-logo { display: flex; align-items: center; padding: 4px 12px 4px 8px; margin-right: 4px; border-right: 1.5px solid #e0e8f4; }
+.nav-logo img { height: 40px; width: auto; max-width: none; display: block; }
+.nav-link { position: relative; display: inline-flex; align-items: center; gap: 4px; padding: 7px 16px; border-radius: 9999px; font-size: 13px !important; font-weight: 600 !important; color: #1a1a2e !important; transition: color 0.15s; z-index: 1; white-space: nowrap; }
+.nav-link--sky  { color: #4DB8E0 !important; }
+.nav-link--gold { color: #F5A623 !important; }
+.nav-link--blue { color: #1A5FA8 !important; }
+.nav-link--red  { color: #CC1F2B !important; }
+.nav-link.active { color: #fff !important; }
+.nav-link-bg { position: absolute; inset: 0; background: var(--nav-active, #1A5FA8); z-index: -1; border-radius: 9999px; display: none; }
+.nav-link.active .nav-link-bg { display: block; }
+.nav-link:hover:not(.active) { opacity: 0.8; }
+.nav-arrow { font-size: 9px !important; opacity: 0.7; }
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.98); border: 2.5px solid #0d1c36; border-radius: 12px; box-shadow: 4px 4px 0 #0d1c36; padding: 6px; min-width: 180px; backdrop-filter: blur(24px); }
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown::after { content: ''; position: absolute; top: 100%; left: -10px; right: -10px; height: 14px; }
+.nav-dropdown-menu a { display: block; padding: 8px 14px; font-size: 13px !important; font-weight: 600 !important; color: rgba(26,95,168,0.65) !important; border-radius: 8px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+.nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #eef3fb; color: #1A5FA8 !important; }
+@media(max-width:680px){ .site-nav { top: 8px; } .nav-logo { font-size: 12px !important; padding: 6px 10px 6px 8px; } .nav-link { font-size: 11px !important; padding: 6px 10px; } }
+
+/* Page header */
+.page-header { background: #F5A623; padding: 52px 0 44px; }
+.page-header-eyebrow { font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.20em !important; text-transform: uppercase; color: rgba(255,255,255,0.60) !important; margin: 0 0 12px !important; }
+.page-header h1 { font-size: 24px !important; font-weight: 700 !important; letter-spacing: 0.10em !important; text-transform: uppercase; color: #fff !important; margin: 0 !important; line-height: 1.1 !important; }
+.page-header-sub { font-size: 16px !important; color: rgba(255,255,255,0.65) !important; margin: 12px 0 0 !important; line-height: 1.6 !important; }
+
+/* Info bar */
+.info-bar { display: flex; }
+.info-box { flex: 1; padding: 22px 28px; }
+.info-box--blue { background: #1A5FA8; }
+.info-box--sky  { background: #4DB8E0; }
+.info-box--red  { background: #CC1F2B; }
+.info-label { font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.20em !important; text-transform: uppercase; color: rgba(255,255,255,0.60) !important; margin-bottom: 6px; }
+.info-val { font-size: 15px !important; font-weight: 700 !important; color: #fff !important; line-height: 1.3 !important; text-transform: uppercase; letter-spacing: 0.08em !important; }
+@media(max-width:640px){ .info-bar { flex-direction: column; } .info-box { padding: 18px 22px; } }
+
+/* Section */
+.section { padding: 64px 0; border-bottom: 1px solid #edf0f7; }
+.section--alt { background: #f7f9fc; }
+
+.sec-head { font-size: 24px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase; color: #1a1a2e !important; margin: 0 0 20px !important; line-height: 1.1 !important; }
+.sec-body { font-size: 16px !important; color: #444 !important; line-height: 1.78 !important; }
+.sec-body p { margin: 0 0 16px !important; }
+.sec-body p:last-child { margin-bottom: 0; }
+
+/* Hotel detail */
+.hotel-detail { background: #f7f9fc; border: 1px solid #e4eaf5; border-radius: 10px; padding: 36px 40px; margin-top: 36px; }
+.hotel-name { font-size: 24px !important; font-weight: 800 !important; color: #1a1a2e !important; margin: 0 0 6px !important; letter-spacing: -0.01em !important; }
+.hotel-addr { font-size: 15px !important; color: #666 !important; margin: 0 0 20px !important; }
+.hotel-image { width: 100%; max-height: 320px; object-fit: cover; border-radius: 6px; display: block; margin-bottom: 24px; }
+.hotel-rate-display { margin-bottom: 24px; }
+.hotel-rate-amount { font-size: 24px !important; font-weight: 900 !important; color: #1A5FA8 !important; letter-spacing: -0.03em !important; line-height: 1 !important; }
+.hotel-rate-per { font-size: 24px !important; font-weight: 700 !important; color: #1A5FA8 !important; }
+.hotel-rate-tax { font-size: 24px !important; font-weight: 700 !important; color: #1A5FA8 !important; }
+.hotel-rate-note { display: block; font-size: 14px !important; color: #888 !important; margin-top: 8px; }
+.hotel-deadline { display: inline-block; margin-top: 12px; font-size: 14px !important; font-weight: 700 !important; color: #CC1F2B !important; letter-spacing: 0.03em !important; text-transform: uppercase; border: 2px solid #CC1F2B; border-radius: 4px; padding: 6px 14px; }
+
+/* Travel cards */
+.travel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+@media(max-width:720px){ .travel-grid { grid-template-columns: 1fr; gap: 16px; } }
+.travel-card { border: 1px solid #e4eaf5; border-radius: 8px; overflow: hidden; }
+.travel-card-head { padding: 14px 20px; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.06em !important; text-transform: uppercase; color: #fff !important; }
+.travel-card-head--blue { background: #1A5FA8; }
+.travel-card-head--sky  { background: #4DB8E0; }
+.travel-card-head--red  { background: #CC1F2B; }
+.travel-card-body { padding: 20px; font-size: 14px !important; color: #444 !important; line-height: 1.70 !important; }
+
+/* CTA Buttons */
+@keyframes cta-pulse { 0%,100% { box-shadow: 0 4px 20px rgba(26,95,168,0.25); } 50% { box-shadow: 0 4px 32px rgba(26,95,168,0.55); } }
+@keyframes cta-pulse-gold { 0%,100% { box-shadow: 0 4px 20px rgba(245,166,35,0.3); } 50% { box-shadow: 0 4px 32px rgba(245,166,35,0.6); } }
+.btn-cta { display: inline-block; font-size: 15px !important; font-weight: 700 !important; letter-spacing: 0.07em !important; text-transform: uppercase; padding: 16px 44px; border-radius: 6px; white-space: nowrap; transition: opacity 0.15s, transform 0.15s; animation: cta-pulse 2.5s ease-in-out infinite; }
+.btn-cta:hover { opacity: 0.9; transform: translateY(-2px); }
+.btn-cta--gold { background: #F5A623; color: #fff !important; animation-name: cta-pulse-gold; }
+.btn-cta--blue { background: #1A5FA8; color: #fff !important; }
+
+/* Contact form */
+.contact-section { background: #fff; border-top: 1px solid #edf0f7; padding: 64px 0; }
+.contact-card { border: 2.5px solid #0d1c36; box-shadow: 5px 5px 0 #0d1c36; border-radius: 14px; background: #fff; padding: 48px 52px; max-width: 640px; margin: 0 auto !important; }
+@media(max-width:600px){ .contact-card { padding: 32px 24px; } }
+.contact-heading { font-size: 24px !important; font-weight: 700 !important; letter-spacing: 0.05em !important; text-transform: uppercase; color: #1a1a2e !important; margin: 0 0 14px !important; }
+.contact-subtext { font-size: 15px !important; color: #555 !important; line-height: 1.70 !important; margin: 0 0 28px !important; }
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media(max-width:500px){ .form-row { grid-template-columns: 1fr; } }
+.form-field { display: flex; flex-direction: column; gap: 5px; }
+.form-field label { font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; text-transform: uppercase; color: #555 !important; }
+.form-field input, .form-field select, .form-field textarea { font-family: 'Inter', sans-serif !important; font-size: 15px !important; color: #222 !important; padding: 11px 14px; border: 1.5px solid #ccd4e8; border-radius: 6px; background: #f7f9fc; transition: border-color 0.15s, background 0.15s; width: 100%; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: #1A5FA8 !important; background: #fff; }
+.form-field textarea { resize: vertical; min-height: 100px; }
+.btn-submit { align-self: flex-start; background: #1A5FA8; color: #fff !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.10em !important; text-transform: uppercase; padding: 14px 34px; border: none; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+.btn-submit:hover { background: #154d8a; }
+
+/* FAQ */
+.faq-list { margin-top: 8px; }
+.faq-item { border-bottom: 1px solid #edf0f7; padding: 20px 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-size: 16px !important; font-weight: 500 !important; color: #1a1a2e !important; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+.faq-q::after { content: '+'; font-size: 22px !important; font-weight: 300 !important; color: #1A5FA8 !important; flex-shrink: 0; line-height: 1 !important; }
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a { font-size: 15px !important; color: #444 !important; line-height: 1.72 !important; margin-top: 12px; display: none; }
+.faq-item.open .faq-a { display: block; }
+
+/* Footer */
+.site-footer { background: #fff; border-top: 2px solid #edf0f7; }
+.footer-top { padding: 52px 0 40px; border-bottom: 1px solid #edf0f7; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
+@media(max-width:700px){ .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+.footer-logo-name { font-size: 22px !important; font-weight: 900 !important; color: #1a1a2e !important; letter-spacing: -0.02em !important; margin-bottom: 6px; }
+.footer-tagline { font-size: 13px !important; color: #666 !important; line-height: 1.6 !important; margin-bottom: 14px; }
+.footer-location { font-size: 13px !important; color: #666 !important; line-height: 1.6 !important; margin-bottom: 16px; }
+.footer-site-link { font-size: 13px !important; font-weight: 600 !important; color: #1A5FA8 !important; text-decoration: none; }
+.footer-site-link:hover { color: #0d1c36 !important; }
+.footer-col-head { font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.20em !important; text-transform: uppercase; color: #aaa !important; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 14px !important; color: #555 !important; text-decoration: none; margin-bottom: 10px; transition: color 0.15s; }
+.footer-col a:hover { color: #1A5FA8 !important; }
+.footer-bottom { padding: 20px 0; border-top: 1px solid #edf0f7; }
+.footer-bottom p { font-size: 12px !important; color: #aaa !important; margin: 0 !important; }
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+
+<!-- PILL NAV -->
+<nav class="site-nav">
+  <div class="nav-pill">
+    <a href="/work/adnet/" class="nav-logo"><img src="/work/adnet/img/3ed9785e6cca.png" alt="AdNet 2027"></a>
+    <a href="/work/adnet/" class="nav-link "><span class="nav-link-bg"></span>Home</a>
+    <div class="nav-dropdown">
+      <a href="/work/adnet/agenda/" class="nav-link nav-link--sky"><span class="nav-link-bg"></span>Agenda <span class="nav-arrow">&#9660;</span></a>
+      <div class="nav-dropdown-menu">
+        <a href="/work/adnet/agenda/">Agenda</a>
+        <a href="/work/adnet/sessions/">Call for Sessions</a>
+      </div>
+    </div>
+    <a href="/work/adnet/hotel/" class="nav-link active nav-link--gold"><span class="nav-link-bg"></span>Hotel &amp; Travel</a>
+    <a href="/work/adnet/registration/" class="nav-link nav-link--blue"><span class="nav-link-bg"></span>Registration</a>
+    <a href="/work/adnet/sponsorship/" class="nav-link nav-link--red"><span class="nav-link-bg"></span>Sponsorship</a>
+    <a href="/work/adnet/faq/" class="nav-link "><span class="nav-link-bg"></span>FAQ</a>
+  </div>
+</nav>
+
+<div style="line-height:0 !important;"><img src="/work/adnet/img/fc759bb0c5ee.png" alt="AdNet 2027 Conference" style="width:100%;height:auto;display:block;"></div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="wrap">
+    <p class="page-header-eyebrow">AdNet 2027 Annual Conference</p>
+    <h1>Hotel &amp; Travel</h1>
+  </div>
+</div>
+
+<!-- BOOKING LINK CALLOUT -->
+<div style="background:#fff;border-bottom:1px solid #edf0f7;padding:18px 0;">
+  <div class="wrap">
+    <p style="margin:0 !important;font-size:15px !important;font-style:italic;font-weight:600 !important;color:#1A5FA8 !important;">
+      <a href="#" style="color:#1A5FA8 !important;">Book your room in the AdNet 2027 room block &rarr;</a>
+    </p>
+  </div>
+</div>
+
+<!-- CONFERENCE HOTEL -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-body">
+      <p>AdNet 2027 will be held at the Marriott Chicago Downtown Magnificent Mile, right in the heart of one of the city's most iconic corridors. Whether you're catching a session, connecting with colleagues over dinner, or taking in the city, you'll be steps from everything Michigan Avenue has to offer.</p>
+    </div>
+    <div class="hotel-detail">
+      <div class="hotel-name">Marriott Chicago Downtown Magnificent Mile</div>
+      <div class="hotel-addr">540 N Michigan Avenue, Chicago, Illinois 60611</div>
+      <img class="hotel-image" src="/work/adnet/img/ee31ab96fb44.jpg" alt="Marriott Chicago Downtown Magnificent Mile">
+      <div class="hotel-rate-display" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:32px;">
+        <div>
+          <span class="hotel-rate-amount">$199</span><span class="hotel-rate-per">/night</span><span class="hotel-rate-tax"> + 17.4% tax</span>
+          <span class="hotel-rate-note">Room block rate exclusively for AdNet 2027 attendees</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:8px;">
+        <a href="#" class="btn-cta btn-cta--gold">Book Your Room</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GETTING THERE -->
+<section class="section section--alt">
+  <div class="wrap">
+    <h2 class="sec-head">Travel to Chicago</h2>
+    <div class="travel-grid">
+      <div class="travel-card">
+        <div class="travel-card-head travel-card-head--blue">By Air</div>
+        <div class="travel-card-body">Chicago is served by two major airports. O'Hare International Airport (ORD) is 17 miles northwest of downtown and accessible via the CTA Blue Line. Midway Airport (MDW) is 11 miles southwest and accessible via the CTA Orange Line. Both airports offer cab, rideshare, and transit options directly to the hotel.</div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-card-head travel-card-head--sky">By Train</div>
+        <div class="travel-card-body">Amtrak serves Chicago Union Station at 225 S Canal Street, roughly 1.5 miles from the conference hotel. From Union Station, the hotel is accessible via taxi, rideshare, or a short walk. Chicago is one of the most connected rail hubs in the country.</div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-card-head travel-card-head--red">Local Transit</div>
+        <div class="travel-card-body">The hotel is located along the Magnificent Mile, with easy access to the CTA Red Line at Grand station and multiple bus routes on Michigan Avenue. Chicago's transit system makes it straightforward to explore the city without a car throughout your stay.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOM BLOCK -->
+<section class="section">
+  <div class="wrap">
+    <h2 class="sec-head">Room Block Information</h2>
+    <div class="sec-body">
+      <p>A room block has been secured at the Marriott Chicago Downtown Magnificent Mile at $199 per night (plus 17.4% tax), exclusively for AdNet 2027 attendees. The rate is available three days before and three days after the conference for extended stays. <a href="#">Book your room here</a>. Rooms are limited and available on a first-come, first-served basis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXISTING RESERVATION -->
+<section class="section section--alt">
+  <div class="wrap">
+    <h2 class="sec-head">Questions About Your Existing Reservation</h2>
+    <div class="sec-body">
+      <p>For questions about an existing reservation, including cancellations, room extensions, room type changes, billing, or any other details specific to your stay, please contact the Marriott Chicago Downtown Magnificent Mile directly. Their front desk team is best equipped to help with anything related to your individual booking.</p>
+      <p><strong>Marriott Chicago Downtown Magnificent Mile</strong><br>540 N Michigan Avenue, Chicago, IL 60611<br>Phone: (312) 836-0100</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap">
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">How do I book a room in the AdNet room block?</div>
+        <div class="faq-a">You can <a href="#">book your room here</a>. We recommend booking as soon as possible -- rooms are limited and available on a first-come, first-served basis.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How far is O'Hare Airport from the hotel?</div>
+        <div class="faq-a">O'Hare International Airport (ORD) is approximately 17 miles northwest of the hotel, accessible via the CTA Blue Line directly to downtown -- about a 45-minute ride. Midway Airport (MDW) is 11 miles southwest, accessible via the CTA Orange Line.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<div class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <h2 class="contact-heading">Questions About Booking?</h2>
+      <p class="contact-subtext">This form is for questions about reserving your room at the AdNet 2027 room block, including how to access the booking link, rate eligibility, and room block availability.</p>
+      <p class="contact-subtext" style="margin-top:-14px;">For questions about an existing reservation, please contact the hotel directly at (312) 836-0100.</p>
+      <iframe srcdoc="<p style=&quot;font:15px/1.5 Inter,Arial,sans-serif;color:#555;padding:28px;text-align:center;margin:0&quot;>Forms are switched off in this archived copy.</p>" style="width:100%;height:120px;border:none;display:block;margin-top:24px"></iframe>
+      </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <img src="/work/adnet/img/3ed9785e6cca.png" alt="AdNet 2027" style="height:52px;width:auto;max-width:none;display:block;margin-bottom:14px;">
+          <div class="footer-tagline">The Advancement Network<br>Annual Conference</div>
+          <div class="footer-location">March 22&#8211;24, 2027<br>Chicago, IL</div>
+          <a href="#" class="footer-site-link">adnetcf.org</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-head">AdNet 2027</div>
+          <a href="/work/adnet/">Conference Home</a>
+          <a href="/work/adnet/agenda/">Agenda</a>
+          <a href="/work/adnet/sessions/">Sessions</a>
+          <a href="/work/adnet/hotel/">Hotel &amp; Travel</a>
+          <a href="/work/adnet/registration/">Registration</a>
+          <a href="/work/adnet/faq/">FAQ</a>
+          <a href="/work/adnet/sponsorship/">Sponsorship</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap">
+      <p>&copy; 2027 AdNet / The Advancement Network. All rights reserved. &nbsp;&middot;&nbsp; <a href="#" style="color:inherit !important;">conference@adnetcf.org</a></p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+});
+</script>
+<a href="/#websites" style="position:fixed;left:16px;bottom:16px;z-index:99999;display:flex;gap:8px;align-items:center;
+padding:9px 14px;border-radius:999px;background:rgba(20,20,24,.86);color:#fff !important;font:500 12px/1.2 Inter,Arial,sans-serif;
+text-decoration:none;box-shadow:0 4px 18px rgba(0,0,0,.18)">&larr; Katelyn Mulkey portfolio
+<span style="opacity:.6">&middot; archived build</span></a>
+</body>
+</html>
+
+

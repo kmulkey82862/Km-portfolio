@@ -19,7 +19,7 @@ export const profile = {
   webDeva: {
     name: 'Web Deva',
     blurb: 'My freelance studio: websites and interactive builds for artists, consultants, and small teams.',
-    componentBank: 'https://webdivacomponents.netlify.com',
+    componentBank: 'https://webdevacomponents.netlify.app',
   },
 } as const;
 

@@ -88,6 +88,16 @@ export type Site = {
 
 export const freelanceSites: Site[] = [
   {
+    name: 'Web Deva Digital',
+    kind: 'Studio website',
+    year: '2026',
+    blurb: 'The site for my freelance studio: AI consulting, web design, and marketing for New Orleans businesses.',
+    platform: 'Custom build · Netlify (webdevadigital.com coming soon)',
+    url: 'https://webdevadigital.netlify.app',
+    media: 'site-web-deva',
+    status: 'live',
+  },
+  {
     name: 'Matt Chapin Music',
     kind: 'Artist website',
     year: '2025',
@@ -123,7 +133,7 @@ export const freelanceSites: Site[] = [
     kind: 'UI library',
     year: '2026',
     blurb: 'A browsable bank of interface components I show clients when we scope a build.',
-    url: 'https://webdivacomponents.netlify.com',
+    url: 'https://webdevacomponents.netlify.app',
     media: 'site-component-bank',
     status: 'live',
   },
@@ -157,9 +167,10 @@ export const arbSites: SiteGroup = {
     },
     {
       name: 'AdNet 2027 Annual Conference',
-      url: 'https://adnetcf.org/page/conference-2027',
+      url: '/work/adnet/',
       platform: 'Custom HTML pages · YourEvent',
-      blurb: 'Home, agenda, sessions, registration, hotel, sponsorship, sponsors, and FAQ pages.',
+      blurb: 'Home, agenda, call for sessions, registration, hotel and travel, sponsorship, sponsors, and FAQ pages.',
+      archived: true,
     },
   ],
 };
