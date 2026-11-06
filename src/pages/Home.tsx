@@ -213,7 +213,7 @@ function Email() {
         <Swatch id="email-h" title="Email" pattern="gingham" note="Conference emails built at ARB Meetings & Events, retail promo emails, and email banners and graphics from in-house roles." />
         <EmailCarousel set="arb" />
         <EmailCarousel set="smo" />
-        <DriveGallery groups={['comeaux-brand']} />
+        <DriveGallery groups={['smo-email', 'comeaux-brand']} />
       </div>
     </section>
   );
@@ -223,8 +223,8 @@ function Design() {
   return (
     <section className="section" id="design" aria-labelledby="design-h">
       <div className="wrap">
-        <Swatch id="design-h" title="Brand & design" pattern="linen" note="Brand identity, exhibition promo design, and infographics." />
-        <DriveGallery groups={['cura', 'hnoc', 'comeaux-infographics']} />
+        <Swatch id="design-h" title="Brand & design" pattern="linen" note="Report design, brand identity, exhibition promo design, infographics, and one-off pieces." />
+        <DriveGallery groups={['fimcon-report', 'cura', 'hnoc', 'comeaux-infographics', 'misc-design']} />
       </div>
     </section>
   );
