@@ -1,6 +1,7 @@
-// Creative and social media work, linked straight from the public "Portfolio" folder in Google Drive.
-// Nothing is downloaded: images load from Drive's image CDN and videos play in Drive's own player.
-// To add a piece, paste its Drive file id (from the share link) into the right group.
+// Creative and social media work, hosted with the site in public/media/gallery/.
+// Each item's id names its files (the ids came from the original Google Drive uploads).
+// To add a piece: put the source file, named by a new id, in a folder, run
+// `node scripts/gallery-media.mjs <folder>`, then add the id to the right group below.
 
 export type DriveItem = { id: string; title: string; kind: 'image' | 'video' };
 export type DriveGroup = {
@@ -16,11 +17,10 @@ export type DriveGroup = {
 const img = (id: string, title: string): DriveItem => ({ id, title, kind: 'image' });
 const vid = (id: string, title: string): DriveItem => ({ id, title, kind: 'video' });
 
-export const driveThumb = (id: string, w = 800) => `https://lh3.googleusercontent.com/d/${id}=w${w}`;
-export const drivePreview = (id: string) => `https://drive.google.com/file/d/${id}/preview`;
-export const driveView = (id: string) => `https://drive.google.com/file/d/${id}/view`;
-
-export const PORTFOLIO_FOLDER = 'https://drive.google.com/drive/folders/10TiBE479jpg_41ky4i2-eqQbaCZuCYXO';
+const BASE = '/media/gallery/';
+export const thumbSrc = (id: string) => `${BASE}${id}-600.webp`;
+export const fullSrc = (id: string) => `${BASE}${id}-1800.webp`;
+export const videoSrc = (id: string) => `${BASE}${id}.mp4`;
 
 export const driveGroups: DriveGroup[] = [
   {
@@ -154,8 +154,6 @@ export const driveGroups: DriveGroup[] = [
     title: 'Music promo design',
     note: 'Social promos and AI-assisted visuals for local musicians.',
     items: [
-      vid('1a9zKewLG3KQO8JnqqA2u8b1jlpdLcwyt', 'Jazz Fest social promo 1 (Margot Manning)'),
-      vid('1NuvyzH60E7stM_Xr5MNjf4m82mMg3TXY', 'Jazz Fest social promo 2 (Margot Manning)'),
       vid('1u16f_YUVrpT0-Uh-RPqtogcTQxkLJK0_', 'Gesso promo'),
       vid('1QcawLtkcFRWgfD7bC6rChQBb787c8H8_', 'Mr. Legwork logo, AI video'),
       img('19F6OlwVu2hVmVU9D3WW_NC-gqT5vB51U', 'Gesso album art (AI)'),

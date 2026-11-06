@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { driveGroups, DriveGroup, drivePreview, driveThumb, driveView, PORTFOLIO_FOLDER } from '../content/driveGallery';
+import { driveGroups, DriveGroup, fullSrc, thumbSrc, videoSrc } from '../content/driveGallery';
 
 function Viewer({ group, start, onClose }: { group: DriveGroup; start: number; onClose: () => void }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -25,9 +25,9 @@ function Viewer({ group, start, onClose }: { group: DriveGroup; start: number; o
     >
       <div className="dviewer__stage">
         {item.kind === 'video' ? (
-          <iframe key={item.id} src={drivePreview(item.id)} title={item.title} allow="autoplay; fullscreen" allowFullScreen />
+          <video key={item.id} src={videoSrc(item.id)} poster={thumbSrc(item.id)} controls autoPlay playsInline preload="metadata" aria-label={item.title} />
         ) : (
-          <img key={item.id} src={driveThumb(item.id, 1800)} alt={item.title} />
+          <img key={item.id} src={fullSrc(item.id)} alt={item.title} />
         )}
       </div>
       <div className="dviewer__bar">
@@ -38,9 +38,6 @@ function Viewer({ group, start, onClose }: { group: DriveGroup; start: number; o
           </div>
         </div>
         <div className="dviewer__nav">
-          <a href={driveView(item.id)} target="_blank" rel="noopener noreferrer" className="dviewer__open">
-            Open in Drive ↗
-          </a>
           <button type="button" className="icon-btn" onClick={() => go(-1)} aria-label="Previous">
             ←
           </button>
@@ -56,7 +53,7 @@ function Viewer({ group, start, onClose }: { group: DriveGroup; start: number; o
   );
 }
 
-export default function DriveGallery({ groups, folderLink = false }: { groups: string[]; folderLink?: boolean }) {
+export default function DriveGallery({ groups }: { groups: string[] }) {
   const list = groups.map((id) => driveGroups.find((g) => g.id === id)).filter((g): g is DriveGroup => !!g);
   const [open, setOpen] = useState<{ group: DriveGroup; index: number } | null>(null);
   return (
@@ -79,7 +76,7 @@ export default function DriveGallery({ groups, folderLink = false }: { groups: s
             {g.items.map((item, index) => (
               <li key={item.id}>
                 <button type="button" className="dthumb" onClick={() => setOpen({ group: g, index })} aria-label={`Open ${item.title}`}>
-                  <img src={driveThumb(item.id, 600)} alt="" loading="lazy" decoding="async" referrerPolicy="no-referrer" />
+                  <img src={thumbSrc(item.id)} alt="" loading="lazy" decoding="async" />
                   {item.kind === 'video' && (
                     <span className="dthumb__play" aria-hidden="true">
                       ▶
@@ -92,13 +89,6 @@ export default function DriveGallery({ groups, folderLink = false }: { groups: s
           </ul>
         </section>
       ))}
-      {folderLink && (
-      <p className="dgallery__folder">
-        <a href={PORTFOLIO_FOLDER} target="_blank" rel="noopener noreferrer">
-          Browse the full portfolio folder in Google Drive ↗
-        </a>
-      </p>
-      )}
       {open && <Viewer group={open.group} start={open.index} onClose={() => setOpen(null)} />}
     </div>
   );
