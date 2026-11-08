@@ -5,14 +5,14 @@ export type EmailSet = { id: string; org: string; title: string; note?: string; 
 export const emailSets: EmailSet[] = [
   {
     id: 'arb',
-    org: 'Built for ARB Meetings & Events',
+    org: 'Event marketing',
     title: 'Conference emails',
-    note: 'Work created by Katelyn Mulkey as an employee of ARB Meetings & Events. All work product and trademarks belong to ARB Meetings & Events and its respective clients. Shown for portfolio purposes only; links are disabled.',
+    note: 'Created by Katelyn Mulkey as an in-house employee. All work product and trademarks belong to my employer and its clients. Shown for portfolio purposes only; links are disabled.',
     emails: [
-      { file: 'acdc-2026-launch.html', title: 'ACDC 2026 launch', type: 'Launch announcement' },
-      { file: 'adnet-2027-launch.html', title: 'AdNet 2027 is open', type: 'Registration launch' },
-      { file: 'namd-conference-app.html', title: 'NAMD conference app', type: 'App launch' },
-      { file: 'namd-genedx-networking-break.html', title: 'GeneDx Sweet Shoppe', type: 'Networking break' },
+      { file: 'acdc-2026-launch.html', title: 'Convention launch', type: 'Launch announcement' },
+      { file: 'adnet-2027-launch.html', title: 'Conference launch', type: 'Registration launch' },
+      { file: 'namd-conference-app.html', title: 'Conference app', type: 'App launch' },
+      { file: 'namd-genedx-networking-break.html', title: 'Sponsored morning break', type: 'Networking break' },
     ],
   },
   {

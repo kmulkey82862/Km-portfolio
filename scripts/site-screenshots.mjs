@@ -4,7 +4,7 @@ import sharp from 'sharp';
 const dir = process.argv[2];
 const jsonPath = 'src/content/media.generated.json';
 const media = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-const alts = { 'site-cdc': 'American Chronic Disease Convention website, archived build', 'site-adnet-2027': 'AdNet 2027 Annual Conference website, archived build',
+const alts = { 'site-cdc': 'Convention website, archived build', 'site-adnet-2027': 'Conference website, archived build',
   'site-matt-chapin': 'Matt Chapin Music website', 'site-web-deva': 'Web Deva Digital website', 'site-component-bank': 'Web Deva component library' };
 for (const id of Object.keys(alts)) {
   const src = `${dir}/${id}.png`;

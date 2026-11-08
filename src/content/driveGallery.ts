@@ -204,8 +204,8 @@ export const driveGroups: DriveGroup[] = [
   },
   {
     id: 'fimcon-report',
-    client: 'ARB Meetings & Events',
-    title: 'FIMCON 2026 Outcomes Report',
+    client: 'Event reporting',
+    title: 'Conference Outcomes Report',
     note: 'A 39-page outcomes report I designed, wrote, and compiled from nine data sources. Six pages shown; every event figure is blacked out to protect client data.',
     items: [
       img('fimcon-report-p01', 'Cover'),

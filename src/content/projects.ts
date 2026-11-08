@@ -7,7 +7,7 @@ export type ArchiveLink = { label: string; href?: string; to?: string; kind: 'de
 export type ToolItem = {
   id: string;
   title: string;
-  org: string;
+  org?: string;
   year: string;
   description: string;
   links: ArchiveLink[];
@@ -16,12 +16,11 @@ export type ToolItem = {
 
 // Work is grouped by type. Descriptions are factual; demos run on sample data.
 
-// AI enablement at ARB Meetings & Events.
+// AI enablement, in-house.
 export const aiEnablement: ToolItem[] = [
   {
     id: 'claude-team',
     title: 'Claude Team rollout and knowledge base',
-    org: 'ARB Meetings & Events',
     year: '2026',
     description:
       'Company-wide adoption of Claude Team across a 10-person team, with core systems, client project files, and shared documents connected into one central knowledge base.',
@@ -30,7 +29,6 @@ export const aiEnablement: ToolItem[] = [
   {
     id: 'client-digest',
     title: 'Automated digests',
-    org: 'ARB Meetings & Events',
     year: '2026',
     description:
       'Claude automations that read project boards, inboxes, team chat, calendars, meeting summaries, and notes docs: a weekly client-by-client team digest, a daily shared-inbox triage that logs and assigns requests, and a personal daily brief with a time review and pre-drafted project updates.',
@@ -38,12 +36,11 @@ export const aiEnablement: ToolItem[] = [
   },
 ];
 
-// Tools and automation at ARB Meetings & Events.
+// Internal tools, in-house.
 export const tools: ToolItem[] = [
   {
     id: 'speaker-graphic',
     title: 'Speaker graphic generator',
-    org: 'ARB Meetings & Events',
     year: '2026',
     description:
       'Asked for one Canva template, I built a tool instead: the program agenda loaded in, a layout refined with Claude over rounds of QA so any length of name or session title fits, and a page where speakers get a custom graphic in two clicks. About 100 speakers used it, and it boosted the event’s buzz on LinkedIn.',
@@ -55,7 +52,6 @@ export const tools: ToolItem[] = [
   {
     id: 'logo-resizer',
     title: 'Logo resizer',
-    org: 'ARB Meetings & Events',
     year: '2026',
     description:
       'Reads folders of exhibitor and sponsor logos, resizes them to the exact specs apps and websites need, and downloads them in one click.',
@@ -64,7 +60,6 @@ export const tools: ToolItem[] = [
   {
     id: 'session-archive',
     title: 'Session archive pipeline',
-    org: 'ARB Meetings & Events',
     year: '2026',
     description:
       'Apps Script moved session footage directly to pay-per-view streaming on Bunny Stream, replacing subscription hosting. Includes the searchable viewer interface, rebuilt here with sample sessions.',
@@ -139,7 +134,7 @@ export const freelanceSites: Site[] = [
   },
 ];
 
-// Websites built at ARB Meetings & Events, shown as one entry with the events as tags,
+// Event websites built in-house, shown as one entry with the events as tags,
 // so the clients aren't presented as Katelyn's own.
 export type SiteGroup = {
   title: string;
@@ -152,13 +147,13 @@ export type SiteGroup = {
 
 export const arbSites: SiteGroup = {
   title: 'Conference websites',
-  org: 'Built for ARB Meetings & Events',
-  blurb: 'Event websites built while at ARB Meetings & Events: home pages, agendas, calls for sessions, registration, hotel and travel, sponsorship, and FAQs. I was the creative director and designer on these, working within each client’s brand guidelines.',
+  org: 'Event websites',
+  blurb: 'Event websites built in-house: home pages, agendas, calls for sessions, registration, hotel and travel, sponsorship, and FAQs. I was the creative director and designer on these, working within each client’s brand guidelines.',
   note: 'The HTML for these sites is preserved here as the version that was entirely my work. Live sites change as others optimize them or update content, so these link to archived copies instead of the live URLs. Forms are switched off in the copies.',
   media: ['site-adnet-2027', 'site-cdc'],
   sites: [
     {
-      name: 'American Chronic Disease Convention',
+      name: 'Convention Website',
       url: '/work/acdc/',
       platform: 'Custom HTML, CSS, and JavaScript · WordPress',
       blurb:
@@ -166,7 +161,7 @@ export const arbSites: SiteGroup = {
       archived: true,
     },
     {
-      name: 'AdNet 2027 Annual Conference',
+      name: 'Conference Website',
       url: '/work/adnet/',
       platform: 'Custom HTML pages · YourEvent',
       blurb: 'Home, agenda, call for sessions, registration, hotel and travel, sponsorship, sponsors, and FAQ pages.',

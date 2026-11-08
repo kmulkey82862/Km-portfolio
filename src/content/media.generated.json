@@ -1,7 +1,7 @@
 {
   "fimcon-archive": {
     "type": "image",
-    "alt": "FIMCON 2026 session archive with searchable recordings",
+    "alt": "Conference session archive with searchable recordings",
     "width": 1918,
     "height": 940,
     "src": "/media/fimcon-archive-960.webp",
@@ -25,7 +25,7 @@
   },
   "site-adnet-2027": {
     "type": "image",
-    "alt": "AdNet 2027 Annual Conference website, archived build",
+    "alt": "Conference website, archived build",
     "width": 2160,
     "height": 1350,
     "src": "/media/site-adnet-2027-960.webp",
@@ -37,7 +37,7 @@
   },
   "site-cdc": {
     "type": "image",
-    "alt": "American Chronic Disease Convention website, archived build",
+    "alt": "Convention website, archived build",
     "width": 2160,
     "height": 1350,
     "src": "/media/site-cdc-960.webp",

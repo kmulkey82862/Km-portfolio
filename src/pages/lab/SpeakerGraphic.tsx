@@ -356,7 +356,7 @@ export default function SpeakerGraphic() {
         </div>
         <aside className="sg-story__live">
           <p className="sg-story__label">The real tool</p>
-          <p className="muted">Built for a conference while at ARB Meetings & Events. It’s still live for that event’s speakers.</p>
+          <p className="muted">Built in-house for a conference. It’s still live for that event’s speakers.</p>
           <a href={LIVE_TOOL} target="_blank" rel="noopener noreferrer" className="btn btn--accent">
             Open the live tool <span className="arrow">↗</span>
           </a>

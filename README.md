@@ -45,7 +45,7 @@ npm run preview    # serve the production build
 
 The site is a white background with Helvetica Now (Thin and Light) and a raspberry accent, plus a few personal touches:
 
-- **Hero** (`src/components/Hero.tsx`): "Digital Portfolio" in bold black under a smaller "Katelyn Mulkey \| New Orleans, Louisiana" line, framed by four taped fabric squares that link to the sections.
+- **Hero** (`src/components/Hero.tsx`, `FabricFolder.tsx`): "Digital Portfolio" under a smaller "Katelyn Mulkey | New Orleans, Louisiana" line, framed by six glass folders lined with the section fabrics. Hovering leans the glass and lifts real work out of the pocket; clicking jumps to the section. On phones they become one swipeable row.
 - **Nav and title type:** the hero title and the name in the top bar use Inter Tight Bold. Helvetica Now is licensed in Thin and Light only, so it can't supply a true bold.
 - **One pop of red:** poppy red (`--poppy` in `swatches.css`) is used sparingly, always with icy blue or the pinks and never with the olive. It appears as a thread in the ticking, tartan, and linen, and as the dot that marks the current page in the nav.
 - **Section heads** (`src/components/Swatch.tsx`, `src/styles/swatches.css`): each section's title and description sit on a stitched label over a fabric pattern. All patterns are pure CSS.

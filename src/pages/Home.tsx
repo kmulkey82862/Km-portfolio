@@ -31,9 +31,7 @@ function WorkRows({ items }: { items: ToolItem[] }) {
         <li key={t.id} className="archive__row reveal">
           <div className="archive__title">
             <h3>{t.title}</h3>
-            <p className="muted">
-              {t.org} · {t.year}
-            </p>
+            <p className="muted">{t.org ? `${t.org} · ${t.year}` : t.year}</p>
           </div>
           <p className="archive__desc">{t.description}</p>
           <ul className="archive__links">
@@ -81,7 +79,7 @@ function Tools() {
           pattern="plaid"
           note={
             <>
-              Internal tools built at ARB Meetings & Events: speaker graphics, logo resizing, and the session archive viewer. Demos run on sample data.
+              Internal tools built in-house: speaker graphics, logo resizing, and the session archive viewer. Demos run on sample data.
             </>
           }
         />
@@ -145,7 +143,7 @@ function Websites() {
           pattern="herringbone"
           note={
             <>
-              Conference websites built at ARB Meetings & Events, sites built through <WebDevaMark />, my freelance studio, and in-house site work. None of these come from a template: each is custom-built with Claude, with my own design, graphics, and motion work.
+              Event websites built in-house, sites built through <WebDevaMark />, my freelance studio, and in-house site work. None of these come from a template: each is custom-built with Claude, with my own design, graphics, and motion work.
             </>
           }
         />
@@ -210,7 +208,7 @@ function Email() {
   return (
     <section className="section" id="email" aria-labelledby="email-h">
       <div className="wrap">
-        <Swatch id="email-h" title="Email" pattern="gingham" note="Conference emails built at ARB Meetings & Events, retail promo emails, and email banners and graphics from in-house roles." />
+        <Swatch id="email-h" title="Email" pattern="gingham" note="Conference emails built in-house, retail promo emails, and email banners and graphics from in-house roles." />
         <EmailCarousel set="arb" />
         <EmailCarousel set="smo" />
         <DriveGallery groups={['smo-email', 'comeaux-brand']} />
