@@ -31,8 +31,8 @@
   .contact div { display: grid; grid-template-columns: 0.62in auto; }
   .contact b, .lbl { font-weight: 300; font-size: 7.6px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); align-self: center; }
   .contact a { color: inherit; text-decoration: none; }
-  .qr { width: 0.9in; height: 0.9in; flex: none; border-radius: 12px; border: 1px dashed #b9b4bb; background: #fff; display: grid; place-items: center; text-align: center; font-size: 7.6px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6; color: var(--faint); }
-  .qr img { width: 100%; height: 100%; display: block; }
+  .qr { width: 0.92in; height: 0.92in; flex: none; display: block; padding: 3px; border-radius: 12px; background: #fff; box-shadow: 0 0 0 1px #e3dce1; }
+  .qr img { width: 100%; height: 100%; display: block; border-radius: 9px; }
 
   .summary { margin: 0.2in 0 0; font-size: 12.6px; line-height: 1.6; color: var(--soft); max-width: 6.6in; }
 
@@ -61,7 +61,7 @@
   .page--2 .job + .job { padding-top: 0.15in; }
   .page--2 .job li { margin-bottom: 2px; }
 
-  .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3in; font-size: 11.6px; line-height: 1.5; }
+  .edu { display: grid; grid-template-columns: 1.25fr 1.5fr 0.62fr; gap: 0.2in; font-size: 11.6px; line-height: 1.5; }
   .edu h3 { margin: 0 0 5px; font-weight: 300; font-size: 11.4px; color: var(--rasp); }
   .edu p { margin: 0 0 6px; }
   .muted { color: var(--faint); font-size: 10.4px; }
@@ -82,6 +82,11 @@
   .folder .tools__ind { border-top: 1px solid #e2dce0; padding-top: 7px; }
   .folder .tools__ind--tight { border-top: 0; padding-top: 0; }
   .co__note { color: var(--faint); }
+  .qrbox { flex: none; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .qr__cap { margin: 0; display: flex; align-items: center; gap: 5px; line-height: 1.05; }
+  .qr__icon { width: 15px; height: 15px; flex: none; }
+  .qr__cap span { display: flex; flex-direction: column; font-size: 7.4px; letter-spacing: 0.06em; color: var(--soft); }
+  .qr__cap b { font-family: 'IT', 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 12.5px; letter-spacing: -0.02em; color: var(--rasp); }
 </style>
 </head>
 <body>
@@ -98,8 +103,10 @@
       <div><b>Location</b>New Orleans, LA · Remote or hybrid</div>
       <div><b>Portfolio</b><a href="https://kmulkey.netlify.app">kmulkey.netlify.app</a></div>
     </div>
-    <!-- QR code slot: replace the placeholder with <img src="qr-portfolio.svg" alt=""> -->
-    <div class="qr" aria-label="Portfolio QR code"><span>Portfolio<br>QR code</span></div>
+    <div class="qrbox">
+      <a class="qr" href="https://kmulkey.netlify.app" aria-label="Portfolio QR code"><img src="qr-portfolio.png" alt="QR code linking to kmulkey.netlify.app"></a>
+      <p class="qr__cap"><svg class="qr__icon" viewBox="0 0 20 20" aria-hidden="true"><g fill="#d25985"><circle cx="10" cy="5" r="3.6"/><circle cx="14.8" cy="8.5" r="3.6"/><circle cx="13" cy="14.2" r="3.6"/><circle cx="7" cy="14.2" r="3.6"/><circle cx="5.2" cy="8.5" r="3.6"/></g><circle cx="10" cy="10" r="2.6" fill="#f3d2dc"/></svg><span>Scan to view my<b>portfolio</b></span></p>
+    </div>
   </header>
 
   <p class="summary">AI operations and marketing systems professional working hands-on with generative AI since 2023. I lead AI adoption, connect core business systems, and build AI-assisted tools and automations that cut manual data work and turn scattered information into clear, measurable results.</p>
@@ -137,22 +144,23 @@
       <div class="job__head"><div><h4>Integrated Systems &amp; Marketing Operations</h4><p class="co">ARB Meetings &amp; Events</p></div><span class="dates">Jan 2026 – Current</span></div>
       <p class="grp">AI adoption &amp; automation</p>
       <ul>
-        <li>Led company-wide adoption of Claude Team, unifying core systems, client files, and shared documents into one central knowledge base for a 10-person team.</li>
-        <li>Automated daily and weekly client digests from project systems and shared inboxes, and routed Zoom meeting summaries into each client’s Monday.com workspace.</li>
+        <li>Led company-wide adoption of Claude Team, unifying core systems, client files, and shared docs into one knowledge base for a 10-person team.</li>
+        <li>Automated client digests from project systems and shared inboxes, and routed Zoom summaries into each client’s Monday.com workspace.</li>
         <li>Administered Monday.com, standardizing client workspaces and integrating Brevo, Jotform, and Google Workspace.</li>
       </ul>
       <p class="grp">Tools &amp; systems</p>
       <ul>
-        <li>Developed an OCR receipt scanner, a speaker graphic generator used by about 100 speakers, and a video archive pipeline that replaced subscription hosting with pay-per-view streaming.</li>
-        <li>Engineered a registration code system for 300–400 invitees, from unique codes and personalized emails to redemption tracking and reminder drips.</li>
-        <li>Designed interactive dashboards in Claude and Looker Studio, and authored a 39-page outcomes report drawing on 9 data sources.</li>
+        <li>Developed an OCR receipt scanner, a speaker graphic generator used by about 100 speakers, and a pay-per-view video archive.</li>
+        <li>Engineered a registration code system for 300–400 invitees: unique codes, personalized emails, redemption tracking, and reminders.</li>
+        <li>Owned post-conference evaluations and reporting as a client product, condensing results into overviews and briefs tailored to steering committees, funders, and the internal team.</li>
+        <li>Authored a 39-page outcomes report drawing on 9 data sources, and designed interactive dashboards in Claude and Looker Studio.</li>
         <li>Configured conference apps on vFairs, Bravura, and Whova; FIMCON’s app reached 75.1% adoption, about 1.5x the industry benchmark.</li>
       </ul>
       <p class="grp">Marketing &amp; communications</p>
       <ul>
-        <li>Created a full-funnel content strategy and website for a chronic disease convention, plus email, LinkedIn, and web content for FIMCON 2026.</li>
+        <li>Researched user personas and built the full-funnel content strategy and website for a chronic disease convention, plus email, LinkedIn, and web content for FIMCON 2026.</li>
         <li>Ran 30 Brevo campaigns at a 98.1% delivery rate and 39.8% click-to-open rate, over 2x the industry average; earned 559 media pickups, including AP News, from one press release.</li>
-        <li>Produced social media toolkits for attendees, speakers, and sponsors, and hired and directed the photographer for 3 of 4 on-site conferences, managing the full image library.</li>
+        <li>Produced social media toolkits for attendees, speakers, and sponsors, and directed photography for 3 of 4 on-site conferences.</li>
       </ul>
     </div>
   </div>
@@ -226,6 +234,10 @@
       <h3>Awards</h3>
       <p>US Social Media Awards, 2020<br><span class="muted">Best Strategic Use of Social Media</span></p>
       <p>PRAL Flambeaux Awards, 2019<br><span class="muted">Outstanding Advertising Campaign · “Vote Parks &amp; Rec”</span></p>
+    </div>
+    <div>
+      <h3>Certification</h3>
+      <p>Technical writing<br><span class="muted">20-hour program, 2021</span></p>
     </div>
   </div>
     </div>

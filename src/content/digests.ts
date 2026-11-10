@@ -68,7 +68,7 @@ function teamEmail() {
         section(name, CLIENT_COLORS[name], items.map(([t, d, tag]) => card(t, d, CLIENT_COLORS[name], tag, tag ? tagColor[tag] : undefined)).join('')),
       )
       .join('');
-  return shell('Weekly team digest', 'Every client, one page.', 'Monday morning · sent to the whole team', '#c9d6df', body, 'Compiled from project boards, inboxes, meeting summaries, calendars, and client notes docs.');
+  return shell('Client name', 'Weekly team digest', 'Every client, one page. Monday morning · sent to the whole team', '#c9d6df', body, 'Compiled from project boards, inboxes, meeting summaries, calendars, and client notes docs.');
 }
 
 // ---------- 2. Shared inbox triage ----------
@@ -98,7 +98,7 @@ function inboxEmail() {
       card('Exhibitor portal questions', 'Asked three times since last week. Escalated to the team lead.', '#8fa6b6', 'OVERDUE', '#d0342c') +
       card('Payment form for a sponsor', 'Waiting on the client to confirm which forms they need.', '#8fa6b6', 'WAITING', '#c68a12')) +
     section('Closed since yesterday', '#2f9e62', card('7 requests resolved', 'Marked complete in the sheet after a reply was found in the inbox.', '#2f9e62'));
-  return shell('Shared inbox · daily triage', 'Nothing falls through the cracks.', 'Every weekday at 7 AM · sent to the team', '#f3d2dc', body, 'Requests are logged to a tracking sheet, assigned by rule, and checked against replies the next day.');
+  return shell('Client name', 'Shared inbox · daily triage', 'Nothing falls through the cracks. Every weekday at 7 AM · sent to the team', '#f3d2dc', body, 'Requests are logged to a tracking sheet, assigned by rule, and checked against replies the next day.');
 }
 
 // ---------- 3. Katelyn's Chaos Brief ----------
@@ -146,7 +146,7 @@ ${button('Post update', '#772450')}${button('Edit first', '#f3d2dc', '#5e1b3e')}
     section('Who’s waiting on you', '#7f7c1e', card('Two teammates', 'Jane is waiting on logo files; John needs your sign-off on the program book ad.', '#7f7c1e')) +
     section('Time review', '#8fa6b6', time + `<div style="${F}font-size:12px;color:#7d7880;padding-top:6px">From your time tracker. Client C has time logged but no update in the project board, so one is drafted below.</div>`) +
     section('Project board updates ready for review', '#772450', `<div style="${F}font-size:12px;color:#7d7880;padding-bottom:8px">Nothing is posted until you choose. The comment text is exactly what would post.</div>` + updateCards);
-  return shell('Katelyn’s Chaos Brief', 'Only what needs you, sorted before the day starts.', 'Every weekday at 7 AM · sent only to me', '#e0457f', body, 'Reads email, team chat, the project board, calendars, comms calendars, meeting summaries, notes docs, and the time tracker.');
+  return shell('Client name', 'Katelyn’s Chaos Brief', 'Only what needs you, sorted before the day starts. Every weekday at 7 AM · sent only to me', '#e0457f', body, 'Reads email, team chat, the project board, calendars, comms calendars, meeting summaries, notes docs, and the time tracker.');
 }
 
 export const DIGESTS: Record<DigestId, { label: string; cadence: string; build: () => string; reads: string[]; does: string[]; why: string }> = {
@@ -159,7 +159,7 @@ export const DIGESTS: Record<DigestId, { label: string; cadence: string; build: 
       'Builds a client-by-client overview: what’s done, in progress, waiting, and needing a decision.',
       'Leads with a one-line “this week” summary so the most important thing is never buried.',
     ],
-    why: 'A handful of large, long-running client projects meant status lived in many places. One page replaced the round of “where are we on…” messages before every team meeting.',
+    why: 'Status for several long-running client projects lived across boards, inboxes, meeting summaries, and calendars. This condenses all of it into a one-page brief the whole team can read in a few minutes. Getting there took many rounds of prompting and refinement in Claude, with my direction on what to include, what to cut, and what order it goes in.',
   },
   inbox: {
     label: 'Shared inbox triage',
@@ -171,7 +171,7 @@ export const DIGESTS: Record<DigestId, { label: string; cadence: string; build: 
       'Can notify the owner by email and create a task in the project management system with a due date.',
       'Checks the next day for a reply and closes the request, or flags it as overdue.',
     ],
-    why: 'When many people work one inbox, the risk is assuming someone else replied. This adds visibility and accountability, and more triggers can be added as the team needs them.',
+    why: 'A busy shared inbox, condensed into a short daily brief: what came in, who owns it, and what’s overdue. When many people work one inbox, the risk is assuming someone else replied. I wrote the routing rules and refined the output over several iterations, and more triggers can be added as the team needs them.',
   },
   chaos: {
     label: 'Katelyn’s Chaos Brief',
@@ -183,7 +183,7 @@ export const DIGESTS: Record<DigestId, { label: string; cadence: string; build: 
       'Reviews tracked time against the project board and pre-drafts the updates I haven’t posted, with buttons to post, edit, or skip.',
       'Team chat isn’t something Claude connects to on its own, so I found and set up a tool that lets it read chat alongside email.',
     ],
-    why: 'Our team moved fast and a lot happened in chat, so things got lost. I spent a few hours refining this until it worked as a supercharged to-do list that keeps the project board honest.',
+    why: 'Everything across email, team chat, the project board, and calendars, condensed into a brief of only what needs me. Our team moved fast and a lot happened in chat, so things got lost. I refined it over many prompts, with specific direction at each step, until it worked as a supercharged to-do list that keeps the project board honest.',
   },
 };
 

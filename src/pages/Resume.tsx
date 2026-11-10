@@ -92,7 +92,7 @@ export default function Resume() {
               {education.school}, {education.year}
             </p>
             <ul className="plain muted">
-              {education.honors.map((h) => (
+              {[...education.honors, ...education.certifications].map((h) => (
                 <li key={h}>{h}</li>
               ))}
             </ul>

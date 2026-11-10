@@ -24,26 +24,27 @@ export const experience: Role[] = [
       {
         heading: 'AI adoption & automation',
         bullets: [
-          'Led company-wide adoption of Claude Team, unifying core systems, client files, and shared documents into one central knowledge base for a 10-person team.',
-          'Automated daily and weekly client digests from project systems and shared inboxes, and routed Zoom meeting summaries into each client’s Monday.com workspace.',
+          'Led company-wide adoption of Claude Team, unifying core systems, client files, and shared docs into one knowledge base for a 10-person team.',
+          'Automated client digests from project systems and shared inboxes, and routed Zoom summaries into each client’s Monday.com workspace.',
           'Administered Monday.com, standardizing client workspaces and integrating Brevo, Jotform, and Google Workspace.',
         ],
       },
       {
         heading: 'Tools & systems',
         bullets: [
-          'Developed an OCR receipt scanner, a speaker graphic generator used by about 100 speakers, and a video archive pipeline that replaced subscription hosting with pay-per-view streaming.',
-          'Engineered a registration code system for 300–400 invitees, from unique codes and personalized emails to redemption tracking and reminder drips.',
-          'Designed interactive dashboards in Claude and Looker Studio, and authored a 39-page outcomes report drawing on 9 data sources.',
+          'Developed an OCR receipt scanner, a speaker graphic generator used by about 100 speakers, and a pay-per-view video archive.',
+          'Engineered a registration code system for 300–400 invitees: unique codes, personalized emails, redemption tracking, and reminders.',
+          'Owned post-conference evaluations and reporting as a client product, condensing results into overviews and briefs tailored to steering committees, funders, and the internal team.',
+          'Authored a 39-page outcomes report drawing on 9 data sources, and designed interactive dashboards in Claude and Looker Studio.',
           'Configured conference apps on vFairs, Bravura, and Whova; FIMCON’s app reached 75.1% adoption, about 1.5x the industry benchmark.',
         ],
       },
       {
         heading: 'Marketing & communications',
         bullets: [
-          'Created a full-funnel content strategy and website for a chronic disease convention, plus email, LinkedIn, and web content for FIMCON 2026.',
+          'Researched user personas and built the full-funnel content strategy and website for a chronic disease convention, plus email, LinkedIn, and web content for FIMCON 2026.',
           'Ran 30 Brevo campaigns at a 98.1% delivery rate and 39.8% click-to-open rate, over 2x the industry average; earned 559 media pickups, including AP News, from one press release.',
-          'Produced social media toolkits for attendees, speakers, and sponsors, and hired and directed the photographer for 3 of 4 on-site conferences, managing the full image library.',
+          'Produced social media toolkits for attendees, speakers, and sponsors, and directed photography for 3 of 4 on-site conferences.',
         ],
       },
     ],

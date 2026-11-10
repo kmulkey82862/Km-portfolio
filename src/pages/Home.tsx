@@ -59,7 +59,7 @@ function AiEnablement() {
         <WorkRows items={aiEnablement} />
         <div className="archive__sub reveal" id="digests">
           <h3 className="h-card">What the automations send</h3>
-          <p className="shead__note">The three digests as they land in the inbox, rebuilt on sample data.</p>
+          <p className="shead__note">Each digest condenses information from many sources into a short brief for one audience. Built with Claude over many rounds of prompting and refinement, and shown here on sample data.</p>
         </div>
         <div className="reveal">
           <DigestPreview />
