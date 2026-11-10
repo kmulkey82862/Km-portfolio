@@ -27,11 +27,11 @@
   h1 { margin: 0; font-weight: 100; font-size: 50px; letter-spacing: -0.045em; line-height: 0.95; }
   .role { margin: 10px 0 0; font-size: 13px; color: var(--soft); display: flex; align-items: center; gap: 8px; }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--poppy); display: inline-block; }
-  .contact { font-size: 10.6px; line-height: 1.75; color: var(--ink); padding: 9px 14px; border-radius: 12px; background: linear-gradient(180deg, #f8fafc, #edf2f5); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(60,30,50,0.08), 0 10px 22px -14px rgba(60,30,50,0.35); }
+  .contact { font-size: 10.6px; line-height: 1.75; color: var(--ink); padding: 9px 14px; border-radius: 12px; background: linear-gradient(180deg, #f8fafc, #edf2f5); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px #e3dce1; position: relative; }
   .contact div { display: grid; grid-template-columns: 0.62in auto; }
   .contact b, .lbl { font-weight: 300; font-size: 7.6px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); align-self: center; }
   .contact a { color: inherit; text-decoration: none; }
-  .qr { width: 0.9in; height: 0.9in; flex: none; border-radius: 12px; border: 1px dashed #b9b4bb; background: rgba(255,255,255,0.6); display: grid; place-items: center; text-align: center; font-size: 7.6px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6; color: var(--faint); }
+  .qr { width: 0.9in; height: 0.9in; flex: none; border-radius: 12px; border: 1px dashed #b9b4bb; background: #fff; display: grid; place-items: center; text-align: center; font-size: 7.6px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6; color: var(--faint); }
   .qr img { width: 100%; height: 100%; display: block; }
 
   .summary { margin: 0.2in 0 0; font-size: 12.6px; line-height: 1.6; color: var(--soft); max-width: 6.6in; }
@@ -66,22 +66,22 @@
   .edu p { margin: 0 0 6px; }
   .muted { color: var(--faint); font-size: 10.4px; }
   /* Frosted glass folders, after the folders on the portfolio's home page */
-  .page { background:
-      radial-gradient(60% 40% at 100% 0%, rgba(243,210,220,0.35), transparent 70%),
-      radial-gradient(55% 40% at 0% 100%, rgba(201,214,223,0.4), transparent 70%), #fff; }
+  .page { background: #fff; }
   .folder { --top: #f7f8fa; --bot: #eef1f4; position: relative; margin-top: calc(0.17in + 24px); }
   .folder--blush { --top: #fdf6f9; --bot: #f7e8ee; }
   .folder--icy { --top: #f6f9fb; --bot: #e6edf2; }
   .folder--mist { --top: #f9f8fa; --bot: #eeecf0; }
-  .folder__body { background: linear-gradient(245deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 38%), linear-gradient(180deg, var(--top) 0%, var(--bot) 100%); border-radius: 0 12px 12px 12px; padding: 12px 16px 13px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(255,255,255,0.6), 0 0 0 1px rgba(60,30,50,0.08), 0 10px 22px -14px rgba(60,30,50,0.35); }
+  .folder__body { position: relative; background: linear-gradient(180deg, var(--top) 0%, var(--bot) 100%); border-radius: 0 12px 12px 12px; padding: 12px 16px 13px;
+    box-shadow: inset 0 1px 0 #fff, 0 0 0 1px #e3dce1; }
+  .folder__body::after, .contact::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: -7px; height: 7px; border-radius: 0 0 14px 14px; background: linear-gradient(180deg, #e9e4e8, #fbfafb); z-index: -1; }
   .folder__tab { position: absolute; left: -1px; bottom: calc(100% - 1px); height: 24px; }
   .folder__tab svg { position: absolute; inset: 0; overflow: visible; }
   .folder__tab .f { fill: var(--top); }
-  .folder__tab .s { fill: none; stroke: rgba(60,30,50,0.13); stroke-width: 1; }
+  .folder__tab .s { fill: none; stroke: #d9d1d7; stroke-width: 1; }
   .folder__tab span { position: absolute; left: 14px; top: 8px; font-size: 7.6px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--soft); }
-  .folder .tools__ind { border-top: 1px solid rgba(60,30,50,0.08); padding-top: 7px; }
+  .folder .tools__ind { border-top: 1px solid #e2dce0; padding-top: 7px; }
   .folder .tools__ind--tight { border-top: 0; padding-top: 0; }
+  .co__note { color: var(--faint); }
 </style>
 </head>
 <body>
@@ -171,12 +171,14 @@
       </ul>
     </div>
     <div class="job">
-      <div class="job__head"><div><h4>Digital Manager &amp; Analytics Coordinator</h4><p class="co">Morgan &amp; Co.</p></div><span class="dates">Oct 2022 – Jul 2023</span></div>
+      <div class="job__head"><div><h4>Digital Manager &amp; Analytics Coordinator</h4><p class="co">Morgan &amp; Co. <span class="co__note">· SEO, analytics &amp; reporting lead</span></p></div><span class="dates">Oct 2022 – Jul 2023</span></div>
       <ul>
+        <li>As the agency’s first and only SEO specialist, scoped and led every SEO project, defining what the work included and seeing it through.</li>
+        <li>Adapted reporting and analytics as projects ran, using client feedback and pushback on contract terms to decide what to measure.</li>
         <li>Rebuilt client reporting in Looker Studio, saving 4–5 hours per report and making performance reviews more strategic.</li>
-        <li>Managed paid media and analytics for healthcare (LCMC), gaming, legal, and hospitality clients across Google Ads and Meta.</li>
-        <li>Ran QA, KPI monitoring, and audience performance analysis for multi-platform campaigns.</li>
-        <li>Delivered creative and performance strategy, including branded video content made with ChatGPT and AI video platforms.</li>
+        <li>Coached the team to raise its baseline SEO and analytics knowledge.</li>
+        <li>Co-managed paid media for healthcare (LCMC), gaming, legal, and hospitality clients across Google Ads and Meta.</li>
+        <li>Ran QA, KPI monitoring, and audience performance analysis, and produced branded video content with AI tools.</li>
       </ul>
     </div>
     <div class="job">

@@ -67,10 +67,12 @@ export const experience: Role[] = [
     company: 'Morgan & Co.',
     dates: 'Oct 2022 – Jul 2023',
     highlights: [
+      'As the agency’s first and only SEO specialist, scoped and led every SEO project, defining what the work included and seeing it through.',
+      'Adapted reporting and analytics as projects ran, using client feedback and pushback on contract terms to decide what to measure.',
       'Rebuilt client reporting in Looker Studio, saving 4–5 hours per report and making performance reviews more strategic.',
-      'Managed paid media and analytics for healthcare (LCMC), gaming, legal, and hospitality clients across Google Ads and Meta.',
-      'Ran QA, KPI monitoring, and audience performance analysis for multi-platform campaigns.',
-      'Delivered creative and performance strategy, including branded video content made with ChatGPT and AI video platforms.',
+      'Coached the team to raise its baseline SEO and analytics knowledge.',
+      'Co-managed paid media for healthcare (LCMC), gaming, legal, and hospitality clients across Google Ads and Meta.',
+      'Ran QA, KPI monitoring, and audience performance analysis, and produced branded video content with AI tools.',
     ],
   },
   {
