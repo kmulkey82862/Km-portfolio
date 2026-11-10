@@ -56,7 +56,8 @@ export const experience: Role[] = [
     highlights: [
       'Managed Google Ads ($2K–$15K/mo), achieving a 65% YoY conversion increase and 62% lower cost per conversion through PMax, strategic pruning, and AI-informed copy.',
       'Automated reporting in Narrative BI and Google Sheets, cutting quarterly inventory QA from 24 hours to under one.',
-      'Connected Myriad to the website inventory system and directed SEO and site optimization.',
+      'Connected Myriad to the website inventory system and directed SEO, site optimization, and digital asset creation.',
+      'Conducted market analysis and negotiated sponsorships aligned with brand strategy.',
     ],
   },
   {
@@ -65,8 +66,9 @@ export const experience: Role[] = [
     company: 'Morgan & Co.',
     dates: 'Oct 2022 – Jul 2023',
     highlights: [
-      'Rebuilt client reporting in Looker Studio, saving 4–5 hours per report.',
-      'Managed paid media and analytics for healthcare (LCMC), gaming, legal, and hospitality clients.',
+      'Rebuilt client reporting in Looker Studio, saving 4–5 hours per report and making performance reviews more strategic.',
+      'Managed paid media and analytics for healthcare (LCMC), gaming, legal, and hospitality clients across Google Ads and Meta.',
+      'Ran QA, KPI monitoring, and audience performance analysis for multi-platform campaigns.',
       'Produced branded video content using ChatGPT and AI video platforms.',
     ],
   },
@@ -78,6 +80,7 @@ export const experience: Role[] = [
     highlights: [
       'Set up automated lead nurture workflows in HubSpot and aligned email, paid media, and SEO across the funnel.',
       'Created client KPI dashboards in Looker Studio and Supermetrics.',
+      'Contributed to proposals and campaign planning using past performance data and client objectives.',
     ],
   },
   {
@@ -85,7 +88,7 @@ export const experience: Role[] = [
     title: 'Director of Marketing & Brand Creative',
     company: 'Cura OS',
     dates: 'May 2021 – Oct 2021',
-    highlights: ['Led company-wide Pipedrive CRM adoption and a persona-segmented Mailchimp drip campaign.', 'Directed a full brand identity and website redesign.'],
+    highlights: ['Led company-wide Pipedrive CRM adoption and a persona-segmented Mailchimp drip campaign.', 'Directed a full brand identity and website redesign to improve UX and support conversion goals.', 'Developed creative assets across email, social, and digital, with campaign tracking and iteration cycles.'],
   },
   {
     id: 'si-am',
@@ -93,9 +96,10 @@ export const experience: Role[] = [
     company: 'Search Influence',
     dates: 'Nov 2019 – Jun 2021',
     highlights: [
-      'Ran multi-channel strategy for regulated industries: finance, legal, medical, and higher ed.',
+      'Ran multi-channel, funnel-stage strategy for regulated industries: finance, legal, medical, and higher ed.',
       'Implemented Zapier workflows for lead handling and CRM integration.',
       'Drove a 49% increase in inquiries for Palo Alto University and a 77% ROI lift for a plastic surgery client.',
+      'Delivered strategic reports that turned analytics into clear next steps for full-funnel campaigns.',
     ],
   },
 ];
@@ -112,14 +116,15 @@ export const expertise = [
 export const skills: { group: string; items: string[] }[] = [
   { group: 'AI & build', items: ['Claude (Team, Code, Cowork)', 'ChatGPT', 'Gemini', 'Google Apps Script', 'HTML/CSS, JavaScript', 'Next.js', 'GitHub, Netlify'] },
   { group: 'Operations', items: ['Monday.com', 'Google Workspace', 'Notion', 'Jotform', 'Zapier', 'Pipedrive', 'Salesforce (basic)'] },
-  { group: 'Marketing', items: ['Brevo', 'HubSpot', 'Mailchimp', 'WordPress', 'Google Ads', 'Meta Ads', 'PR Newswire'] },
+  { group: 'Marketing', items: ['Brevo', 'HubSpot', 'Mailchimp', 'WordPress, Unbounce', 'Google Ads, Adalysis', 'Meta Ads', 'PR Newswire'] },
   { group: 'Analytics', items: ['Google Analytics 4', 'Looker Studio', 'Supermetrics', 'Narrative BI'] },
   { group: 'Event tech', items: ['vFairs', 'Bravura', 'Whova', 'YourEvent', 'Bunny Stream'] },
+  { group: 'Industries', items: ['Events & associations', 'Healthcare', 'Legal', 'Finance', 'Higher ed', 'Retail', 'Political'] },
 ];
 
 export const selectedWork = [
   { label: 'Matt Chapin Music', href: 'https://mattchapinmusic.com', display: 'mattchapinmusic.com' },
-  { label: 'Web component library', href: 'https://webdevacomponents.netlify.app', display: 'webdivacomponents.netlify.com' },
+  { label: 'Web component library', href: 'https://webdevacomponents.netlify.app', display: 'webdevacomponents.netlify.app' },
   { label: 'Lighthouse Strategy Group', href: 'https://lighthousestrategygroup.com', display: 'lighthousestrategygroup.com' },
   { label: 'FIMCON session archive', href: 'https://fimcon.org/en/fimcon-2026-session-recordings', display: 'fimcon.org/en/fimcon-2026-session-recordings' },
 ];
