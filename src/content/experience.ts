@@ -82,11 +82,8 @@ export const experience: Role[] = [
     company: 'Search Influence',
     dates: 'Dec 2021 – Oct 2022',
     highlights: [
-      'Owned the company blog: chose topics from analytics, current trends, and sales priorities, assigned posts to writers across the company, and ran the workflow from draft through editing, QA, and publishing.',
-      'Set editorial criteria and gave hands-on feedback on drafts, keeping posts from many authors on-brand and easy to read.',
-      'Measured which topics drove sales meetings against S.M.A.R.T. goals, and used the results to decide what got written next.',
       'Set up automated lead nurture workflows in HubSpot and aligned email, paid media, and SEO across the funnel.',
-      'Contributed to proposals and campaign planning using past performance data and client objectives.',
+      'Continued owning the company blog, and built proposals and sales materials from performance data in Looker Studio.',
     ],
   },
   {
@@ -108,8 +105,10 @@ export const experience: Role[] = [
     company: 'Search Influence',
     dates: 'Nov 2019 – Jun 2021',
     highlights: [
-      'Ran multi-channel strategy for regulated industries (finance, legal, medical, higher ed), aligning paid, organic, and website efforts.',
-      'Led funnel-stage planning, coordinating messaging, targeting, and content across the customer journey.',
+      'Owned the company blog as Search Influence’s own account coordinator, supporting the head of sales: chose topics from analytics, current trends, and sales priorities, assigned posts across the company, and ran drafting, editing, QA, and publishing.',
+      'Set editorial criteria and gave hands-on feedback on drafts, keeping posts from many authors on-brand and easy to read.',
+      'Measured which topics drove sales meetings against S.M.A.R.T. goals, and used the results to decide what got written next.',
+      'Ran multi-channel, funnel-stage strategy for regulated industries (finance, legal, medical, higher ed), coordinating messaging, targeting, and content.',
       'Trained in Lean methodology; implemented Zapier workflows for lead handling, CRM integration, and campaign consistency.',
       'Drove a 49% increase in inquiries for Palo Alto University and a 77% ROI lift for a plastic surgery client.',
       'Delivered strategic reports that turned analytics into clear next steps for full-funnel campaigns.',
