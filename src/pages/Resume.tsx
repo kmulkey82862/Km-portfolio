@@ -1,4 +1,4 @@
-import { Bullet, experience, expertise, selectedWork, skills } from '../content/experience';
+import { Bullet, experience, expertise, skills } from '../content/experience';
 import { awards, education, profile } from '../content/profile';
 import { usePageMeta } from '../lib/usePageMeta';
 import Swatch from '../components/Swatch';
@@ -82,17 +82,6 @@ export default function Resume() {
           ))}
         </ol>
 
-        <h3 className="aside-h">Selected work</h3>
-        <ul className="selwork reveal">
-          {selectedWork.map((w) => (
-            <li key={w.href}>
-              <a href={w.href} target="_blank" rel="noopener noreferrer">
-                {w.label} ↗<span className="visually-hidden"> (opens in a new tab)</span>
-              </a>
-              <span className="muted">{w.display}</span>
-            </li>
-          ))}
-        </ul>
 
         <div className="aside-grid">
           <div className="reveal">

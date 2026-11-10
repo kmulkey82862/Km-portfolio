@@ -25,7 +25,11 @@
   .band--top { top: 1.42in; }
   .band--bottom { bottom: 0.32in; }
 
-  header { height: 1.42in; display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 0.2in; }
+  header { height: 1.42in; display: flex; align-items: flex-end; gap: 0.22in; padding-bottom: 0.2in; }
+  header > div:first-child { flex: 1; }
+  .contact a { color: inherit; text-decoration: none; }
+  .qr { width: 0.92in; height: 0.92in; flex: none; border: 1.5px dashed var(--pink); display: grid; place-items: center; text-align: center; font-size: 9.5px; line-height: 1.3; color: var(--pink); }
+  .qr img { width: 100%; height: 100%; display: block; }
   h1 { margin: 0; font-weight: 200; font-size: 44px; letter-spacing: -0.045em; line-height: 1; }
   .role { margin: 6px 0 0; color: var(--pinkink); font-size: 14px; letter-spacing: 0.01em; }
   .contact { text-align: right; font-size: 11.5px; line-height: 1.85; color: var(--soft); }
@@ -50,7 +54,8 @@
   .tools h3 { margin: 0 0 5px; padding-top: 6px; border-top: 1px solid var(--pink); font-weight: 300; font-size: 12.4px; color: var(--mul); }
   .tools ul { list-style: none; margin: 0; padding: 0; font-size: 10.6px; line-height: 1.5; color: var(--soft); }
   .tools__ind { margin: 9px 0 0; padding-top: 7px; border-top: 1px solid #d5dfe7; font-size: 10.8px; color: var(--soft); }
-  .tools__ind b { font-weight: 300; color: var(--mul); margin-right: 8px; }
+  .tools__ind b { font-weight: 300; color: var(--mul); margin-right: 8px; display: inline-block; width: 0.72in; }
+  .tools__ind--tight { margin-top: 5px; padding-top: 0; border-top: 0; }
 
   .jobs { border-left: 1.5px solid #cfcbd2; margin-left: 2px; padding-left: 16px; }
   .job { position: relative; margin-bottom: 0.13in; }
@@ -64,12 +69,10 @@
   .job li { position: relative; padding-left: 14px; margin-bottom: 1px; }
   .job li::before { content: '–'; position: absolute; left: 0; color: var(--pink); }
 
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; background: var(--blushbg); padding: 8px 14px; }
-  .cards a { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--blushline); text-decoration: none; color: var(--ink); font-size: 11.6px; }
-  .cards a:nth-last-child(-n+2) { border-bottom: 0; }
-  .cards small { display: block; color: var(--faint); font-size: 10px; margin-top: 1px; }
-  .cards i { font-style: normal; color: var(--pink); }
 
+  .page--2 .job { margin-bottom: 0.26in; }
+  .page--2 .edu > div { padding: 13px 16px; }
+  .page--2 .job li { margin-bottom: 2px; }
   .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .edu > div { padding: 10px 14px; font-size: 11.5px; line-height: 1.5; }
   .edu > div:first-child { background: var(--blushbg); }
@@ -92,7 +95,10 @@
       <div><b>Email</b>contactkmulkey@gmail.com</div>
       <div><b>Phone</b>985.778.7982</div>
       <div><b>Location</b>New Orleans, LA · Remote or hybrid</div>
+      <div><b>Portfolio</b><a href="https://kmulkey.netlify.app">kmulkey.netlify.app</a></div>
     </div>
+    <!-- QR code slot: replace the placeholder with <img src="qr-portfolio.svg" alt=""> -->
+    <div class="qr" aria-label="Portfolio QR code"><span>Portfolio<br>QR code</span></div>
   </header>
   <div class="band band--top"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
@@ -113,7 +119,8 @@
       <div><h3>Analytics</h3><ul><li>Google Analytics 4</li><li>Looker Studio</li><li>Supermetrics</li><li>Narrative BI</li></ul></div>
       <div><h3>Event tech</h3><ul><li>vFairs</li><li>Bravura</li><li>Whova</li><li>YourEvent</li><li>Bunny Stream</li></ul></div>
     </div>
-    <p class="tools__ind"><b>Industries</b>Events &amp; associations · Healthcare · Legal · Finance · Higher ed · Retail · Political</p>
+    <p class="tools__ind"><b>Campaigns</b>Email drips · Lead nurture · A/B testing · SEO content · Re-engagement &amp; event promotion</p>
+    <p class="tools__ind tools__ind--tight"><b>Industries</b>Events &amp; associations · Healthcare · Legal · Finance · Higher ed · Retail · Political</p>
   </div>
 
   <h2><small>03</small>Experience</h2>
@@ -143,14 +150,15 @@
   </div>
 </section>
 
-<section class="page" style="padding-top: 0.45in">
+<section class="page page--2" style="padding-top: 0.5in">
   <div class="jobs">
     <div class="job">
       <div class="job__head"><div><h4>Marketing Administrator &amp; IT Administrator</h4><p class="co">Comeaux Furniture, Appliance &amp; Mattress</p></div><span class="dates">Feb 2024 – Jun 2025</span></div>
       <ul>
         <li>Managed Google Ads ($2K–$15K/mo), achieving a 65% YoY conversion increase and 62% lower cost per conversion through PMax, strategic pruning, and AI-informed copy.</li>
-        <li>Automated reporting in Narrative BI and Google Sheets, cutting quarterly inventory QA from 24 hours to under one.</li>
-        <li>Connected Myriad to the website inventory system and directed SEO, site optimization, and digital asset creation.</li>
+        <li>Built dashboards and automated reporting in Narrative BI and Google Sheets, cutting quarterly inventory QA from 24 hours to under one.</li>
+        <li>Directed SEO, site optimization, and digital asset creation to grow organic traffic and conversion rates.</li>
+        <li>Maintained IT infrastructure and connected Myriad to the website inventory system to improve operational efficiency.</li>
         <li>Conducted market analysis and negotiated sponsorships aligned with brand strategy.</li>
       </ul>
     </div>
@@ -160,21 +168,23 @@
         <li>Rebuilt client reporting in Looker Studio, saving 4–5 hours per report and making performance reviews more strategic.</li>
         <li>Managed paid media and analytics for healthcare (LCMC), gaming, legal, and hospitality clients across Google Ads and Meta.</li>
         <li>Ran QA, KPI monitoring, and audience performance analysis for multi-platform campaigns.</li>
-        <li>Produced branded video content using ChatGPT and AI video platforms.</li>
+        <li>Delivered creative and performance strategy, including branded video content made with ChatGPT and AI video platforms.</li>
       </ul>
     </div>
     <div class="job">
       <div class="job__head"><div><h4>Sales &amp; Marketing Coordinator</h4><p class="co">Search Influence</p></div><span class="dates">Dec 2021 – Oct 2022</span></div>
       <ul>
-        <li>Set up automated lead nurture workflows in HubSpot and aligned email, paid media, and SEO across the funnel.</li>
-        <li>Created client KPI dashboards in Looker Studio and Supermetrics.</li>
+        <li>Set up automated lead nurture workflows in HubSpot to support cross-channel campaigns.</li>
+        <li>Aligned email, paid media, and SEO for a consistent strategy across the full funnel.</li>
+        <li>Created marketing reports and KPI dashboards in Looker Studio and Supermetrics, tracking performance against client goals.</li>
         <li>Contributed to proposals and campaign planning using past performance data and client objectives.</li>
       </ul>
     </div>
     <div class="job">
       <div class="job__head"><div><h4>Director of Marketing &amp; Brand Creative</h4><p class="co">Cura OS</p></div><span class="dates">May 2021 – Oct 2021</span></div>
       <ul>
-        <li>Led company-wide Pipedrive CRM adoption and a persona-segmented Mailchimp drip campaign.</li>
+        <li>Led company-wide Pipedrive CRM adoption, streamlining lead handling and sales workflows.</li>
+        <li>Designed a Mailchimp drip campaign driven by persona segmentation and campaign analytics.</li>
         <li>Directed a full brand identity and website redesign to improve UX and support conversion goals.</li>
         <li>Developed creative assets across email, social, and digital, with campaign tracking and iteration cycles.</li>
       </ul>
@@ -182,28 +192,22 @@
     <div class="job">
       <div class="job__head"><div><h4>Account Manager &amp; Coordinator</h4><p class="co">Search Influence</p></div><span class="dates">Nov 2019 – Jun 2021</span></div>
       <ul>
-        <li>Ran multi-channel, funnel-stage strategy for regulated industries: finance, legal, medical, and higher ed.</li>
-        <li>Implemented Zapier workflows for lead handling and CRM integration.</li>
+        <li>Ran multi-channel strategy for regulated industries (finance, legal, medical, higher ed), aligning paid, organic, and website efforts.</li>
+        <li>Led funnel-stage planning, coordinating messaging, targeting, and content across the customer journey.</li>
+        <li>Implemented Zapier workflows for lead handling, CRM integration, and campaign consistency.</li>
         <li>Drove a 49% increase in inquiries for Palo Alto University and a 77% ROI lift for a plastic surgery client.</li>
         <li>Delivered strategic reports that turned analytics into clear next steps for full-funnel campaigns.</li>
       </ul>
     </div>
   </div>
 
-  <h2><small>04</small>Selected work</h2>
-  <div class="cards">
-    <a href="https://mattchapinmusic.com"><span>Matt Chapin Music<small>mattchapinmusic.com</small></span><i>↗</i></a>
-    <a href="https://lighthousestrategygroup.com"><span>Lighthouse Strategy Group<small>lighthousestrategygroup.com</small></span><i>↗</i></a>
-    <a href="https://webdevacomponents.netlify.app"><span>Web component library<small>webdevacomponents.netlify.app</small></span><i>↗</i></a>
-    <a href="https://fimcon.org/en/fimcon-2026-session-recordings"><span>FIMCON session archive<small>fimcon.org/en/fimcon-2026-session-recordings</small></span><i>↗</i></a>
-  </div>
 
-  <h2><small>05</small>Education &amp; awards</h2>
+  <h2><small>04</small>Education &amp; awards</h2>
   <div class="edu">
     <div>
       <h3>Education</h3>
       <p>BS, Marketing<br><span class="pk">University of New Orleans, 2018</span></p>
-      <p class="muted">Outstanding Marketing Senior; Alpha Mu Alpha; Alpha Lambda Delta</p>
+      <p class="muted">Outstanding Marketing Senior 2018<br>Alpha Mu Alpha Marketing Honor Society<br>Alpha Lambda Delta Academic Honor Society</p>
     </div>
     <div>
       <h3>Awards</h3>
