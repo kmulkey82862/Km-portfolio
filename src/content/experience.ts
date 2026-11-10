@@ -117,7 +117,7 @@ export const experience: Role[] = [
       'Owned the company blog as Search Influence’s own account coordinator: chose topics from analytics, trends, and sales priorities, assigned up to 6 posts a month company-wide, and ran editing, QA, and publishing.',
       'Set editorial criteria, gave hands-on draft feedback, and tracked which topics drove sales meetings against S.M.A.R.T. goals.',
       'Interviewed every New Orleans City Park department, turned the feedback into its website RFP, and rated the submissions.',
-      'Wrote the winning US Social Media Award and PRAL Flambeaux Award submissions for the Vote Parks & Rec campaign.',
+      'Coordinated the Vote Parks & Rec millage campaign, which passed: paid and Facebook ads, Unbounce landing pages, a Zapier yard-sign sign-up workflow, and reporting. Found and wrote its two winning award submissions.',
     ],
   },
 ];
