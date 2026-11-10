@@ -6,7 +6,7 @@ export const profile = {
   positioning: 'AI Operations & Marketing Systems',
   // Résumé summary, verbatim.
   summary:
-    'AI operations and marketing systems professional working hands-on with generative AI since 2023. I lead AI adoption, connect core business systems, and build AI-assisted tools and automations that cut manual data work and turn scattered information into clear, measurable results.',
+    'I find where work gets lost, in inboxes, meetings, and handoffs, and build the systems that make it manageable. Hands-on with generative AI since 2023, I roll it out to teams, connect the tools they already use, and condense a lot of information into briefs people can act on.',
   email: 'contactkmulkey@gmail.com',
   phone: '985.778.7982',
   phoneHref: 'tel:+19857787982',

@@ -32,7 +32,6 @@
   .contact b, .lbl { font-weight: 300; font-size: 7.6px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); align-self: center; }
   .contact a { color: inherit; text-decoration: none; }
 
-  .summary { margin: 0.2in 0 0; font-size: 12.6px; line-height: 1.6; color: var(--soft); max-width: 6.6in; }
 
   h2 { margin: 0.24in 0 0.11in; padding-top: 0.1in; border-top: 1px solid var(--line); font-weight: 300; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); }
 
@@ -41,7 +40,7 @@
   .tools__cols { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
   .tools h3 { margin: 0 0 4px; font-weight: 300; font-size: 11.4px; color: var(--rasp); }
   .tools ul { list-style: none; margin: 0; padding: 0; font-size: 10.6px; line-height: 1.55; color: var(--soft); }
-  .tools__ind { margin: 9px 0 0; font-size: 10.4px; color: var(--soft); display: grid; grid-template-columns: 0.9in 1fr; }
+  .tools__ind { margin: 9px 0 0; font-size: 10.4px; color: var(--soft); display: grid; grid-template-columns: 1.15in 1fr; }
   .tools__ind b { font-weight: 300; color: var(--rasp); font-size: 11px; }
   .tools__ind--tight { margin-top: 3px; }
 
@@ -55,8 +54,8 @@
   .job ul { list-style: none; margin: 0; padding: 0; font-size: 11px; line-height: 1.5; color: var(--soft); }
   .job li { position: relative; padding-left: 14px; margin-bottom: 1px; }
   .job li::before { content: '–'; position: absolute; left: 0; color: #c2bdc4; }
-  .page--2 .job { padding-bottom: 0.1in; }
-  .page--2 .job + .job { padding-top: 0.1in; }
+  .page--2 .job { padding-bottom: 0.14in; }
+  .page--2 .job + .job { padding-top: 0.14in; }
   .page--2 .job li { margin-bottom: 2px; }
 
   .edu { display: grid; grid-template-columns: 1.25fr 1.5fr 0.62fr; gap: 0.2in; font-size: 11.6px; line-height: 1.5; }
@@ -94,6 +93,23 @@
   .tools__row b { color: var(--rasp); }
   .folder .tools__ind:not(.tools__sep) { border-top: 0; padding-top: 0; }
   .folder .tools__sep { margin-top: 8px; }
+  /* Statement + summary */
+  .intro { position: relative; margin: 0.22in 0 0; padding-left: 16px; border-left: 2px solid var(--rasp); }
+  .lede { margin: 0 0 6px; font-weight: 200; font-size: 19px; line-height: 1.28; letter-spacing: -0.02em; color: var(--ink); max-width: 6.4in; }
+  .intro .summary { margin: 0; font-size: 11.6px; line-height: 1.55; color: var(--soft); max-width: 6.5in; }
+  /* Numbers read first */
+  em.n { font-style: normal; color: var(--ink); }
+  /* Index tabs on the page edge, like a folder's dividers */
+  .edge { position: absolute; right: -0.62in; width: 0.27in; padding: 14px 0; display: flex; align-items: center; justify-content: center;
+    writing-mode: vertical-rl; font-size: 6.8px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rasp); line-height: 1;
+    border-radius: 10px 0 0 10px; background: linear-gradient(90deg, #fdf3f7, #f2dbe5); box-shadow: inset 1px 1px 0 #fff, 0 0 0 1px #e8d2dc; }
+  .edge--icy { color: #5c7486; background: linear-gradient(90deg, #f5f8fa, #e1e9ef); box-shadow: inset 1px 1px 0 #fff, 0 0 0 1px #d6e0e7; }
+  .intro .edge { top: -2px; }
+  h2 { position: relative; }
+  h2 .edge { top: -1px; }
+  .jobs { position: relative; }
+  .jobs > .edge { top: 2px; }
+  .folder > .edge { top: 0; }
 </style>
 </head>
 <body>
@@ -117,7 +133,11 @@
     </div>
   </header>
 
-  <p class="summary">AI operations and marketing systems professional, hands-on with generative AI since 2023. I lead AI adoption, connect business systems, and build tools and automations that turn scattered information into clear, measurable results.</p>
+  <div class="intro">
+    <span class="edge">Profile</span>
+    <p class="lede">I find where work gets lost, in inboxes, meetings, and handoffs, and build the systems that make it manageable.</p>
+    <p class="summary">Hands-on with generative AI since 2023, I roll it out to teams, connect the tools they already use, and condense a lot of information into briefs people can act on.</p>
+  </div>
 
   <div class="folder folder--blush">
     <div class="folder__tab" style="width:120px"><svg width="120" height="24" viewBox="0 0 120 24"><path class="f" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L84 0.5 C98 0.5 102 23.5 118 23.5 L120 23.5 L120 25 L0.5 25 Z"/><path class="s" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L84 0.5 C98 0.5 102 23.5 118 23.5 L120 23.5"/></svg><span>Expertise</span></div>
@@ -144,32 +164,29 @@
     </div>
   </div>
 
-  <h2>Experience</h2>
+  <h2>Experience<span class="edge edge--icy">Experience</span></h2>
   <div class="jobs">
     <div class="job">
       <div class="job__head"><div><h4>Integrated Systems &amp; Marketing Operations</h4><p class="co">ARB Meetings &amp; Events</p></div><span class="dates">Jan 2026 – Current</span></div>
       <p class="grp">AI adoption &amp; automation</p>
       <ul>
-        <li>Led company-wide adoption of Claude Team, unifying core systems, client files, and shared docs into one knowledge base for a 10-person team.</li>
-        <li>Analyzed shared-inbox volume, found one person handled about 80% of messages, and led a workflow change that cut inbox and meeting load for everyone else, replacing it with a weekly client digest.</li>
-        <li>Administered Monday.com, integrating Brevo, Jotform, and Google Workspace, and built Claude automations that file Zoom summaries into each client’s workspace and draft task updates, saving an estimated 1.5–2.5 hours per person weekly.</li>
-        <li>Piloted a daily brief across Gmail, Google Chat, Monday.com, content calendars, and an AI time tracker, with one-click task updates and time logging.</li>
-        <li>After a colleague left, set up twice-daily AI triage of her 40+ daily emails, routing each to the right teammate, saving an estimated 1.5–2.5 hours a day.</li>
+        <li>Led company-wide adoption of Claude Team, connecting core systems, client files, and shared docs into one knowledge base for a <em class="n">10</em>-person team.</li>
+        <li>Noticed the team was getting too many emails and sitting in calls that weren’t theirs; analyzed shared-inbox volume (one person handled about <em class="n">80%</em>), made the case, and replaced both with a weekly client digest.</li>
+        <li>Built Claude automations that turn every Zoom summary into a living project record in Monday.com, with task updates drafted for review, saving an estimated <em class="n">1.5–2.5</em> hours per person each week.</li>
+        <li>When a colleague left, set up twice-daily AI triage of her <em class="n">40+</em> daily emails so nothing got lost in the handoff, saving an estimated <em class="n">1.5–2.5</em> hours a day.</li>
       </ul>
       <p class="grp">Tools &amp; systems</p>
       <ul>
-        <li>Built a speaker graphic generator that uses dynamic templating to fit any name and session to the brand and regenerates from agenda data; about 100 speakers made their own and shared them widely on LinkedIn, saving an estimated 20–30 design hours.</li>
-        <li>Built a logo resizer that sizes 150 sponsors’ logos at the correct aspect ratio and resolution (an estimated 10–15 hours saved per conference), plus an OCR receipt scanner and a pay-per-view video archive.</li>
-        <li>Engineered a registration code system for 300–400 invitees: unique codes, personalized emails, redemption tracking, and reminders.</li>
-        <li>Owned the post-event survey and reporting program for clients, turning results into executive summaries for steering committees, funders, and staff.</li>
-        <li>Authored a 39-page outcomes report drawing on 9 data sources, and designed interactive dashboards in Claude and Looker Studio.</li>
-        <li>Configured conference apps on vFairs, Bravura, and Whova; FIMCON’s app reached 75.1% adoption, about 1.5x the industry benchmark.</li>
+        <li>Built a speaker graphic generator that fits any name and session to the brand and updates from the agenda. About <em class="n">100</em> speakers made their own, saving an estimated <em class="n">20–30</em> design hours, and they were a hit on LinkedIn.</li>
+        <li>Built a logo resizer that took the back-and-forth, and the mental load, out of getting <em class="n">150</em> sponsors’ logos into every required size.</li>
+        <li>Owned the post-event survey and reporting program, condensing a lot of information into executive summaries for steering committees, funders, and staff, including a <em class="n">39</em>-page outcomes report from <em class="n">9</em> data sources.</li>
+        <li>Engineered a registration code system for <em class="n">300–400</em> invitees and set up conference apps; FIMCON’s hit <em class="n">75.1%</em> adoption, <em class="n">1.5x</em> the benchmark.</li>
       </ul>
       <p class="grp">Marketing &amp; communications</p>
       <ul>
         <li>Researched personas and built the full-funnel strategy and website for a chronic disease convention, plus FIMCON 2026 email and LinkedIn content.</li>
-        <li>Ran 30 Brevo campaigns at a 98.1% delivery rate and 39.8% click-to-open rate, over 2x the industry average; earned 559 media pickups, including AP News, from one press release.</li>
-        <li>Produced social media toolkits for attendees, speakers, and sponsors, and directed photography for 3 of 4 on-site conferences.</li>
+        <li>Ran <em class="n">30</em> Brevo campaigns at a <em class="n">98.1%</em> delivery rate and <em class="n">39.8%</em> click-to-open rate, over <em class="n">2x</em> the industry average; one press release earned <em class="n">559</em> media pickups, including AP News.</li>
+        <li>Produced social media toolkits for attendees, speakers, and sponsors, and directed photography for <em class="n">3</em> of <em class="n">4</em> on-site conferences.</li>
       </ul>
     </div>
   </div>
@@ -177,13 +194,13 @@
 
 <section class="page page--2">
   <div class="jobs">
+    <span class="edge edge--icy">Experience</span>
     <div class="job">
       <div class="job__head"><div><h4>Marketing Administrator &amp; IT Administrator</h4><p class="co">Comeaux Furniture, Appliance &amp; Mattress</p></div><span class="dates">Feb 2024 – Sep 2025</span></div>
       <ul>
-        <li>Managed Google Ads ($2K–$15K/mo): 65% YoY conversion lift and 62% lower cost per conversion via PMax, restructuring, and AI-informed copy.</li>
-        <li>Built dashboards and automated reporting in Narrative BI and Google Sheets, cutting quarterly inventory QA from 24 hours to under one.</li>
-        <li>Directed SEO, site optimization, and digital assets, and connected Myriad to the website inventory system.</li>
-        <li>Maintained IT infrastructure, conducted market analysis, and negotiated sponsorships aligned with brand strategy.</li>
+        <li>Managed Google Ads (<em class="n">$2K–$15K</em>/mo): <em class="n">65%</em> YoY conversion lift and <em class="n">62%</em> lower cost per conversion via PMax, restructuring, and AI-informed copy.</li>
+        <li>Built dashboards and automated reporting in Narrative BI and Google Sheets, cutting quarterly inventory QA from <em class="n">24</em> hours to under one.</li>
+        <li>Ran IT and SEO, connected Myriad to the website inventory system, and negotiated sponsorships backed by market analysis.</li>
       </ul>
     </div>
     <div class="job">
@@ -191,9 +208,8 @@
       <ul>
         <li>As the agency’s first and only SEO specialist, scoped requirements and deliverables for every SEO project and led them through delivery.</li>
         <li>Defined KPIs and the measurement framework, adapting reporting as projects ran based on client feedback and pushback on contract terms.</li>
-        <li>Rebuilt client reporting in Looker Studio, saving 4–5 hours per report, and trained the team in SEO and analytics.</li>
-        <li>Co-managed paid media for healthcare (LCMC), gaming, legal, and hospitality clients across Google Ads and Meta.</li>
-        <li>Ran QA, KPI monitoring, and audience performance analysis, and produced branded video content with AI tools.</li>
+        <li>Rebuilt client reporting in Looker Studio, saving <em class="n">4–5</em> hours per report, and challenged the team to raise its baseline SEO and analytics knowledge.</li>
+        <li>Co-managed paid media for healthcare (LCMC), gaming, legal, and hospitality clients across Google Ads and Meta, running QA and KPI monitoring.</li>
       </ul>
     </div>
     <div class="job">
@@ -209,22 +225,21 @@
         <li>Created marketing strategies structured around S.M.A.R.T. goals, with measurable targets for each channel.</li>
         <li>Directed a full brand identity and website rebuild, growing the site from one landing page to twelve SEO-optimized pages.</li>
         <li>Built buyer personas, sales funnels, and internal documentation, and led company-wide Pipedrive CRM adoption.</li>
-        <li>Designed a persona-segmented Mailchimp drip campaign and created assets across email, social, and digital.</li>
       </ul>
     </div>
     <div class="job">
       <div class="job__head"><div><h4>Account Manager &amp; Coordinator</h4><p class="co">Search Influence</p></div><span class="dates">Nov 2019 – Jun 2021</span></div>
       <ul>
-        <li>Ran multi-channel, full-funnel strategy for regulated industries (finance, legal, medical, higher ed), coordinating messaging, targeting, and content.</li>
-        <li>Drove a 49% increase in inquiries for Palo Alto University and a 77% ROI lift for a plastic surgery client.</li>
-        <li>Owned 20 training modules and knowledge-base articles, writing and updating them as industry and company standards changed.</li>
-        <li>Trained in Lean methodology; implemented Zapier workflows for lead handling, CRM integration, and campaign consistency.</li>
+        <li>Ran full-funnel strategy for regulated industries (finance, legal, medical, higher ed), planning how content nurtures people toward the goal.</li>
+        <li>Drove a <em class="n">49%</em> increase in inquiries for Palo Alto University and a <em class="n">77%</em> ROI lift for a plastic surgery client.</li>
+        <li>Owned <em class="n">20</em> training modules and knowledge-base articles, keeping them current as industry and company standards changed.</li>
+        <li>Trained in Lean methodology; built Zapier workflows for lead handling and CRM integration.</li>
       </ul>
     </div>
     <div class="job">
       <div class="job__head"><div><h4>Account Coordinator</h4><p class="co">Search Influence</p></div><span class="dates">Sep 2018 – Nov 2019</span></div>
       <ul>
-        <li>Owned the company blog as Search Influence’s own account coordinator: built the editorial calendar from analytics, trends, and sales priorities, assigned up to 6 posts a month company-wide, and managed the editorial workflow.</li>
+        <li>Owned the company blog as Search Influence’s own account coordinator and let the data decide what got written: built the editorial calendar from analytics, trends, and sales priorities, and managed up to <em class="n">6</em> posts a month.</li>
         <li>Defined editorial guidelines, gave hands-on draft feedback, and measured content-to-pipeline impact against S.M.A.R.T. goals.</li>
         <li>Led stakeholder interviews and requirements gathering across New Orleans City Park, co-wrote its website RFP, and evaluated vendor proposals.</li>
         <li>Coordinated the Vote Parks &amp; Rec millage campaign, which passed: paid and Facebook ads, Unbounce landing pages, a Zapier yard-sign sign-up workflow, and reporting. Found and wrote its two winning award submissions.</li>
@@ -234,6 +249,7 @@
 
 
   <div class="folder folder--mist">
+    <span class="edge">Education</span>
     <div class="folder__tab" style="width:182px"><svg width="182" height="24" viewBox="0 0 182 24"><path class="f" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L146 0.5 C160 0.5 164 23.5 180 23.5 L182 23.5 L182 25 L0.5 25 Z"/><path class="s" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L146 0.5 C160 0.5 164 23.5 180 23.5 L182 23.5"/></svg><span>Education &amp; awards</span></div>
     <div class="folder__body">
   <div class="edu">
