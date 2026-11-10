@@ -28,15 +28,16 @@ export const experience: Role[] = [
           'Audited the shared client inboxes, found one person handled about 80% of messages, and led the change to take everyone else off them and out of meetings that didn’t need them, replacing both with a weekly client digest.',
           'Administered Monday.com, integrating Brevo, Jotform, and Google Workspace, and built Claude automations that file Zoom summaries into each client’s workspace and draft task updates, saving an estimated 1.5–2.5 hours per person weekly.',
           'Piloted a daily brief across Gmail, Google Chat, Monday.com, comms calendars, and an AI time tracker, with one-click task updates and time logging.',
-          'After a colleague left, set up twice-daily AI triage of her 40+ daily emails, routing each to the right teammate, saving an estimated 1–2 hours a day.',
+          'After a colleague left, set up twice-daily AI triage of her 40+ daily emails, routing each to the right teammate, saving an estimated 1.5–2.5 hours a day.',
         ],
       },
       {
         heading: 'Tools & systems',
         bullets: [
-          'Developed an OCR receipt scanner, a speaker graphic generator used by about 100 speakers, and a pay-per-view video archive.',
+          'Built a speaker graphic generator that fits any name and session to the brand template and updates from the agenda; about 100 speakers made their own and shared them widely on LinkedIn, saving an estimated 20–30 design hours.',
+          'Built a logo resizer that outputs every required size for 150 sponsors without distortion (an estimated 10–15 hours saved per conference), plus an OCR receipt scanner and a pay-per-view video archive.',
           'Engineered a registration code system for 300–400 invitees: unique codes, personalized emails, redemption tracking, and reminders.',
-          'Owned post-conference evaluations and reporting as a client product, condensing results into overviews and briefs tailored to steering committees, funders, and the internal team.',
+          'Owned post-conference evaluations and reporting as a client product, turning results into briefs for steering committees, funders, and staff.',
           'Authored a 39-page outcomes report drawing on 9 data sources, and designed interactive dashboards in Claude and Looker Studio.',
           'Configured conference apps on vFairs, Bravura, and Whova; FIMCON’s app reached 75.1% adoption, about 1.5x the industry benchmark.',
         ],
@@ -44,7 +45,7 @@ export const experience: Role[] = [
       {
         heading: 'Marketing & communications',
         bullets: [
-          'Researched user personas and built the full-funnel content strategy and website for a chronic disease convention, plus email, LinkedIn, and web content for FIMCON 2026.',
+          'Researched personas and built the full-funnel strategy and website for a chronic disease convention, plus FIMCON 2026 email and LinkedIn content.',
           'Ran 30 Brevo campaigns at a 98.1% delivery rate and 39.8% click-to-open rate, over 2x the industry average; earned 559 media pickups, including AP News, from one press release.',
           'Produced social media toolkits for attendees, speakers, and sponsors, and directed photography for 3 of 4 on-site conferences.',
         ],
