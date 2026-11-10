@@ -28,7 +28,7 @@ export const education = {
   school: 'University of New Orleans',
   year: '2018',
   honors: ['Outstanding Marketing Senior; Alpha Mu Alpha; Alpha Lambda Delta'],
-  certifications: ['Technical writing certification · 20-hour program, 2021'],
+  certifications: ['Information Mapping certification · structured technical writing, FS Pro'],
 };
 
 export const awards = [

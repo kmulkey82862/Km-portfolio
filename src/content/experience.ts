@@ -55,11 +55,10 @@ export const experience: Role[] = [
     company: 'Comeaux Furniture, Appliance & Mattress',
     dates: 'Feb 2024 – Jun 2025',
     highlights: [
-      'Managed Google Ads ($2K–$15K/mo), achieving a 65% YoY conversion increase and 62% lower cost per conversion through PMax, strategic pruning, and AI-informed copy.',
+      'Managed Google Ads ($2K–$15K/mo): 65% YoY conversion increase and 62% lower cost per conversion via PMax, pruning, and AI-informed copy.',
       'Built dashboards and automated reporting in Narrative BI and Google Sheets, cutting quarterly inventory QA from 24 hours to under one.',
-      'Directed SEO, site optimization, and digital asset creation to grow organic traffic and conversion rates.',
-      'Maintained IT infrastructure and connected Myriad to the website inventory system to improve operational efficiency.',
-      'Conducted market analysis and negotiated sponsorships aligned with brand strategy.',
+      'Directed SEO, site optimization, and digital assets, and connected Myriad to the website inventory system.',
+      'Maintained IT infrastructure, conducted market analysis, and negotiated sponsorships aligned with brand strategy.',
     ],
   },
   {
@@ -70,8 +69,7 @@ export const experience: Role[] = [
     highlights: [
       'As the agency’s first and only SEO specialist, scoped and led every SEO project, defining what the work included and seeing it through.',
       'Adapted reporting and analytics as projects ran, using client feedback and pushback on contract terms to decide what to measure.',
-      'Rebuilt client reporting in Looker Studio, saving 4–5 hours per report and making performance reviews more strategic.',
-      'Coached the team to raise its baseline SEO and analytics knowledge.',
+      'Rebuilt client reporting in Looker Studio, saving 4–5 hours per report, and coached the team to raise its baseline SEO and analytics knowledge.',
       'Co-managed paid media for healthcare (LCMC), gaming, legal, and hospitality clients across Google Ads and Meta.',
       'Ran QA, KPI monitoring, and audience performance analysis, and produced branded video content with AI tools.',
     ],
@@ -93,10 +91,9 @@ export const experience: Role[] = [
     dates: 'May 2021 – Oct 2021',
     highlights: [
       'Created marketing strategies structured around S.M.A.R.T. goals, with measurable targets for each channel.',
-      'Led company-wide Pipedrive CRM adoption, streamlining lead handling and sales workflows.',
-      'Designed a Mailchimp drip campaign driven by persona segmentation and campaign analytics.',
-      'Directed a full brand identity and website redesign to improve UX and support conversion goals.',
-      'Developed creative assets across email, social, and digital, with campaign tracking and iteration cycles.',
+      'Directed a full brand identity and website rebuild, growing the site from one landing page to twelve SEO-optimized pages.',
+      'Built buyer personas, sales funnels, and internal documentation, and led company-wide Pipedrive CRM adoption.',
+      'Designed a persona-segmented Mailchimp drip campaign and created assets across email, social, and digital.',
     ],
   },
   {
@@ -105,13 +102,22 @@ export const experience: Role[] = [
     company: 'Search Influence',
     dates: 'Nov 2019 – Jun 2021',
     highlights: [
-      'Owned the company blog as Search Influence’s own account coordinator, supporting the head of sales: chose topics from analytics, current trends, and sales priorities, assigned posts across the company, and ran drafting, editing, QA, and publishing.',
-      'Set editorial criteria and gave hands-on feedback on drafts, keeping posts from many authors on-brand and easy to read.',
-      'Measured which topics drove sales meetings against S.M.A.R.T. goals, and used the results to decide what got written next.',
       'Ran multi-channel, funnel-stage strategy for regulated industries (finance, legal, medical, higher ed), coordinating messaging, targeting, and content.',
-      'Trained in Lean methodology; implemented Zapier workflows for lead handling, CRM integration, and campaign consistency.',
       'Drove a 49% increase in inquiries for Palo Alto University and a 77% ROI lift for a plastic surgery client.',
-      'Delivered strategic reports that turned analytics into clear next steps for full-funnel campaigns.',
+      'Owned 20 internal and external training topics, writing and updating the documentation as industry and company standards changed.',
+      'Trained in Lean methodology; implemented Zapier workflows for lead handling, CRM integration, and campaign consistency.',
+    ],
+  },
+  {
+    id: 'si-ac',
+    title: 'Account Coordinator',
+    company: 'Search Influence',
+    dates: 'Sep 2018 – Nov 2019',
+    highlights: [
+      'Owned the company blog as Search Influence’s own account coordinator: chose topics from analytics, trends, and sales priorities, assigned up to 6 posts a month company-wide, and ran editing, QA, and publishing.',
+      'Set editorial criteria, gave hands-on draft feedback, and tracked which topics drove sales meetings against S.M.A.R.T. goals.',
+      'Interviewed every New Orleans City Park department, turned the feedback into its website RFP, and rated the submissions.',
+      'Wrote the winning US Social Media Award and PRAL Flambeaux Award submissions for the Vote Parks & Rec campaign.',
     ],
   },
 ];
