@@ -82,9 +82,10 @@ export const experience: Role[] = [
     company: 'Search Influence',
     dates: 'Dec 2021 – Oct 2022',
     highlights: [
-      'Set up automated lead nurture workflows in HubSpot to support cross-channel campaigns.',
-      'Aligned email, paid media, and SEO for a consistent strategy across the full funnel.',
-      'Created marketing reports and KPI dashboards in Looker Studio and Supermetrics, tracking performance against client goals.',
+      'Owned the company blog: chose topics from analytics, current trends, and sales priorities, assigned posts to writers across the company, and ran the workflow from draft through editing, QA, and publishing.',
+      'Set editorial criteria and gave hands-on feedback on drafts, keeping posts from many authors on-brand and easy to read.',
+      'Measured which topics drove sales meetings against S.M.A.R.T. goals, and used the results to decide what got written next.',
+      'Set up automated lead nurture workflows in HubSpot and aligned email, paid media, and SEO across the funnel.',
       'Contributed to proposals and campaign planning using past performance data and client objectives.',
     ],
   },
