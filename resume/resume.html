@@ -89,6 +89,11 @@
   .qrframe__top { top: 0; background: linear-gradient(180deg, #fff 50%, #fdf7fa 50%); font-size: 6.6px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--soft); }
   .qrframe__bot { top: 100%; background: linear-gradient(180deg, #f6e7ee 50%, #fff 50%); font-family: 'IT', 'Helvetica Neue', sans-serif; font-weight: 750; font-size: 11px; letter-spacing: -0.01em; color: var(--rasp); }
   .qrframe__bot i { font-style: normal; font-weight: 400; margin-left: 3px; }
+  .tools__row { margin: 0 0 3px; }
+  .tools__row:first-child { margin-top: 0; }
+  .tools__row b { color: var(--rasp); }
+  .folder .tools__ind:not(.tools__sep) { border-top: 0; padding-top: 0; }
+  .folder .tools__sep { margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -128,14 +133,12 @@
     <div class="folder__tab" style="width:175px"><svg width="175" height="24" viewBox="0 0 175 24"><path class="f" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L139 0.5 C153 0.5 157 23.5 173 23.5 L175 23.5 L175 25 L0.5 25 Z"/><path class="s" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L139 0.5 C153 0.5 157 23.5 173 23.5 L175 23.5"/></svg><span>Platforms &amp; tools</span></div>
     <div class="folder__body">
   <div class="tools">
-    <div class="tools__cols">
-      <div><h3>AI &amp; build</h3><ul><li>Claude (Team, Code, Cowork)</li><li>ChatGPT, Gemini</li><li>Google Apps Script</li><li>HTML/CSS, JavaScript</li><li>Next.js</li><li>GitHub, Netlify</li></ul></div>
-      <div><h3>Operations</h3><ul><li>Monday.com</li><li>Google Workspace</li><li>Notion</li><li>Jotform</li><li>Zapier</li><li>Pipedrive</li><li>Salesforce (basic)</li></ul></div>
-      <div><h3>Marketing</h3><ul><li>Brevo</li><li>HubSpot</li><li>Mailchimp</li><li>WordPress, Unbounce</li><li>Google Ads, Adalysis</li><li>Meta Ads</li><li>PR Newswire</li></ul></div>
-      <div><h3>Analytics</h3><ul><li>Google Analytics 4</li><li>Looker Studio</li><li>Supermetrics</li><li>Narrative BI</li></ul></div>
-      <div><h3>Event tech</h3><ul><li>vFairs</li><li>Bravura</li><li>Whova</li><li>YourEvent</li><li>Bunny Stream</li></ul></div>
-    </div>
-    <p class="tools__ind"><b>Campaigns</b>Email drips · Lead nurture · A/B testing · SEO content · Re-engagement &amp; event promotion</p>
+    <p class="tools__ind tools__row"><b>AI &amp; build</b>Claude (Team, Code, Cowork) · ChatGPT, Gemini · Google Apps Script · HTML/CSS, JavaScript · Next.js · GitHub, Netlify</p>
+    <p class="tools__ind tools__row"><b>Operations</b>Monday.com · Google Workspace · Notion · Jotform · Zapier · Pipedrive · Salesforce (basic)</p>
+    <p class="tools__ind tools__row"><b>Marketing</b>Brevo · HubSpot · Mailchimp · WordPress, Unbounce · Google Ads, Adalysis · Meta Ads · PR Newswire</p>
+    <p class="tools__ind tools__row"><b>Analytics</b>Google Analytics 4 · Looker Studio · Supermetrics · Narrative BI</p>
+    <p class="tools__ind tools__row"><b>Event tech</b>vFairs · Bravura · Whova · YourEvent · Bunny Stream</p>
+    <p class="tools__ind tools__sep"><b>Campaigns</b>Email drips · Lead nurture · A/B testing · SEO content · Re-engagement &amp; event promotion</p>
     <p class="tools__ind tools__ind--tight"><b>Industries</b>Events &amp; associations · Healthcare · Legal · Finance · Higher ed · Retail · Political</p>
   </div>
     </div>
@@ -148,8 +151,10 @@
       <p class="grp">AI adoption &amp; automation</p>
       <ul>
         <li>Led company-wide adoption of Claude Team, unifying core systems, client files, and shared docs into one knowledge base for a 10-person team.</li>
-        <li>Automated client digests from project systems and shared inboxes, and routed Zoom summaries into each client’s Monday.com workspace.</li>
-        <li>Administered Monday.com, standardizing client workspaces and integrating Brevo, Jotform, and Google Workspace.</li>
+        <li>Audited the shared client inboxes, found one person handled about 80% of messages, and led the change to take everyone else off them and out of meetings that didn’t need them, replacing both with a weekly client digest.</li>
+        <li>Administered Monday.com, integrating Brevo, Jotform, and Google Workspace, and built Claude automations that file Zoom summaries into each client’s workspace and draft task updates, saving an estimated 1.5–2.5 hours per person weekly.</li>
+        <li>Piloted a daily brief across Gmail, Google Chat, Monday.com, comms calendars, and an AI time tracker, with one-click task updates and time logging.</li>
+        <li>After a colleague left, set up twice-daily AI triage of her 40+ daily emails, routing each to the right teammate, saving an estimated 1–2 hours a day.</li>
       </ul>
       <p class="grp">Tools &amp; systems</p>
       <ul>

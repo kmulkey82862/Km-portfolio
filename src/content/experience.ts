@@ -25,8 +25,10 @@ export const experience: Role[] = [
         heading: 'AI adoption & automation',
         bullets: [
           'Led company-wide adoption of Claude Team, unifying core systems, client files, and shared docs into one knowledge base for a 10-person team.',
-          'Automated client digests from project systems and shared inboxes, and routed Zoom summaries into each client’s Monday.com workspace.',
-          'Administered Monday.com, standardizing client workspaces and integrating Brevo, Jotform, and Google Workspace.',
+          'Audited the shared client inboxes, found one person handled about 80% of messages, and led the change to take everyone else off them and out of meetings that didn’t need them, replacing both with a weekly client digest.',
+          'Administered Monday.com, integrating Brevo, Jotform, and Google Workspace, and built Claude automations that file Zoom summaries into each client’s workspace and draft task updates, saving an estimated 1.5–2.5 hours per person weekly.',
+          'Piloted a daily brief across Gmail, Google Chat, Monday.com, comms calendars, and an AI time tracker, with one-click task updates and time logging.',
+          'After a colleague left, set up twice-daily AI triage of her 40+ daily emails, routing each to the right teammate, saving an estimated 1–2 hours a day.',
         ],
       },
       {
