@@ -7,89 +7,81 @@
 <style>
   @font-face { font-family: 'HN'; src: url('../public/fonts/HelveticaNowDisplay-Thin.woff2') format('woff2'); font-weight: 100 250; }
   @font-face { font-family: 'HN'; src: url('../public/fonts/HelveticaNowDisplay-Light.woff2') format('woff2'); font-weight: 300 500; }
+  @font-face { font-family: 'IT'; src: url('../node_modules/@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
   @page { size: letter; margin: 0; }
+  /* Same palette as the portfolio site */
   :root {
-    --ink: #1b1a1e; --soft: #4a4850; --faint: #8a8790;
-    --mul: #6e1f4a; --pink: #d25985; --pinkink: #c43c72;
-    --icy: #c9d6df; --icybg: #edf2f6; --blushbg: #fbeaf0; --blushline: #e6bccb;
+    --ink: #0b0b0c; --soft: #55525a; --faint: #8d8992; --line: #e6e2e5;
+    --rasp: #a3164f; --poppy: #d0342c; --icy-pale: #eaf0f4; --icy-deep: #93a9b9;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  body { font-family: 'HN', Helvetica, Arial, sans-serif; font-weight: 300; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .page { width: 8.5in; height: 11in; position: relative; overflow: hidden; page-break-after: always; padding: 0 0.6in; }
+  body { font-family: 'HN', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 8.5in; height: 11in; position: relative; overflow: hidden; page-break-after: always; padding: 0.62in 0.62in 0; }
   .page:last-child { page-break-after: auto; }
-  .band { position: absolute; left: 0; right: 0; height: 0.36in; display: flex; background: var(--icy); padding: 2px 0; gap: 3px; }
-  .band span { flex: 1; }
-  .band span:nth-child(odd) { background: var(--mul); }
-  .band span:nth-child(even) { background: var(--pink); }
-  .band--top { top: 1.42in; }
-  .band--bottom { bottom: 0.32in; }
+  .page--2 { padding-top: 0.5in; }
 
-  header { height: 1.42in; display: flex; align-items: flex-end; gap: 0.22in; padding-bottom: 0.2in; }
+  /* The ticking fabric from the site's AI & automation section, as a thin selvedge */
+  .strip { position: absolute; left: 0; right: 0; height: 0.16in; background-color: var(--icy-pale);
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0 22px, var(--poppy) 22px 23px, transparent 23px 72px),
+      repeating-linear-gradient(90deg, var(--icy-deep) 0 3px, transparent 3px 8px, var(--icy-deep) 8px 9px, transparent 9px 36px); }
+  .strip--top { top: 0; }
+  .strip--bottom { bottom: 0; }
+
+  header { display: flex; align-items: flex-end; gap: 0.3in; padding-bottom: 0.2in; border-bottom: 1px solid var(--line); }
   header > div:first-child { flex: 1; }
+  h1 { margin: 0; font-weight: 100; font-size: 50px; letter-spacing: -0.045em; line-height: 0.95; }
+  .role { margin: 10px 0 0; font-size: 13px; color: var(--soft); display: flex; align-items: center; gap: 8px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--poppy); display: inline-block; }
+  .contact { font-size: 10.6px; line-height: 1.75; color: var(--ink); }
+  .contact div { display: grid; grid-template-columns: 0.62in auto; }
+  .contact b, .lbl { font-weight: 300; font-size: 7.6px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); align-self: center; }
   .contact a { color: inherit; text-decoration: none; }
-  .qr { width: 0.92in; height: 0.92in; flex: none; border: 1.5px dashed var(--pink); display: grid; place-items: center; text-align: center; font-size: 9.5px; line-height: 1.3; color: var(--pink); }
+  .qr { width: 0.88in; height: 0.88in; flex: none; border: 1px dashed #b9b4bb; display: grid; place-items: center; text-align: center; font-size: 7.6px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6; color: var(--faint); }
   .qr img { width: 100%; height: 100%; display: block; }
-  h1 { margin: 0; font-weight: 200; font-size: 44px; letter-spacing: -0.045em; line-height: 1; }
-  .role { margin: 6px 0 0; color: var(--pinkink); font-size: 14px; letter-spacing: 0.01em; }
-  .contact { text-align: right; font-size: 11.5px; line-height: 1.85; color: var(--soft); }
-  .contact b { font-weight: 300; color: var(--pink); margin-right: 4px; }
 
-  .summary { margin: 0.62in 0 0; display: grid; grid-template-columns: 0.55in 1fr; font-size: 12.6px; line-height: 1.6; color: var(--soft); }
-  .summary::before { content: ''; height: 1px; width: 0.4in; background: var(--ink); margin-top: 0.1in; }
+  .summary { margin: 0.24in 0 0; font-size: 12.6px; line-height: 1.6; color: var(--soft); max-width: 6.6in; }
 
-  h2 { display: flex; align-items: center; gap: 10px; margin: 0.17in 0 0.08in; font-weight: 300; font-size: 17px; letter-spacing: -0.01em; }
-  h2 small { font-size: 11px; color: var(--pink); }
-  h2::after { content: ''; flex: 1; height: 1px; background: #d7d4da; margin-left: 6px; }
+  h2 { margin: 0.24in 0 0.11in; padding-top: 0.1in; border-top: 1px solid var(--line); font-weight: 300; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); }
 
-  .exp { display: grid; grid-template-columns: repeat(3, 1fr); border: 1.5px solid var(--blushline); background: var(--blushbg); font-size: 12.2px; }
-  .exp div { padding: 6px 12px; border-right: 1px solid var(--blushline); border-bottom: 1px solid var(--blushline); }
-  .exp div:nth-child(3n) { border-right: 0; }
-  .exp div:nth-last-child(-n+3) { border-bottom: 0; }
-  .exp div::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 9px; background: var(--pink); vertical-align: 1px; }
-  .exp div:nth-child(even)::before { background: var(--mul); }
+  .exp { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 18px; font-size: 12px; }
 
-  .tools { background: var(--icybg); padding: 10px 14px 10px; border-radius: 3px; }
-  .tools__cols { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
-  .tools h3 { margin: 0 0 5px; padding-top: 6px; border-top: 1px solid var(--pink); font-weight: 300; font-size: 12.4px; color: var(--mul); }
-  .tools ul { list-style: none; margin: 0; padding: 0; font-size: 10.6px; line-height: 1.5; color: var(--soft); }
-  .tools__ind { margin: 9px 0 0; padding-top: 7px; border-top: 1px solid #d5dfe7; font-size: 10.8px; color: var(--soft); }
-  .tools__ind b { font-weight: 300; color: var(--mul); margin-right: 8px; display: inline-block; width: 0.72in; }
-  .tools__ind--tight { margin-top: 5px; padding-top: 0; border-top: 0; }
+  .tools__cols { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .tools h3 { margin: 0 0 4px; font-weight: 300; font-size: 11.4px; color: var(--rasp); }
+  .tools ul { list-style: none; margin: 0; padding: 0; font-size: 10.6px; line-height: 1.55; color: var(--soft); }
+  .tools__ind { margin: 9px 0 0; font-size: 10.4px; color: var(--soft); display: grid; grid-template-columns: 0.9in 1fr; }
+  .tools__ind b { font-weight: 300; color: var(--rasp); font-size: 11px; }
+  .tools__ind--tight { margin-top: 3px; }
 
-  .jobs { border-left: 1.5px solid #cfcbd2; margin-left: 2px; padding-left: 16px; }
-  .job { position: relative; margin-bottom: 0.13in; }
-  .job::before { content: ''; position: absolute; left: -21px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: var(--mul); }
-  .job__head { display: flex; justify-content: space-between; align-items: flex-start; }
-  .job h4 { margin: 0; font-weight: 300; font-size: 14px; letter-spacing: -0.01em; }
-  .job .co { margin: 2px 0 3px; color: var(--pinkink); font-size: 12px; }
-  .dates { font-size: 10.5px; padding: 3px 9px; background: var(--icybg); border-left: 2px solid var(--pink); white-space: nowrap; }
-  .grp { margin: 7px 0 2px; color: var(--pinkink); font-size: 11px; }
-  .job ul { list-style: none; margin: 0; padding: 0; font-size: 11px; line-height: 1.5; color: var(--soft); }
+  .job { padding-bottom: 0.11in; }
+  .job + .job { padding-top: 0.11in; border-top: 1px solid var(--line); }
+  .job__head { display: flex; justify-content: space-between; align-items: baseline; }
+  .job h4 { margin: 0; font-weight: 300; font-size: 14.5px; letter-spacing: -0.015em; }
+  .job .co { margin: 2px 0 4px; color: var(--rasp); font-size: 11.4px; }
+  .dates { font-size: 10px; color: var(--faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .grp { margin: 9px 0 3px; font-size: 7.6px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); }
+  .job ul { list-style: none; margin: 0; padding: 0; font-size: 11.2px; line-height: 1.55; color: var(--soft); }
   .job li { position: relative; padding-left: 14px; margin-bottom: 1px; }
-  .job li::before { content: '–'; position: absolute; left: 0; color: var(--pink); }
-
-
-  .page--2 .job { margin-bottom: 0.26in; }
-  .page--2 .edu > div { padding: 13px 16px; }
+  .job li::before { content: '–'; position: absolute; left: 0; color: #c2bdc4; }
+  .page--2 .job { padding-bottom: 0.15in; }
+  .page--2 .job + .job { padding-top: 0.15in; }
   .page--2 .job li { margin-bottom: 2px; }
-  .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .edu > div { padding: 10px 14px; font-size: 11.5px; line-height: 1.5; }
-  .edu > div:first-child { background: var(--blushbg); }
-  .edu > div:last-child { background: var(--icybg); }
-  .edu h3 { margin: 0 0 6px; padding-bottom: 5px; border-bottom: 1px solid rgba(0,0,0,0.08); font-weight: 300; font-size: 12.5px; color: var(--mul); }
+
+  .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3in; font-size: 11.6px; line-height: 1.5; }
+  .edu h3 { margin: 0 0 5px; font-weight: 300; font-size: 11.4px; color: var(--rasp); }
   .edu p { margin: 0 0 6px; }
-  .edu .muted { color: var(--faint); font-size: 10.6px; }
-  .edu .pk { color: var(--pinkink); }
+  .muted { color: var(--faint); font-size: 10.4px; }
 </style>
 </head>
 <body>
 
 <section class="page">
+  <div class="strip strip--top"></div>
   <header>
     <div>
       <h1>Katelyn Mulkey</h1>
-      <p class="role">AI Operations &amp; Marketing Systems</p>
+      <p class="role"><i class="dot"></i>AI Operations &amp; Marketing Systems</p>
     </div>
     <div class="contact">
       <div><b>Email</b>contactkmulkey@gmail.com</div>
@@ -100,17 +92,16 @@
     <!-- QR code slot: replace the placeholder with <img src="qr-portfolio.svg" alt=""> -->
     <div class="qr" aria-label="Portfolio QR code"><span>Portfolio<br>QR code</span></div>
   </header>
-  <div class="band band--top"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
   <p class="summary">AI operations and marketing systems professional working hands-on with generative AI since 2023. I lead AI adoption, connect core business systems, and build AI-assisted tools and automations that cut manual data work and turn scattered information into clear, measurable results.</p>
 
-  <h2><small>01</small>Expertise</h2>
+  <h2>Expertise</h2>
   <div class="exp">
     <div>AI enablement &amp; adoption</div><div>Workflow automation</div><div>Systems integration</div>
     <div>Data &amp; dashboards</div><div>Web development &amp; UX/UI</div><div>Digital marketing</div>
   </div>
 
-  <h2><small>02</small>Platforms &amp; tools</h2>
+  <h2>Platforms &amp; tools</h2>
   <div class="tools">
     <div class="tools__cols">
       <div><h3>AI &amp; build</h3><ul><li>Claude (Team, Code, Cowork)</li><li>ChatGPT</li><li>Gemini</li><li>Google Apps Script</li><li>HTML/CSS, JavaScript</li><li>Next.js</li><li>GitHub, Netlify</li></ul></div>
@@ -123,7 +114,7 @@
     <p class="tools__ind tools__ind--tight"><b>Industries</b>Events &amp; associations · Healthcare · Legal · Finance · Higher ed · Retail · Political</p>
   </div>
 
-  <h2><small>03</small>Experience</h2>
+  <h2>Experience</h2>
   <div class="jobs">
     <div class="job">
       <div class="job__head"><div><h4>Integrated Systems &amp; Marketing Operations</h4><p class="co">ARB Meetings &amp; Events</p></div><span class="dates">Jan 2026 – Current</span></div>
@@ -150,7 +141,8 @@
   </div>
 </section>
 
-<section class="page page--2" style="padding-top: 0.5in">
+<section class="page page--2">
+  <div class="strip strip--top"></div>
   <div class="jobs">
     <div class="job">
       <div class="job__head"><div><h4>Marketing Administrator &amp; IT Administrator</h4><p class="co">Comeaux Furniture, Appliance &amp; Mattress</p></div><span class="dates">Feb 2024 – Jun 2025</span></div>
@@ -183,6 +175,7 @@
     <div class="job">
       <div class="job__head"><div><h4>Director of Marketing &amp; Brand Creative</h4><p class="co">Cura OS</p></div><span class="dates">May 2021 – Oct 2021</span></div>
       <ul>
+        <li>Created marketing strategies structured around S.M.A.R.T. goals, with measurable targets for each channel.</li>
         <li>Led company-wide Pipedrive CRM adoption, streamlining lead handling and sales workflows.</li>
         <li>Designed a Mailchimp drip campaign driven by persona segmentation and campaign analytics.</li>
         <li>Directed a full brand identity and website redesign to improve UX and support conversion goals.</li>
@@ -194,7 +187,7 @@
       <ul>
         <li>Ran multi-channel strategy for regulated industries (finance, legal, medical, higher ed), aligning paid, organic, and website efforts.</li>
         <li>Led funnel-stage planning, coordinating messaging, targeting, and content across the customer journey.</li>
-        <li>Implemented Zapier workflows for lead handling, CRM integration, and campaign consistency.</li>
+        <li>Trained in Lean methodology; implemented Zapier workflows for lead handling, CRM integration, and campaign consistency.</li>
         <li>Drove a 49% increase in inquiries for Palo Alto University and a 77% ROI lift for a plastic surgery client.</li>
         <li>Delivered strategic reports that turned analytics into clear next steps for full-funnel campaigns.</li>
       </ul>
@@ -202,11 +195,11 @@
   </div>
 
 
-  <h2><small>04</small>Education &amp; awards</h2>
+  <h2>Education &amp; awards</h2>
   <div class="edu">
     <div>
       <h3>Education</h3>
-      <p>BS, Marketing<br><span class="pk">University of New Orleans, 2018</span></p>
+      <p>BS, Marketing<br><span class="muted">University of New Orleans, 2018</span></p>
       <p class="muted">Outstanding Marketing Senior 2018<br>Alpha Mu Alpha Marketing Honor Society<br>Alpha Lambda Delta Academic Honor Society</p>
     </div>
     <div>
@@ -215,7 +208,7 @@
       <p>PRAL Flambeaux Awards, 2019<br><span class="muted">Outstanding Advertising Campaign · “Vote Parks &amp; Rec”</span></p>
     </div>
   </div>
-  <div class="band band--bottom"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="strip strip--bottom"></div>
 </section>
 </body>
 </html>

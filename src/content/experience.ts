@@ -91,6 +91,7 @@ export const experience: Role[] = [
     company: 'Cura OS',
     dates: 'May 2021 – Oct 2021',
     highlights: [
+      'Created marketing strategies structured around S.M.A.R.T. goals, with measurable targets for each channel.',
       'Led company-wide Pipedrive CRM adoption, streamlining lead handling and sales workflows.',
       'Designed a Mailchimp drip campaign driven by persona segmentation and campaign analytics.',
       'Directed a full brand identity and website redesign to improve UX and support conversion goals.',
@@ -105,7 +106,7 @@ export const experience: Role[] = [
     highlights: [
       'Ran multi-channel strategy for regulated industries (finance, legal, medical, higher ed), aligning paid, organic, and website efforts.',
       'Led funnel-stage planning, coordinating messaging, targeting, and content across the customer journey.',
-      'Implemented Zapier workflows for lead handling, CRM integration, and campaign consistency.',
+      'Trained in Lean methodology; implemented Zapier workflows for lead handling, CRM integration, and campaign consistency.',
       'Drove a 49% increase in inquiries for Palo Alto University and a 77% ROI lift for a plastic surgery client.',
       'Delivered strategic reports that turned analytics into clear next steps for full-funnel campaigns.',
     ],
