@@ -17,31 +17,24 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body { font-family: 'HN', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .page { width: 8.5in; height: 11in; position: relative; overflow: hidden; page-break-after: always; padding: 0.62in 0.62in 0; }
+  .page { width: 8.5in; height: 11in; position: relative; overflow: hidden; page-break-after: always; padding: 0.5in 0.62in 0; }
   .page:last-child { page-break-after: auto; }
   .page--2 { padding-top: 0.5in; }
 
-  /* The ticking fabric from the site's AI & automation section, as a thin selvedge */
-  .strip { position: absolute; left: 0; right: 0; height: 0.16in; background-color: var(--icy-pale);
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0 22px, var(--poppy) 22px 23px, transparent 23px 72px),
-      repeating-linear-gradient(90deg, var(--icy-deep) 0 3px, transparent 3px 8px, var(--icy-deep) 8px 9px, transparent 9px 36px); }
-  .strip--top { top: 0; }
-  .strip--bottom { bottom: 0; }
 
   header { display: flex; align-items: flex-end; gap: 0.3in; padding-bottom: 0.2in; border-bottom: 1px solid var(--line); }
   header > div:first-child { flex: 1; }
   h1 { margin: 0; font-weight: 100; font-size: 50px; letter-spacing: -0.045em; line-height: 0.95; }
   .role { margin: 10px 0 0; font-size: 13px; color: var(--soft); display: flex; align-items: center; gap: 8px; }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--poppy); display: inline-block; }
-  .contact { font-size: 10.6px; line-height: 1.75; color: var(--ink); }
+  .contact { font-size: 10.6px; line-height: 1.75; color: var(--ink); padding: 9px 14px; border-radius: 12px; background: linear-gradient(180deg, #f8fafc, #edf2f5); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(60,30,50,0.08), 0 10px 22px -14px rgba(60,30,50,0.35); }
   .contact div { display: grid; grid-template-columns: 0.62in auto; }
   .contact b, .lbl { font-weight: 300; font-size: 7.6px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); align-self: center; }
   .contact a { color: inherit; text-decoration: none; }
-  .qr { width: 0.88in; height: 0.88in; flex: none; border: 1px dashed #b9b4bb; display: grid; place-items: center; text-align: center; font-size: 7.6px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6; color: var(--faint); }
+  .qr { width: 0.9in; height: 0.9in; flex: none; border-radius: 12px; border: 1px dashed #b9b4bb; background: rgba(255,255,255,0.6); display: grid; place-items: center; text-align: center; font-size: 7.6px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6; color: var(--faint); }
   .qr img { width: 100%; height: 100%; display: block; }
 
-  .summary { margin: 0.24in 0 0; font-size: 12.6px; line-height: 1.6; color: var(--soft); max-width: 6.6in; }
+  .summary { margin: 0.2in 0 0; font-size: 12.6px; line-height: 1.6; color: var(--soft); max-width: 6.6in; }
 
   h2 { margin: 0.24in 0 0.11in; padding-top: 0.1in; border-top: 1px solid var(--line); font-weight: 300; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); }
 
@@ -61,7 +54,7 @@
   .job .co { margin: 2px 0 4px; color: var(--rasp); font-size: 11.4px; }
   .dates { font-size: 10px; color: var(--faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
   .grp { margin: 9px 0 3px; font-size: 7.6px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); }
-  .job ul { list-style: none; margin: 0; padding: 0; font-size: 11.2px; line-height: 1.55; color: var(--soft); }
+  .job ul { list-style: none; margin: 0; padding: 0; font-size: 11px; line-height: 1.5; color: var(--soft); }
   .job li { position: relative; padding-left: 14px; margin-bottom: 1px; }
   .job li::before { content: '–'; position: absolute; left: 0; color: #c2bdc4; }
   .page--2 .job { padding-bottom: 0.15in; }
@@ -72,12 +65,28 @@
   .edu h3 { margin: 0 0 5px; font-weight: 300; font-size: 11.4px; color: var(--rasp); }
   .edu p { margin: 0 0 6px; }
   .muted { color: var(--faint); font-size: 10.4px; }
+  /* Frosted glass folders, after the folders on the portfolio's home page */
+  .page { background:
+      radial-gradient(60% 40% at 100% 0%, rgba(243,210,220,0.35), transparent 70%),
+      radial-gradient(55% 40% at 0% 100%, rgba(201,214,223,0.4), transparent 70%), #fff; }
+  .folder { --top: #f7f8fa; --bot: #eef1f4; position: relative; margin-top: calc(0.17in + 24px); }
+  .folder--blush { --top: #fdf6f9; --bot: #f7e8ee; }
+  .folder--icy { --top: #f6f9fb; --bot: #e6edf2; }
+  .folder--mist { --top: #f9f8fa; --bot: #eeecf0; }
+  .folder__body { background: linear-gradient(245deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 38%), linear-gradient(180deg, var(--top) 0%, var(--bot) 100%); border-radius: 0 12px 12px 12px; padding: 12px 16px 13px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(255,255,255,0.6), 0 0 0 1px rgba(60,30,50,0.08), 0 10px 22px -14px rgba(60,30,50,0.35); }
+  .folder__tab { position: absolute; left: -1px; bottom: calc(100% - 1px); height: 24px; }
+  .folder__tab svg { position: absolute; inset: 0; overflow: visible; }
+  .folder__tab .f { fill: var(--top); }
+  .folder__tab .s { fill: none; stroke: rgba(60,30,50,0.13); stroke-width: 1; }
+  .folder__tab span { position: absolute; left: 14px; top: 8px; font-size: 7.6px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--soft); }
+  .folder .tools__ind { border-top: 1px solid rgba(60,30,50,0.08); padding-top: 7px; }
+  .folder .tools__ind--tight { border-top: 0; padding-top: 0; }
 </style>
 </head>
 <body>
 
 <section class="page">
-  <div class="strip strip--top"></div>
   <header>
     <div>
       <h1>Katelyn Mulkey</h1>
@@ -95,16 +104,22 @@
 
   <p class="summary">AI operations and marketing systems professional working hands-on with generative AI since 2023. I lead AI adoption, connect core business systems, and build AI-assisted tools and automations that cut manual data work and turn scattered information into clear, measurable results.</p>
 
-  <h2>Expertise</h2>
+  <div class="folder folder--blush">
+    <div class="folder__tab" style="width:120px"><svg width="120" height="24" viewBox="0 0 120 24"><path class="f" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L84 0.5 C98 0.5 102 23.5 118 23.5 L120 23.5 L120 25 L0.5 25 Z"/><path class="s" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L84 0.5 C98 0.5 102 23.5 118 23.5 L120 23.5"/></svg><span>Expertise</span></div>
+    <div class="folder__body">
   <div class="exp">
     <div>AI enablement &amp; adoption</div><div>Workflow automation</div><div>Systems integration</div>
     <div>Data &amp; dashboards</div><div>Web development &amp; UX/UI</div><div>Digital marketing</div>
   </div>
+    </div>
+  </div>
 
-  <h2>Platforms &amp; tools</h2>
+  <div class="folder folder--icy">
+    <div class="folder__tab" style="width:175px"><svg width="175" height="24" viewBox="0 0 175 24"><path class="f" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L139 0.5 C153 0.5 157 23.5 173 23.5 L175 23.5 L175 25 L0.5 25 Z"/><path class="s" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L139 0.5 C153 0.5 157 23.5 173 23.5 L175 23.5"/></svg><span>Platforms &amp; tools</span></div>
+    <div class="folder__body">
   <div class="tools">
     <div class="tools__cols">
-      <div><h3>AI &amp; build</h3><ul><li>Claude (Team, Code, Cowork)</li><li>ChatGPT</li><li>Gemini</li><li>Google Apps Script</li><li>HTML/CSS, JavaScript</li><li>Next.js</li><li>GitHub, Netlify</li></ul></div>
+      <div><h3>AI &amp; build</h3><ul><li>Claude (Team, Code, Cowork)</li><li>ChatGPT, Gemini</li><li>Google Apps Script</li><li>HTML/CSS, JavaScript</li><li>Next.js</li><li>GitHub, Netlify</li></ul></div>
       <div><h3>Operations</h3><ul><li>Monday.com</li><li>Google Workspace</li><li>Notion</li><li>Jotform</li><li>Zapier</li><li>Pipedrive</li><li>Salesforce (basic)</li></ul></div>
       <div><h3>Marketing</h3><ul><li>Brevo</li><li>HubSpot</li><li>Mailchimp</li><li>WordPress, Unbounce</li><li>Google Ads, Adalysis</li><li>Meta Ads</li><li>PR Newswire</li></ul></div>
       <div><h3>Analytics</h3><ul><li>Google Analytics 4</li><li>Looker Studio</li><li>Supermetrics</li><li>Narrative BI</li></ul></div>
@@ -112,6 +127,8 @@
     </div>
     <p class="tools__ind"><b>Campaigns</b>Email drips · Lead nurture · A/B testing · SEO content · Re-engagement &amp; event promotion</p>
     <p class="tools__ind tools__ind--tight"><b>Industries</b>Events &amp; associations · Healthcare · Legal · Finance · Higher ed · Retail · Political</p>
+  </div>
+    </div>
   </div>
 
   <h2>Experience</h2>
@@ -142,7 +159,6 @@
 </section>
 
 <section class="page page--2">
-  <div class="strip strip--top"></div>
   <div class="jobs">
     <div class="job">
       <div class="job__head"><div><h4>Marketing Administrator &amp; IT Administrator</h4><p class="co">Comeaux Furniture, Appliance &amp; Mattress</p></div><span class="dates">Feb 2024 – Jun 2025</span></div>
@@ -195,7 +211,9 @@
   </div>
 
 
-  <h2>Education &amp; awards</h2>
+  <div class="folder folder--mist">
+    <div class="folder__tab" style="width:182px"><svg width="182" height="24" viewBox="0 0 182 24"><path class="f" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L146 0.5 C160 0.5 164 23.5 180 23.5 L182 23.5 L182 25 L0.5 25 Z"/><path class="s" d="M0.5 24 L0.5 9 Q0.5 0.5 9 0.5 L146 0.5 C160 0.5 164 23.5 180 23.5 L182 23.5"/></svg><span>Education &amp; awards</span></div>
+    <div class="folder__body">
   <div class="edu">
     <div>
       <h3>Education</h3>
@@ -208,7 +226,8 @@
       <p>PRAL Flambeaux Awards, 2019<br><span class="muted">Outstanding Advertising Campaign · “Vote Parks &amp; Rec”</span></p>
     </div>
   </div>
-  <div class="strip strip--bottom"></div>
+    </div>
+  </div>
 </section>
 </body>
 </html>
