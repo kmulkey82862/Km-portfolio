@@ -53,7 +53,7 @@ export const experience: Role[] = [
     id: 'comeaux',
     title: 'Marketing Administrator & IT Administrator',
     company: 'Comeaux Furniture, Appliance & Mattress',
-    dates: 'Feb 2024 – Jun 2025',
+    dates: 'Feb 2024 – Sep 2025',
     highlights: [
       'Managed Google Ads ($2K–$15K/mo): 65% YoY conversion increase and 62% lower cost per conversion via PMax, pruning, and AI-informed copy.',
       'Built dashboards and automated reporting in Narrative BI and Google Sheets, cutting quarterly inventory QA from 24 hours to under one.',
