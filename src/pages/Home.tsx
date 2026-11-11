@@ -46,6 +46,46 @@ function WorkRows({ items }: { items: ToolItem[] }) {
   );
 }
 
+function ToolCards({ items }: { items: ToolItem[] }) {
+  return (
+    <ul className="tcards">
+      {items.map((t) => {
+        const demo = t.links.find((l) => l.to);
+        const img = (
+          <img
+            src={`/media/tool-${t.image}-600.webp`}
+            srcSet={`/media/tool-${t.image}-600.webp 600w, /media/tool-${t.image}-1200.webp 1200w`}
+            sizes="(max-width: 640px) 90vw, (max-width: 960px) 45vw, 30vw"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        );
+        return (
+          <li key={t.id} className="tcard reveal">
+            {demo?.to ? (
+              <Link to={demo.to} className={`tcard__media${t.image === 'archive' ? ' tcard__media--tall' : ''}`} aria-label={`${t.title}: ${demo.label}`}>
+                {img}
+              </Link>
+            ) : (
+              <div className={`tcard__media${t.image === 'archive' ? ' tcard__media--tall' : ''}`}>{img}</div>
+            )}
+            <div className="tcard__body">
+              <h3>{t.title}</h3>
+              <p>{t.teaser ?? t.description}</p>
+              <ul className="tcard__links archive__links">
+                {t.links.map((l) => (
+                  <ArchiveLinkItem key={l.label} link={l} />
+                ))}
+              </ul>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 function AiEnablement() {
   return (
     <section className="section" id="ai" aria-labelledby="ai-h">
@@ -54,16 +94,16 @@ function AiEnablement() {
           id="ai-h"
           title="AI & automation"
           pattern="ticking"
-          note="Rolling out AI across a team and connecting it to everyday business software, plus the digest automations built on top of it."
+          note="Rolling out AI across a team, connecting it to everyday business software, and building the automations that keep work from getting lost."
         />
-        <WorkRows items={aiEnablement} />
-        <div className="archive__sub reveal" id="digests">
+        <div className="archive__sub archive__sub--first reveal" id="digests">
           <h3 className="h-card">What the automations send</h3>
-          <p className="shead__note">Each digest condenses information from many sources into a short brief for one audience. Built with Claude over many rounds of prompting and refinement, and shown here on sample data.</p>
+          <p className="shead__note">Three Claude-built digests, each condensing many sources into a short brief for one audience. Click a message to open it.</p>
         </div>
         <div className="reveal">
           <DigestPreview />
         </div>
+        <WorkRows items={aiEnablement} />
       </div>
     </section>
   );
@@ -83,7 +123,7 @@ function Tools() {
             </>
           }
         />
-        <WorkRows items={tools} />
+        <ToolCards items={tools} />
       </div>
     </section>
   );
@@ -234,10 +274,10 @@ export default function Home() {
     <>
       <Hero />
       <AiEnablement />
-      <Tools />
       <Websites />
-      <Social />
+      <Tools />
       <Email />
+      <Social />
       <Design />
     </>
   );

@@ -8,16 +8,23 @@ const CLIENT_COLORS: Record<string, string> = { 'Client A': '#8fa6b6', 'Client B
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const F = 'font-family:Helvetica,Arial,sans-serif;';
 
+const HEADS: Record<string, [string, string]> = {
+  '#c9d6df': ['#eef3f6', 'linear-gradient(135deg,#f6f9fb 0%,#dde7ee 100%)'],
+  '#f3d2dc': ['#fbeef2', 'linear-gradient(135deg,#fdf6f9 0%,#f4d9e3 100%)'],
+  '#e0457f': ['#f9dde7', 'linear-gradient(135deg,#fdf1f5 0%,#efc0d2 100%)'],
+};
+
 function shell(kicker: string, title: string, sub: string, accent: string, body: string, footer: string) {
+  const [flat, grad] = HEADS[accent] ?? HEADS['#f3d2dc'];
   return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;background:#f4f3ef">
+<body style="margin:0;background:#f7f3f5">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:22px 10px">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#fff;border-radius:14px;overflow:hidden">
 <tr><td style="height:6px;font-size:0;background:linear-gradient(90deg,#8fa6b6 0 25%,#d58aa3 25% 50%,#772450 50% 75%,#7f7c1e 75%)">&nbsp;</td></tr>
-<tr><td style="background:#14171a;padding:30px 34px">
-<div style="${F}font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:${accent}">${kicker}</div>
-<div style="${F}font-size:27px;line-height:1.25;color:#fff;font-weight:300;padding:10px 0 8px">${title}</div>
-<div style="${F}font-size:13px;color:#9aa0a6">${sub}</div>
+<tr><td bgcolor="${flat}" style="background:${flat};background-image:${grad};padding:30px 34px">
+<div style="${F}font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#a3164f">${kicker}</div>
+<div style="${F}font-size:27px;line-height:1.25;color:#1b1a1e;font-weight:300;padding:10px 0 8px">${title}</div>
+<div style="${F}font-size:13px;color:#6b6870">${sub}</div>
 </td></tr>
 ${body}
 <tr><td style="padding:18px 34px;border-top:1px solid #eceae4;${F}font-size:12px;color:#9a9a92;text-align:center">${footer}</td></tr>

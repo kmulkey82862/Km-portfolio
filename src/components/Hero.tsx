@@ -15,13 +15,6 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     peeks: [{ title: 'Team AI rollout' }, { title: 'Weekly digest' }, { title: 'Inbox triage' }],
   },
   {
-    pattern: 'plaid',
-    label: 'Tools',
-    href: '#tools',
-    tint: '#fbeef2',
-    peeks: [{ title: 'Logo resizer' }, { src: '/media/fimcon-archive-480.webp' }, { title: 'Speaker graphics' }],
-  },
-  {
     pattern: 'herringbone',
     label: 'Websites',
     href: '#websites',
@@ -29,15 +22,11 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     peeks: [{ src: '/media/site-web-deva-480.webp' }, { src: '/media/site-cdc-480.webp' }, { src: '/media/site-matt-chapin-480.webp' }],
   },
   {
-    pattern: 'cabana',
-    label: 'Social & video',
-    href: '#social',
+    pattern: 'plaid',
+    label: 'Tools',
+    href: '#tools',
     tint: '#fbeef2',
-    peeks: [
-      { src: g('1utvn3e8ZcF_LpyVljZMpTlGvFz8oE1U-') },
-      { src: g('1isAUKSboqf7mWBb8aCoqfzuopII19MVL') },
-      { src: g('km-trivial-matters-1') },
-    ],
+    peeks: [{ title: 'Logo resizer' }, { src: '/media/fimcon-archive-480.webp' }, { title: 'Speaker graphics' }],
   },
   {
     pattern: 'gingham',
@@ -48,6 +37,17 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
       { src: g('1-I6J-qW_sKPe6HKhuq43z82JF1JTYHyP') },
       { src: g('1zkVKnji_n4XbFOemmX-UW3LkxW7zTEPX') },
       { src: g('1dLSySIik9P9n3JDWgQ2uIJKcs1Wg5OsM') },
+    ],
+  },
+  {
+    pattern: 'cabana',
+    label: 'Social & video',
+    href: '#social',
+    tint: '#fbeef2',
+    peeks: [
+      { src: g('1utvn3e8ZcF_LpyVljZMpTlGvFz8oE1U-') },
+      { src: g('1isAUKSboqf7mWBb8aCoqfzuopII19MVL') },
+      { src: g('km-trivial-matters-1') },
     ],
   },
   {

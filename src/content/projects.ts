@@ -12,6 +12,10 @@ export type ToolItem = {
   description: string;
   links: ArchiveLink[];
   media?: string;
+  /** One or two sentences for the Tools cards. */
+  teaser?: string;
+  /** Card image: public/media/tool-<image>-600.webp and -1200.webp. */
+  image?: string;
 };
 
 // Work is grouped by type. Descriptions are factual; demos run on sample data.
@@ -41,6 +45,8 @@ export const tools: ToolItem[] = [
   {
     id: 'speaker-graphic',
     title: 'Speaker graphic generator',
+    image: 'speaker',
+    teaser: 'Fits any name and session to the brand, so about 100 speakers made their own graphic in two clicks. They were a hit on LinkedIn.',
     year: '2026',
     description:
       'Asked for one Canva template, I built a tool instead: the program agenda loaded in, a layout refined with Claude over rounds of QA so any length of name or session title fits, and a page where speakers get a custom graphic in two clicks. About 100 speakers used it, and it boosted the event’s buzz on LinkedIn.',
@@ -52,6 +58,8 @@ export const tools: ToolItem[] = [
   {
     id: 'logo-resizer',
     title: 'Logo resizer',
+    image: 'logo',
+    teaser: 'Turns a folder of messy sponsor logos into every size the app, site, and emails need, without distortion, in one click.',
     year: '2026',
     description:
       'Reads folders of exhibitor and sponsor logos, resizes them to the exact specs apps and websites need, and downloads them in one click.',
@@ -60,6 +68,8 @@ export const tools: ToolItem[] = [
   {
     id: 'session-archive',
     title: 'Session archive pipeline',
+    image: 'archive',
+    teaser: 'Moved session recordings to pay-per-view streaming, with a searchable on-demand archive for attendees.',
     year: '2026',
     description:
       'Apps Script moved session footage directly to pay-per-view streaming on Bunny Stream, replacing subscription hosting. Includes the searchable viewer interface, rebuilt here with sample sessions.',
