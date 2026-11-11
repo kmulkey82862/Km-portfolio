@@ -33,8 +33,8 @@ const META: Record<DigestId, { from: string; initials: string; color: string; ti
 
 const OLDER: { id: DigestId; subject: string; time: string }[] = [
   { id: 'chaos', subject: 'Katelyn’s Chaos Brief', time: 'Fri' },
-  { id: 'inbox', subject: 'Shared inbox triage', time: 'Fri' },
-  { id: 'team', subject: 'Team weekly digest', time: 'Last Mon' },
+  { id: 'inbox', subject: 'Shared Inbox Triage', time: 'Fri' },
+  { id: 'team', subject: 'Weekly Team Digest', time: 'Last Mon' },
 ];
 
 export default function DigestPreview() {

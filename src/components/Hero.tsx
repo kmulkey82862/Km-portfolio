@@ -9,7 +9,7 @@ const g = (id: string) => `/media/gallery/${id}-600.webp`;
 const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; peeks: FolderPeek[] }[] = [
   {
     pattern: 'ticking',
-    label: 'AI & automation',
+    label: 'AI tools',
     href: '#ai',
     tint: '#eaf0f4',
     peeks: [{ title: 'Team AI rollout' }, { title: 'Weekly digest' }, { title: 'Inbox triage' }],
@@ -20,13 +20,6 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     href: '#websites',
     tint: '#f1f0d8',
     peeks: [{ src: '/media/site-web-deva-480.webp' }, { src: '/media/site-cdc-480.webp' }, { src: '/media/site-matt-chapin-480.webp' }],
-  },
-  {
-    pattern: 'plaid',
-    label: 'Tools',
-    href: '#tools',
-    tint: '#fbeef2',
-    peeks: [{ title: 'Logo resizer' }, { src: '/media/fimcon-archive-480.webp' }, { title: 'Speaker graphics' }],
   },
   {
     pattern: 'gingham',
@@ -55,7 +48,14 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     label: 'Brand & design',
     href: '#design',
     tint: '#eef2f5',
-    peeks: [{ src: g('1uksbxIa5l_bEaSnhq8QrCKbuLkxWlrvQ') }, { src: g('km-birthday-cover') }, { src: g('fimcon-report-p01') }],
+    peeks: [{ src: g('1uksbxIa5l_bEaSnhq8QrCKbuLkxWlrvQ') }, { src: g('1wB3tv-ZooY-33BCKiHLgVN9ZU4xzH9vY') }, { src: g('fimcon-report-p01') }],
+  },
+  {
+    pattern: 'plaid',
+    label: 'Résumé',
+    href: '/resume',
+    tint: '#fbeef2',
+    peeks: [{ title: 'Experience' }, { title: 'Skills' }, { title: 'Education' }],
   },
 ];
 

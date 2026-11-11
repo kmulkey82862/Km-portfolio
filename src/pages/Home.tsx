@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import DigestPreview from '../components/DigestPreview';
+import SourcesDiagram from '../components/SourcesDiagram';
 import MediaFrame, { hasMedia } from '../components/MediaFrame';
 import { WebDevaMark } from '../components/Bubbles';
 import Swatch from '../components/Swatch';
@@ -92,37 +93,25 @@ function AiEnablement() {
       <div className="wrap">
         <Swatch
           id="ai-h"
-          title="AI & automation"
+          title="AI tools & automation"
           pattern="ticking"
-          note="Rolling out AI across a team, connecting it to everyday business software, and building the automations that keep work from getting lost."
+          note="Rolling out AI across a team, connecting it to everyday business software, and building the automations and tools that keep work from getting lost."
         />
         <div className="archive__sub archive__sub--first reveal" id="digests">
           <h3 className="h-card">What the automations send</h3>
-          <p className="shead__note">Three Claude-built digests, each condensing many sources into a short brief for one audience. Click a message to open it.</p>
+          <p className="shead__note">Scheduled Claude tasks read the places work actually happens and condense them into three short briefs, each for one audience.</p>
+        </div>
+        <div className="reveal">
+          <SourcesDiagram />
         </div>
         <div className="reveal">
           <DigestPreview />
         </div>
         <WorkRows items={aiEnablement} />
-      </div>
-    </section>
-  );
-}
-
-function Tools() {
-  return (
-    <section className="section" id="tools" aria-labelledby="tools-h">
-      <div className="wrap">
-        <Swatch
-          id="tools-h"
-          title="Tools & automation"
-          pattern="plaid"
-          note={
-            <>
-              Internal tools built in-house: speaker graphics, logo resizing, and the session archive viewer. Demos run on sample data.
-            </>
-          }
-        />
+        <div className="archive__sub reveal" id="tools">
+          <h3 className="h-card">Tools built in-house</h3>
+          <p className="shead__note">Speaker graphics, logo resizing, and the session archive. Demos run on sample data.</p>
+        </div>
         <ToolCards items={tools} />
       </div>
     </section>
@@ -262,7 +251,7 @@ function Design() {
     <section className="section" id="design" aria-labelledby="design-h">
       <div className="wrap">
         <Swatch id="design-h" title="Brand & design" pattern="linen" note="Report design, brand identity, exhibition promo design, infographics, and one-off pieces." />
-        <DriveGallery groups={['fimcon-report', 'cura', 'hnoc', 'comeaux-infographics', 'misc-design']} />
+        <DriveGallery groups={['fimcon-report', 'cura', 'hnoc', 'comeaux-infographics']} />
       </div>
     </section>
   );
@@ -275,7 +264,6 @@ export default function Home() {
       <Hero />
       <AiEnablement />
       <Websites />
-      <Tools />
       <Email />
       <Social />
       <Design />

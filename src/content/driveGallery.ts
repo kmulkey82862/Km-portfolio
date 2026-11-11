@@ -217,17 +217,6 @@ export const driveGroups: DriveGroup[] = [
     ],
   },
   {
-    id: 'misc-design',
-    client: 'Personal & freelance',
-    title: 'Miscellaneous graphic design',
-    note: 'Custom birthday cards and other one-off pieces.',
-    items: [
-      img('km-birthday-cover', 'Custom birthday card, comic cover'),
-      img('km-birthday-comic', 'Custom birthday card, comic page'),
-      img('km-japonica-layout', 'Japonica Works concrete shop layout'),
-    ],
-  },
-  {
     id: 'vermin-mother',
     client: 'Vermin Mother',
     title: 'Website design & content',
