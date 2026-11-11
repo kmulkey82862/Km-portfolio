@@ -24,7 +24,7 @@ const LIVE_TOOL = 'https://fimcon.org/en/speaker-social';
 
 type Speaker = { name: string; role: string; session: string; when: string; room: string };
 
-const EXAMPLES: (Speaker & { template: Template; avatar: [string, string]; caption: string })[] = [
+const EXAMPLES: (Speaker & { template: Template; avatar: [string, string, string]; caption: string })[] = [
   {
     name: 'Jane Doe',
     role: 'Director, Sample Organization',
@@ -32,7 +32,7 @@ const EXAMPLES: (Speaker & { template: Template; avatar: [string, string]; capti
     when: 'Thu, Apr 15 · 9:00 AM',
     room: 'Ballroom A',
     template: 'raspberry',
-    avatar: ['#c9d6df', '#8fa6b6'],
+    avatar: ['#e4edf3', '#8fa6b6', '#d58aa3'],
     caption: 'Short name, short session',
   },
   {
@@ -42,7 +42,7 @@ const EXAMPLES: (Speaker & { template: Template; avatar: [string, string]; capti
     when: 'Thu, Apr 15 · 1:30 PM',
     room: 'Salon 2',
     template: 'noir',
-    avatar: ['#f3d2dc', '#d58aa3'],
+    avatar: ['#f7dde6', '#c4527d', '#772450'],
     caption: 'Typical lengths',
   },
   {
@@ -53,28 +53,105 @@ const EXAMPLES: (Speaker & { template: Template; avatar: [string, string]; capti
     when: 'Fri, Apr 16 · 4:45 PM',
     room: 'Grand Ballroom C',
     template: 'paper',
-    avatar: ['#e8e2c4', '#b5b23a'],
+    avatar: ['#f2eed6', '#b5b23a', '#d58aa3'],
     caption: 'Long name, title, and session',
   },
 ];
 
-/** A neutral silhouette so the demo works before anyone uploads a photo. */
-function sampleAvatar([from, to]: [string, string]): HTMLCanvasElement {
+/** rgba() from a #rrggbb colour. */
+function rgba(hex: string, a: number) {
+  const n = parseInt(hex.slice(1), 16);
+  return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`;
+}
+
+/**
+ * A placeholder portrait so the demo works before anyone uploads a photo:
+ * soft fields of colour behind a frosted-glass silhouette, with a little grain.
+ * Abstract on purpose; no real person is depicted.
+ */
+function sampleAvatar([light, mid, deep]: [string, string, string]): HTMLCanvasElement {
+  const S = 800;
   const c = document.createElement('canvas');
-  c.width = c.height = 800;
+  c.width = c.height = S;
   const g = c.getContext('2d')!;
-  const grad = g.createLinearGradient(0, 0, 800, 800);
-  grad.addColorStop(0, from);
-  grad.addColorStop(1, to);
-  g.fillStyle = grad;
-  g.fillRect(0, 0, 800, 800);
-  g.fillStyle = 'rgba(255,255,255,0.85)';
+
+  const base = g.createLinearGradient(0, 0, S, S);
+  base.addColorStop(0, light);
+  base.addColorStop(1, mid);
+  g.fillStyle = base;
+  g.fillRect(0, 0, S, S);
+
+  const field = (x: number, y: number, r: number, color: string, a: number) => {
+    const rg = g.createRadialGradient(x, y, 0, x, y, r);
+    rg.addColorStop(0, rgba(color, a));
+    rg.addColorStop(1, rgba(color, 0));
+    g.fillStyle = rg;
+    g.fillRect(0, 0, S, S);
+  };
+  field(660, 120, 460, deep, 0.8);
+  field(110, 640, 420, '#ffffff', 0.5);
+  field(600, 720, 380, light, 0.7);
+  field(170, 150, 320, mid, 0.55);
+  field(400, 320, 300, '#ffffff', 0.4); // light behind the head
+
+  // Soft points of light, like a lens out of focus.
+  for (const [x, y, r, a] of [
+    [150, 210, 70, 0.35],
+    [690, 330, 54, 0.3],
+    [600, 120, 34, 0.4],
+    [110, 430, 40, 0.25],
+    [710, 560, 80, 0.2],
+  ]) {
+    field(x, y, r, '#ffffff', a);
+  }
+
+  // Frosted-glass bust: one shape (head and shoulders), translucent white with a soft glow.
+  const glass = g.createLinearGradient(0, 170, 0, S);
+  glass.addColorStop(0, 'rgba(255,255,255,0.8)');
+  glass.addColorStop(0.55, 'rgba(255,255,255,0.58)');
+  glass.addColorStop(1, 'rgba(255,255,255,0.3)');
+  g.save();
+  g.shadowColor = 'rgba(255,255,255,0.75)';
+  g.shadowBlur = 22;
+  g.fillStyle = glass;
   g.beginPath();
-  g.arc(400, 320, 150, 0, Math.PI * 2);
+  g.moveTo(30, S + 20);
+  g.bezierCurveTo(40, 650, 190, 562, 316, 544);
+  g.quadraticCurveTo(352, 532, 354, 476);
+  g.lineTo(446, 476);
+  g.quadraticCurveTo(448, 532, 484, 544);
+  g.bezierCurveTo(610, 562, 760, 650, 770, S + 20);
+  g.closePath();
+  g.moveTo(532, 322);
+  g.ellipse(400, 322, 132, 156, 0, 0, Math.PI * 2);
   g.fill();
+  g.restore();
+  // Highlight on the upper left of the head and a light sweep across the frame.
+  const hi = g.createRadialGradient(348, 256, 0, 348, 256, 130);
+  hi.addColorStop(0, 'rgba(255,255,255,0.55)');
+  hi.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = hi;
   g.beginPath();
-  g.ellipse(400, 820, 300, 280, 0, Math.PI, 0);
+  g.ellipse(400, 322, 132, 156, 0, 0, Math.PI * 2);
   g.fill();
+  const sweep = g.createLinearGradient(0, 0, S, S);
+  sweep.addColorStop(0.3, 'rgba(255,255,255,0)');
+  sweep.addColorStop(0.45, 'rgba(255,255,255,0.16)');
+  sweep.addColorStop(0.6, 'rgba(255,255,255,0)');
+  g.fillStyle = sweep;
+  g.fillRect(0, 0, S, S);
+
+  // Fine grain, seeded so every render matches.
+  const img = g.getImageData(0, 0, S, S);
+  let seed = 7;
+  for (let i = 0; i < img.data.length; i += 4) {
+    seed = (seed * 16807) % 2147483647;
+    const n = ((seed / 2147483647) - 0.5) * 16;
+    img.data[i] += n;
+    img.data[i + 1] += n;
+    img.data[i + 2] += n;
+  }
+  g.putImageData(img, 0, 0);
   return c;
 }
 
@@ -265,7 +342,7 @@ export default function SpeakerGraphic() {
     dx: 0,
     dy: 0,
   });
-  const [avatarColors, setAvatarColors] = useState<[string, string]>(first.avatar);
+  const [avatarColors, setAvatarColors] = useState<[string, string, string]>(first.avatar);
   const [photo, setPhoto] = useState<Photo | null>(null);
   const [fontsReady, setFontsReady] = useState(false);
   const drag = useRef<{ x: number; y: number; dx: number; dy: number } | null>(null);
