@@ -182,6 +182,145 @@ function drawLogo(ctx: CanvasRenderingContext2D, x: number, y: number, size: num
   ctx.restore();
 }
 
+/** Background design for each template, drawn under the photo and text. Kept low-contrast so text stays legible. */
+function decorate(ctx: CanvasRenderingContext2D, tpl: Template, W: number, H: number, cx: number, cy: number, r: number, left: number) {
+  const glow = (x: number, y: number, rad: number, color: string, a: number) => {
+    const g = ctx.createRadialGradient(x, y, 0, x, y, rad);
+    g.addColorStop(0, rgba(color, a));
+    g.addColorStop(1, rgba(color, 0));
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+  };
+  const rings = (color: string, alphas: number[], step: number) => {
+    ctx.lineWidth = 1.5;
+    alphas.forEach((a, i) => {
+      ctx.strokeStyle = rgba(color, a);
+      ctx.beginPath();
+      ctx.arc(cx, cy, r + 14 + step * (i + 1), 0, Math.PI * 2);
+      ctx.stroke();
+    });
+  };
+  ctx.save();
+  if (tpl === 'raspberry') {
+    const base = ctx.createLinearGradient(0, 0, W, H);
+    base.addColorStop(0, '#bd1f60');
+    base.addColorStop(0.55, '#a3164f');
+    base.addColorStop(1, '#6f0f3b');
+    ctx.fillStyle = base;
+    ctx.fillRect(0, 0, W, H);
+    glow(cx, cy, r * 2.4, '#f3d2dc', 0.32);
+    glow(0, H, Math.max(W, H) * 0.6, '#772450', 0.55);
+    // A large blush disc offset behind the photo.
+    ctx.fillStyle = 'rgba(243,210,220,0.17)';
+    ctx.beginPath();
+    ctx.arc(cx + r * 0.6, cy - r * 0.5, r * 1.2, 0, Math.PI * 2);
+    ctx.fill();
+    rings('#ffffff', [0.38, 0.24, 0.13, 0.06], r * 0.32);
+    // A striped ribbon across the lower right corner, after the ticking fabric.
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(W * 0.7, H);
+    ctx.lineTo(W, H * 0.74);
+    ctx.lineTo(W, H * 0.86);
+    ctx.lineTo(W * 0.83, H);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(243,210,220,0.9)';
+    ctx.fill();
+    ctx.clip();
+    ctx.strokeStyle = 'rgba(163,22,79,0.32)';
+    ctx.lineWidth = 2;
+    for (let d = W * 0.5; d < W * 1.4; d += 14) {
+      ctx.beginPath();
+      ctx.moveTo(d, H);
+      ctx.lineTo(d + H * 0.5, H * 0.5);
+      ctx.stroke();
+    }
+    ctx.restore();
+    // A small dot field in the lower right corner.
+    ctx.fillStyle = 'rgba(255,255,255,0.16)';
+    for (let x = W - 36; x > W - 36 - 26 * 7; x -= 26)
+      for (let y = H - 36; y > H - 36 - 26 * 5; y -= 26) {
+        ctx.beginPath();
+        ctx.arc(x, y, 2.4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+  } else if (tpl === 'noir') {
+    glow(cx, cy, r * 2.7, '#e0457f', 0.5);
+    // An oversized raspberry ring sweeping in from the lower left.
+    ctx.strokeStyle = 'rgba(224,69,127,0.3)';
+    ctx.lineWidth = Math.round(W * 0.022);
+    ctx.beginPath();
+    ctx.arc(W * 0.04, H * 1.02, Math.min(W, H) * 0.42, 0, Math.PI * 2);
+    ctx.stroke();
+    glow(0, H, Math.max(W, H) * 0.7, '#772450', 0.55);
+    glow(W, 0, r * 1.4, '#c9d6df', 0.1);
+    // Faint diagonal lines across the frame.
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth = 1;
+    for (let d = -H; d < W; d += 26) {
+      ctx.beginPath();
+      ctx.moveTo(d, H);
+      ctx.lineTo(d + H, 0);
+      ctx.stroke();
+    }
+    rings('#e0457f', [0.48, 0.28, 0.14], r * 0.34);
+    // Crosshair marks in the corners, like registration marks on a print sheet.
+    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+    ctx.lineWidth = 1.5;
+    for (const [x, y] of [
+      [28, 28],
+      [W - 28, H - 28],
+    ]) {
+      ctx.beginPath();
+      ctx.moveTo(x - 9, y);
+      ctx.lineTo(x + 9, y);
+      ctx.moveTo(x, y - 9);
+      ctx.lineTo(x, y + 9);
+      ctx.stroke();
+    }
+  } else {
+    glow(cx, cy, r * 2.5, '#f3d2dc', 0.85);
+    // Colour discs: blush behind the photo, icy blue in the lower right, olive accents.
+    ctx.fillStyle = 'rgba(243,210,220,0.75)';
+    ctx.beginPath();
+    ctx.arc(cx + r * 0.55, cy - r * 0.45, r * 1.15, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(201,214,223,0.7)';
+    ctx.beginPath();
+    ctx.arc(W * 0.98, H * 0.98, Math.min(W, H) * 0.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(127,124,30,0.55)';
+    for (const [x, y, d] of [
+      [cx - r * 1.2, cy + r * 0.95, 9],
+      [cx - r * 1.05, cy + r * 1.12, 5],
+      [cx - r * 1.32, cy + r * 1.16, 4],
+    ]) {
+      ctx.beginPath();
+      ctx.arc(x, y, d, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    glow(W, H, Math.max(W, H) * 0.55, '#c9d6df', 0.6);
+    glow(left + 40, H * 0.15, r * 0.9, '#e8e2c4', 0.5);
+    // A faint gingham grid, after the fabrics on the portfolio.
+    ctx.strokeStyle = 'rgba(163,22,79,0.05)';
+    ctx.lineWidth = 1;
+    for (let x = left - 20; x < W; x += 24) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, H);
+      ctx.stroke();
+    }
+    for (let y = 0; y < H; y += 24) {
+      ctx.beginPath();
+      ctx.moveTo(left - 20, y);
+      ctx.lineTo(W, y);
+      ctx.stroke();
+    }
+    rings('#a3164f', [0.42, 0.24, 0.11], r * 0.3);
+  }
+  ctx.restore();
+}
+
 type State = Speaker & { format: Format; template: Template; zoom: number; dx: number; dy: number };
 
 function draw(canvas: HTMLCanvasElement, s: State, photo: Photo, family: string, bold: string) {
@@ -217,6 +356,21 @@ function draw(canvas: HTMLCanvasElement, s: State, photo: Photo, family: string,
   const r = square ? W * 0.19 : H * 0.3;
   const cx = square ? W - pad - r : left + r;
   const cy = square ? pad + r + 6 : H / 2;
+  decorate(ctx, s.template, W, H, cx, cy, r, left);
+  if (s.template === 'paper') {
+    // Redraw the band so the background design sits behind it.
+    const band = square ? 92 : 76;
+    ctx.fillStyle = t.accent;
+    ctx.fillRect(0, 0, band, H);
+    ctx.save();
+    ctx.translate(band / 2 + 8, H - pad);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `600 ${square ? 22 : 18}px ${bold}`;
+    ctx.letterSpacing = '6px';
+    ctx.fillText(EVENT.toUpperCase(), 0, 0);
+    ctx.restore();
+  }
   ctx.save();
   ctx.beginPath();
   ctx.arc(cx, cy, r, 0, Math.PI * 2);
