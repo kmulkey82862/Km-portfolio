@@ -1,4 +1,5 @@
-// Three automated digests, rebuilt with placeholder clients (Client A–D) and people.
+// Three automated digests, rebuilt with placeholder clients (a retailer, a law firm, a
+// restaurant, and a nonprofit) and placeholder people.
 // The panels explain what each one reads and does; the prompts themselves stay private.
 
 export type DigestId = 'team' | 'inbox' | 'chaos';
@@ -10,17 +11,6 @@ const INK = '#17151a';
 const SOFT = '#5f5b64';
 const FAINT = '#8d8992';
 const RULE = '#eee9ed';
-
-// Mock client logos (placeholder marks for the Client A–D aliases), as inline SVG.
-const LOGO_SVG: Record<string, string> = {
-  'Client A': `<circle cx="16" cy="16" r="16" fill="#8fa6b6"/><path d="M8 18.5c3-5 13-5 16 0M10.5 22.5c2-3 9-3 11 0" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="16" cy="11" r="2.4" fill="#fff"/>`,
-  'Client B': `<rect x="6" y="6" width="20" height="20" rx="6" transform="rotate(45 16 16)" fill="#d58aa3"/><circle cx="16" cy="16" r="4.6" fill="#fff"/>`,
-  'Client C': `<path d="M16 1.5 29 9v14L16 30.5 3 23V9z" fill="#772450"/><path d="M20.5 11.6a6 6 0 1 0 0 8.8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/>`,
-  'Client D': `<rect width="32" height="32" rx="8" fill="#7f7c1e"/><path d="M9 23 16 9.5 23 23z" fill="#fff"/>`,
-  Internal: `<circle cx="16" cy="16" r="16" fill="#d9d4d9"/><circle cx="16" cy="16" r="5" fill="#fff"/>`,
-};
-const logo = (name: string, size = 26) =>
-  `<img src="data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">${LOGO_SVG[name] ?? LOGO_SVG.Internal}</svg>`)}" width="${size}" height="${size}" alt="" style="display:block;border:0">`;
 
 const STATUS: Record<string, [string, string]> = {
   DONE: ['#e6f3eb', '#22784a'],
@@ -67,9 +57,8 @@ ${o.body}
 const callout = (label: string, text: string, accent: string) =>
   `<tr><td style="padding:16px 32px 4px"><div style="border-left:3px solid ${accent};background:#fbf8fa;border-radius:0 8px 8px 0;padding:12px 16px;${F}font-size:14px;line-height:1.55;color:${SOFT}"><strong style="color:${INK}">${label}</strong> ${text}</div></td></tr>`;
 
-const heading = (label: string, right = '', mark = '') =>
+const heading = (label: string, right = '') =>
   `<tr><td style="padding:24px 32px 8px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid ${RULE}"><tr>
-${mark ? `<td width="36" style="padding:0 0 10px">${mark}</td>` : ''}
 <td style="padding:0 0 10px;${F}font-size:16px;font-weight:bold;color:${INK}">${label}</td>
 <td align="right" style="padding:0 0 10px;${F}font-size:12px;color:${FAINT}">${right}</td></tr></table></td></tr>`;
 
@@ -91,28 +80,28 @@ const button = (label: string, kind: 'primary' | 'outline' | 'text') => {
 // ---------- 1. Team weekly digest: client-by-client overview ----------
 function teamEmail() {
   const clients: [string, [string, string, string][]][] = [
-    ['Client A', [
-      ['Registration opened on schedule', 'Early registrations are tracking ahead of last year. Confirmation emails verified.', 'DONE'],
-      ['Speaker confirmations', '31 of 40 confirmed. Reminder goes out Tuesday to the remaining nine.', 'IN PROGRESS'],
-      ['Keynote order', 'Raised in Thursday’s client call. Client wants options by Friday.', 'NEEDS DECISION'],
+    ['Retail client', [
+      ['Holiday sale landing page', 'Live since Thursday. Conversions are up week over week.', 'DONE'],
+      ['Google Ads budget shift', 'Moving spend from Search to Performance Max for the holiday push.', 'IN PROGRESS'],
+      ['Product feed errors', 'Twelve products rejected in Merchant Center. Client to choose: fix the titles or pause them.', 'NEEDS DECISION'],
     ]],
-    ['Client B', [
-      ['Call for sessions closes this week', 'Four proposals so far. Plan: one more push to smaller member organizations.', 'IN PROGRESS'],
-      ['Sponsor prospectus v2', 'With the client for review since Monday. Follow up Wednesday if no reply.', 'WAITING'],
+    ['Law firm client', [
+      ['Intake form automation', 'New consultation requests now land in the CRM with a follow-up task. Testing with the paralegals.', 'IN PROGRESS'],
+      ['Review request emails', 'Template with the managing partner for approval since Monday.', 'WAITING'],
     ]],
-    ['Client C', [
-      ['Website launch', 'Staging site shared with the team. Collecting feedback before launch.', 'IN PROGRESS'],
-      ['Platform recommendation', 'Two vendor demos done; itemized quotes requested. Decision due before renewal.', 'NEEDS DECISION'],
+    ['Restaurant client', [
+      ['New menu photos', 'Uploaded to the website and the Google Business Profile.', 'DONE'],
+      ['Weekend reservation dip', 'Bookings down 18% since the hours change. Options: a promo email or an Instagram push.', 'NEEDS DECISION'],
     ]],
-    ['Client D', [
-      ['Post-event recordings', 'All sessions uploaded and the archive page is live.', 'DONE'],
-      ['Planning call time', 'Invite and client options show different time zones. Confirm before Thursday.', 'WAITING'],
+    ['Nonprofit client', [
+      ['Year-end giving campaign', 'Email series drafted. Donation page is in review.', 'IN PROGRESS'],
+      ['Board report dashboard', 'Waiting on access to last year’s donor data before it can be finished.', 'WAITING'],
     ]],
   ];
   const body =
-    callout('This week:', 'two decisions are waiting on clients (A and C), and Client B’s call for sessions closes Friday.', '#8fa6b6') +
+    callout('This week:', 'two decisions are waiting on clients (the retailer and the restaurant), and the nonprofit’s year-end email series starts Monday.', '#8fa6b6') +
     clients
-      .map(([name, items]) => heading(name, `${items.length} updates`, logo(name)) + items.map(([t, d, tag]) => row(t, d, tag)).join(''))
+      .map(([name, items]) => heading(name, `${items.length} updates`) + items.map(([t, d, tag]) => row(t, d, tag)).join(''))
       .join('');
   return shell({
     title: 'Weekly Team Digest',
@@ -128,11 +117,11 @@ function teamEmail() {
 // ---------- 2. Shared inbox triage ----------
 function inboxEmail() {
   const rows: [string, string, string, string, string][] = [
-    ['Client A', 'Exhibitor asking how to upload booth materials', 'Jane Doe', 'Today', 'HIGH'],
-    ['Client B', 'Sponsor requesting an invoice copy', 'John Doe', 'Tomorrow', 'MEDIUM'],
-    ['Client A', 'Attendee missing from the pre-event list', 'Sam Lee', 'Today', 'HIGH'],
-    ['Client C', 'Vendor follow-up on a quote', 'Alex Smith', 'This week', 'LOW'],
-    ['Client D', 'Speaker asking for their recording link', 'Jane Doe', 'Tomorrow', 'MEDIUM'],
+    ['Retail client', 'Customer asking where their online order is', 'Jane Doe', 'Today', 'HIGH'],
+    ['Law firm client', 'New client asking for a consultation time', 'John Doe', 'Today', 'HIGH'],
+    ['Restaurant client', 'Private event inquiry for 40 guests', 'Sam Lee', 'Tomorrow', 'MEDIUM'],
+    ['Nonprofit client', 'Donor asking for a tax receipt', 'Alex Smith', 'Tomorrow', 'MEDIUM'],
+    ['Retail client', 'Vendor following up on a wholesale quote', 'Jane Doe', 'This week', 'LOW'],
   ];
   const initials = (n: string) => n.split(' ').map((w) => w[0]).join('');
   const th = `${F}font-size:10px;letter-spacing:1px;text-transform:uppercase;color:${FAINT};padding:9px 10px;text-align:left;font-weight:normal`;
@@ -142,7 +131,7 @@ function inboxEmail() {
     rows
       .map(
         ([c, r, o, d, p]) =>
-          `<tr><td style="padding:11px 10px;border-top:1px solid ${RULE};white-space:nowrap;${F}font-size:12.5px;color:${INK}"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td>${logo(c, 18)}</td><td style="padding-left:7px;${F}font-size:12.5px">${c}</td></tr></table></td>
+          `<tr><td style="padding:11px 10px;border-top:1px solid ${RULE};white-space:nowrap;${F}font-size:12.5px;color:${INK}">${c}</td>
 <td style="padding:11px 10px;border-top:1px solid ${RULE};${F}font-size:13px;line-height:1.45;color:${INK}">${esc(r)}<div style="padding-top:5px">${pill(p)}</div></td>
 <td style="padding:11px 10px;border-top:1px solid ${RULE};white-space:nowrap;${F}font-size:12.5px;color:${SOFT}"><span style="display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:#efe9ee;color:#772450;font-size:9.5px;font-weight:bold;margin-right:6px">${initials(o)}</span>${o}</td>
 <td style="padding:11px 10px;border-top:1px solid ${RULE};white-space:nowrap;${F}font-size:12.5px;color:${SOFT}">${d}</td></tr>`,
@@ -154,8 +143,8 @@ function inboxEmail() {
     heading('New and assigned', '5 requests') +
     table +
     heading('Still open from earlier', '2 requests') +
-    row('Exhibitor portal questions', 'Asked three times since last week. Escalated to the team lead.', 'OVERDUE') +
-    row('Payment form for a sponsor', 'Waiting on the client to confirm which forms they need.', 'WAITING') +
+    row('Donor portal login issue', 'Asked three times since last week. Escalated to the team lead.', 'OVERDUE') +
+    row('Gift card refund request', 'Waiting on the retail client to approve the refund.', 'WAITING') +
     heading('Closed since yesterday', '7 requests') +
     row('Seven requests resolved', 'Marked complete in the sheet after a reply was found in the inbox.', 'DONE');
   return shell({
@@ -172,15 +161,15 @@ function inboxEmail() {
 // ---------- 3. Katelyn's Chaos Brief ----------
 function chaosEmail() {
   const updates: [string, string, string, string][] = [
-    ['Client B', 'Sponsor spotlight email', 'Status: Drafting → Sent', 'Sent this morning to the full list. Results will be in Friday’s report.'],
-    ['Client A', 'New item: Lounge branding', 'Create item · Owner: Katelyn', 'Wording approved by the client. Layout in progress with the vendor.'],
-    ['Client C', 'Platform recommendation', 'Add update', 'Second demo done; quote requested for 800 registrants. Decision due before renewal.'],
+    ['Restaurant client', 'Weekend brunch email', 'Status: Drafting → Sent', 'Sent this morning to the full list. Results will be in Friday’s report.'],
+    ['Retail client', 'New item: Holiday gift guide page', 'Create item · Owner: Katelyn', 'Product list approved by the client. Layout in progress.'],
+    ['Law firm client', 'Intake automation', 'Add update', 'Second round of testing done. Two edge cases left before launch.'],
   ];
   const updateCards = updates
     .map(
       ([c, title, change, comment]) =>
         `<tr><td style="padding:0 32px 10px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid ${RULE};border-radius:12px"><tr><td style="padding:14px 16px">
-<table role="presentation" cellpadding="0" cellspacing="0"><tr><td>${logo(c, 20)}</td><td style="padding-left:8px;${F}font-size:12px;color:${FAINT}"><strong style="color:${INK}">${c}</strong> · ${esc(change)}</td></tr></table>
+<div style="${F}font-size:12px;color:${FAINT}"><strong style="color:${INK}">${c}</strong> · ${esc(change)}</div>
 <div style="${F}font-size:15px;font-weight:bold;color:${INK};padding:9px 0 6px">${esc(title)}</div>
 <div style="${F}font-size:13px;line-height:1.55;color:${SOFT};background:#f8f6f8;border-radius:8px;padding:9px 12px">“${esc(comment)}”</div>
 ${button('Post update', 'primary')}${button('Edit first', 'outline')}${button('Skip', 'text')}
@@ -190,29 +179,29 @@ ${button('Post update', 'primary')}${button('Edit first', 'outline')}${button('S
   const time =
     `<tr><td style="padding:4px 32px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">` +
     [
-      ['Client A', '2h 40m', 'Logged'],
-      ['Client B', '1h 55m', 'Logged'],
-      ['Client C', '1h 10m', 'No update posted yet'],
+      ['Retail client', '2h 40m', 'Logged'],
+      ['Restaurant client', '1h 55m', 'Logged'],
+      ['Law firm client', '1h 10m', 'No update posted yet'],
       ['Internal', '0h 45m', 'Logged'],
     ]
       .map(
         ([c, h, s]) =>
-          `<tr><td width="28" style="padding:7px 0;border-bottom:1px solid ${RULE}">${logo(c, 18)}</td><td style="padding:7px 0;border-bottom:1px solid ${RULE};${F}font-size:13px;color:${INK}">${c}</td><td style="padding:7px 0;border-bottom:1px solid ${RULE};${F}font-size:13px;font-weight:bold;color:${INK}">${h}</td><td align="right" style="padding:7px 0;border-bottom:1px solid ${RULE};${F}font-size:12px;color:${s.startsWith('No') ? '#b0261d' : FAINT}">${s}</td></tr>`,
+          `<tr><td style="padding:7px 0;border-bottom:1px solid ${RULE};${F}font-size:13px;color:${INK}">${c}</td><td style="padding:7px 0;border-bottom:1px solid ${RULE};${F}font-size:13px;font-weight:bold;color:${INK}">${h}</td><td align="right" style="padding:7px 0;border-bottom:1px solid ${RULE};${F}font-size:12px;color:${s.startsWith('No') ? '#b0261d' : FAINT}">${s}</td></tr>`,
       )
       .join('') +
-    `</table><div style="${F}font-size:12px;line-height:1.5;color:${FAINT};padding-top:8px">From the time tracker. Client C has time logged but no update on the board, so one is drafted below.</div></td></tr>`;
+    `</table><div style="${F}font-size:12px;line-height:1.5;color:${FAINT};padding-top:8px">From the time tracker. The law firm has time logged but no update on the board, so one is drafted below.</div></td></tr>`;
   const body =
-    callout('At a glance:', 'your sharpest deadline is a Client B email due to send today, and your supervisor asked for the agenda draft in chat yesterday afternoon.', '#a3164f') +
+    callout('At a glance:', 'your sharpest deadline is the restaurant’s brunch email, due to send today, and the retail client asked for gift guide copy in chat yesterday afternoon.', '#a3164f') +
     heading('What you were asked to do', '2 items') +
-    row('Agenda draft for Client A', 'Asked in a direct chat message from your supervisor yesterday at 4:10 PM.', 'TODAY') +
-    row('Send a sponsor their invoice copy', 'Assigned to you in the shared inbox tracker.', 'TODAY') +
+    row('Gift guide copy for the retail client', 'Asked in a direct chat message yesterday at 4:10 PM.', 'TODAY') +
+    row('Send the nonprofit their dashboard login', 'Assigned to you in the shared inbox tracker.', 'TODAY') +
     heading('Content calendar', '2 sends') +
-    row('Client B sponsor spotlight sends today', 'Still marked Drafting in the email platform, not scheduled.', 'DUE') +
-    row('Client A reception invite', 'The send date was yesterday.', 'OVERDUE') +
+    row('Restaurant brunch email sends today', 'Still marked Drafting in the email platform, not scheduled.', 'DUE') +
+    row('Nonprofit giving-day post', 'The scheduled date was yesterday.', 'OVERDUE') +
     heading('Meetings', '2 today') +
-    row('10:00 Client C check-in · 2:30 team sync', 'Prep note: bring the platform quote comparison to the check-in.') +
+    row('10:00 Law firm check-in · 2:30 team sync', 'Prep note: bring the intake testing results to the check-in.') +
     heading('Who’s waiting on you', '2 people') +
-    row('Two teammates', 'Jane is waiting on logo files; John needs your sign-off on the program book ad.', 'WAITING') +
+    row('Two teammates', 'Jane is waiting on photo selects; John needs your sign-off on the holiday ad copy.', 'WAITING') +
     heading('Time review', 'Yesterday') +
     time +
     heading('Board updates ready for review', '3 drafts') +
