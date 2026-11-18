@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------
-   Section heads and home-page folders: each section is a two-ink
-   risograph print of a real piece from it (scripts/riso-prints.py).
+   Section heads and home-page folders: each section is fluted glass in
+   its own tint.
 ------------------------------------------------------------------- */
 :root {
   --icy: #c9d6df; /* gray icy blue */
@@ -15,13 +15,22 @@
 
   /* Section colours. Panels stay a warm off-white; the colour lives on a
      chunky band: the folder tab on the home page, the bar over each head. */
-  --sec-plum: #6b3a5b; /* plum */
-  --sec-rosewood: #9c4f5a; /* rosewood */
-  --sec-dusty-rose: #c98d97; /* dusty rose */
-  --sec-mauve: #a58bb4; /* mauve */
-  --sec-blush: #e6b7bd; /* blush */
-  --sec-champagne: #e3cba0; /* champagne */
-  --sec-panel: #f7efeb; /* blush-white panel */
+  /* Section tints: each folder and section head is fluted glass in one */
+  --sec-pink: #f19cbb;
+  --sec-lilac: #b9a2ec;
+  --sec-peach: #f6b18f;
+  --sec-sky: #9cc4ee;
+  --sec-mint: #93d3bc;
+  --sec-butter: #f0d27a;
+  /* Reeded glass: one 16px flute = a bright edge, a soft body, a faint shadow */
+  --flutes: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, 0.6) 2.5px,
+    rgba(255, 255, 255, 0.16) 7px,
+    rgba(40, 20, 50, 0.07) 12.5px,
+    rgba(255, 255, 255, 0) 16px
+  );
   --sec-band: clamp(16px, 1.8vw, 26px); /* bar over each section head */
 
   /* Woven grain: fine noise multiplied over every swatch */
@@ -79,37 +88,18 @@
    its section head. Class names keep the old fabric names so the markup
    doesn't change.
 --------------------------------------------------------------------- */
-.swatch--ticking     { --sec: var(--sec-plum);   --print: url('/media/prints/ai-folder.webp');       --print-color: url('/media/prints/ai-folder-color.webp'); }       /* AI tools */
-.swatch--herringbone { --sec: var(--sec-rosewood);      --print: url('/media/prints/websites-folder.webp'); --print-color: url('/media/prints/websites-folder-color.webp'); } /* Websites */
-.swatch--gingham     { --sec: var(--sec-dusty-rose); --print: url('/media/prints/email-folder.webp');    --print-color: url('/media/prints/email-folder-color.webp'); }    /* Email */
-.swatch--cabana      { --sec: var(--sec-mauve);      --print: url('/media/prints/social-folder.webp');   --print-color: url('/media/prints/social-folder-color.webp'); }   /* Social & video */
-.swatch--linen       { --sec: var(--sec-blush);      --print: url('/media/prints/brand-folder.webp');    --print-color: url('/media/prints/brand-folder-color.webp'); }    /* Brand & design */
-.swatch--plaid       { --sec: var(--sec-champagne);       --print: url('/media/prints/resume-folder.webp');   --print-color: url('/media/prints/resume-folder-color.webp'); }   /* Résumé */
+.swatch--ticking     { --sec: var(--sec-pink); }   /* AI tools */
+.swatch--herringbone { --sec: var(--sec-lilac); }  /* Websites */
+.swatch--gingham     { --sec: var(--sec-peach); }  /* Email */
+.swatch--cabana      { --sec: var(--sec-sky); }    /* Social & video */
+.swatch--linen       { --sec: var(--sec-mint); }   /* Brand & design */
+.swatch--plaid       { --sec: var(--sec-butter); } /* Résumé */
 
-/* Section heads use the wide crop of the same print */
-.swatch.swatch--ticking     { --print: url('/media/prints/ai-head.webp');       --print-color: url('/media/prints/ai-head-color.webp'); }
-.swatch.swatch--herringbone { --print: url('/media/prints/websites-head.webp'); --print-color: url('/media/prints/websites-head-color.webp'); }
-.swatch.swatch--gingham     { --print: url('/media/prints/email-head.webp');    --print-color: url('/media/prints/email-head-color.webp'); }
-.swatch.swatch--cabana      { --print: url('/media/prints/social-head.webp');   --print-color: url('/media/prints/social-head-color.webp'); }
-.swatch.swatch--linen       { --print: url('/media/prints/brand-head.webp');    --print-color: url('/media/prints/brand-head-color.webp'); }
-.swatch.swatch--plaid       { --print: url('/media/prints/resume-head.webp');   --print-color: url('/media/prints/resume-head-color.webp'); }
-
-/* Section heads: the section's risograph print behind the stitched label.
-   Hovering the head lets the full-colour original bleed through. */
+/* Section heads: the same fluted glass as the section's folder, behind the
+   stitched label */
 .swatch {
-  background: var(--sec-panel) var(--print) center / cover no-repeat;
-}
-.swatch::after {
-  display: block;
-  z-index: -1;
-  background: var(--print-color) center / cover no-repeat;
-  mix-blend-mode: normal;
-  opacity: 0;
-  transition: opacity 0.9s ease;
-}
-.swatch:hover::after {
-  opacity: 1;
-}
-@media (prefers-reduced-motion: reduce) {
-  .swatch::after { transition: none; }
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 45%),
+    var(--flutes),
+    linear-gradient(180deg, color-mix(in srgb, var(--sec) 70%, #fff) 0%, var(--sec) 100%);
 }

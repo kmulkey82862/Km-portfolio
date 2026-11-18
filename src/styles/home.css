@@ -147,9 +147,11 @@
   inset: 0;
   overflow: hidden;
 }
-/* Back panel in the section colour; the front cover carries the print */
+/* Fluted glass in the section tint: the back panel is the deeper pane */
 .ff__back[class*='swatch--'] {
-  background: var(--sec);
+  background:
+    var(--flutes),
+    linear-gradient(180deg, color-mix(in srgb, var(--sec) 92%, #fff) 0%, var(--sec) 100%);
 }
 .ff__rim {
   position: absolute;
@@ -216,28 +218,26 @@
   width: 340px;
   height: 198px;
   z-index: 10;
+  -webkit-backdrop-filter: blur(9px) saturate(1.35);
+  backdrop-filter: blur(9px) saturate(1.35);
   transform-origin: 50% 100%;
   transform: perspective(760px) rotateX(var(--ff-hinge));
   transition: transform 0.8s var(--ff-spring);
 }
-/* The cover: a two-ink risograph of real work from the section. When the
-   folder tips open the print melts into the full-colour original. */
+/* The cover: reeded glass in the section tint. The flutes catch light down
+   their length, and the work in the pocket blurs through them. */
 .ff__tint {
   position: absolute;
   inset: 0;
-  background: var(--sec-panel) var(--print) center / cover no-repeat;
-}
-.ff__tint::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--print-color) center / cover no-repeat;
-  opacity: 0;
-  transition: opacity 0.7s ease;
-}
-.ff:hover .ff__tint::after,
-.ff:focus-visible .ff__tint::after {
-  opacity: 1;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 38%),
+    var(--flutes),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--sec) 46%, transparent) 0%,
+      color-mix(in srgb, var(--sec) 78%, transparent) 55%,
+      color-mix(in srgb, var(--sec) 90%, transparent) 100%
+    );
 }
 .ff__front-rim {
   position: absolute;
@@ -251,20 +251,14 @@
   stroke: rgba(255, 255, 255, 0.85);
   stroke-width: 2.4;
 }
-/* Section name on a paper sticker slapped on the cover */
 .ff__label {
   position: absolute;
-  left: 20px;
-  bottom: 20px;
-  max-width: calc(100% - 40px);
-  padding: 10px 16px 12px;
-  background: #fbf7f0;
-  border-radius: 3px;
-  box-shadow: 0 1px 1px rgba(20, 18, 22, 0.18), 0 8px 18px rgba(20, 18, 22, 0.22);
-  transform: rotate(-1.5deg);
+  left: 26px;
+  right: 22px;
+  bottom: 26px;
   font-family: var(--font-name);
   font-weight: 700;
-  font-size: 36px;
+  font-size: 40px;
   line-height: 1.02;
   letter-spacing: -0.03em;
   color: #141216;
