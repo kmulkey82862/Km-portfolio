@@ -18,14 +18,14 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     pattern: 'herringbone',
     label: 'Websites',
     href: '#websites',
-    tint: '#eff0cf',
+    tint: '#f6dccd',
     peeks: [{ src: '/media/site-web-deva-480.webp' }, { src: '/media/site-cdc-480.webp' }, { src: '/media/site-matt-chapin-480.webp' }],
   },
   {
     pattern: 'gingham',
     label: 'Email',
     href: '#email',
-    tint: '#f6dccd',
+    tint: '#eff0cf',
     peeks: [
       { src: g('1-I6J-qW_sKPe6HKhuq43z82JF1JTYHyP') },
       { src: g('1zkVKnji_n4XbFOemmX-UW3LkxW7zTEPX') },
@@ -36,7 +36,7 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     pattern: 'cabana',
     label: 'Social & video',
     href: '#social',
-    tint: '#eaf4f9',
+    tint: '#d9e8e7',
     peeks: [
       { src: g('1utvn3e8ZcF_LpyVljZMpTlGvFz8oE1U-') },
       { src: g('1isAUKSboqf7mWBb8aCoqfzuopII19MVL') },
@@ -47,14 +47,14 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     pattern: 'linen',
     label: 'Brand & design',
     href: '#design',
-    tint: '#f7e3e7',
+    tint: '#f5e8cc',
     peeks: [{ src: g('1uksbxIa5l_bEaSnhq8QrCKbuLkxWlrvQ') }, { src: g('1wB3tv-ZooY-33BCKiHLgVN9ZU4xzH9vY') }, { src: g('fimcon-report-p01') }],
   },
   {
     pattern: 'plaid',
     label: 'Résumé',
     href: '/resume',
-    tint: '#ead9e7',
+    tint: '#f6efe3',
     peeks: [{ title: 'Experience' }, { title: 'Skills' }, { title: 'Education' }],
   },
 ];

@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------
    Section heads: each title sits on a stitched label over a panel of
    its section's solid colour (eggplant, burnt orange, olive chartreuse,
-   icy blue, rose).
+   deep teal, mustard ochre, warm sand).
 ------------------------------------------------------------------- */
 :root {
   --icy: #c9d6df; /* gray icy blue */
@@ -18,8 +18,9 @@
   --sec-eggplant: #4a2546;
   --sec-burnt: #a8481c; /* darker burnt orange */
   --sec-chartreuse: #9a9e1f; /* olive chartreuse */
-  --sec-icy: #cfe3ee; /* pale icy blue */
-  --sec-rose: #e3a9b4; /* accent */
+  --sec-teal: #1f5b5c; /* deep teal */
+  --sec-ochre: #c8952c; /* mustard ochre */
+  --sec-sand: #e2d2b6; /* warm sand */
 
   /* Woven grain: fine noise multiplied over every swatch */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.33 0 0 0 0 0.36 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -77,8 +78,8 @@
    doesn't change.
 --------------------------------------------------------------------- */
 .swatch--ticking     { background: var(--sec-eggplant); }   /* AI tools */
-.swatch--herringbone { background: var(--sec-chartreuse); } /* Websites */
-.swatch--gingham     { background: var(--sec-burnt); }      /* Email */
-.swatch--cabana      { background: var(--sec-icy); }        /* Social & video */
-.swatch--linen       { background: var(--sec-rose); }       /* Brand & design */
-.swatch--plaid       { background: var(--sec-eggplant); }   /* Résumé */
+.swatch--herringbone { background: var(--sec-burnt); }      /* Websites */
+.swatch--gingham     { background: var(--sec-chartreuse); } /* Email */
+.swatch--cabana      { background: var(--sec-teal); }       /* Social & video */
+.swatch--linen       { background: var(--sec-ochre); }      /* Brand & design */
+.swatch--plaid       { background: var(--sec-sand); }       /* Résumé */
