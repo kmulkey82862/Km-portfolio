@@ -144,6 +144,11 @@
   inset: 0;
   overflow: hidden;
 }
+/* Off-white folder with a chunky band of the section colour across the tab;
+   the band stops just above where the frosted front begins (74px). */
+.ff__back[class*='swatch--'] {
+  background: linear-gradient(180deg, var(--sec) 0 68px, var(--sec-panel) 68px);
+}
 .ff__rim {
   position: absolute;
   inset: 0;

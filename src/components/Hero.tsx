@@ -4,28 +4,28 @@ import type { Pattern } from './Swatch';
 
 const g = (id: string) => `/media/gallery/${id}-600.webp`;
 
-// One folder per section, in the same solid colour as that section's head,
+// One folder per section: off-white, with a chunky tab in that section's colour,
 // holding a few real pieces from the section.
 const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; peeks: FolderPeek[] }[] = [
   {
     pattern: 'ticking',
     label: 'AI tools',
     href: '#ai',
-    tint: '#f6dccd',
+    tint: '#f7f2ec',
     peeks: [{ title: 'Team AI rollout' }, { title: 'Weekly digest' }, { title: 'Inbox triage' }],
   },
   {
     pattern: 'herringbone',
     label: 'Websites',
     href: '#websites',
-    tint: '#ead9e7',
+    tint: '#f7f2ec',
     peeks: [{ src: '/media/site-web-deva-480.webp' }, { src: '/media/site-cdc-480.webp' }, { src: '/media/site-matt-chapin-480.webp' }],
   },
   {
     pattern: 'gingham',
     label: 'Email',
     href: '#email',
-    tint: '#ece0eb',
+    tint: '#f7f2ec',
     peeks: [
       { src: g('1-I6J-qW_sKPe6HKhuq43z82JF1JTYHyP') },
       { src: g('1zkVKnji_n4XbFOemmX-UW3LkxW7zTEPX') },
@@ -36,7 +36,7 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     pattern: 'cabana',
     label: 'Social & video',
     href: '#social',
-    tint: '#f0e6ef',
+    tint: '#f7f2ec',
     peeks: [
       { src: g('1utvn3e8ZcF_LpyVljZMpTlGvFz8oE1U-') },
       { src: g('1isAUKSboqf7mWBb8aCoqfzuopII19MVL') },
@@ -47,14 +47,14 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     pattern: 'linen',
     label: 'Brand & design',
     href: '#design',
-    tint: '#f5edf4',
+    tint: '#f7f2ec',
     peeks: [{ src: g('1uksbxIa5l_bEaSnhq8QrCKbuLkxWlrvQ') }, { src: g('1wB3tv-ZooY-33BCKiHLgVN9ZU4xzH9vY') }, { src: g('fimcon-report-p01') }],
   },
   {
     pattern: 'plaid',
     label: 'Résumé',
     href: '/resume',
-    tint: '#faf5f9',
+    tint: '#f7f2ec',
     peeks: [{ title: 'Experience' }, { title: 'Skills' }, { title: 'Education' }],
   },
 ];

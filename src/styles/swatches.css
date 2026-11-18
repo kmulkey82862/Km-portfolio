@@ -1,7 +1,6 @@
 /* ------------------------------------------------------------------
-   Section heads: each title sits on a stitched label over a panel of
-   its section's solid colour: shades of eggplant, deep to pale, with
-   burnt orange on the lead section (AI tools).
+   Section heads: each title sits on a stitched label on a warm off-white
+   panel, under a chunky bar of its section colour.
 ------------------------------------------------------------------- */
 :root {
   --icy: #c9d6df; /* gray icy blue */
@@ -14,14 +13,16 @@
   --olive-lite: #a9a43a;
   --poppy: #d0342c; /* the one pop of red: pairs with icy blue and the pinks, never the olive */
 
-  /* Solid section colours (folders and section heads): one family of eggplant,
-     deep to pale, with burnt orange as the single pop on the lead section. */
-  --sec-burnt: #a8481c; /* burnt orange: the pop */
+  /* Section colours. Panels stay a warm off-white; the colour lives on a
+     chunky band: the folder tab on the home page, the bar over each head. */
   --sec-eggplant: #4a2546;
-  --sec-plum: #6d3f68;
-  --sec-mauve: #93688f;
-  --sec-lilac: #c3a5bf;
-  --sec-lilac-pale: #e6d6e3;
+  --sec-burnt: #a8481c; /* burnt orange */
+  --sec-chartreuse: #9a9e1f; /* olive chartreuse */
+  --sec-ochre: #c8952c; /* mustard ochre */
+  --sec-berry: #7a2f4f;
+  --sec-rose: #e3a9b4;
+  --sec-panel: #f5eee6; /* warm off-white panel */
+  --sec-band: clamp(16px, 1.8vw, 26px); /* bar over each section head */
 
   /* Woven grain: fine noise multiplied over every swatch */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.33 0 0 0 0 0.36 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -78,9 +79,15 @@
    its section head. Class names keep the old fabric names so the markup
    doesn't change.
 --------------------------------------------------------------------- */
-.swatch--ticking     { background: var(--sec-burnt); }      /* AI tools */
-.swatch--herringbone { background: var(--sec-eggplant); }   /* Websites */
-.swatch--gingham     { background: var(--sec-plum); }       /* Email */
-.swatch--cabana      { background: var(--sec-mauve); }      /* Social & video */
-.swatch--linen       { background: var(--sec-lilac); }      /* Brand & design */
-.swatch--plaid       { background: var(--sec-lilac-pale); } /* Résumé */
+.swatch--ticking     { --sec: var(--sec-eggplant); }   /* AI tools */
+.swatch--herringbone { --sec: var(--sec-burnt); }      /* Websites */
+.swatch--gingham     { --sec: var(--sec-chartreuse); } /* Email */
+.swatch--cabana      { --sec: var(--sec-ochre); }      /* Social & video */
+.swatch--linen       { --sec: var(--sec-berry); }      /* Brand & design */
+.swatch--plaid       { --sec: var(--sec-rose); }       /* Résumé */
+
+/* Section heads: off-white panel under a chunky bar of the section colour */
+.swatch {
+  background: var(--sec-panel);
+  border-top: var(--sec-band) solid var(--sec, var(--ink));
+}

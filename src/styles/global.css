@@ -59,10 +59,12 @@
     --ring: var(--ring-paper);
     --ring-on-invert: var(--ring-ink);
     --grid-line: rgba(244, 241, 243, 0.06);
+    --sec-panel: #1d1a1b;
     color-scheme: dark;
   }
 }
 :root[data-theme='dark'] {
+  --sec-panel: #1d1a1b;
   --bg: #0b0b0c;
   --bg-soft: #151416;
   --ink: #f4f1f3;
