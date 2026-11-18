@@ -12,15 +12,38 @@ M = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'public', 'me
 OUT = M + 'prints/'
 PAPER = np.array([244, 236, 223]) / 255.0
 
+# Each print is cut from a logo-free, text-free part of the artwork: no client
+# names or logos. A source is a list of (file, box) tiles, box = (x0, y0, x1, y1)
+# as fractions of the image; tiles are set side by side at a common height.
+FLOWERS = [('gallery/1zkVKnji_n4XbFOemmX-UW3LkxW7zTEPX-1800.webp', (0.0, 0.06, 0.215, 1.0)),
+           ('gallery/1zkVKnji_n4XbFOemmX-UW3LkxW7zTEPX-1800.webp', (0.80, 0.16, 1.0, 1.0))]
 SECTIONS = {
-  # key: (source, focus x,y for folder, focus for header, ink A (key), ink B (spot))
-  'ai':       ('tool-speaker-1200.webp',                       (0.64, 0.40), (0.5, 0.42), '#4a2546', '#ff48b0'),
-  'websites': ('site-cdc-1600.webp',                            (0.30, 0.62), (0.5, 0.55), '#a8481c', '#3255a4'),
-  'email':    ('gallery/1zkVKnji_n4XbFOemmX-UW3LkxW7zTEPX-1800.webp', (0.18, 0.35), (0.5, 0.30), '#5f6118', '#ff48b0'),
-  'social':   ('gallery/km-trivial-matters-1-1800.webp',       (0.40, 0.45), (0.5, 0.45), '#2b2a6b', '#e8a522'),
-  'brand':    ('gallery/1isAUKSboqf7mWBb8aCoqfzuopII19MVL-1800.webp', (0.50, 0.70), (0.5, 0.72), '#7a2f4f', '#ff6c2f'),
-  'resume':   ('site-matt-chapin-1600.webp', (0.50, 0.40), (0.5, 0.45), '#4a2546', '#ff6c2f'),
+  # key: (folder tiles, head tiles, ink A (key), ink B (spot))
+  'ai':       ([('tool-speaker-1200.webp', (0.44, 0.09, 0.66, 0.30))],
+               [('tool-speaker-1200.webp', (0.44, 0.09, 0.66, 0.30))], '#4a2546', '#ff48b0'),
+  'websites': ([('site-cdc-1600.webp', (0.0, 0.35, 1.0, 0.86))],
+               [('site-cdc-1600.webp', (0.0, 0.35, 1.0, 0.86))], '#a8481c', '#3255a4'),
+  'email':    (FLOWERS, FLOWERS, '#5f6118', '#ff48b0'),
+  'social':   ([('gallery/km-trivial-matters-1-1800.webp', (0.66, 0.0, 1.0, 1.0))],
+               [('gallery/km-trivial-matters-1-1800.webp', (0.66, 0.0, 1.0, 1.0))], '#2b2a6b', '#e8a522'),
+  'brand':    ([('gallery/1isAUKSboqf7mWBb8aCoqfzuopII19MVL-1800.webp', (0.07, 0.44, 0.93, 0.86))],
+               [('gallery/1isAUKSboqf7mWBb8aCoqfzuopII19MVL-1800.webp', (0.07, 0.44, 0.93, 0.86))], '#7a2f4f', '#ff6c2f'),
+  'resume':   ([('site-matt-chapin-1600.webp', (0.0, 0.10, 1.0, 0.70))],
+               [('site-matt-chapin-1600.webp', (0.0, 0.10, 1.0, 0.70))], '#4a2546', '#ff6c2f'),
 }
+
+def tiles(spec):
+  parts = []
+  for f, (x0, y0, x1, y1) in spec:
+    im = ImageOps.exif_transpose(Image.open(M + f)).convert('RGB')
+    parts.append(im.crop((round(x0 * im.width), round(y0 * im.height), round(x1 * im.width), round(y1 * im.height))))
+  h = min(p.height for p in parts)
+  parts = [p.resize((round(p.width * h / p.height), h), Image.LANCZOS) for p in parts]
+  out = Image.new('RGB', (sum(p.width for p in parts), h))
+  x = 0
+  for p in parts:
+    out.paste(p, (x, 0)); x += p.width
+  return out
 
 def hexrgb(h): return np.array([int(h[i:i+2], 16) for i in (1, 3, 5)]) / 255.0
 
@@ -80,10 +103,9 @@ def riso(rgb, inkA, inkB, cell):
 
 if __name__ == '__main__':
   import os; os.makedirs(OUT, exist_ok=True)
-  for key, (src, ff, fh, A, B) in SECTIONS.items():
-    img = ImageOps.exif_transpose(Image.open(M + src)).convert('RGB')
-    for kind, (w, h), focus, cell in (('folder', (680, 396), ff, 12), ('head', (1600, 520), fh, 9)):
-      c = crop(img, w, h, focus)
+  for key, (fspec, hspec, A, B) in SECTIONS.items():
+    for kind, spec, (w, h), cell in (('folder', fspec, (680, 396), 12), ('head', hspec, (1600, 520), 9)):
+      c = crop(tiles(spec), w, h, (0.5, 0.5))
       riso(c, hexrgb(A), hexrgb(B), cell).save(f'{OUT}{key}-{kind}.webp', quality=82)
       c.save(f'{OUT}{key}-{kind}-color.webp', quality=78)
   print('ok')
