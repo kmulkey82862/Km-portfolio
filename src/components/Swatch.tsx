@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export type Pattern = 'ticking' | 'plaid' | 'cabana' | 'herringbone' | 'linen' | 'gingham';
 
-/** A section head set like a fabric sample: title and description on a stitched label over a pattern. */
+/** A section head: title and description on a stitched label over the section's solid colour. */
 export default function Swatch({
   id,
   title,

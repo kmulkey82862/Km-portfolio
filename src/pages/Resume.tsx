@@ -22,7 +22,7 @@ export default function Resume() {
   return (
     <section className="page" aria-labelledby="resume-h">
       <div className="wrap">
-        <Swatch id="resume-h" title="Résumé" pattern="linen" level={1} note={profile.summary}>
+        <Swatch id="resume-h" title="Résumé" pattern="plaid" level={1} note={profile.summary}>
           <a href={profile.resumePath} className="btn btn--sm" download>
             Download PDF <span className="arrow">↓</span>
           </a>

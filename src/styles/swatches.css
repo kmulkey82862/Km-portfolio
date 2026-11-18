@@ -1,8 +1,7 @@
 /* ------------------------------------------------------------------
-   Fabric swatches for section heads.
-   Each section title sits on a stitched label over a patterned panel,
-   like an upholstery sample. Pure CSS: stripes, plaid, cabana stripe,
-   herringbone tweed, linen, gingham, plus a woven-grain overlay.
+   Section heads: each title sits on a stitched label over a panel of
+   its section's solid colour (eggplant, burnt orange, olive chartreuse,
+   icy blue, rose).
 ------------------------------------------------------------------- */
 :root {
   --icy: #c9d6df; /* gray icy blue */
@@ -14,6 +13,13 @@
   --olive: #7f7c1e; /* darker olive chartreuse */
   --olive-lite: #a9a43a;
   --poppy: #d0342c; /* the one pop of red: pairs with icy blue and the pinks, never the olive */
+
+  /* Solid section colours (folders and section heads) */
+  --sec-eggplant: #4a2546;
+  --sec-burnt: #a8481c; /* darker burnt orange */
+  --sec-chartreuse: #9a9e1f; /* olive chartreuse */
+  --sec-icy: #cfe3ee; /* pale icy blue */
+  --sec-rose: #e3a9b4; /* accent */
 
   /* Woven grain: fine noise multiplied over every swatch */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.33 0 0 0 0 0.36 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -29,6 +35,7 @@
   box-shadow: inset 0 0 0 1px rgba(11, 11, 12, 0.06);
 }
 .swatch::after {
+  display: none;
   content: '';
   position: absolute;
   inset: 0;
@@ -64,70 +71,14 @@
 }
 
 
-/* ---- Ticking stripe · icy blue ---- */
-.swatch--ticking {
-  background-color: var(--icy-pale);
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0 22px, var(--poppy) 22px 23px, transparent 23px 72px),
-    repeating-linear-gradient(
-    90deg,
-    var(--icy-deep) 0 3px,
-    transparent 3px 8px,
-    var(--icy-deep) 8px 9px,
-    transparent 9px 36px
-  );
-}
-
-/* ---- Tartan plaid · blush, mulberry, olive ---- */
-.swatch--plaid {
-  background-color: var(--blush);
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0 33px, rgba(208, 52, 44, 0.8) 33px 35px, transparent 35px 80px),
-    repeating-linear-gradient(0deg, transparent 0 33px, rgba(208, 52, 44, 0.8) 33px 35px, transparent 35px 80px),
-    repeating-linear-gradient(90deg, rgba(119, 36, 80, 0.5) 0 16px, transparent 16px 52px, rgba(119, 36, 80, 0.28) 52px 58px, transparent 58px 80px),
-    repeating-linear-gradient(0deg, rgba(119, 36, 80, 0.5) 0 16px, transparent 16px 52px, rgba(119, 36, 80, 0.28) 52px 58px, transparent 58px 80px);
-}
-
-/* ---- Cabana stripe · blush with an olive pinstripe ---- */
-.swatch--cabana {
-  background-color: var(--blush-pale);
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0 41px, var(--olive-lite) 41px 42px, transparent 42px 84px),
-    repeating-linear-gradient(90deg, var(--blush) 0 42px, transparent 42px 84px);
-}
-
-/* ---- Herringbone tweed · olive chartreuse ---- */
-.swatch--herringbone {
-  background-color: var(--olive);
-  background-image:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.16) 25%, transparent 25%),
-    linear-gradient(225deg, rgba(255, 255, 255, 0.16) 25%, transparent 25%),
-    linear-gradient(315deg, rgba(0, 0, 0, 0.12) 25%, transparent 25%),
-    linear-gradient(45deg, rgba(0, 0, 0, 0.12) 25%, transparent 25%);
-  background-size: 18px 18px;
-  background-position: -9px 0, -9px 0, 0 0, 0 0;
-}
-.swatch--herringbone::after {
-  opacity: 0.7;
-}
-
-/* ---- Linen · icy gray ---- */
-.swatch--linen {
-  background-color: var(--icy);
-  background-image:
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.38) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, rgba(60, 84, 101, 0.16) 0 1px, transparent 1px 4px),
-    repeating-linear-gradient(90deg, transparent 0 57px, rgba(255, 255, 255, 0.25) 57px 59px, transparent 59px 120px),
-    repeating-linear-gradient(0deg, transparent 0 88px, rgba(208, 52, 44, 0.55) 88px 89px, transparent 89px 176px);
-}
-.swatch--linen::after {
-  opacity: 0.8;
-}
-
-/* ---- Gingham · blush ---- */
-.swatch--gingham {
-  background-color: #fff;
-  background-image:
-    repeating-linear-gradient(0deg, rgba(232, 160, 182, 0.55) 0 14px, transparent 14px 28px),
-    repeating-linear-gradient(90deg, rgba(232, 160, 182, 0.55) 0 14px, transparent 14px 28px);
-}
+/* ---- Solid section colours ----------------------------------------
+   One flat colour per section, shared by its folder on the home page and
+   its section head. Class names keep the old fabric names so the markup
+   doesn't change.
+--------------------------------------------------------------------- */
+.swatch--ticking     { background: var(--sec-eggplant); }   /* AI tools */
+.swatch--herringbone { background: var(--sec-chartreuse); } /* Websites */
+.swatch--gingham     { background: var(--sec-burnt); }      /* Email */
+.swatch--cabana      { background: var(--sec-icy); }        /* Social & video */
+.swatch--linen       { background: var(--sec-rose); }       /* Brand & design */
+.swatch--plaid       { background: var(--sec-eggplant); }   /* Résumé */
