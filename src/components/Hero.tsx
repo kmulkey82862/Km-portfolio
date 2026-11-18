@@ -36,7 +36,7 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     pattern: 'cabana',
     label: 'Social & video',
     href: '#social',
-    tint: '#d9e8e7',
+    tint: '#f6d6e2',
     peeks: [
       { src: g('1utvn3e8ZcF_LpyVljZMpTlGvFz8oE1U-') },
       { src: g('1isAUKSboqf7mWBb8aCoqfzuopII19MVL') },
@@ -54,7 +54,7 @@ const FOLDERS: { pattern: Pattern; label: string; href: string; tint: string; pe
     pattern: 'plaid',
     label: 'Résumé',
     href: '/resume',
-    tint: '#f6efe3',
+    tint: '#fbe6e5',
     peeks: [{ title: 'Experience' }, { title: 'Skills' }, { title: 'Education' }],
   },
 ];
