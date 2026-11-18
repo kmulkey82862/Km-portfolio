@@ -10,7 +10,8 @@ from PIL import Image, ImageFilter, ImageOps
 import os
 M = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'public', 'media') + '/'
 OUT = M + 'prints/'
-PAPER = np.array([244, 236, 223]) / 255.0
+PAPER = np.array([247, 239, 235]) / 255.0  # blush-white paper
+KEY = '#5c2a45'  # one deep wine key ink for every print, so the set reads as one
 
 # Each print is cut from a logo-free, text-free part of the artwork: no client
 # names or logos. A source is a list of (file, box) tiles, box = (x0, y0, x1, y1)
@@ -20,16 +21,16 @@ FLOWERS = [('gallery/1zkVKnji_n4XbFOemmX-UW3LkxW7zTEPX-1800.webp', (0.0, 0.06, 0
 SECTIONS = {
   # key: (folder tiles, head tiles, ink A (key), ink B (spot))
   'ai':       ([('tool-speaker-1200.webp', (0.44, 0.09, 0.66, 0.30))],
-               [('tool-speaker-1200.webp', (0.44, 0.09, 0.66, 0.30))], '#4a2546', '#ff48b0'),
+               [('tool-speaker-1200.webp', (0.44, 0.09, 0.66, 0.30))], KEY, '#d77fa6'),
   'websites': ([('site-cdc-1600.webp', (0.0, 0.35, 1.0, 0.86))],
-               [('site-cdc-1600.webp', (0.0, 0.35, 1.0, 0.86))], '#a8481c', '#3255a4'),
-  'email':    (FLOWERS, FLOWERS, '#5f6118', '#ff48b0'),
+               [('site-cdc-1600.webp', (0.0, 0.35, 1.0, 0.86))], KEY, '#e0867f'),
+  'email':    (FLOWERS, FLOWERS, KEY, '#f0a3b6'),
   'social':   ([('gallery/km-trivial-matters-1-1800.webp', (0.66, 0.0, 1.0, 1.0))],
-               [('gallery/km-trivial-matters-1-1800.webp', (0.66, 0.0, 1.0, 1.0))], '#2b2a6b', '#e8a522'),
+               [('gallery/km-trivial-matters-1-1800.webp', (0.66, 0.0, 1.0, 1.0))], KEY, '#b597dc'),
   'brand':    ([('gallery/1isAUKSboqf7mWBb8aCoqfzuopII19MVL-1800.webp', (0.07, 0.44, 0.93, 0.86))],
-               [('gallery/1isAUKSboqf7mWBb8aCoqfzuopII19MVL-1800.webp', (0.07, 0.44, 0.93, 0.86))], '#7a2f4f', '#ff6c2f'),
+               [('gallery/1isAUKSboqf7mWBb8aCoqfzuopII19MVL-1800.webp', (0.07, 0.44, 0.93, 0.86))], KEY, '#eeae8c'),
   'resume':   ([('site-matt-chapin-1600.webp', (0.0, 0.10, 1.0, 0.70))],
-               [('site-matt-chapin-1600.webp', (0.0, 0.10, 1.0, 0.70))], '#4a2546', '#ff6c2f'),
+               [('site-matt-chapin-1600.webp', (0.0, 0.10, 1.0, 0.70))], KEY, '#dcbb76'),
 }
 
 def tiles(spec):
@@ -74,9 +75,9 @@ def separate(rgb):
   mx, mn = arr.max(2), arr.min(2)
   sat = np.where(mx > 0, (mx - mn) / np.maximum(mx, 1e-6), 0)
   # key ink: shadows, contrast pushed
-  a = np.clip((1 - lum - 0.12) * 1.35, 0, 1) ** 1.1
+  a = np.clip((1 - lum - 0.22) * 1.05, 0, 1) ** 1.35
   # spot ink: saturated colour and midtones
-  b = np.clip(sat * (0.35 + 0.65 * mx) * 1.25 + (1 - lum) * 0.15, 0, 1)
+  b = np.clip(sat * (0.35 + 0.65 * mx) * 1.25 + (1 - lum) * 0.35, 0, 1)
   b = np.clip(b - a * 0.35, 0, 1)
   return a, b
 

@@ -15,13 +15,13 @@
 
   /* Section colours. Panels stay a warm off-white; the colour lives on a
      chunky band: the folder tab on the home page, the bar over each head. */
-  --sec-eggplant: #4a2546;
-  --sec-burnt: #a8481c; /* burnt orange */
-  --sec-chartreuse: #9a9e1f; /* olive chartreuse */
-  --sec-ochre: #c8952c; /* mustard ochre */
-  --sec-berry: #7a2f4f;
-  --sec-rose: #e3a9b4;
-  --sec-panel: #f5eee6; /* warm off-white panel */
+  --sec-plum: #6b3a5b; /* plum */
+  --sec-rosewood: #9c4f5a; /* rosewood */
+  --sec-dusty-rose: #c98d97; /* dusty rose */
+  --sec-mauve: #a58bb4; /* mauve */
+  --sec-blush: #e6b7bd; /* blush */
+  --sec-champagne: #e3cba0; /* champagne */
+  --sec-panel: #f7efeb; /* blush-white panel */
   --sec-band: clamp(16px, 1.8vw, 26px); /* bar over each section head */
 
   /* Woven grain: fine noise multiplied over every swatch */
@@ -79,12 +79,12 @@
    its section head. Class names keep the old fabric names so the markup
    doesn't change.
 --------------------------------------------------------------------- */
-.swatch--ticking     { --sec: var(--sec-eggplant);   --print: url('/media/prints/ai-folder.webp');       --print-color: url('/media/prints/ai-folder-color.webp'); }       /* AI tools */
-.swatch--herringbone { --sec: var(--sec-burnt);      --print: url('/media/prints/websites-folder.webp'); --print-color: url('/media/prints/websites-folder-color.webp'); } /* Websites */
-.swatch--gingham     { --sec: var(--sec-chartreuse); --print: url('/media/prints/email-folder.webp');    --print-color: url('/media/prints/email-folder-color.webp'); }    /* Email */
-.swatch--cabana      { --sec: var(--sec-ochre);      --print: url('/media/prints/social-folder.webp');   --print-color: url('/media/prints/social-folder-color.webp'); }   /* Social & video */
-.swatch--linen       { --sec: var(--sec-berry);      --print: url('/media/prints/brand-folder.webp');    --print-color: url('/media/prints/brand-folder-color.webp'); }    /* Brand & design */
-.swatch--plaid       { --sec: var(--sec-rose);       --print: url('/media/prints/resume-folder.webp');   --print-color: url('/media/prints/resume-folder-color.webp'); }   /* Résumé */
+.swatch--ticking     { --sec: var(--sec-plum);   --print: url('/media/prints/ai-folder.webp');       --print-color: url('/media/prints/ai-folder-color.webp'); }       /* AI tools */
+.swatch--herringbone { --sec: var(--sec-rosewood);      --print: url('/media/prints/websites-folder.webp'); --print-color: url('/media/prints/websites-folder-color.webp'); } /* Websites */
+.swatch--gingham     { --sec: var(--sec-dusty-rose); --print: url('/media/prints/email-folder.webp');    --print-color: url('/media/prints/email-folder-color.webp'); }    /* Email */
+.swatch--cabana      { --sec: var(--sec-mauve);      --print: url('/media/prints/social-folder.webp');   --print-color: url('/media/prints/social-folder-color.webp'); }   /* Social & video */
+.swatch--linen       { --sec: var(--sec-blush);      --print: url('/media/prints/brand-folder.webp');    --print-color: url('/media/prints/brand-folder-color.webp'); }    /* Brand & design */
+.swatch--plaid       { --sec: var(--sec-champagne);       --print: url('/media/prints/resume-folder.webp');   --print-color: url('/media/prints/resume-folder-color.webp'); }   /* Résumé */
 
 /* Section heads use the wide crop of the same print */
 .swatch.swatch--ticking     { --print: url('/media/prints/ai-head.webp');       --print-color: url('/media/prints/ai-head-color.webp'); }
