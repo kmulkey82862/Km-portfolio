@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------
-   Section heads: each title sits on a stitched label on a warm off-white
-   panel, under a chunky bar of its section colour.
+   Section heads and home-page folders: each section is a two-ink
+   risograph print of a real piece from it (scripts/riso-prints.py).
 ------------------------------------------------------------------- */
 :root {
   --icy: #c9d6df; /* gray icy blue */
@@ -79,15 +79,37 @@
    its section head. Class names keep the old fabric names so the markup
    doesn't change.
 --------------------------------------------------------------------- */
-.swatch--ticking     { --sec: var(--sec-eggplant); }   /* AI tools */
-.swatch--herringbone { --sec: var(--sec-burnt); }      /* Websites */
-.swatch--gingham     { --sec: var(--sec-chartreuse); } /* Email */
-.swatch--cabana      { --sec: var(--sec-ochre); }      /* Social & video */
-.swatch--linen       { --sec: var(--sec-berry); }      /* Brand & design */
-.swatch--plaid       { --sec: var(--sec-rose); }       /* Résumé */
+.swatch--ticking     { --sec: var(--sec-eggplant);   --print: url('/media/prints/ai-folder.webp');       --print-color: url('/media/prints/ai-folder-color.webp'); }       /* AI tools */
+.swatch--herringbone { --sec: var(--sec-burnt);      --print: url('/media/prints/websites-folder.webp'); --print-color: url('/media/prints/websites-folder-color.webp'); } /* Websites */
+.swatch--gingham     { --sec: var(--sec-chartreuse); --print: url('/media/prints/email-folder.webp');    --print-color: url('/media/prints/email-folder-color.webp'); }    /* Email */
+.swatch--cabana      { --sec: var(--sec-ochre);      --print: url('/media/prints/social-folder.webp');   --print-color: url('/media/prints/social-folder-color.webp'); }   /* Social & video */
+.swatch--linen       { --sec: var(--sec-berry);      --print: url('/media/prints/brand-folder.webp');    --print-color: url('/media/prints/brand-folder-color.webp'); }    /* Brand & design */
+.swatch--plaid       { --sec: var(--sec-rose);       --print: url('/media/prints/resume-folder.webp');   --print-color: url('/media/prints/resume-folder-color.webp'); }   /* Résumé */
 
-/* Section heads: off-white panel under a chunky bar of the section colour */
+/* Section heads use the wide crop of the same print */
+.swatch.swatch--ticking     { --print: url('/media/prints/ai-head.webp');       --print-color: url('/media/prints/ai-head-color.webp'); }
+.swatch.swatch--herringbone { --print: url('/media/prints/websites-head.webp'); --print-color: url('/media/prints/websites-head-color.webp'); }
+.swatch.swatch--gingham     { --print: url('/media/prints/email-head.webp');    --print-color: url('/media/prints/email-head-color.webp'); }
+.swatch.swatch--cabana      { --print: url('/media/prints/social-head.webp');   --print-color: url('/media/prints/social-head-color.webp'); }
+.swatch.swatch--linen       { --print: url('/media/prints/brand-head.webp');    --print-color: url('/media/prints/brand-head-color.webp'); }
+.swatch.swatch--plaid       { --print: url('/media/prints/resume-head.webp');   --print-color: url('/media/prints/resume-head-color.webp'); }
+
+/* Section heads: the section's risograph print behind the stitched label.
+   Hovering the head lets the full-colour original bleed through. */
 .swatch {
-  background: var(--sec-panel);
-  border-top: var(--sec-band) solid var(--sec, var(--ink));
+  background: var(--sec-panel) var(--print) center / cover no-repeat;
+}
+.swatch::after {
+  display: block;
+  z-index: -1;
+  background: var(--print-color) center / cover no-repeat;
+  mix-blend-mode: normal;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.swatch:hover::after {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .swatch::after { transition: none; }
 }

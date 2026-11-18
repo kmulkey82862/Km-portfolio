@@ -4,15 +4,14 @@ import type { Pattern } from './Swatch';
 /**
  * A section link drawn as a glass folder lined with one of the site's fabrics.
  *
- * Three layers, back to front: the fabric (the section's swatch pattern) as the
- * back panel, a few pieces of real work tucked in the pocket, and a frosted
- * front panel carrying the section name. Hovering or focusing leans the glass
- * forward on its bottom hinge and lifts the work out a little; clicking jumps
- * to the section.
+ * Three layers, back to front: the back panel in the section colour, a few
+ * pieces of real work tucked in the pocket, and a front cover printed as a
+ * two-ink risograph of a piece from the section (scripts/riso-prints.py),
+ * with the section name on a paper sticker. Hovering or focusing leans the
+ * cover forward on its bottom hinge, lifts the work out a little and lets the
+ * print melt into the full-colour original; clicking jumps to the section.
  *
- * Adapted from a glass-folder card pattern; the generated canvas artwork is
- * replaced by the CSS fabrics, so there are no extra assets or scripts.
- * Everything is drawn at 340 x 272 and scaled to `--ff-scale`.
+ * Everything is drawn at 340 x 272 and scaled to `--ff-k`.
  */
 
 export type FolderPeek = { src?: string; title?: string };
@@ -45,7 +44,7 @@ export default function FabricFolder({
 }) {
   const shown = peeks.slice(0, 3);
   return (
-    <a href={href} className={`ff ${className}`} style={{ '--ff-tint': tint } as CSSProperties} aria-label={label}>
+    <a href={href} className={`ff swatch--${pattern} ${className}`} style={{ '--ff-tint': tint } as CSSProperties} aria-label={label}>
       <span className="ff__stage" aria-hidden="true">
         <span className="ff__shadow" />
         <span className={`ff__back swatch--${pattern}`} style={{ clipPath: `path('${BACK_PATH}')` }} />

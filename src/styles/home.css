@@ -18,14 +18,16 @@
   margin: 0 auto;
   min-height: min(820px, calc(100vh - 64px));
   padding: clamp(48px, 7vw, 96px) var(--gutter);
-  /* Title on top, the six folders in one straight row underneath */
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 3.2fr) 1fr;
+  grid-template-rows: repeat(3, auto);
   align-items: center;
-  justify-content: center;
-  gap: clamp(40px, 5vw, 72px);
+  justify-items: center;
+  gap: clamp(24px, 4vw, 56px) clamp(16px, 3vw, 48px);
 }
 .hero__title {
+  grid-column: 2;
+  grid-row: 1 / 4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,24 +67,25 @@
   color: var(--ink);
 }
 .hero__pins {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 18px 20px;
-}
-/* Too narrow for six across: two straight rows of three */
-@media (min-width: 761px) and (max-width: 1239px) {
-  .hero__pins { max-width: 600px; }
+  display: contents;
 }
 
-/* Section folders: glass folders in the section colours (FabricFolder.tsx), level, no tilt */
+/* Section folders: glass folders lined with the section fabrics (FabricFolder.tsx) */
 .pin {
   --ff-k: 0.5;
   position: relative;
   transform: rotate(var(--tilt, 0deg));
   transition: transform 0.5s cubic-bezier(0.34, 1.36, 0.5, 1);
 }
+@media (min-width: 1200px) {
+  .pin { --ff-k: 0.58; }
+}
+.pin--1 { grid-column: 1; grid-row: 1; --tilt: -3deg; }
+.pin--2 { grid-column: 1; grid-row: 2; --tilt: 2deg; }
+.pin--3 { grid-column: 1; grid-row: 3; --tilt: -1.5deg; }
+.pin--4 { grid-column: 3; grid-row: 1; --tilt: 2.5deg; }
+.pin--5 { grid-column: 3; grid-row: 2; --tilt: -2.5deg; }
+.pin--6 { grid-column: 3; grid-row: 3; --tilt: 3deg; }
 .pin:hover,
 .pin:focus-visible {
   transform: rotate(0deg);
@@ -144,10 +147,9 @@
   inset: 0;
   overflow: hidden;
 }
-/* Off-white folder with a chunky band of the section colour across the tab;
-   the band stops just above where the frosted front begins (74px). */
+/* Back panel in the section colour; the front cover carries the print */
 .ff__back[class*='swatch--'] {
-  background: linear-gradient(180deg, var(--sec) 0 68px, var(--sec-panel) 68px);
+  background: var(--sec);
 }
 .ff__rim {
   position: absolute;
@@ -214,21 +216,28 @@
   width: 340px;
   height: 198px;
   z-index: 10;
-  -webkit-backdrop-filter: blur(18px) saturate(1.4);
-  backdrop-filter: blur(18px) saturate(1.4);
   transform-origin: 50% 100%;
   transform: perspective(760px) rotateX(var(--ff-hinge));
   transition: transform 0.8s var(--ff-spring);
 }
+/* The cover: a two-ink risograph of real work from the section. When the
+   folder tips open the print melts into the full-colour original. */
 .ff__tint {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--ff-tint) 30%, transparent) 0%,
-    color-mix(in srgb, var(--ff-tint) 72%, transparent) 42%,
-    color-mix(in srgb, var(--ff-tint) 95%, transparent) 100%
-  );
+  background: var(--sec-panel) var(--print) center / cover no-repeat;
+}
+.ff__tint::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--print-color) center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.ff:hover .ff__tint::after,
+.ff:focus-visible .ff__tint::after {
+  opacity: 1;
 }
 .ff__front-rim {
   position: absolute;
@@ -242,14 +251,20 @@
   stroke: rgba(255, 255, 255, 0.85);
   stroke-width: 2.4;
 }
+/* Section name on a paper sticker slapped on the cover */
 .ff__label {
   position: absolute;
-  left: 26px;
-  right: 22px;
-  bottom: 26px;
+  left: 20px;
+  bottom: 20px;
+  max-width: calc(100% - 40px);
+  padding: 10px 16px 12px;
+  background: #fbf7f0;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(20, 18, 22, 0.18), 0 8px 18px rgba(20, 18, 22, 0.22);
+  transform: rotate(-1.5deg);
   font-family: var(--font-name);
   font-weight: 700;
-  font-size: 40px;
+  font-size: 36px;
   line-height: 1.02;
   letter-spacing: -0.03em;
   color: #141216;
