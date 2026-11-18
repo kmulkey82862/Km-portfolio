@@ -6,9 +6,9 @@ import { DIGESTS, DigestId } from '../content/digests';
 // Sample data; senders and times are illustrative.
 const META: Record<DigestId, { from: string; initials: string; color: string; time: string; to: string; snippet: string }> = {
   team: {
-    from: 'Team digest',
-    initials: 'TD',
-    color: '#8fa6b6',
+    from: 'Web Deva Digital',
+    initials: 'WD',
+    color: '#f0429a',
     time: 'Mon 8:00 AM',
     to: 'Whole team',
     snippet: 'Every client, one page: what’s done, in progress, waiting, and needing a decision.',
@@ -16,15 +16,15 @@ const META: Record<DigestId, { from: string; initials: string; color: string; ti
   inbox: {
     from: 'Inbox triage',
     initials: 'IT',
-    color: '#d58aa3',
+    color: '#1d2840',
     time: '7:00 AM',
     to: 'Team',
     snippet: 'New requests logged, assigned to an owner, and checked against replies.',
   },
   chaos: {
-    from: 'Chaos Brief',
-    initials: 'CB',
-    color: '#a3164f',
+    from: 'Daily Brief',
+    initials: 'DB',
+    color: '#ff6f59',
     time: '7:00 AM',
     to: 'Just me',
     snippet: 'Only what needs me, sorted before the day starts, with updates drafted.',
@@ -32,7 +32,7 @@ const META: Record<DigestId, { from: string; initials: string; color: string; ti
 };
 
 const OLDER: { id: DigestId; subject: string; time: string }[] = [
-  { id: 'chaos', subject: 'Katelyn’s Chaos Brief', time: 'Fri' },
+  { id: 'chaos', subject: 'My Daily Brief', time: 'Fri' },
   { id: 'inbox', subject: 'Shared Inbox Triage', time: 'Fri' },
   { id: 'team', subject: 'Weekly Team Digest', time: 'Last Mon' },
 ];

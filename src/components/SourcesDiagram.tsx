@@ -16,7 +16,7 @@ const SOURCES: { label: string; icon: Icon; color: string }[] = [
 const OUTPUTS: { title: string; who: string; initials: string; color: string }[] = [
   { title: 'Weekly Team Digest', who: 'Whole team · weekly', initials: 'TD', color: '#8fa6b6' },
   { title: 'Shared Inbox Triage', who: 'Team · daily', initials: 'IT', color: '#d58aa3' },
-  { title: 'Katelyn’s Chaos Brief', who: 'Just me · daily', initials: 'CB', color: '#a3164f' },
+  { title: 'My Daily Brief', who: 'Just me · daily', initials: 'DB', color: '#ff6f59' },
 ];
 
 /** Small line icons drawn in a 20×20 box. */

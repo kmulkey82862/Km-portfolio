@@ -23,7 +23,7 @@ export const labDemos: LabDemo[] = [
   {
     slug: 'client-digest',
     title: 'Automated digests',
-    blurb: 'Three Claude-built digests: a weekly team overview, a shared inbox triage, and my own daily Chaos Brief.',
+    blurb: 'Three Claude-built digests: a weekly team overview, a shared inbox triage, and my own daily brief.',
     provesLine: 'Rebuilt with placeholder clients and people.',
   },
   {
