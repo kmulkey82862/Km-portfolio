@@ -1,6 +1,5 @@
 /* ------------------------------------------------------------------
-   Section heads and home-page folders: clear fluted glass, with each
-   section's name in its own dark, warm ink.
+   Section heads and home-page folders: clear fluted glass, black type.
 ------------------------------------------------------------------- */
 :root {
   --icy: #c9d6df; /* gray icy blue */
@@ -13,14 +12,6 @@
   --olive-lite: #a9a43a;
   --poppy: #d0342c; /* the one pop of red: pairs with icy blue and the pinks, never the olive */
 
-  /* Section colours: dark, warm inks for the folder names and section
-     titles. The glass itself stays clear. */
-  --sec-eggplant: #5e2a5a;
-  --sec-burnt: #b04e1a; /* dark burnt orange */
-  --sec-olive: #6b6d1f;
-  --sec-wine: #8a2c42;
-  --sec-cognac: #8f5726;
-  --sec-ochre: #9a7016; /* dark ochre */
   /* Reeded glass: one 16px flute = a bright edge, a soft body, a faint shadow */
   --flutes: repeating-linear-gradient(
     90deg,
@@ -82,37 +73,10 @@
 }
 
 
-/* ---- Solid section colours ----------------------------------------
-   One flat colour per section, shared by its folder on the home page and
-   its section head. Class names keep the old fabric names so the markup
-   doesn't change.
---------------------------------------------------------------------- */
-.swatch--ticking     { --sec: var(--sec-eggplant); } /* AI tools */
-.swatch--herringbone { --sec: var(--sec-burnt); }    /* Websites */
-.swatch--gingham     { --sec: var(--sec-olive); }    /* Email */
-.swatch--cabana      { --sec: var(--sec-wine); }     /* Social & video */
-.swatch--linen       { --sec: var(--sec-cognac); }   /* Brand & design */
-.swatch--plaid       { --sec: var(--sec-ochre); }    /* Résumé */
-
-/* Section heads: clear fluted glass behind the stitched label; the title
-   takes the section's ink */
+/* Section heads: clear fluted glass behind the stitched label */
 .swatch {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 45%),
     var(--flutes),
     linear-gradient(180deg, #f1f0f3 0%, #e4e3e8 100%);
-}
-.swatch .h-section,
-.swatch .h-display {
-  color: var(--sec, var(--ink));
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) .swatch .h-section,
-  :root:not([data-theme='light']) .swatch .h-display {
-    color: color-mix(in srgb, var(--sec) 45%, #fff);
-  }
-}
-:root[data-theme='dark'] .swatch .h-section,
-:root[data-theme='dark'] .swatch .h-display {
-  color: color-mix(in srgb, var(--sec) 45%, #fff);
 }

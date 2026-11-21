@@ -249,12 +249,12 @@
   left: 26px;
   right: 22px;
   bottom: 26px;
-  font-family: var(--font-name);
-  font-weight: 700;
-  font-size: 40px;
+  font-family: var(--font);
+  font-weight: 300;
+  font-size: 44px;
   line-height: 1.02;
-  letter-spacing: -0.03em;
-  color: var(--sec, #141216);
+  letter-spacing: -0.02em;
+  color: #141216;
 }
 @media (prefers-reduced-motion: reduce) {
   .ff *,
@@ -1657,16 +1657,12 @@
 .ai-intro__points b {
   display: block;
   font-weight: 600;
-  color: var(--sec-eggplant);
+  color: var(--ink);
   margin-bottom: 4px;
 }
 .ai-intro__points span {
   color: var(--ink-soft);
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) .ai-intro__points b { color: color-mix(in srgb, var(--sec-eggplant) 45%, #fff); }
-}
-:root[data-theme='dark'] .ai-intro__points b { color: color-mix(in srgb, var(--sec-eggplant) 45%, #fff); }
 @media (max-width: 860px) {
   .ai-intro { grid-template-columns: 1fr; }
 }
