@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------
-   Section heads and home-page folders: each section is fluted glass in
-   its own tint.
+   Section heads and home-page folders: clear fluted glass, with each
+   section's name in its own dark, warm ink.
 ------------------------------------------------------------------- */
 :root {
   --icy: #c9d6df; /* gray icy blue */
@@ -13,22 +13,21 @@
   --olive-lite: #a9a43a;
   --poppy: #d0342c; /* the one pop of red: pairs with icy blue and the pinks, never the olive */
 
-  /* Section colours. Panels stay a warm off-white; the colour lives on a
-     chunky band: the folder tab on the home page, the bar over each head. */
-  /* Section tints: each folder and section head is fluted glass in one */
-  --sec-pink: #f19cbb;
-  --sec-lilac: #b9a2ec;
-  --sec-peach: #f6b18f;
-  --sec-sky: #9cc4ee;
-  --sec-mint: #93d3bc;
-  --sec-butter: #f0d27a;
+  /* Section colours: dark, warm inks for the folder names and section
+     titles. The glass itself stays clear. */
+  --sec-eggplant: #5e2a5a;
+  --sec-burnt: #b04e1a; /* dark burnt orange */
+  --sec-olive: #6b6d1f;
+  --sec-wine: #8a2c42;
+  --sec-cognac: #8f5726;
+  --sec-ochre: #9a7016; /* dark ochre */
   /* Reeded glass: one 16px flute = a bright edge, a soft body, a faint shadow */
   --flutes: repeating-linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0px,
-    rgba(255, 255, 255, 0.6) 2.5px,
-    rgba(255, 255, 255, 0.16) 7px,
-    rgba(40, 20, 50, 0.07) 12.5px,
+    rgba(255, 255, 255, 0.75) 2.5px,
+    rgba(255, 255, 255, 0.2) 7px,
+    rgba(40, 40, 60, 0.07) 12.5px,
     rgba(255, 255, 255, 0) 16px
   );
   --sec-band: clamp(16px, 1.8vw, 26px); /* bar over each section head */
@@ -88,18 +87,32 @@
    its section head. Class names keep the old fabric names so the markup
    doesn't change.
 --------------------------------------------------------------------- */
-.swatch--ticking     { --sec: var(--sec-pink); }   /* AI tools */
-.swatch--herringbone { --sec: var(--sec-lilac); }  /* Websites */
-.swatch--gingham     { --sec: var(--sec-peach); }  /* Email */
-.swatch--cabana      { --sec: var(--sec-sky); }    /* Social & video */
-.swatch--linen       { --sec: var(--sec-mint); }   /* Brand & design */
-.swatch--plaid       { --sec: var(--sec-butter); } /* Résumé */
+.swatch--ticking     { --sec: var(--sec-eggplant); } /* AI tools */
+.swatch--herringbone { --sec: var(--sec-burnt); }    /* Websites */
+.swatch--gingham     { --sec: var(--sec-olive); }    /* Email */
+.swatch--cabana      { --sec: var(--sec-wine); }     /* Social & video */
+.swatch--linen       { --sec: var(--sec-cognac); }   /* Brand & design */
+.swatch--plaid       { --sec: var(--sec-ochre); }    /* Résumé */
 
-/* Section heads: the same fluted glass as the section's folder, behind the
-   stitched label */
+/* Section heads: clear fluted glass behind the stitched label; the title
+   takes the section's ink */
 .swatch {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 45%),
     var(--flutes),
-    linear-gradient(180deg, color-mix(in srgb, var(--sec) 70%, #fff) 0%, var(--sec) 100%);
+    linear-gradient(180deg, #f1f0f3 0%, #e4e3e8 100%);
+}
+.swatch .h-section,
+.swatch .h-display {
+  color: var(--sec, var(--ink));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .swatch .h-section,
+  :root:not([data-theme='light']) .swatch .h-display {
+    color: color-mix(in srgb, var(--sec) 45%, #fff);
+  }
+}
+:root[data-theme='dark'] .swatch .h-section,
+:root[data-theme='dark'] .swatch .h-display {
+  color: color-mix(in srgb, var(--sec) 45%, #fff);
 }

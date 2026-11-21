@@ -95,8 +95,33 @@ function AiEnablement() {
           id="ai-h"
           title="AI tools & automation"
           pattern="ticking"
-          note="Rolling out AI across a team, connecting it to everyday business software, and building the automations and tools that keep work from getting lost."
+          note="AI setup and automation for small businesses and teams: tools connected in ways that make sense, so the work takes fewer steps."
         />
+        <div className="ai-intro reveal">
+          <div>
+            <p className="ai-intro__lede">I start with how the work actually moves, then decide what a tool should do.</p>
+            <p className="ai-intro__body">
+              Before I set anything up, I look for where a team loses time: the report rebuilt by hand every week, the update
+              that lives in one inbox but needs to be in three places, the five tabs opened to answer one question. Then I
+              connect the tools the business already uses, add AI where it earns its place, and automate the steps nobody
+              should be doing by hand. The result is a system that feels like one thing instead of a pile of apps.
+            </p>
+          </div>
+          <ul className="ai-intro__points">
+            <li>
+              <b>Fewer clicks</b>
+              <span>Every step that can come off someone's plate, does.</span>
+            </li>
+            <li>
+              <b>Systems that talk to each other</b>
+              <span>Information moves between tools on its own, not through copy and paste.</span>
+            </li>
+            <li>
+              <b>Built for the people using it</b>
+              <span>Set up to make sense to whoever opens it every day, not just to whoever built it.</span>
+            </li>
+          </ul>
+        </div>
         <div className="archive__sub archive__sub--first reveal" id="digests">
           <h3 className="h-card">What the automations send</h3>
           <p className="shead__note">Scheduled Claude tasks read the places work actually happens and condense them into three short briefs, each for one audience.</p>
