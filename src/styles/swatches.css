@@ -80,3 +80,12 @@
     var(--flutes),
     linear-gradient(180deg, #f1f0f3 0%, #e4e3e8 100%);
 }
+
+/* Section titles share the hero title's face: bold, tightly tracked */
+.swatch .h-section,
+.swatch .h-display {
+  font-family: var(--font-name);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}

@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import GradientShimmer from './GradientShimmer';
 
 export type Pattern = 'ticking' | 'plaid' | 'cabana' | 'herringbone' | 'linen' | 'gingham';
 
@@ -23,7 +24,7 @@ export default function Swatch({
     <div className={`swatch swatch--${pattern} reveal`}>
       <div className="swatch__label">
         <Heading id={id} className={level === 1 ? 'h-display' : 'h-section'}>
-          {title}
+          <GradientShimmer baseColor="var(--ink)">{title}</GradientShimmer>
         </Heading>
         {note && <p className="swatch__note">{note}</p>}
         {children}

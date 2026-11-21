@@ -1,3 +1,4 @@
+import GradientShimmer from './GradientShimmer';
 import { profile } from '../content/profile';
 import FabricFolder, { FolderPeek } from './FabricFolder';
 import type { Pattern } from './Swatch';
@@ -70,7 +71,9 @@ export default function Hero() {
           <span className="hero__rule" aria-hidden="true" />
           <span className="hero__place">{profile.locationLong}</span>
         </p>
-        <h1 className="hero__main">Digital Portfolio</h1>
+        <h1 className="hero__main">
+          <GradientShimmer baseColor="var(--ink)">Digital Portfolio</GradientShimmer>
+        </h1>
       </div>
       <nav className="hero__pins" aria-label="Sections">
         {FOLDERS.map((f, k) => (
