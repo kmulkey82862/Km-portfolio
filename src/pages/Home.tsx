@@ -197,7 +197,9 @@ function Websites() {
           pattern="herringbone"
           note={
             <>
-              Event websites built in-house, sites built through <WebDevaMark />, my freelance studio, and in-house site work. None of these come from a template: each is custom-built with Claude, with my own design, graphics, and motion work.
+              AI-assisted web development: custom sites built with Claude, with my own UI/UX design, graphics, and motion work. When a
+              client needs to run the site themselves, I build on website platforms like Squarespace, Wix, and WordPress. Below are
+              event websites built in-house, sites built through <WebDevaMark />, my freelance studio, and in-house site work.
             </>
           }
         />

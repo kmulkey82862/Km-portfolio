@@ -121,17 +121,18 @@ export const experience: Role[] = [
 
 export const expertise = [
   'AI enablement & adoption',
-  'Workflow automation',
-  'Systems integration',
+  'Workflow automation & systems integration',
   'Data analytics & BI reporting',
-  'Web development & UX/UI',
+  'AI-assisted web development',
+  'UI/UX design',
   'Digital marketing',
 ];
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: 'AI & build', items: ['Claude (Team, Code, Cowork)', 'ChatGPT', 'Gemini', 'Google Apps Script', 'HTML/CSS, JavaScript', 'Next.js', 'GitHub, Netlify'] },
+  { group: 'AI tools', items: ['Claude (Team, Code, Cowork)', 'ChatGPT', 'Gemini', 'Google Apps Script'] },
+  { group: 'Web', items: ['AI-assisted development (Claude Code)', 'HTML/CSS, JavaScript', 'React, Next.js', 'Website builders: Squarespace, Wix, WordPress', 'UI/UX design', 'GitHub, Netlify'] },
   { group: 'Operations', items: ['Monday.com', 'Google Workspace', 'Notion', 'Jotform', 'Zapier', 'Pipedrive', 'Salesforce (basic)'] },
-  { group: 'Marketing', items: ['Brevo', 'HubSpot', 'Mailchimp', 'WordPress, Unbounce', 'Google Ads, Adalysis', 'Meta Ads', 'PR Newswire'] },
+  { group: 'Marketing', items: ['Brevo', 'HubSpot', 'Mailchimp', 'Unbounce', 'Google Ads, Adalysis', 'Meta Ads', 'PR Newswire'] },
   { group: 'Analytics', items: ['Google Analytics 4', 'Looker Studio', 'Supermetrics', 'Narrative BI'] },
   { group: 'Event technology', items: ['vFairs', 'Bravura', 'Whova', 'YourEvent', 'Bunny Stream'] },
   { group: 'Channels & tactics', items: ['Email automation', 'Lead nurture', 'A/B testing', 'SEO content', 'Win-back campaigns & event promotion'] },
