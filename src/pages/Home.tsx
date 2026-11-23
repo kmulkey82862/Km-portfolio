@@ -99,7 +99,6 @@ function AiEnablement() {
         />
         <div className="ai-intro reveal">
           <div>
-            <p className="ai-intro__lede">I start with how the work actually moves, then decide what a tool should do.</p>
             <p className="ai-intro__body">
               Before I set anything up, I look for where a team loses time: the report rebuilt by hand every week, the update
               that lives in one inbox but needs to be in three places, the five tabs opened to answer one question. Then I

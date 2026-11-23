@@ -1631,14 +1631,6 @@
   margin: 0 0 clamp(48px, 6vw, 80px);
   align-items: start;
 }
-.ai-intro__lede {
-  font-family: var(--font-name);
-  font-size: clamp(24px, 2.6vw, 34px);
-  line-height: 1.22;
-  letter-spacing: -0.015em;
-  margin: 0 0 18px;
-  color: var(--ink);
-}
 .ai-intro__body {
   color: var(--ink-soft);
   margin: 0;
