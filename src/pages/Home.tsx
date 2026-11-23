@@ -198,7 +198,8 @@ function Websites() {
           note={
             <>
               AI-assisted web development: custom sites built with Claude, with my own UI/UX design, graphics, and motion work. When a
-              client needs to run the site themselves, I build on website platforms like Squarespace, Wix, and WordPress. Below are
+              client needs to run the site themselves, I build on platforms like Squarespace and WordPress, and I optimize existing
+              sites on Wix. Below are
               event websites built in-house, sites built through <WebDevaMark />, my freelance studio, and in-house site work.
             </>
           }
